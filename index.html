@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultivating Belonging: Inclusive Early Childhood Communities in Australia</title>
+    <title>Creative Sparks - Fostering Creativity in Early Childhood</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -12,598 +12,674 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
+        :root {
+            --primary: #4e89ae;
+            --secondary: #43658b;
+            --accent: #ed6663;
+            --light: #ffa372;
+            --bright: #ffce67;
+            --light-bg: #f9f7f0;
+            --dark: #2c3e50;
+        }
+
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
-            padding: 20px;
-            position: relative;
         }
-        
-        body::before {
-            content: "";
-            position: fixed;
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(#d4e6f1 2px, transparent 2px),
-                radial-gradient(#d4e6f1 2px, transparent 2px);
-            background-size: 80px 80px;
-            background-position: 0 0, 40px 40px;
-            opacity: 0.3;
-            z-index: -1;
+            z-index: 100;
         }
-        
-        .container {
+
+        .header-container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #1a5f7a 0%, #2a7a96 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transform: rotate(30deg);
-        }
-        
-        .title-container {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .subtitle {
-            font-size: 1.4rem;
-            font-weight: 300;
-            max-width: 800px;
-            margin: 0 auto 25px;
-            opacity: 0.9;
-        }
-        
-        .stats-bar {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
         }
-        
-        .stat-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 12px 25px;
-            border-radius: 50px;
-            backdrop-filter: blur(5px);
+
+        .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
-        
-        .content-wrapper {
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--bright);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        nav ul {
             display: flex;
-            padding: 0;
-        }
-        
-        .sidebar {
-            width: 280px;
-            background: #f8fafc;
-            padding: 30px 20px;
-            border-right: 1px solid #e2e8f0;
-        }
-        
-        .toc-title {
-            font-size: 1.3rem;
-            color: #1a5f7a;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #c5e3f6;
-        }
-        
-        .toc-list {
             list-style: none;
+            gap: 25px;
         }
-        
-        .toc-list li {
-            margin-bottom: 12px;
-            padding-left: 15px;
-            position: relative;
-        }
-        
-        .toc-list li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: #2a7a96;
-            border-radius: 50%;
-        }
-        
-        .toc-list a {
+
+        nav a {
+            color: white;
             text-decoration: none;
-            color: #4a5568;
             font-weight: 500;
-            display: block;
+            font-size: 1.1rem;
             padding: 8px 12px;
-            border-radius: 8px;
+            border-radius: 4px;
             transition: all 0.3s ease;
         }
-        
-        .toc-list a:hover {
-            background: #e6f2f8;
-            color: #1a5f7a;
-            transform: translateX(5px);
+
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.2);
         }
-        
-        .key-concepts {
-            margin-top: 40px;
-        }
-        
-        .concepts-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .concept-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 15px;
+
+        .hero {
+            background: linear-gradient(rgba(78, 137, 174, 0.85), rgba(67, 101, 139, 0.85)), url('https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3') center/cover;
+            color: white;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease;
+            padding: 5rem 2rem;
+            margin-bottom: 3rem;
         }
-        
-        .concept-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
-        .concept-card i {
-            font-size: 1.8rem;
-            color: #2a7a96;
-            margin-bottom: 10px;
-        }
-        
-        .concept-card h4 {
-            font-size: 0.95rem;
-            color: #2d3748;
-        }
-        
-        main {
-            flex: 1;
-            padding: 40px;
-        }
-        
-        .content-section {
-            margin-bottom: 50px;
-        }
-        
-        h2 {
-            color: #1a5f7a;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #c5e3f6;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        h2 i {
-            background: #e6f2f8;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .hero p {
             font-size: 1.4rem;
-            color: #2a7a96;
+            max-width: 800px;
+            margin: 0 auto 2rem;
         }
-        
-        .paragraph {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #2a7a96;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .paragraph:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .paragraph-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #2a7a96;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        
-        .paragraph-title i {
-            background: #e6f2f8;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-        
-        .paragraph-content {
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
             font-size: 1.1rem;
-            color: #4a5568;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #e55c59;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+
+        .intro-section {
+            background-color: var(--light-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .intro-section h2 {
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+
+        .intro-section p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.8;
         }
-        
-        .paragraph-content p {
-            margin-bottom: 20px;
+
+        .curriculum-areas {
+            margin: 3rem 0;
         }
-        
-        .highlight {
-            background: linear-gradient(120deg, #e6f7ff 0%, #d1f0ff 100%);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 500;
-            border-left: 3px solid #2a7a96;
+
+        .section-title {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            position: relative;
         }
-        
-        .examples {
-            background: #f8fafc;
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 12px auto;
+            border-radius: 2px;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .curriculum-card {
+            background: white;
             border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            border: 1px dashed #c5e3f6;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
         }
-        
-        .examples h4 {
-            color: #2a7a96;
-            margin-bottom: 15px;
+
+        .curriculum-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .curriculum-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .card-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .testimonial-section {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            border-radius: 12px;
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-container i {
+            font-size: 2.5rem;
+            color: var(--bright);
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-container p {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-container .author {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .age-groups {
+            margin: 4rem 0;
+        }
+
+        .age-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .age-tab {
+            padding: 10px 20px;
+            background-color: #e0e0e0;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .age-tab.active {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .age-content {
+            display: none;
+        }
+
+        .age-content.active {
+            display: block;
+        }
+
+        .age-content h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .activity-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
-        .examples ul {
-            padding-left: 25px;
+
+        .activity-card h4 i {
+            color: var(--accent);
         }
-        
-        .examples li {
-            margin-bottom: 10px;
-            position: relative;
-        }
-        
-        .examples li::before {
-            content: "•";
-            color: #2a7a96;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-        
+
         .references {
-            background: #f8fafc;
-            padding: 30px;
+            background-color: var(--light-bg);
+            padding: 3rem;
             border-radius: 12px;
-            margin-top: 40px;
+            margin-top: 3rem;
         }
-        
+
         .references h3 {
-            color: #1a5f7a;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
-        
-        .reference-item {
-            margin-bottom: 15px;
+
+        .references ul {
+            list-style-type: none;
             padding-left: 20px;
-            position: relative;
-            font-size: 0.95rem;
         }
-        
-        .reference-item::before {
-            content: counter(reference);
-            counter-increment: reference;
+
+        .references li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .references li::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 1.5rem;
             position: absolute;
             left: 0;
-            top: 0;
-            background: #2a7a96;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
+            top: -5px;
         }
-        
+
         footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
             text-align: center;
-            padding: 30px;
-            color: #718096;
-            font-size: 0.95rem;
-            background: #f8fafc;
-            border-top: 1px solid #e2e8f0;
         }
-        
-        .word-count {
+
+        .footer-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            color: var(--bright);
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav {
+            margin: 2rem 0;
+        }
+
+        .footer-nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--bright);
+        }
+
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+
+        .social-icons a {
             display: inline-block;
-            background: #e6f7ff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 500;
-            margin-top: 15px;
-            color: #2a7a96;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            line-height: 45px;
+            margin: 0 8px;
+            transition: all 0.3s ease;
         }
-        
-        @media (max-width: 900px) {
-            .content-wrapper {
+
+        .social-icons a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .copyright span {
+            color: var(--bright);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
                 flex-direction: column;
+                gap: 20px;
             }
             
-            .sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid #e2e8f0;
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
-            h1 {
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+            
+            .hero h2 {
                 font-size: 2.2rem;
             }
             
-            .subtitle {
-                font-size: 1.1rem;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .stats-bar {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
+            .hero p {
+                font-size: 1.2rem;
             }
             
-            .concepts-grid {
-                grid-template-columns: 1fr;
+            .intro-section {
+                padding: 1.5rem;
             }
-            
-            main {
-                padding: 25px;
-            }
-            
-            .paragraph {
-                padding: 20px;
-            }
-        }
-        
-        .citation {
-            font-size: 0.9rem;
-            color: #718096;
-            font-style: italic;
-            margin-top: 15px;
-            padding-left: 15px;
-            border-left: 2px solid #cbd5e0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="title-container">
-                <h1>Cultivating : Fostering Inclusive Early Childhood Communities in Australia</h1>
-                <p class="subtitle">An exploration of frameworks, principles, and practices that promote diversity, equity, and cultural responsiveness in ECEC</p>
-                
-                <div class="stats-bar">
-                    <div class="stat-item">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Academic transcript</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Australian Context</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-book"></i>
-                        <span>VEYLDF & ACECQA</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-wordpress"></i>
-                        <span>600 Words</span>
-                    </div>
-                </div>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-palette"></i>
+                <h1>Creative Sparks</h1>
             </div>
-        </header>
-        
-        <div class="content-wrapper">
-            <aside class="sidebar">
-                <h3 class="toc-title">Table of Contents</h3>
-                <ul class="toc-list">
-                    <li><a href="#introduction"><i class="fas fa-arrow-right"></i> Introduction</a></li>
-                    <li><a href="#frameworks"><i class="fas fa-arrow-right"></i> Educational Frameworks</a></li>
-                    <li><a href="#principles"><i class="fas fa-arrow-right"></i> Curriculum Principles</a></li>
-                    <li><a href="#capabilities"><i class="fas fa-arrow-right"></i> Educator Capabilities</a></li>
-                    <li><a href="#conclusion"><i class="fas fa-arrow-right"></i> Conclusion</a></li>
-                    <li><a href="#references"><i class="fas fa-arrow-right"></i> References</a></li>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Art</a></li>
+                    <li><a href="#">Drama & Puppetry</a></li>
+                    <li><a href="#">Movement & Music</a></li>
+                    <li><a href="#">STEM/STEAM</a></li>
+                    <li><a href="#">Resources</a></li>
                 </ul>
-                
-                <div class="key-concepts">
-                    <h3 class="toc-title">Core Concepts</h3>
-                    <div class="concepts-grid">
-                        <div class="concept-card">
-                            <i class="fas fa-users"></i>
-                            <h4>Diversity</h4>
-                        </div>
-                        <div class="concept-card">
-                            <i class="fas fa-balance-scale"></i>
-                            <h4>Equity</h4>
-                        </div>
-                        <div class="concept-card">
-                            <i class="fas fa-globe-asia"></i>
-                            <h4>Cultural Responsiveness</h4>
-                        </div>
-                        <div class="concept-card">
-                            <i class="fas fa-hands-helping"></i>
-                            <h4>Inclusion</h4>
-                        </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Igniting Creativity in Early Childhood Education</h2>
+        <p>Empowering educators to foster imagination and innovation through integrated curriculum approaches</p>
+        <a href="#curriculum" class="btn">Explore Approaches</a>
+    </section>
+
+    <!-- Introduction Section -->
+    <div class="container">
+        <section class="intro-section">
+            <h2>Fostering Creativity in Early Childhood Curriculum</h2>
+            <p>Creativity is a fundamental aspect of early childhood development that extends far beyond artistic expression. It encompasses the ability to think innovatively, solve problems, and approach learning with curiosity and imagination. In today's rapidly evolving world, nurturing creativity has become an essential component of quality early childhood education.</p>
+            
+            <p>Early childhood educators play a crucial role in cultivating creative thinkers by designing environments and experiences that encourage exploration, experimentation, and self-expression. By integrating creative approaches across all curriculum areas - from art and drama to mathematics and science - teachers can help children develop flexible thinking patterns that will serve them throughout their lives.</p>
+            
+            <p>Research consistently shows that children who engage in creative activities develop enhanced cognitive abilities, improved social skills, and greater emotional resilience. Creativity fosters divergent thinking - the capacity to generate multiple solutions to a problem - which is increasingly valued in our complex world. Moreover, creative expression provides children with vital tools for communication and self-understanding.</p>
+            
+            <p>This website provides practical strategies and resources for early childhood teachers seeking to enhance creativity across the curriculum. By implementing the approaches outlined here, educators can create vibrant learning environments where children's natural curiosity is celebrated, their ideas are valued, and their creative potential is fully realized.</p>
+            
+            <p>Remember that fostering creativity isn't about producing perfect artwork or performances; it's about nurturing the creative process - the journey of exploration, experimentation, and discovery that leads to new understandings and possibilities.</p>
+        </section>
+
+        <!-- Curriculum Areas -->
+        <section class="curriculum-areas" id="curriculum">
+            <h2 class="section-title">Curriculum Areas</h2>
+            <div class="curriculum-grid">
+                <!-- Art -->
+                <div class="curriculum-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?ixlib=rb-4.0.3" alt="Children creating art">
+                    </div>
+                    <div class="card-content">
+                        <h3>Art & Creative Expression</h3>
+                        <p>Art activities provide children with powerful tools for self-expression and cognitive development. Through painting, drawing, sculpting, and collage, children communicate ideas, process emotions, and develop fine motor skills.</p>
+                        <a href="#" class="btn">Explore Art Activities</a>
                     </div>
                 </div>
-            </aside>
-            
-            <main>
-                <section id="introduction" class="content-section">
-                    <h2><i class="fas fa-star"></i> Introduction</h2>
-                    <div class="paragraph">
-                        <div class="paragraph-content">
-                            <p>Early childhood education lays the vital groundwork for how children understand themselves and engage with our diverse world. Truly nurturing environments must therefore actively champion <span class="highlight">diversity, equity, cultural responsiveness, and authentic inclusion</span>. This essay explores how Australian educational frameworks, intentional curriculum principles, and the development of key capabilities in both educators and children work together to create spaces where every child and family feels a deep sense of belonging. Practical examples, grounded in the Victorian Early Years Learning and Development Framework (VEYLDF) and ACECQA guidance, illustrate this essential work.</p>
-                        </div>
-                    </div>
-                </section>
                 
-                <section id="frameworks" class="content-section">
-                    <h2><i class="fas fa-book"></i> Educational Frameworks</h2>
-                    <div class="paragraph">
-                        <div class="paragraph-title">
-                            <i class="fas fa-1"></i>
-                            <h3>Foundations for Inclusive Practice</h3>
-                        </div>
-                        <div class="paragraph-content">
-                            <p>Robust frameworks provide the essential foundation for inclusive practice. The <span class="highlight">Victorian Early Years Learning and Development Framework (DET, 2017)</span> embodies this through its core principle "High Expectations for Every Child." This is a profound belief in every child's capacity to thrive, irrespective of their background, journey, or abilities. This commitment aligns with ACECQA's (2018) National Quality Standard, which requires educators to actively value each child's unique strengths and contributions within the learning community.</p>
-                            
-                            <div class="examples">
-                                <h4><i class="fas fa-lightbulb"></i> Practical Applications:</h4>
-                                <ul>
-                                    <li>Thoughtfully weaving resources like engaging bilingual storybooks into daily routines</li>
-                                    <li>Implementing clear visual schedules using images reflecting diverse families</li>
-                                    <li>Providing accessible playground equipment for children of all abilities</li>
-                                </ul>
-                                <p class="citation">These tangible actions ensure the environment itself communicates welcome and respect, fostering that crucial feeling of belonging for all children (Halton & Rodgers, 2018).</p>
-                            </div>
-                        </div>
+                <!-- Drama & Puppetry -->
+                <div class="curriculum-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1608889476518-738c9b1dcb40?ixlib=rb-4.0.3" alt="Children with puppets">
                     </div>
-                </section>
+                    <div class="card-content">
+                        <h3>Drama & Puppetry</h3>
+                        <p>Dramatic play and puppetry allow children to explore different roles, perspectives, and emotions. These activities foster language development, social skills, empathy, and creative storytelling.</p>
+                        <a href="#" class="btn">Explore Drama Activities</a>
+                    </div>
+                </div>
                 
-                <section id="principles" class="content-section">
-                    <h2><i class="fas fa-clipboard-list"></i> Curriculum Principles</h2>
-                    <div class="paragraph">
-                        <div class="paragraph-title">
-                            <i class="fas fa-2"></i>
-                            <h3>From Belief to Daily Action</h3>
-                        </div>
-                        <div class="paragraph-content">
-                            <p>Moving beyond policy, effective curriculum principles translate belief into daily action for equity and cultural responsiveness. Genuine inclusion, as Hyde et al. (2022, p. 41) emphasise, demands actively embracing difference and ensuring fair access to learning opportunities – far more than passive tolerance. This requires educators to skilfully differentiate their approaches, recognising children's diverse ways of learning and unique starting points.</p>
-                            
-                            <div class="examples">
-                                <h4><i class="fas fa-lightbulb"></i> Practical Applications:</h4>
-                                <ul>
-                                    <li>Offering extended processing time during group discussions</li>
-                                    <li>Providing clear, step-by-step scaffolding for a child mastering scissors</li>
-                                    <li>Creatively adapting a ball game's rules so a child using mobility aids can fully participate</li>
-                                    <li>Sharing stories in home languages during group time</li>
-                                    <li>Developing welcoming ceremonies in collaboration with local Aboriginal Elders</li>
-                                </ul>
-                                <p class="citation">Deep cultural responsiveness means authentically integrating families' lived experiences and perspectives (ACECQA, 2018; Hyde et al., 2022).</p>
-                            </div>
-                        </div>
+                <!-- STEM/STEAM -->
+                <div class="curriculum-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1508784411316-02b8cd4d3a3a?ixlib=rb-4.0.3" alt="Children with science materials">
                     </div>
-                </section>
-                
-                <section id="capabilities" class="content-section">
-                    <h2><i class="fas fa-user-graduate"></i> Educator Capabilities</h2>
-                    <div class="paragraph">
-                        <div class="paragraph-title">
-                            <i class="fas fa-3"></i>
-                            <h3>Developing Reflective Practitioners</h3>
-                        </div>
-                        <div class="paragraph-content">
-                            <p>Ultimately, nurturing an inclusive community hinges on developing specific capabilities. For educators, <span class="highlight">critical reflection (DET, 2017)</span> is indispensable – it means regularly examining how their own background and assumptions influence interactions, and honestly evaluating if practices truly meet every child's needs. This ongoing self-awareness is crucial for ensuring decisions are equitable and culturally responsive, meeting professional expectations (ACECQA, 2017).</p>
-                            
-                            <p>Simultaneously, fostering capabilities like empathy, respectful curiosity about differences, and collaborative problem-solving in children is paramount. Educators nurture these by modelling inclusive language and designing meaningful learning experiences.</p>
-                            
-                            <div class="examples">
-                                <h4><i class="fas fa-lightbulb"></i> Practical Applications:</h4>
-                                <ul>
-                                    <li>Facilitating thoughtful conversations about diverse family structures</li>
-                                    <li>Modelling inclusive language and respectful interactions</li>
-                                    <li>Designing collaborative play scenarios where children with different strengths work together</li>
-                                    <li>Creating activities that explore cultural celebrations and traditions</li>
-                                </ul>
-                                <p class="citation">These experiences build the social foundations for thriving in Australia's multicultural society (Halton & Rodgers, 2018).</p>
-                            </div>
-                        </div>
+                    <div class="card-content">
+                        <h3>STEM/STEAM Integration</h3>
+                        <p>Integrating Science, Technology, Engineering, Arts, and Mathematics creates meaningful learning experiences. STEAM approaches encourage problem-solving, critical thinking, and innovative design.</p>
+                        <a href="#" class="btn">Explore STEAM Activities</a>
                     </div>
-                </section>
-                
-                <section id="conclusion" class="content-section">
-                    <h2><i class="fas fa-flag-checkered"></i> Conclusion</h2>
-                    <div class="paragraph">
-                        <div class="paragraph-content">
-                            <p>Creating early childhood environments that genuinely provide and promote diversity, equity, cultural responsiveness, and inclusivity requires this interconnected approach. It is built upon the guiding structure of frameworks like the VEYLDF, brought to life through curriculum principles focused on equity and deep cultural respect – including the essential integration of Aboriginal and Torres Strait Islander knowledges – and realised through the reflective practices of educators and the developing capabilities of children.</p>
-                            
-                            <p>By consistently implementing strategies that honour individual identities, adapt learning experiences, and celebrate cultural richness, ECEC settings become places where every child and family feels profoundly seen, valued, and empowered to participate fully. This foundation is vital for both individual flourishing and building a more just and connected Australia.</p>
-                        </div>
-                    </div>
-                </section>
-                
-                <section id="references" class="references">
-                    <h3><i class="fas fa-bookmark"></i> References</h3>
-                    <div style="counter-reset: reference;">
-                        <div class="reference-item">ACECQA. (2017). <i>Guide to the National Quality Standard</i>. Australian Children's Education and Care Quality Authority. Retrieved from https://www.acecqa.gov.au/nqf/national-quality-standard</div>
-                        <div class="reference-item">ACECQA. (2018). <i>National Quality Framework: What it means for you</i>. Australian Children's Education and Care Quality Authority. Retrieved from https://www.acecqa.gov.au/nqf/about</div>
-                        <div class="reference-item">Department of Education and Training. (2017). <i>Victorian early years learning and development framework: Practice principle guide high expectations for every child</i>. State Government of Victoria. Retrieved from https://www.education.vic.gov.au/childhood/professionals/learning/veyldf/Pages/practice-principle-guide-high-expectations-for-every-child.aspx</div>
-                        <div class="reference-item">Halton, N., & Rodgers, A. (2018). <i>Inclusive practice: Equality and diversity, children's entitlements and early support</i>. Essential Resources Educational Publishers.</div>
-                        <div class="reference-item">Hyde, M., Dole, S., & Tregenza, K. (2022). <i>Diversity, inclusion and engagement</i> (4th ed.). Oxford University Press.</div>
-                    </div>
-                </section>
-            </main>
-        </div>
-        
-        <footer>
-            <p>Academic Essay on Diversity, Equity and Inclusion in Early Childhood Education</p>
-            <p>Formatted for academic presentation with Australian context and APA 7th edition references</p>
-            <div class="word-count">
-                <i class="fas fa-check-circle"></i> 600 Words - Academic Standards Met
+                </div>
             </div>
-        </footer>
+        </section>
+
+        <!-- Testimonial -->
+        <section class="testimonial-section">
+            <div class="testimonial-container">
+                <i class="fas fa-quote-left"></i>
+                <p>"Creativity is as important in education as literacy and we should treat it with the same status. All children are born artists; the problem is to remain an artist as we grow up."</p>
+                <p class="author">- Sir Ken Robinson, Educator & Creativity Expert</p>
+            </div>
+        </section>
+
+        <!-- Age Group Activities -->
+        <section class="age-groups">
+            <h2 class="section-title">Developmentally Appropriate Activities</h2>
+            
+            <div class="age-tabs">
+                <div class="age-tab active" data-age="0-2">0-2 Years</div>
+                <div class="age-tab" data-age="2-3">2-3 Years</div>
+                <div class="age-tab" data-age="3-5">3-5 Years</div>
+                <div class="age-tab" data-age="6-8">6-8 Years</div>
+            </div>
+            
+            <!-- 0-2 Years -->
+            <div class="age-content active" id="age-0-2">
+                <h3>Creative Activities for Infants & Toddlers (0-2 Years)</h3>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h4><i class="fas fa-paint-brush"></i> Sensory Art Exploration</h4>
+                        <p>Provide edible finger paints (yogurt with food coloring) on highchair trays. Let infants explore textures and colors with hands. This supports sensory development and early creative expression.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h4><i class="fas fa-music"></i> Sound and Movement Play</h4>
+                        <p>Use simple instruments (shakers, drums) and encourage movement to different rhythms. This develops auditory discrimination, motor skills, and creative response to music.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2-3 Years -->
+            <div class="age-content" id="age-2-3">
+                <h3>Creative Activities for Toddlers (2-3 Years)</h3>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h4><i class="fas fa-theater-masks"></i> Simple Puppet Play</h4>
+                        <p>Introduce sock or finger puppets. Encourage children to make puppets "talk" and interact. This fosters language development and imaginative play.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h4><i class="fas fa-shapes"></i> Nature Collage</h4>
+                        <p>Collect natural materials (leaves, twigs, flowers) and create collages. This encourages pattern recognition, fine motor skills, and appreciation for natural beauty.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3-5 Years -->
+            <div class="age-content" id="age-3-5">
+                <h3>Creative Activities for Preschoolers (3-5 Years)</h3>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h4><i class="fas fa-dragon"></i> Storytelling with Puppets</h4>
+                        <p>Children create simple puppets and develop stories to perform. This enhances narrative skills, sequencing, and creative expression.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h4><i class="fas fa-cubes"></i> Building Challenges</h4>
+                        <p>Provide various materials (blocks, boxes, tubes) and pose challenges ("Build a home for this animal"). This develops spatial reasoning and problem-solving skills.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 6-8 Years -->
+            <div class="age-content" id="age-6-8">
+                <h3>Creative Activities for Early Primary (6-8 Years)</h3>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h4><i class="fas fa-robot"></i> Design & Invention Projects</h4>
+                        <p>Children identify problems and design solutions using recycled materials. This integrates STEM concepts with creative design thinking.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h4><i class="fas fa-film"></i> Stop-Motion Animation</h4>
+                        <p>Using simple apps, children create short animations with clay or drawings. This combines technology, storytelling, and artistic expression.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- References -->
+        <section class="references">
+            <h3>References & Further Reading</h3>
+            <ul>
+                <li>IKON Institute of Australia. (2023). Creative Pedagogies in Early Childhood Education.</li>
+                <li>Robinson, K. (2006). Do Schools Kill Creativity? [TED Talk]</li>
+                <li>Edwards, C., Gandini, L., & Forman, G. (2011). The Hundred Languages of Children: The Reggio Emilia Experience in Transformation.</li>
+                <li>Department of Education, Australia. (2022). Belonging, Being and Becoming: The Early Years Learning Framework for Australia.</li>
+                <li>Isbell, R., & Yoshizawa, S. A. (2016). Nurturing Creativity: An Essential Mindset for Young Children's Learning.</li>
+            </ul>
+        </section>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-palette"></i>
+            </div>
+            <div class="footer-nav">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Curriculum Areas</a>
+                <a href="#">Resources</a>
+                <a href="#">Professional Development</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Creative Sparks Early Childhood Education. All rights reserved.</p>
+                <p>Developed by <span>ANMOL RAWAL</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality for age groups
+        document.addEventListener('DOMContentLoaded', function() {
+            const ageTabs = document.querySelectorAll('.age-tab');
+            const ageContents = document.querySelectorAll('.age-content');
+            
+            ageTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and contents
+                    ageTabs.forEach(t => t.classList.remove('active'));
+                    ageContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Show corresponding content
+                    const ageGroup = tab.getAttribute('data-age');
+                    document.getElementById(`age-${ageGroup}`).classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
