@@ -1,173 +1,543 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FunLearn Adventures - Learn & Play!</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preload" href="fonts/comic-sans-ms-bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="images/hero-character.webp" as="image" type="image/webp">
-</head>
-<body>
-    <header class="main-header">
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo.webp" alt="FunLearn Adventures Logo" width="150" height="50">
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#math">Math Fun</a></li>
-                <li><a href="#reading">Reading Zone</a></li>
-                <li><a href="#science">Science World</a></li>
-                <li><a href="#games">Playtime</a></li>
-                <li><a href="#parents">For Parents</a></li>
-            </ul>
-            <div class="hamburger-menu" aria-label="Open navigation menu" role="button" tabindex="0">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Hamburger Menu Functionality ---
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
 
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <h1>Welcome to FunLearn Adventures!</h1>
-                <p>Where learning is an exciting game!</p>
-                <button class="cta-button" aria-label="Start your learning adventure">Start Your Adventure!</button>
-            </div>
-            <div class="hero-image">
-                <img src="images/hero-character.webp" alt="Friendly animated character welcoming children" width="400" height="400">
-            </div>
-        </section>
+    if (hamburgerMenu && navLinks) {
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburgerMenu.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+        });
 
-        <section id="features" class="features-section">
-            <h2>What You'll Discover!</h2>
-            <div class="feature-grid">
-                <div class="feature-card" tabindex="0">
-                    <img src="images/icon-games.webp" alt="Games icon" width="80" height="80">
-                    <h3>Fun Games</h3>
-                    <p>Play exciting games that make learning super fun!</p>
-                </div>
-                <div class="feature-card" tabindex="0">
-                    <img src="images/icon-stories.webp" alt="Stories icon" width="80" height="80">
-                    <h3>Amazing Stories</h3>
-                    <p>Read captivating stories and learn new words!</p>
-                </div>
-                <div class="feature-card" tabindex="0">
-                    <img src="images/icon-puzzles.webp" alt="Puzzles icon" width="80" height="80">
-                    <h3>Clever Puzzles</h3>
-                    <p>Solve tricky puzzles to become a problem-solving superstar!</p>
-                </div>
-                <div class="feature-card" tabindex="0">
-                    <img src="images/icon-rewards.webp" alt="Rewards icon" width="80" height="80">
-                    <h3>Earn Rewards</h3>
-                    <p>Collect stars and badges as you learn and grow!</p>
-                </div>
-            </div>
-        </section>
+        // Close menu when a link is clicked (for mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburgerMenu.setAttribute('aria-expanded', false);
+                }
+            });
+        });
+    }
 
-        <section id="math" class="content-section math-section">
-            <h2>Math Fun!</h2>
-            <div class="activity-grid">
-                <div class="activity-card" data-activity="addition" tabindex="0">
-                    <img src="images/math-addition.webp" alt="Addition game" width="200" height="150">
-                    <h4>Add Them Up!</h4>
-                    <p>Practice addition with colorful blocks.</p>
-                </div>
-                <div class="activity-card" data-activity="subtraction" tabindex="0">
-                    <img src="images/math-subtraction.webp" alt="Subtraction game" width="200" height="150">
-                    <h4>Take Away!</h4>
-                    <p>Learn subtraction by counting animals.</p>
-                </div>
-            </div>
-        </section>
+    // --- Dynamic Footer Year ---
+    const currentYearSpan = document.getElementById('currentYear');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 
-        <section id="reading" class="content-section reading-section">
-            <h2>Reading Zone!</h2>
-            <div class="activity-grid">
-                <div class="activity-card" data-activity="phonics" tabindex="0">
-                    <img src="images/reading-phonics.webp" alt="Phonics game" width="200" height="150">
-                    <h4>Sound It Out!</h4>
-                    <p>Discover letter sounds and build words.</p>
-                </div>
-                <div class="activity-card" data-activity="story" tabindex="0">
-                    <img src="images/reading-story.webp" alt="Interactive story" width="200" height="150">
-                    <h4>Magic Storybook</h4>
-                    <p>Read along and click characters to hear them speak!</p>
-                </div>
-            </div>
-        </section>
+    // --- Interactive Modal for Activities ---
+    const activityCards = document.querySelectorAll('.activity-card');
+    const modal = document.getElementById('activityModal');
+    const closeButton = document.querySelector('.close-button');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const modalFeedback = document.getElementById('modalFeedback');
+    const modalNextButton = document.getElementById('modalNextButton');
 
-        <section id="science" class="content-section science-section">
-            <h2>Science World!</h2>
-            <div class="activity-grid">
-                <div class="activity-card" data-activity="planets" tabindex="0">
-                    <img src="images/science-planets.webp" alt="Planets simulation" width="200" height="150">
-                    <h4>Explore the Planets!</h4>
-                    <p>Drag and drop planets into their orbits.</p>
-                </div>
-                <div class="activity-card" data-activity="animals" tabindex="0">
-                    <img src="images/science-animals.webp" alt="Animal facts" width="200" height="150">
-                    <h4>Animal Kingdom</h4>
-                    <p>Learn amazing facts about your favorite animals!</p>
-                </div>
-            </div>
-        </section>
+    let currentActivity = {};
+    let score = 0; // Simple score tracking for gamification
 
-        <section id="games" class="content-section games-section">
-            <h2>Playtime!</h2>
-            <div class="activity-grid">
-                <div class="activity-card" data-activity="quiz" tabindex="0">
-                    <img src="images/game-quiz.webp" alt="Quiz game" width="200" height="150">
-                    <h4>Quiz Challenge!</h4>
-                    <p>Test your knowledge and earn points!</p>
-                </div>
-                <div class="activity-card" data-activity="memory" tabindex="0">
-                    <img src="images/game-memory.webp" alt="Memory game" width="200" height="150">
-                    <h4>Memory Match</h4>
-                    <p>Find matching pairs of cards!</p>
-                </div>
-            </div>
-        </section>
+    const activities = {
+        addition: {
+            title: "Add Them Up!",
+            description: "Let's practice addition! What is [num1] + [num2]?",
+            generate: () => {
+                const num1 = Math.floor(Math.random() * 10) + 1; // 1-10
+                const num2 = Math.floor(Math.random() * 10) + 1; // 1-10
+                const correctAnswer = num1 + num2;
+                const options = generateRandomOptions(correctAnswer, 4);
+                return {
+                    question: `What is ${num1} + ${num2}?`,
+                    correct: correctAnswer,
+                    options: options
+                };
+            }
+        },
+        phonics: {
+            title: "Sound It Out!",
+            description: "Which word starts with the sound of '[letter]'?",
+            generate: () => {
+                const letters =;
+                const letter = letters[Math.floor(Math.random() * letters.length)];
+                const words = {
+                    'A': ['Apple', 'Ant', 'Axe', 'Alligator'],
+                    'B':,
+                    'C': ['Cat', 'Car', 'Cup', 'Cloud'],
+                    'D':,
+                    'E': ['Egg', 'Elephant', 'Engine', 'Elbow'],
+                    'F': ['Fish', 'Fan', 'Frog', 'Flower'],
+                    'G': ['Goat', 'Grape', 'Gift', 'Glass']
+                };
+                const correctWord = words[letter][Math.floor(Math.random() * words[letter].length)];
+                const allWords = Object.values(words).flat();
+                const options = shuffleArray();
+                return {
+                    question: `Which word starts with the sound of '${letter}'?`,
+                    correct: correctWord,
+                    options: options
+                };
+            }
+        },
+        story: {
+            title: "Magic Storybook",
+            description: "Click on the characters to hear the story!",
+            content: `
+                <p>Once upon a time, in a colorful land, lived a brave little fox named Foxy.</p>
+                <button class="story-character-button" data-audio="audio/foxy_intro.mp3" aria-label="Hear Foxy speak">Foxy</button>
+                <p>He loved to explore the big, green forest with his friend, a wise owl named Ollie.</p>
+                <button class="story-character-button" data-audio="audio/ollie_intro.mp3" aria-label="Hear Ollie speak">Ollie</button>
+                <p>One sunny morning, they found a sparkling treasure chest!</p>
+                <button class="story-character-button" data-audio="audio/treasure_found.mp3" aria-label="Hear treasure sound">Treasure Chest</button>
+                <p>What an adventure!</p>
+            `
+        },
+        quiz: {
+            title: "Quiz Challenge!",
+            description: "Test your knowledge!",
+            questions:,
+                    correct: "Blue"
+                },
+                {
+                    question: "How many legs does a dog have?",
+                    options:,
+                    correct: "Four"
+                },
+                {
+                    question: "Which animal says 'Moo'?",
+                    options:,
+                    correct: "Cow"
+                }
+            ],
+            currentQuestionIndex: 0
+        },
+        memory: {
+            title: "Memory Match",
+            description: "Find the matching pairs!",
+            cards: ['apple', 'banana', 'orange', 'grape', 'apple', 'banana', 'orange', 'grape'],
+            flippedCards:,
+            matchedPairs: 0,
+            totalPairs: 4
+        }
+    };
 
-        <section id="parents" class="content-section parents-section">
-            <h2>For Parents</h2>
-            <p>Welcome, parents! Here you can find resources to support your child's learning journey, understand our privacy policy, and get in touch with us.</p>
-            <div class="parent-links">
-                <a href="privacy-policy.html" class="parent-link-button">Privacy Policy</a>
-                <a href="contact-us.html" class="parent-link-button">Contact Us</a>
-                <a href="learning-tips.html" class="parent-link-button">Learning Tips</a>
-            </div>
-        </section>
+    // Helper to generate random options for quizzes/math
+    function generateRandomOptions(correctAnswer, count) {
+        const options = new Set();
+        options.add(correctAnswer);
+        while (options.size < count) {
+            let randomOffset = Math.floor(Math.random() * 5) - 2; // -2 to +2
+            if (randomOffset === 0) randomOffset = 1; // Avoid same answer
+            const newOption = correctAnswer + randomOffset;
+            if (newOption > 0 && newOption!== correctAnswer) { // Ensure positive and different
+                options.add(newOption);
+            }
+        }
+        return shuffleArray(Array.from(options));
+    }
 
-        <div id="activityModal" class="modal">
-            <div class="modal-content">
-                <span class="close-button" aria-label="Close activity">×</span>
-                <h3 id="modalTitle"></h3>
-                <div id="modalContent">
+    // Helper to shuffle an array (Fisher-Yates algorithm)
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // Helper to get random elements from an array
+    function getRandomElements(arr, num) {
+        const shuffled = [...arr].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, num);
+    }
+
+    // Open Modal
+    activityCards.forEach(card => {
+        card.addEventListener('click', (event) => {
+            const activityType = event.currentTarget.dataset.activity;
+            openModal(activityType);
+        });
+    });
+
+    function openModal(type) {
+        currentActivity = { type: type };
+        modal.style.display = 'flex';
+        modalFeedback.textContent = ''; // Clear previous feedback
+        modalNextButton.style.display = 'none'; // Hide next button by default
+
+        switch (type) {
+            case 'addition':
+                modalTitle.textContent = activities.addition.title;
+                loadAdditionActivity();
+                break;
+            case 'phonics':
+                modalTitle.textContent = activities.phonics.title;
+                loadPhonicsActivity();
+                break;
+            case 'story':
+                modalTitle.textContent = activities.story.title;
+                modalContent.innerHTML = activities.story.content;
+                setupStoryAudio();
+                break;
+            case 'quiz':
+                modalTitle.textContent = activities.quiz.title;
+                activities.quiz.currentQuestionIndex = 0; // Reset quiz
+                score = 0; // Reset score
+                loadQuizQuestion();
+                break;
+            case 'memory':
+                modalTitle.textContent = activities.memory.title;
+                loadMemoryGame();
+                break;
+            case 'planets':
+                modalTitle.textContent = activities.planets? activities.planets.title : "Explore the Planets!";
+                loadPlanetsSimulation(); // Placeholder for a more complex simulation
+                break;
+            case 'animals':
+                modalTitle.textContent = activities.animals? activities.animals.title : "Animal Kingdom";
+                loadAnimalFacts(); // Placeholder for a more complex interactive element
+                break;
+            default:
+                modalTitle.textContent = "Activity Coming Soon!";
+                modalContent.innerHTML = "<p>We're working hard to bring you more exciting adventures!</p>";
+        }
+    }
+
+    // Close Modal
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalContent.innerHTML = ''; // Clear content on close
+        // Stop any playing audio
+        const audioElements = modalContent.querySelectorAll('audio');
+        audioElements.forEach(audio => audio.pause());
+    });
+
+    // Close modal if clicking outside the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            modalContent.innerHTML = '';
+            const audioElements = modalContent.querySelectorAll('audio');
+            audioElements.forEach(audio => audio.pause());
+        }
+    });
+
+    // --- Individual Activity Implementations ---
+
+    function loadAdditionActivity() {
+        const data = activities.addition.generate();
+        currentActivity.data = data; // Store data for checking answers
+
+        modalContent.innerHTML = `
+            <p>${data.question}</p>
+            <div class="options-grid">
+                ${data.options.map(opt => `<button class="option-button" data-value="${opt}">${opt}</button>`).join('')}
+            </div>
+        `;
+        setupOptionButtons('addition');
+    }
+
+    function loadPhonicsActivity() {
+        const data = activities.phonics.generate();
+        currentActivity.data = data;
+
+        modalContent.innerHTML = `
+            <p>${data.question}</p>
+            <div class="options-grid">
+                ${data.options.map(opt => `<button class="option-button" data-value="${opt}">${opt}</button>`).join('')}
+            </div>
+        `;
+        setupOptionButtons('phonics');
+    }
+
+    function setupOptionButtons(activityType) {
+        modalContent.querySelectorAll('.option-button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const selectedValue = event.target.dataset.value;
+                const correctValue = currentActivity.data.correct;
+
+                modalContent.querySelectorAll('.option-button').forEach(btn => btn.disabled = true); // Disable all after selection
+
+                if (selectedValue == correctValue) { // Use == for potential type coercion (number vs string from dataset)
+                    event.target.classList.add('correct');
+                    modalFeedback.textContent = "Great job! You got it!";
+                    playFeedbackSound('correct');
+                    score++; // Increment score
+                } else {
+                    event.target.classList.add('incorrect');
+                    modalFeedback.textContent = "Oops! Try again next time.";
+                    playFeedbackSound('incorrect');
+                    // Highlight correct answer
+                    modalContent.querySelector(`[data-value="${correctValue}"]`).classList.add('correct');
+                }
+                modalNextButton.style.display = 'block'; // Show next button
+                modalNextButton.textContent = 'Next Question';
+                modalNextButton.onclick = () => {
+                    if (activityType === 'quiz') {
+                        activities.quiz.currentQuestionIndex++;
+                        loadQuizQuestion();
+                    } else {
+                        // For other activities, just reload the same type for practice
+                        openModal(activityType);
+                    }
+                };
+            });
+        });
+    }
+
+    function setupStoryAudio() {
+        modalContent.querySelectorAll('.story-character-button').forEach(button => {
+            const audioSrc = button.dataset.audio;
+            if (audioSrc) {
+                const audio = new Audio(audioSrc);
+                button.addEventListener('click', () => {
+                    audio.play().catch(e => console.error("Audio play failed:", e));
+                    button.classList.add('active-pulse'); // Visual feedback
+                    setTimeout(() => button.classList.remove('active-pulse'), 1000);
+                });
+            }
+        });
+    }
+
+    function loadQuizQuestion() {
+        const quiz = activities.quiz;
+        if (quiz.currentQuestionIndex < quiz.questions.length) {
+            const questionData = quiz.questions[quiz.currentQuestionIndex];
+            currentActivity.data = questionData; // Store for checking
+
+            modalTitle.textContent = `${quiz.title} (Question ${quiz.currentQuestionIndex + 1}/${quiz.questions.length})`;
+            modalContent.innerHTML = `
+                <p>${questionData.question}</p>
+                <div class="options-grid">
+                    ${questionData.options.map(opt => `<button class="option-button" data-value="${opt}">${opt}</button>`).join('')}
+                </div>
+            `;
+            modalFeedback.textContent = '';
+            modalNextButton.style.display = 'none';
+            setupOptionButtons('quiz');
+        } else {
+            modalTitle.textContent = "Quiz Complete!";
+            modalContent.innerHTML = `
+                <p>You answered ${score} out of ${quiz.questions.length} questions correctly!</p>
+                <p>Keep practicing to become a quiz master!</p>
+            `;
+            modalFeedback.textContent = '';
+            modalNextButton.style.display = 'block';
+            modalNextButton.textContent = 'Play Again';
+            modalNextButton.onclick = () => openModal('quiz');
+        }
+    }
+
+    function loadMemoryGame() {
+        const game = activities.memory;
+        game.flippedCards =;
+        game.matchedPairs = 0;
+        game.cards = shuffleArray([...game.cards]); // Reshuffle for new game
+
+        modalContent.innerHTML = `
+            <div class="memory-grid">
+                ${game.cards.map((card, index) => `
+                    <div class="memory-card" data-index="${index}" data-value="${card}">
+                        <div class="card-inner">
+                            <div class="card-front">?</div>
+                            <div class="card-back">${card}</div>
+                        </div>
                     </div>
-                <div id="modalFeedback" class="feedback-message"></div>
-                <button id="modalNextButton" class="modal-button" style="display: none;">Next</button>
+                `).join('')}
             </div>
-        </div>
-    </main>
+        `;
+        setupMemoryCards();
+    }
 
-    <footer class="main-footer">
-        <div class="footer-content">
-            <p>&copy; <span id="currentYear"></span> FunLearn Adventures. All rights reserved.</p>
-            <p>Designed with love for little learners.</p>
-            <p>Developer: ANMOL RAWAL</p>
-            <div class="social-links">
-                <a href="#" aria-label="Follow us on Facebook"><img src="images/icon-facebook.webp" alt="Facebook" width="24" height="24"></a>
-                <a href="#" aria-label="Follow us on Twitter"><img src="images/icon-twitter.webp" alt="Twitter" width="24" height="24"></a>
+    function setupMemoryCards() {
+        const memoryCards = modalContent.querySelectorAll('.memory-card');
+        memoryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                if (card.classList.contains('flipped') |
+| card.classList.contains('matched') |
+| activities.memory.flippedCards.length === 2) {
+                    return; // Ignore if already flipped, matched, or two cards already open
+                }
+
+                card.classList.add('flipped');
+                activities.memory.flippedCards.push(card);
+
+                if (activities.memory.flippedCards.length === 2) {
+                    const [card1, card2] = activities.memory.flippedCards;
+                    if (card1.dataset.value === card2.dataset.value) {
+                        // Match found!
+                        modalFeedback.textContent = "It's a match!";
+                        playFeedbackSound('correct');
+                        card1.classList.add('matched');
+                        card2.classList.add('matched');
+                        activities.memory.matchedPairs++;
+                        activities.memory.flippedCards =; // Reset flipped cards
+
+                        if (activities.memory.matchedPairs === activities.memory.totalPairs) {
+                            modalFeedback.textContent = "Congratulations! You found all pairs!";
+                            playFeedbackSound('win');
+                            modalNextButton.style.display = 'block';
+                            modalNextButton.textContent = 'Play Again';
+                            modalNextButton.onclick = () => openModal('memory');
+                        }
+                    } else {
+                        // No match, flip back after a delay
+                        modalFeedback.textContent = "Not a match. Try again!";
+                        playFeedbackSound('incorrect');
+                        setTimeout(() => {
+                            card1.classList.remove('flipped');
+                            card2.classList.remove('flipped');
+                            activities.memory.flippedCards =;
+                            modalFeedback.textContent = ''; // Clear feedback
+                        }, 1000);
+                    }
+                }
+            });
+        });
+    }
+
+    // Placeholder for more complex activities (e.g., using Three.js or Matter.js)
+    function loadPlanetsSimulation() {
+        modalContent.innerHTML = `
+            <p>Imagine a 3D solar system here!</p>
+            <div id="solarSystemCanvas" style="width: 100%; height: 300px; background-color: #eee; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                <p>3D Simulation Placeholder</p>
             </div>
-        </div>
-    </footer>
+            <p>Drag planets to their correct orbits!</p>
+            <button class="modal-button">Learn More About Planets</button>
+        `;
+        // In a real application, you'd initialize Three.js or Babylon.js here
+        // Example: initThreeJSPlanetSimulation('solarSystemCanvas');
+    }
 
-    <script src="script.js"></script>
-</body>
-</html>
+    function loadAnimalFacts() {
+        modalContent.innerHTML = `
+            <p>Click on an animal to learn a fun fact!</p>
+            <div class="animal-facts-grid">
+                <img src="images/animal-lion.webp" alt="Lion" data-fact="Lions are big cats that live in groups called prides!" width="150" height="150" class="animal-image" tabindex="0">
+                <img src="images/animal-elephant.webp" alt="Elephant" data-fact="Elephants are the largest land animals and love water!" width="150" height="150" class="animal-image" tabindex="0">
+                <img src="images/animal-giraffe.webp" alt="Giraffe" data-fact="Giraffes have super long necks to reach tall leaves!" width="150" height="150" class="animal-image" tabindex="0">
+            </div>
+            <p id="animalFactDisplay" style="margin-top: 20px; font-style: italic;"></p>
+        `;
+        modalContent.querySelectorAll('.animal-image').forEach(img => {
+            img.addEventListener('click', (event) => {
+                const fact = event.target.dataset.fact;
+                document.getElementById('animalFactDisplay').textContent = fact;
+                playFeedbackSound('click'); // Generic click sound
+            });
+        });
+    }
+
+    // --- Audio Feedback System ---
+    const audioContext = new (window.AudioContext |
+| window.webkitAudioContext)();
+    const sounds = {
+        correct: 'audio/correct.mp3', // Placeholder paths
+        incorrect: 'audio/incorrect.mp3',
+        click: 'audio/click.mp3',
+        win: 'audio/win.mp3'
+    };
+    const audioBuffers = {};
+
+    // Load sounds
+    for (const key in sounds) {
+        fetch(sounds[key])
+           .then(response => response.arrayBuffer())
+           .then(buffer => audioContext.decodeAudioData(buffer))
+           .then(decodedBuffer => {
+                audioBuffers[key] = decodedBuffer;
+            })
+           .catch(e => console.error(`Error loading audio ${key}:`, e));
+    }
+
+    function playFeedbackSound(type) {
+        if (audioBuffers[type]) {
+            const source = audioContext.createBufferSource();
+            source.buffer = audioBuffers[type];
+            source.connect(audioContext.destination);
+            source.start(0);
+        }
+    }
+
+    // --- Basic Form Validation (Example for a future contact form or login) ---
+    // This is a conceptual example. A real children's site would likely avoid direct input forms for children.
+    // For "For Parents" section, a contact form might exist.
+    function validateContactForm(event) {
+        // Example validation logic
+        const nameInput = document.getElementById('contactName');
+        const emailInput = document.getElementById('contactEmail');
+        const messageInput = document.getElementById('contactMessage');
+        let isValid = true;
+
+        if (!nameInput |
+| nameInput.value.trim() === '') {
+            alert('Please enter your name.');
+            isValid = false;
+        }
+        if (!emailInput ||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+            alert('Please enter a valid email address.');
+            isValid = false;
+        }
+        if (!messageInput |
+| messageInput.value.trim() === '') {
+            alert('Please enter your message.');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            event.preventDefault(); // Stop form submission if validation fails
+            playFeedbackSound('incorrect'); // Provide audio feedback for validation errors
+        } else {
+            playFeedbackSound('correct'); // Provide audio feedback for successful validation
+        }
+        return isValid;
+    }
+
+    // Example of attaching validation to a hypothetical form (not in current HTML)
+    // const contactForm = document.getElementById('contactForm');
+    // if (contactForm) {
+    //     contactForm.addEventListener('submit', validateContactForm);
+    // }
+
+    // --- Accessibility Enhancements ---
+    // Add focus styles for keyboard navigation (already in CSS, but ensure JS doesn't interfere)
+    // ARIA attributes for better screen reader support (already in HTML)
+    // Ensure all interactive elements are reachable via keyboard (buttons, links, cards)
+    // Test with screen readers (e.g., NVDA, VoiceOver)
+
+    // Example of a simple drag-and-drop (conceptual, requires more complex JS/CSS)
+    // This would typically involve a dedicated library or more extensive custom code.
+    // For instance, a "planets" activity could use drag-and-drop.
+    // function setupDragAndDrop() {
+    //     const draggableItem = document.getElementById('draggable');
+    //     const dropZone = document.getElementById('dropZone');
+    //
+    //     if (draggableItem && dropZone) {
+    //         draggableItem.addEventListener('dragstart', (e) => {
+    //             e.dataTransfer.setData('text/plain', e.target.id);
+    //             e.target.style.opacity = '0.5';
+    //         });
+    //
+    //         draggableItem.addEventListener('dragend', (e) => {
+    //             e.target.style.opacity = '1';
+    //         });
+    //
+    //         dropZone.addEventListener('dragover', (e) => {
+    //             e.preventDefault(); // Allow drop
+    //         });
+    //
+    //         dropZone.addEventListener('drop', (e) => {
+    //             e.preventDefault();
+    //             const data = e.dataTransfer.getData('text/plain');
+    //             const draggedElement = document.getElementById(data);
+    //             if (draggedElement) {
+    //                 dropZone.appendChild(draggedElement);
+    //                 playFeedbackSound('correct');
+    //                 modalFeedback.textContent = "Item dropped correctly!";
+    //             }
+    //         });
+    //     }
+    // }
+    // Call this if you add drag-and-drop elements to your modal content.
+});
