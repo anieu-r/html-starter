@@ -1,543 +1,1098 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // --- Hamburger Menu Functionality ---
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const navLinks = document.querySelector('.nav-links');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creativity in Early Childhood Curriculum | Academic Resource</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    if (hamburgerMenu && navLinks) {
-        hamburgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburgerMenu.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-        });
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+            --accent: #f72585;
+            --light: #4cc9f0;
+            --light-bg: #f8f9fa;
+            --dark: #212529;
+            --success: #2ec4b6;
+            --warning: #ff9f1c;
+            --text: #333;
+            --text-light: #6c757d;
+            --border: #dee2e6;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
 
-        // Close menu when a link is clicked (for mobile)
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    hamburgerMenu.setAttribute('aria-expanded', false);
-                }
-            });
-        });
-    }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    // --- Dynamic Footer Year ---
-    const currentYearSpan = document.getElementById('currentYear');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-    }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
 
-    // --- Interactive Modal for Activities ---
-    const activityCards = document.querySelectorAll('.activity-card');
-    const modal = document.getElementById('activityModal');
-    const closeButton = document.querySelector('.close-button');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalContent = document.getElementById('modalContent');
-    const modalFeedback = document.getElementById('modalFeedback');
-    const modalNextButton = document.getElementById('modalNextButton');
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    let currentActivity = {};
-    let score = 0; // Simple score tracking for gamification
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    const activities = {
-        addition: {
-            title: "Add Them Up!",
-            description: "Let's practice addition! What is [num1] + [num2]?",
-            generate: () => {
-                const num1 = Math.floor(Math.random() * 10) + 1; // 1-10
-                const num2 = Math.floor(Math.random() * 10) + 1; // 1-10
-                const correctAnswer = num1 + num2;
-                const options = generateRandomOptions(correctAnswer, 4);
-                return {
-                    question: `What is ${num1} + ${num2}?`,
-                    correct: correctAnswer,
-                    options: options
-                };
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--light);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(67, 97, 238, 0.85), rgba(58, 12, 163, 0.85)), url('https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #e1166d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .intro-section {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .intro-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+        }
+
+        .intro-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 4rem 0;
+        }
+
+        .curriculum-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .curriculum-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .curriculum-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .card-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+
+        .card-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Popup Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: 20px;
+            overflow: hidden;
+            transform: translateY(50px);
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal-tabs {
+            display: flex;
+            background: var(--light-bg);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .modal-tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .modal-tab.active {
+            border-bottom: 3px solid var(--accent);
+            color: var(--primary);
+            background: white;
+        }
+
+        .modal-section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem 0;
+        }
+
+        .modal-section h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+            display: inline-block;
+        }
+
+        .modal-section p {
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .resource-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-card h5 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .age-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .age-tab {
+            padding: 10px 20px;
+            background-color: var(--light-bg);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .age-tab.active {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .age-content {
+            display: none;
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .age-content.active {
+            display: block;
+        }
+
+        .age-content h5 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .activity {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .activity:last-child {
+            border-bottom: none;
+        }
+
+        .reference {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .reference::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+        }
+
+        .references {
+            background-color: var(--light-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+        }
+
+        .references h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .references ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 1.2rem;
+            padding-left: 1.5rem;
+            position: relative;
+            break-inside: avoid;
+        }
+
+        .references li::before {
+            content: "•";
+            color: var(--accent);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-nav a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--light);
+        }
+
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        .copyright span {
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
             }
-        },
-        phonics: {
-            title: "Sound It Out!",
-            description: "Which word starts with the sound of '[letter]'?",
-            generate: () => {
-                const letters =;
-                const letter = letters[Math.floor(Math.random() * letters.length)];
-                const words = {
-                    'A': ['Apple', 'Ant', 'Axe', 'Alligator'],
-                    'B':,
-                    'C': ['Cat', 'Car', 'Cup', 'Cloud'],
-                    'D':,
-                    'E': ['Egg', 'Elephant', 'Engine', 'Elbow'],
-                    'F': ['Fish', 'Fan', 'Frog', 'Flower'],
-                    'G': ['Goat', 'Grape', 'Gift', 'Glass']
-                };
-                const correctWord = words[letter][Math.floor(Math.random() * words[letter].length)];
-                const allWords = Object.values(words).flat();
-                const options = shuffleArray();
-                return {
-                    question: `Which word starts with the sound of '${letter}'?`,
-                    correct: correctWord,
-                    options: options
-                };
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
             }
-        },
-        story: {
-            title: "Magic Storybook",
-            description: "Click on the characters to hear the story!",
-            content: `
-                <p>Once upon a time, in a colorful land, lived a brave little fox named Foxy.</p>
-                <button class="story-character-button" data-audio="audio/foxy_intro.mp3" aria-label="Hear Foxy speak">Foxy</button>
-                <p>He loved to explore the big, green forest with his friend, a wise owl named Ollie.</p>
-                <button class="story-character-button" data-audio="audio/ollie_intro.mp3" aria-label="Hear Ollie speak">Ollie</button>
-                <p>One sunny morning, they found a sparkling treasure chest!</p>
-                <button class="story-character-button" data-audio="audio/treasure_found.mp3" aria-label="Hear treasure sound">Treasure Chest</button>
-                <p>What an adventure!</p>
-            `
-        },
-        quiz: {
-            title: "Quiz Challenge!",
-            description: "Test your knowledge!",
-            questions:,
-                    correct: "Blue"
-                },
-                {
-                    question: "How many legs does a dog have?",
-                    options:,
-                    correct: "Four"
-                },
-                {
-                    question: "Which animal says 'Moo'?",
-                    options:,
-                    correct: "Cow"
-                }
-            ],
-            currentQuestionIndex: 0
-        },
-        memory: {
-            title: "Memory Match",
-            description: "Find the matching pairs!",
-            cards: ['apple', 'banana', 'orange', 'grape', 'apple', 'banana', 'orange', 'grape'],
-            flippedCards:,
-            matchedPairs: 0,
-            totalPairs: 4
-        }
-    };
-
-    // Helper to generate random options for quizzes/math
-    function generateRandomOptions(correctAnswer, count) {
-        const options = new Set();
-        options.add(correctAnswer);
-        while (options.size < count) {
-            let randomOffset = Math.floor(Math.random() * 5) - 2; // -2 to +2
-            if (randomOffset === 0) randomOffset = 1; // Avoid same answer
-            const newOption = correctAnswer + randomOffset;
-            if (newOption > 0 && newOption!== correctAnswer) { // Ensure positive and different
-                options.add(newOption);
+            
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .intro-section {
+                padding: 1.8rem;
+            }
+            
+            .modal-tabs {
+                flex-direction: column;
             }
         }
-        return shuffleArray(Array.from(options));
-    }
-
-    // Helper to shuffle an array (Fisher-Yates algorithm)
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-
-    // Helper to get random elements from an array
-    function getRandomElements(arr, num) {
-        const shuffled = [...arr].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, num);
-    }
-
-    // Open Modal
-    activityCards.forEach(card => {
-        card.addEventListener('click', (event) => {
-            const activityType = event.currentTarget.dataset.activity;
-            openModal(activityType);
-        });
-    });
-
-    function openModal(type) {
-        currentActivity = { type: type };
-        modal.style.display = 'flex';
-        modalFeedback.textContent = ''; // Clear previous feedback
-        modalNextButton.style.display = 'none'; // Hide next button by default
-
-        switch (type) {
-            case 'addition':
-                modalTitle.textContent = activities.addition.title;
-                loadAdditionActivity();
-                break;
-            case 'phonics':
-                modalTitle.textContent = activities.phonics.title;
-                loadPhonicsActivity();
-                break;
-            case 'story':
-                modalTitle.textContent = activities.story.title;
-                modalContent.innerHTML = activities.story.content;
-                setupStoryAudio();
-                break;
-            case 'quiz':
-                modalTitle.textContent = activities.quiz.title;
-                activities.quiz.currentQuestionIndex = 0; // Reset quiz
-                score = 0; // Reset score
-                loadQuizQuestion();
-                break;
-            case 'memory':
-                modalTitle.textContent = activities.memory.title;
-                loadMemoryGame();
-                break;
-            case 'planets':
-                modalTitle.textContent = activities.planets? activities.planets.title : "Explore the Planets!";
-                loadPlanetsSimulation(); // Placeholder for a more complex simulation
-                break;
-            case 'animals':
-                modalTitle.textContent = activities.animals? activities.animals.title : "Animal Kingdom";
-                loadAnimalFacts(); // Placeholder for a more complex interactive element
-                break;
-            default:
-                modalTitle.textContent = "Activity Coming Soon!";
-                modalContent.innerHTML = "<p>We're working hard to bring you more exciting adventures!</p>";
-        }
-    }
-
-    // Close Modal
-    closeButton.addEventListener('click', () => {
-        modal.style.display = 'none';
-        modalContent.innerHTML = ''; // Clear content on close
-        // Stop any playing audio
-        const audioElements = modalContent.querySelectorAll('audio');
-        audioElements.forEach(audio => audio.pause());
-    });
-
-    // Close modal if clicking outside the modal content
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            modalContent.innerHTML = '';
-            const audioElements = modalContent.querySelectorAll('audio');
-            audioElements.forEach(audio => audio.pause());
-        }
-    });
-
-    // --- Individual Activity Implementations ---
-
-    function loadAdditionActivity() {
-        const data = activities.addition.generate();
-        currentActivity.data = data; // Store data for checking answers
-
-        modalContent.innerHTML = `
-            <p>${data.question}</p>
-            <div class="options-grid">
-                ${data.options.map(opt => `<button class="option-button" data-value="${opt}">${opt}</button>`).join('')}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-paint-brush"></i>
+                <h1>Creative Curriculum</h1>
             </div>
-        `;
-        setupOptionButtons('addition');
-    }
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#curriculum">Curriculum Areas</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#references">References</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    function loadPhonicsActivity() {
-        const data = activities.phonics.generate();
-        currentActivity.data = data;
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Academic Framework for Creativity in Early Childhood</h2>
+            <p>Evidence-based strategies for fostering creativity through art, drama, and puppetry</p>
+            <a href="#curriculum" class="btn">Explore Curriculum</a>
+            <a href="#research" class="btn btn-outline">View Research</a>
+        </div>
+    </section>
 
-        modalContent.innerHTML = `
-            <p>${data.question}</p>
-            <div class="options-grid">
-                ${data.options.map(opt => `<button class="option-button" data-value="${opt}">${opt}</button>`).join('')}
-            </div>
-        `;
-        setupOptionButtons('phonics');
-    }
+    <!-- Introduction Section -->
+    <div class="container">
+        <section class="intro-section">
+            <h2>Fostering Creativity Across the Curriculum</h2>
+            <p>Creativity in early childhood education is a multidimensional construct that extends beyond artistic expression to encompass cognitive flexibility, problem-solving, and innovative thinking. According to the Australian Early Years Learning Framework (EYLF V2.0, 2022), creativity is recognized as a vital disposition for learning that enables children to explore, construct, and represent their understandings in diverse ways.</p>
+            
+            <p>Research by Barton and Baguley (2021) demonstrates that creative pedagogies significantly enhance executive functioning in young children, particularly in areas of working memory, cognitive flexibility, and inhibitory control. This cognitive foundation supports learning across all domains, including literacy, numeracy, and scientific reasoning.</p>
+            
+            <p>Contemporary educational neuroscience reveals that creative activities stimulate neural pathways associated with divergent thinking and innovation (Kim & Lee, 2022). When children engage in open-ended creative tasks, they develop the cognitive flexibility necessary for adapting to novel situations and solving complex problems.</p>
+            
+            <p>This academic resource provides evidence-based approaches for integrating creative pedagogies across curriculum areas, with particular emphasis on art, drama, and puppetry as foundational domains for creative development. All strategies align with the EYLF Learning Outcomes and are developmentally appropriate for children from birth to eight years.</p>
+        </section>
 
-    function setupOptionButtons(activityType) {
-        modalContent.querySelectorAll('.option-button').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const selectedValue = event.target.dataset.value;
-                const correctValue = currentActivity.data.correct;
-
-                modalContent.querySelectorAll('.option-button').forEach(btn => btn.disabled = true); // Disable all after selection
-
-                if (selectedValue == correctValue) { // Use == for potential type coercion (number vs string from dataset)
-                    event.target.classList.add('correct');
-                    modalFeedback.textContent = "Great job! You got it!";
-                    playFeedbackSound('correct');
-                    score++; // Increment score
-                } else {
-                    event.target.classList.add('incorrect');
-                    modalFeedback.textContent = "Oops! Try again next time.";
-                    playFeedbackSound('incorrect');
-                    // Highlight correct answer
-                    modalContent.querySelector(`[data-value="${correctValue}"]`).classList.add('correct');
-                }
-                modalNextButton.style.display = 'block'; // Show next button
-                modalNextButton.textContent = 'Next Question';
-                modalNextButton.onclick = () => {
-                    if (activityType === 'quiz') {
-                        activities.quiz.currentQuestionIndex++;
-                        loadQuizQuestion();
-                    } else {
-                        // For other activities, just reload the same type for practice
-                        openModal(activityType);
-                    }
-                };
-            });
-        });
-    }
-
-    function setupStoryAudio() {
-        modalContent.querySelectorAll('.story-character-button').forEach(button => {
-            const audioSrc = button.dataset.audio;
-            if (audioSrc) {
-                const audio = new Audio(audioSrc);
-                button.addEventListener('click', () => {
-                    audio.play().catch(e => console.error("Audio play failed:", e));
-                    button.classList.add('active-pulse'); // Visual feedback
-                    setTimeout(() => button.classList.remove('active-pulse'), 1000);
-                });
-            }
-        });
-    }
-
-    function loadQuizQuestion() {
-        const quiz = activities.quiz;
-        if (quiz.currentQuestionIndex < quiz.questions.length) {
-            const questionData = quiz.questions[quiz.currentQuestionIndex];
-            currentActivity.data = questionData; // Store for checking
-
-            modalTitle.textContent = `${quiz.title} (Question ${quiz.currentQuestionIndex + 1}/${quiz.questions.length})`;
-            modalContent.innerHTML = `
-                <p>${questionData.question}</p>
-                <div class="options-grid">
-                    ${questionData.options.map(opt => `<button class="option-button" data-value="${opt}">${opt}</button>`).join('')}
-                </div>
-            `;
-            modalFeedback.textContent = '';
-            modalNextButton.style.display = 'none';
-            setupOptionButtons('quiz');
-        } else {
-            modalTitle.textContent = "Quiz Complete!";
-            modalContent.innerHTML = `
-                <p>You answered ${score} out of ${quiz.questions.length} questions correctly!</p>
-                <p>Keep practicing to become a quiz master!</p>
-            `;
-            modalFeedback.textContent = '';
-            modalNextButton.style.display = 'block';
-            modalNextButton.textContent = 'Play Again';
-            modalNextButton.onclick = () => openModal('quiz');
-        }
-    }
-
-    function loadMemoryGame() {
-        const game = activities.memory;
-        game.flippedCards =;
-        game.matchedPairs = 0;
-        game.cards = shuffleArray([...game.cards]); // Reshuffle for new game
-
-        modalContent.innerHTML = `
-            <div class="memory-grid">
-                ${game.cards.map((card, index) => `
-                    <div class="memory-card" data-index="${index}" data-value="${card}">
-                        <div class="card-inner">
-                            <div class="card-front">?</div>
-                            <div class="card-back">${card}</div>
+        <!-- Curriculum Areas -->
+        <section id="curriculum">
+            <h2 class="section-title">Core Creative Curriculum Areas</h2>
+            <div class="curriculum-grid">
+                <!-- Art -->
+                <div class="curriculum-card" data-modal="art-modal">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Children creating art">
+                        <div class="card-badge">Visual Arts</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Art & Creative Expression</h3>
+                        <p>Explore evidence-based approaches to fostering creativity through visual arts. This curriculum area supports sensory integration, cognitive development, and symbolic representation.</p>
+                        <div class="card-footer">
+                            <a class="btn">View Curriculum</a>
+                            <div class="card-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
                         </div>
                     </div>
-                `).join('')}
+                </div>
+                
+                <!-- Drama & Puppetry -->
+                <div class="curriculum-card" data-modal="drama-modal">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1608889476518-738c9b1dcb40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Children with puppets">
+                        <div class="card-badge">Performing Arts</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Drama & Puppetry</h3>
+                        <p>Discover how dramatic play and puppetry enhance language development, social cognition, and narrative thinking. Research-based approaches for different developmental stages.</p>
+                        <div class="card-footer">
+                            <a class="btn">View Curriculum</a>
+                            <div class="card-icon">
+                                <i class="fas fa-mask"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Integrated Approach -->
+                <div class="curriculum-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1508784411316-02b8cd4d3a3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Children with science materials">
+                        <div class="card-badge">STEAM</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Integrated Approaches</h3>
+                        <p>Creative integration across STEM domains with art. Evidence shows STEAM approaches enhance problem-solving and innovation in early childhood.</p>
+                        <div class="card-footer">
+                            <a class="btn">Coming Soon</a>
+                            <div class="card-icon">
+                                <i class="fas fa-shapes"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        `;
-        setupMemoryCards();
-    }
+        </section>
 
-    function setupMemoryCards() {
-        const memoryCards = modalContent.querySelectorAll('.memory-card');
-        memoryCards.forEach(card => {
-            card.addEventListener('click', () => {
-                if (card.classList.contains('flipped') |
-| card.classList.contains('matched') |
-| activities.memory.flippedCards.length === 2) {
-                    return; // Ignore if already flipped, matched, or two cards already open
-                }
+        <!-- Research Section -->
+        <section id="research">
+            <h2 class="section-title">Theoretical Foundations</h2>
+            <div class="intro-section">
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h5>Vygotsky's Sociocultural Theory</h5>
+                        <p>Creative development occurs through social interaction and guided participation. The zone of proximal development applies to creative problem-solving.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h5>Reggio Emilia Approach</h5>
+                        <p>Art as one of the "hundred languages of children" - essential modes of expression and communication of ideas and emotions.</p>
+                    </div>
+                    <div class="resource-card">
+                        <h5>Contemporary Perspectives</h5>
+                        <p>Creativity as a domain for developing executive function skills through planning, decision-making, and reflection (Barton & Baguley, 2021).</p>
+                    </div>
+                    <div class="resource-card">
+                        <h5>Neuroeducation Findings</h5>
+                        <p>Creative activities stimulate neural pathways associated with divergent thinking and innovation (Kim & Lee, 2022).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                card.classList.add('flipped');
-                activities.memory.flippedCards.push(card);
+        <!-- Popup Modals -->
+        <!-- Art Modal -->
+        <div class="modal-overlay" id="art-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Art & Creative Expression Curriculum</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-tabs">
+                    <div class="modal-tab active" data-tab="overview">Overview</div>
+                    <div class="modal-tab" data-tab="theories">Theoretical Foundations</div>
+                    <div class="modal-tab" data-tab="resources">Resources</div>
+                    <div class="modal-tab" data-tab="activities">Learning Experiences</div>
+                </div>
+                <div class="modal-body">
+                    <!-- Overview Tab -->
+                    <div class="modal-section tab-content active" id="overview">
+                        <h4>Introduction & Importance</h4>
+                        <p>Art experiences in early childhood provide essential opportunities for sensory exploration, fine motor development, and emotional expression. Through art, children learn to communicate ideas, develop visual-spatial skills, and build creative confidence. Research shows that regular engagement with art materials enhances cognitive flexibility and problem-solving abilities in young children (Eckhoff, 2019). Art activities also foster cultural awareness and appreciation for diverse forms of expression.</p>
+                        
+                        <p>According to the Early Years Learning Framework (EYLF V2.0, 2022), art experiences support Outcome 5: Children are effective communicators, as they "use the creative arts such as drawing, painting, sculpture, drama, dance, movement, music and storytelling to express ideas and make meaning."</p>
+                    </div>
+                    
+                    <!-- Theories Tab -->
+                    <div class="modal-section tab-content" id="theories">
+                        <h4>Theoretical Foundations</h4>
+                        <p>Art education in early childhood is grounded in Vygotsky's sociocultural theory, emphasizing the role of social interaction in creative development. The Reggio Emilia approach views art as one of the "hundred languages of children" - essential modes of expression and communication. Contemporary perspectives recognize art as a domain for developing executive function skills through planning, decision-making, and reflection (Barton & Baguley, 2021).</p>
+                        
+                        <p>Neuroeducational research (Kim & Lee, 2022) demonstrates that art activities stimulate multiple brain regions, including the prefrontal cortex (executive function), parietal lobe (spatial reasoning), and limbic system (emotional processing). This integrated neural activation supports holistic development across cognitive, emotional, and physical domains.</p>
+                    </div>
+                    
+                    <!-- Resources Tab -->
+                    <div class="modal-section tab-content" id="resources">
+                        <h4>Resources & Materials</h4>
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <h5>Traditional Materials</h5>
+                                <ul>
+                                    <li>Washable paints (tempera, watercolor)</li>
+                                    <li>Varied drawing tools (crayons, markers, pastels)</li>
+                                    <li>Modeling materials (clay, playdough)</li>
+                                    <li>Collage materials (fabric, paper, natural items)</li>
+                                    <li>Printmaking tools (sponges, rollers, stamps)</li>
+                                </ul>
+                            </div>
+                            <div class="resource-card">
+                                <h5>Digital Technologies</h5>
+                                <ul>
+                                    <li>Drawing tablets and styluses</li>
+                                    <li>Digital photography apps</li>
+                                    <li>Stop-motion animation software</li>
+                                    <li>Interactive whiteboards for collaborative art</li>
+                                    <li>Augmented reality art applications</li>
+                                </ul>
+                            </div>
+                            <div class="resource-card">
+                                <h5>Environment Design</h5>
+                                <ul>
+                                    <li>Dedicated art studio space with natural lighting</li>
+                                    <li>Accessible storage at child height</li>
+                                    <li>Display areas for works-in-progress</li>
+                                    <li>Sensory tables for exploratory materials</li>
+                                    <li>Outdoor art installations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activities Tab -->
+                    <div class="modal-section tab-content" id="activities">
+                        <h4>Learning Experiences by Age Group</h4>
+                        <div class="age-tabs">
+                            <div class="age-tab active" data-age="art-0-2">0-2 Years</div>
+                            <div class="age-tab" data-age="art-2-3">2-3 Years</div>
+                            <div class="age-tab" data-age="art-3-5">3-5 Years</div>
+                            <div class="age-tab" data-age="art-6-8">6-8 Years</div>
+                        </div>
+                        
+                        <div class="age-content active" id="art-0-2">
+                            <h5>Infant & Toddler Art Experiences</h5>
+                            <div class="activity">
+                                <p><strong>Sensory Finger Painting:</strong> Provide edible paint (yogurt with natural food coloring) on highchair trays or large paper. Encourage exploration of textures and color mixing through hand and finger movements. Focus on sensory experience rather than product.</p>
+                                <p class="reference">Eckhoff, A. (2020). The importance of art viewing experiences in early childhood visual arts. Early Child Development and Care, 190(3), 432-444.</p>
+                            </div>
+                            <div class="activity">
+                                <p><strong>Texture Collage:</strong> Offer various textured materials (fabric swatches, bubble wrap, corrugated cardboard) with child-safe adhesive. Support infants in exploring different surfaces through touch and sticking. Narrate sensory vocabulary ("bumpy," "soft," "smooth").</p>
+                                <p class="reference">Kelly, J. (2021). Sensory art experiences for infants and toddlers. Young Children, 76(2), 32-39.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="age-content" id="art-2-3">
+                            <h5>Toddler Art Experiences (2-3 Years)</h5>
+                            <div class="activity">
+                                <p><strong>Nature Printing:</strong> Collect leaves, flowers, and natural objects. Dip in washable paint and press onto paper to create prints. Encourage observation of patterns and shapes. Extend by creating nature collages.</p>
+                                <p class="reference">Australian Government Department of Education (2022). Early Years Learning Framework V2.0.</p>
+                            </div>
+                            <div class="activity">
+                                <p><strong>Collaborative Mural:</strong> Create large-scale murals using rollers, sponges, and large brushes. Focus on process rather than product, encouraging gross motor movements and social interaction. Document children's verbal descriptions of their work.</p>
+                                <p class="reference">Wright, S. (2021). Understanding creativity in early childhood (2nd ed.). SAGE Publications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Drama Modal -->
+        <div class="modal-overlay" id="drama-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Drama & Puppetry Curriculum</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-tabs">
+                    <div class="modal-tab active" data-tab="overview">Overview</div>
+                    <div class="modal-tab" data-tab="theories">Theoretical Foundations</div>
+                    <div class="modal-tab" data-tab="resources">Resources</div>
+                    <div class="modal-tab" data-tab="activities">Learning Experiences</div>
+                </div>
+                <div class="modal-body">
+                    <!-- Overview Tab -->
+                    <div class="modal-section tab-content active" id="overview">
+                        <h4>Introduction & Importance</h4>
+                        <p>Drama and puppetry provide powerful mediums for children to explore emotions, perspectives, and social situations. These activities foster language development, empathy, and narrative thinking. Research indicates that dramatic play enhances executive function skills such as self-regulation and cognitive flexibility (Bodrova & Leong, 2020). Puppetry specifically supports emotional expression in a non-threatening way, allowing children to explore complex feelings through characters.</p>
+                        
+                        <p>According to the EYLF V2.0 (2022), drama experiences support Outcome 1: Children have a strong sense of identity, as they "explore different identities and points of view in dramatic play" and Outcome 2: Children are connected with and contribute to their world, as they "develop empathy for others."</p>
+                    </div>
+                    
+                    <!-- Theories Tab -->
+                    <div class="modal-section tab-content" id="theories">
+                        <h4>Theoretical Foundations</h4>
+                        <p>Drama education draws from Vygotsky's concept of play as the leading source of development in preschool years. The process drama approach emphasizes experiential learning through role-play and improvisation. Contemporary perspectives integrate drama with social-emotional learning frameworks, recognizing its role in developing emotional intelligence (Barton, 2022).</p>
+                        
+                        <p>Puppetry theory builds on Winnicott's concept of transitional objects and objects relation theory. Puppets serve as "transitional objects" that help children bridge internal experiences with external reality. Neuroscience research shows that puppet play activates mirror neuron systems, supporting empathy development (McWilliams & Bonna, 2021).</p>
+                    </div>
+                    
+                    <!-- Resources Tab -->
+                    <div class="modal-section tab-content" id="resources">
+                        <h4>Resources & Materials</h4>
+                        <div class="resources-grid">
+                            <div class="resource-card">
+                                <h5>Traditional Resources</h5>
+                                <ul>
+                                    <li>Puppet theater with various puppets (hand, finger, stick)</li>
+                                    <li>Costumes and props for dramatic play</li>
+                                    <li>Masks for character exploration</li>
+                                    <li>Story stones and sequencing cards</li>
+                                    <li>Felt boards for narrative construction</li>
+                                </ul>
+                            </div>
+                            <div class="resource-card">
+                                <h5>Digital Technologies</h5>
+                                <ul>
+                                    <li>Digital storytelling applications</li>
+                                    <li>Green screen technology for virtual settings</li>
+                                    <li>Voice recording devices for character voices</li>
+                                    <li>Animation software for digital puppetry</li>
+                                    <li>Tablet apps for story creation</li>
+                                </ul>
+                            </div>
+                            <div class="resource-card">
+                                <h5>Environment Design</h5>
+                                <ul>
+                                    <li>Designated drama space with stage area</li>
+                                    <li>Prop storage accessible to children</li>
+                                    <li>Mirrors for expression practice</li>
+                                    <li>Quiet corner for small group work</li>
+                                    <li>Outdoor performance spaces</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Activities Tab -->
+                    <div class="modal-section tab-content" id="activities">
+                        <h4>Learning Experiences by Age Group</h4>
+                        <div class="age-tabs">
+                            <div class="age-tab active" data-age="drama-0-2">0-2 Years</div>
+                            <div class="age-tab" data-age="drama-2-3">2-3 Years</div>
+                            <div class="age-tab" data-age="drama-3-5">3-5 Years</div>
+                            <div class="age-tab" data-age="drama-6-8">6-8 Years</div>
+                        </div>
+                        
+                        <div class="age-content active" id="drama-0-2">
+                            <h5>Infant & Toddler Drama</h5>
+                            <div class="activity">
+                                <p><strong>Character Voices with Soft Puppets:</strong> Use simple animal puppets with distinct voices during routines. Encourage imitation of sounds and gestures to develop early communication skills. Incorporate puppets into daily transitions (e.g., "Mr. Bear says it's time for lunch").</p>
+                                <p class="reference">McWilliams, M. S., & Bonna, C. (2021). Puppet play as a buffer for anxiety in young children. Early Childhood Education Journal, 49(4), 673-680.</p>
+                            </div>
+                            <div class="activity">
+                                <p><strong>Action Songs with Props:</strong> Combine familiar songs with simple actions using scarves or soft toys. Develops rhythm, coordination, and imitation skills. Extend by pausing to encourage anticipation and initiative.</p>
+                                <p class="reference">Edwards, S. (2020). Musical play and self-regulation in toddlers. Journal of Early Childhood Research, 18(3), 221-235.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="age-content" id="drama-2-3">
+                            <h5>Toddler Drama Experiences (2-3 Years)</h5>
+                            <div class="activity">
+                                <p><strong>Emotion Puppets:</strong> Create simple emotion face puppets. Use to name feelings and model appropriate responses to emotional situations. Introduce scenarios like "Puppet is sad because..." to develop emotional vocabulary.</p>
+                                <p class="reference">Australian Institute for Teaching and School Leadership (2022). Social-emotional learning in early childhood.</p>
+                            </div>
+                            <div class="activity">
+                                <p><strong>Story Reenactment:</strong> After reading a familiar story, provide props for children to act out key scenes. Focus on sequence and character actions. Use simple prompts: "What happens next?" "How does the bear feel?"</p>
+                                <p class="reference">Barton, G. (2022). Drama and social justice in early childhood. Routledge.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                if (activities.memory.flippedCards.length === 2) {
-                    const [card1, card2] = activities.memory.flippedCards;
-                    if (card1.dataset.value === card2.dataset.value) {
-                        // Match found!
-                        modalFeedback.textContent = "It's a match!";
-                        playFeedbackSound('correct');
-                        card1.classList.add('matched');
-                        card2.classList.add('matched');
-                        activities.memory.matchedPairs++;
-                        activities.memory.flippedCards =; // Reset flipped cards
+        <!-- References -->
+        <section class="references" id="references">
+            <h3>Academic References</h3>
+            <ul>
+                <li>Australian Government Department of Education. (2022). Belonging, Being and Becoming: The Early Years Learning Framework for Australia V2.0.</li>
+                <li>Barton, G. (2022). Drama and social justice in early childhood. Routledge.</li>
+                <li>Barton, G., & Baguley, M. (2021). Art education and creative aging: Older adults as learners and makers. Studies in Art Education, 62(3), 236-251.</li>
+                <li>Bodrova, E., & Leong, D. J. (2020). Tools of the Mind: The Vygotskian-based early childhood program. Journal of Cognitive Education and Psychology, 19(1), 3-24.</li>
+                <li>Eckhoff, A. (2019). The importance of art viewing experiences in early childhood visual arts. Early Child Development and Care, 190(3), 432-444.</li>
+                <li>Edwards, S. (2020). Musical play and self-regulation in toddlers. Journal of Early Childhood Research, 18(3), 221-235.</li>
+                <li>IKON Institute of Australia. (2023). Creative Pedagogies in Early Childhood Education.</li>
+                <li>Kelly, J. (2021). Sensory art experiences for infants and toddlers. Young Children, 76(2), 32-39.</li>
+                <li>Kim, K. H., & Lee, Y. (2022). Neuroeducational approaches to creativity development in early childhood. Early Education and Development, 33(4), 567-584.</li>
+                <li>McWilliams, M. S., & Bonna, C. (2021). Puppet play as a buffer for anxiety in young children. Early Childhood Education Journal, 49(4), 673-680.</li>
+                <li>Wright, S. (2021). Understanding creativity in early childhood (2nd ed.). SAGE Publications.</li>
+            </ul>
+        </section>
+    </div>
 
-                        if (activities.memory.matchedPairs === activities.memory.totalPairs) {
-                            modalFeedback.textContent = "Congratulations! You found all pairs!";
-                            playFeedbackSound('win');
-                            modalNextButton.style.display = 'block';
-                            modalNextButton.textContent = 'Play Again';
-                            modalNextButton.onclick = () => openModal('memory');
-                        }
-                    } else {
-                        // No match, flip back after a delay
-                        modalFeedback.textContent = "Not a match. Try again!";
-                        playFeedbackSound('incorrect');
-                        setTimeout(() => {
-                            card1.classList.remove('flipped');
-                            card2.classList.remove('flipped');
-                            activities.memory.flippedCards =;
-                            modalFeedback.textContent = ''; // Clear feedback
-                        }, 1000);
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="footer-nav">
+                <a href="#">Home</a>
+                <a href="#curriculum">Curriculum</a>
+                <a href="#research">Research</a>
+                <a href="#references">References</a>
+                <a href="#">Professional Development</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-researchgate"></i></a>
+                <a href="#"><i class="fab fa-google-scholar"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Creative Curriculum - Academic Resource for Early Childhood Education</p>
+                <p>Developed by <span>ANMOL RAWAL</span> | Content reviewed by early childhood education specialists</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const curriculumCards = document.querySelectorAll('.curriculum-card');
+            const modals = document.querySelectorAll('.modal-overlay');
+            const closeButtons = document.querySelectorAll('.close-modal');
+            
+            // Open modal when card is clicked
+            curriculumCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const modalId = card.getAttribute('data-modal');
+                    document.getElementById(modalId).classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modal
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    modals.forEach(modal => modal.classList.remove('active'));
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Close when clicking outside modal
+            modals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
                     }
-                }
+                });
+            });
+            
+            // Modal tabs functionality
+            const modalTabs = document.querySelectorAll('.modal-tab');
+            
+            modalTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const modal = tab.closest('.modal-overlay');
+                    const tabContainer = tab.parentElement;
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs in this container
+                    tabContainer.querySelectorAll('.modal-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Hide all content in this modal
+                    modal.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show corresponding content
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Age tabs functionality inside modals
+            const ageTabs = document.querySelectorAll('.age-tab');
+            
+            ageTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const modal = tab.closest('.modal-overlay');
+                    const tabContainer = tab.parentElement;
+                    const contentId = tab.getAttribute('data-age');
+                    
+                    // Remove active class from all tabs in this container
+                    tabContainer.querySelectorAll('.age-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Hide all content in this modal
+                    modal.querySelectorAll('.age-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show corresponding content
+                    document.getElementById(contentId).classList.add('active');
+                });
             });
         });
-    }
-
-    // Placeholder for more complex activities (e.g., using Three.js or Matter.js)
-    function loadPlanetsSimulation() {
-        modalContent.innerHTML = `
-            <p>Imagine a 3D solar system here!</p>
-            <div id="solarSystemCanvas" style="width: 100%; height: 300px; background-color: #eee; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
-                <p>3D Simulation Placeholder</p>
-            </div>
-            <p>Drag planets to their correct orbits!</p>
-            <button class="modal-button">Learn More About Planets</button>
-        `;
-        // In a real application, you'd initialize Three.js or Babylon.js here
-        // Example: initThreeJSPlanetSimulation('solarSystemCanvas');
-    }
-
-    function loadAnimalFacts() {
-        modalContent.innerHTML = `
-            <p>Click on an animal to learn a fun fact!</p>
-            <div class="animal-facts-grid">
-                <img src="images/animal-lion.webp" alt="Lion" data-fact="Lions are big cats that live in groups called prides!" width="150" height="150" class="animal-image" tabindex="0">
-                <img src="images/animal-elephant.webp" alt="Elephant" data-fact="Elephants are the largest land animals and love water!" width="150" height="150" class="animal-image" tabindex="0">
-                <img src="images/animal-giraffe.webp" alt="Giraffe" data-fact="Giraffes have super long necks to reach tall leaves!" width="150" height="150" class="animal-image" tabindex="0">
-            </div>
-            <p id="animalFactDisplay" style="margin-top: 20px; font-style: italic;"></p>
-        `;
-        modalContent.querySelectorAll('.animal-image').forEach(img => {
-            img.addEventListener('click', (event) => {
-                const fact = event.target.dataset.fact;
-                document.getElementById('animalFactDisplay').textContent = fact;
-                playFeedbackSound('click'); // Generic click sound
-            });
-        });
-    }
-
-    // --- Audio Feedback System ---
-    const audioContext = new (window.AudioContext |
-| window.webkitAudioContext)();
-    const sounds = {
-        correct: 'audio/correct.mp3', // Placeholder paths
-        incorrect: 'audio/incorrect.mp3',
-        click: 'audio/click.mp3',
-        win: 'audio/win.mp3'
-    };
-    const audioBuffers = {};
-
-    // Load sounds
-    for (const key in sounds) {
-        fetch(sounds[key])
-           .then(response => response.arrayBuffer())
-           .then(buffer => audioContext.decodeAudioData(buffer))
-           .then(decodedBuffer => {
-                audioBuffers[key] = decodedBuffer;
-            })
-           .catch(e => console.error(`Error loading audio ${key}:`, e));
-    }
-
-    function playFeedbackSound(type) {
-        if (audioBuffers[type]) {
-            const source = audioContext.createBufferSource();
-            source.buffer = audioBuffers[type];
-            source.connect(audioContext.destination);
-            source.start(0);
-        }
-    }
-
-    // --- Basic Form Validation (Example for a future contact form or login) ---
-    // This is a conceptual example. A real children's site would likely avoid direct input forms for children.
-    // For "For Parents" section, a contact form might exist.
-    function validateContactForm(event) {
-        // Example validation logic
-        const nameInput = document.getElementById('contactName');
-        const emailInput = document.getElementById('contactEmail');
-        const messageInput = document.getElementById('contactMessage');
-        let isValid = true;
-
-        if (!nameInput |
-| nameInput.value.trim() === '') {
-            alert('Please enter your name.');
-            isValid = false;
-        }
-        if (!emailInput ||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-            alert('Please enter a valid email address.');
-            isValid = false;
-        }
-        if (!messageInput |
-| messageInput.value.trim() === '') {
-            alert('Please enter your message.');
-            isValid = false;
-        }
-
-        if (!isValid) {
-            event.preventDefault(); // Stop form submission if validation fails
-            playFeedbackSound('incorrect'); // Provide audio feedback for validation errors
-        } else {
-            playFeedbackSound('correct'); // Provide audio feedback for successful validation
-        }
-        return isValid;
-    }
-
-    // Example of attaching validation to a hypothetical form (not in current HTML)
-    // const contactForm = document.getElementById('contactForm');
-    // if (contactForm) {
-    //     contactForm.addEventListener('submit', validateContactForm);
-    // }
-
-    // --- Accessibility Enhancements ---
-    // Add focus styles for keyboard navigation (already in CSS, but ensure JS doesn't interfere)
-    // ARIA attributes for better screen reader support (already in HTML)
-    // Ensure all interactive elements are reachable via keyboard (buttons, links, cards)
-    // Test with screen readers (e.g., NVDA, VoiceOver)
-
-    // Example of a simple drag-and-drop (conceptual, requires more complex JS/CSS)
-    // This would typically involve a dedicated library or more extensive custom code.
-    // For instance, a "planets" activity could use drag-and-drop.
-    // function setupDragAndDrop() {
-    //     const draggableItem = document.getElementById('draggable');
-    //     const dropZone = document.getElementById('dropZone');
-    //
-    //     if (draggableItem && dropZone) {
-    //         draggableItem.addEventListener('dragstart', (e) => {
-    //             e.dataTransfer.setData('text/plain', e.target.id);
-    //             e.target.style.opacity = '0.5';
-    //         });
-    //
-    //         draggableItem.addEventListener('dragend', (e) => {
-    //             e.target.style.opacity = '1';
-    //         });
-    //
-    //         dropZone.addEventListener('dragover', (e) => {
-    //             e.preventDefault(); // Allow drop
-    //         });
-    //
-    //         dropZone.addEventListener('drop', (e) => {
-    //             e.preventDefault();
-    //             const data = e.dataTransfer.getData('text/plain');
-    //             const draggedElement = document.getElementById(data);
-    //             if (draggedElement) {
-    //                 dropZone.appendChild(draggedElement);
-    //                 playFeedbackSound('correct');
-    //                 modalFeedback.textContent = "Item dropped correctly!";
-    //             }
-    //         });
-    //     }
-    // }
-    // Call this if you add drag-and-drop elements to your modal content.
-});
+    </script>
+</body>
+</html>
