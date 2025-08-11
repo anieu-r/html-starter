@@ -103,7 +103,7 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(67, 97, 238, 0.85), rgba(58, 12, 163, 0.85)), url('https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80') center/cover;
+            background: linear-gradient(rgba(67, 97, 238, 0.85), rgba(58, 12, 163, 0.85)), url('https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
             color: white;
             text-align: center;
             padding: 6rem 2rem;
@@ -165,10 +165,16 @@
             position: relative;
         }
 
-        .intro-section h2 {
+        .intro-section h2, .intro-section h3 {
             text-align: center;
             margin-bottom: 2rem;
             font-size: 2.2rem;
+        }
+        
+        .intro-section h4 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
 
         .intro-section p {
@@ -375,8 +381,13 @@
         }
 
         .modal-section {
+            display: none;
             margin-bottom: 2.5rem;
             padding: 1.5rem 0;
+        }
+        
+        .modal-section.active {
+            display: block;
         }
 
         .modal-section h4 {
@@ -481,10 +492,11 @@
         }
 
         .references {
-            background-color: var(--light-bg);
+            background-color: white;
             padding: 3rem;
             border-radius: 16px;
             margin-top: 3rem;
+            box-shadow: var(--shadow);
         }
 
         .references h3 {
@@ -495,7 +507,9 @@
 
         .references ul {
             list-style-type: none;
-            padding-left: 20px;
+            padding-left: 0;
+            columns: 2;
+            column-gap: 40px;
         }
 
         .references li {
@@ -618,6 +632,9 @@
             .modal-tabs {
                 flex-direction: column;
             }
+            .references ul {
+                columns: 1;
+            }
         }
     </style>
 </head>
@@ -635,7 +652,6 @@
                     <li><a href="#curriculum">Curriculum Areas</a></li>
                     <li><a href="#research">Research</a></li>
                     <li><a href="#references">References</a></li>
-                    <li><a href="#">Resources</a></li>
                 </ul>
             </nav>
         </div>
@@ -644,8 +660,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Academic Framework for Creativity in Early Childhood</h2>
-            <p>Evidence-based strategies for fostering creativity through art, drama, and puppetry</p>
+            <h2>Nurturing the Creative Spark</h2>
+            <p>An Academic Framework for Creativity in Australian Early Childhood Education</p>
             <a href="#curriculum" class="btn">Explore Curriculum</a>
             <a href="#research" class="btn btn-outline">View Research</a>
         </div>
@@ -654,14 +670,12 @@
     <!-- Introduction Section -->
     <div class="container">
         <section class="intro-section">
-            <h2>Fostering Creativity Across the Curriculum</h2>
-            <p>Creativity in early childhood education is a multidimensional construct that extends beyond artistic expression to encompass cognitive flexibility, problem-solving, and innovative thinking. According to the Australian Early Years Learning Framework (EYLF V2.0, 2022), creativity is recognized as a vital disposition for learning that enables children to explore, construct, and represent their understandings in diverse ways.</p>
+            <h2>Introduction to Creativity in Australian Early Childhood Education</h2>
+            <h4>Defining Creativity Beyond the Arts: Problem-Solving, Innovation, and Resilience</h4>
+            <p>In the context of early childhood education, creativity is a concept that extends far beyond the confines of the art easel or the craft table. It is a fundamental human capacity for turning new and imaginative ideas into reality (Russ, 1999). This multifaceted disposition involves the ability to perceive the world in novel ways, to identify hidden patterns, to forge connections between seemingly disparate phenomena, and to generate innovative solutions to complex problems (Isbell & Raines, 2013; Vygotsky, 1930). Every child is born with an innate sense of wonder, curiosity, and imagination, which serves as the fertile ground from which creativity blossoms (Isbell & Raines, 2013).</p>
             
-            <p>Research by Barton and Baguley (2021) demonstrates that creative pedagogies significantly enhance executive functioning in young children, particularly in areas of working memory, cognitive flexibility, and inhibitory control. This cognitive foundation supports learning across all domains, including literacy, numeracy, and scientific reasoning.</p>
-            
-            <p>Contemporary educational neuroscience reveals that creative activities stimulate neural pathways associated with divergent thinking and innovation (Kim & Lee, 2022). When children engage in open-ended creative tasks, they develop the cognitive flexibility necessary for adapting to novel situations and solving complex problems.</p>
-            
-            <p>This academic resource provides evidence-based approaches for integrating creative pedagogies across curriculum areas, with particular emphasis on art, drama, and puppetry as foundational domains for creative development. All strategies align with the EYLF Learning Outcomes and are developmentally appropriate for children from birth to eight years.</p>
+            <h4>The Mandate for Creativity in the Early Years Learning Framework (EYLF)</h4>
+            <p>The Australian Government's *Belonging, Being and Becoming: The Early Years Learning Framework for Australia* (EYLF) provides the national pedagogical guide for educators working with children from birth to five years (AGDE, 2022). Updated in 2023, the EYLF is a cornerstone of the National Quality Framework (NQF) and is designed to spark children's curiosity, social skills, and creativity through a play-based learning approach. The framework explicitly states that a central objective of early childhood education is to promote the development of "confident and creative individuals" and "successful lifelong learners" (AGDE, 2022).</p>
         </section>
 
         <!-- Curriculum Areas -->
@@ -671,17 +685,15 @@
                 <!-- Art -->
                 <div class="curriculum-card" data-modal="art-modal">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Children creating art">
+                        <img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Children creating art">
                         <div class="card-badge">Visual Arts</div>
                     </div>
                     <div class="card-content">
                         <h3>Art & Creative Expression</h3>
-                        <p>Explore evidence-based approaches to fostering creativity through visual arts. This curriculum area supports sensory integration, cognitive development, and symbolic representation.</p>
+                        <p>Explore evidence-based approaches to fostering creativity through visual arts, supporting sensory integration, cognitive development, and symbolic representation.</p>
                         <div class="card-footer">
                             <a class="btn">View Curriculum</a>
-                            <div class="card-icon">
-                                <i class="fas fa-palette"></i>
-                            </div>
+                            <div class="card-icon"><i class="fas fa-palette"></i></div>
                         </div>
                     </div>
                 </div>
@@ -689,35 +701,111 @@
                 <!-- Drama & Puppetry -->
                 <div class="curriculum-card" data-modal="drama-modal">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1608889476518-738c9b1dcb40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Children with puppets">
+                        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Children with puppets">
                         <div class="card-badge">Performing Arts</div>
                     </div>
                     <div class="card-content">
                         <h3>Drama & Puppetry</h3>
-                        <p>Discover how dramatic play and puppetry enhance language development, social cognition, and narrative thinking. Research-based approaches for different developmental stages.</p>
+                        <p>Discover how dramatic play and puppetry enhance language development, social cognition, and narrative thinking through research-based approaches.</p>
                         <div class="card-footer">
                             <a class="btn">View Curriculum</a>
-                            <div class="card-icon">
-                                <i class="fas fa-mask"></i>
-                            </div>
+                            <div class="card-icon"><i class="fas fa-theater-masks"></i></div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Integrated Approach -->
-                <div class="curriculum-card">
+
+                <!-- Movement & Music -->
+                <div class="curriculum-card" data-modal="music-modal">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1508784411316-02b8cd4d3a3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Children with science materials">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Children dancing">
+                        <div class="card-badge">Performing Arts</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Movement & Music</h3>
+                        <p>Learn how to facilitate embodied cognition and expression through rhythm, dance, and sound, fostering coordination and emotional literacy.</p>
+                        <div class="card-footer">
+                            <a class="btn">View Curriculum</a>
+                            <div class="card-icon"><i class="fas fa-music"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language & Literacy -->
+                <div class="curriculum-card" data-modal="literacy-modal">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Child reading a book">
+                        <div class="card-badge">Communication</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Language & Literacy</h3>
+                        <p>Foster a love of language through creative storytelling, narrative construction, and multiliteracies, empowering children as authors.</p>
+                        <div class="card-footer">
+                            <a class="btn">View Curriculum</a>
+                            <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maths & Numeracy -->
+                <div class="curriculum-card" data-modal="maths-modal">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1612670949015-4c5e7c5f8b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Children with blocks">
+                        <div class="card-badge">STEM</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Mathematics & Numeracy</h3>
+                        <p>Develop flexible thinking and problem-solving by exploring patterns, spatial reasoning, and geometry through hands-on, playful experiences.</p>
+                        <div class="card-footer">
+                            <a class="btn">View Curriculum</a>
+                            <div class="card-icon"><i class="fas fa-calculator"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HASS -->
+                <div class="curriculum-card" data-modal="hass-modal">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1532635241-17e820acc59f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Globe and map">
+                        <div class="card-badge">Humanities</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Humanities & Social Sciences</h3>
+                        <p>Explore cultures, communities, and identities through creative methods like storytelling, drama, and construction, fostering empathy and belonging.</p>
+                        <div class="card-footer">
+                            <a class="btn">View Curriculum</a>
+                            <div class="card-icon"><i class="fas fa-globe-asia"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Science & Tech -->
+                <div class="curriculum-card" data-modal="science-modal">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1508784411316-02b8cd4d3a3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Child with magnifying glass">
+                        <div class="card-badge">STEM</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Science & Technologies</h3>
+                        <p>Cultivate a disposition for inquiry and innovation by engaging children as scientists and designers through hands-on experimentation.</p>
+                        <div class="card-footer">
+                            <a class="btn">View Curriculum</a>
+                            <div class="card-icon"><i class="fas fa-flask"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integrated -->
+                <div class="curriculum-card" data-modal="integrated-modal">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Children working together on a project">
                         <div class="card-badge">STEAM</div>
                     </div>
                     <div class="card-content">
                         <h3>Integrated Approaches</h3>
-                        <p>Creative integration across STEM domains with art. Evidence shows STEAM approaches enhance problem-solving and innovation in early childhood.</p>
+                        <p>Weave creativity through all learning with STEAM, STREAM, and STEMIE, reflecting the interconnected nature of real-world problem-solving.</p>
                         <div class="card-footer">
-                            <a class="btn">Coming Soon</a>
-                            <div class="card-icon">
-                                <i class="fas fa-shapes"></i>
-                            </div>
+                            <a class="btn">View Curriculum</a>
+                            <div class="card-icon"><i class="fas fa-puzzle-piece"></i></div>
                         </div>
                     </div>
                 </div>
@@ -726,313 +814,71 @@
 
         <!-- Research Section -->
         <section id="research">
-            <h2 class="section-title">Theoretical Foundations</h2>
+            <h2 class="section-title">Theoretical Foundations of Creative Pedagogy</h2>
             <div class="intro-section">
                 <div class="resources-grid">
                     <div class="resource-card">
                         <h5>Vygotsky's Sociocultural Theory</h5>
-                        <p>Creative development occurs through social interaction and guided participation. The zone of proximal development applies to creative problem-solving.</p>
+                        <p>Creative development occurs through social interaction and guided participation in the Zone of Proximal Development (Vygotsky, 1978; Robson, 2021).</p>
+                    </div>
+                    <div class="resource-card">
+                        <h5>Gardner's Multiple Intelligences</h5>
+                        <p>Creativity manifests in diverse ways (linguistic, spatial, kinesthetic, etc.), requiring a pluralised curriculum (Gardner, 1983; Maker, 2020).</p>
                     </div>
                     <div class="resource-card">
                         <h5>Reggio Emilia Approach</h5>
-                        <p>Art as one of the "hundred languages of children" - essential modes of expression and communication of ideas and emotions.</p>
-                    </div>
-                    <div class="resource-card">
-                        <h5>Contemporary Perspectives</h5>
-                        <p>Creativity as a domain for developing executive function skills through planning, decision-making, and reflection (Barton & Baguley, 2021).</p>
-                    </div>
-                    <div class="resource-card">
-                        <h5>Neuroeducation Findings</h5>
-                        <p>Creative activities stimulate neural pathways associated with divergent thinking and innovation (Kim & Lee, 2022).</p>
+                        <p>Art as one of the "hundred languages of children" - essential modes of expression and communication of ideas and emotions (Edwards et al., 2022).</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Popup Modals -->
-        <!-- Art Modal -->
-        <div class="modal-overlay" id="art-modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Art & Creative Expression Curriculum</h3>
-                    <button class="close-modal">&times;</button>
-                </div>
-                <div class="modal-tabs">
-                    <div class="modal-tab active" data-tab="overview">Overview</div>
-                    <div class="modal-tab" data-tab="theories">Theoretical Foundations</div>
-                    <div class="modal-tab" data-tab="resources">Resources</div>
-                    <div class="modal-tab" data-tab="activities">Learning Experiences</div>
-                </div>
-                <div class="modal-body">
-                    <!-- Overview Tab -->
-                    <div class="modal-section tab-content active" id="overview">
-                        <h4>Introduction & Importance</h4>
-                        <p>Art experiences in early childhood provide essential opportunities for sensory exploration, fine motor development, and emotional expression. Through art, children learn to communicate ideas, develop visual-spatial skills, and build creative confidence. Research shows that regular engagement with art materials enhances cognitive flexibility and problem-solving abilities in young children (Eckhoff, 2019). Art activities also foster cultural awareness and appreciation for diverse forms of expression.</p>
-                        
-                        <p>According to the Early Years Learning Framework (EYLF V2.0, 2022), art experiences support Outcome 5: Children are effective communicators, as they "use the creative arts such as drawing, painting, sculpture, drama, dance, movement, music and storytelling to express ideas and make meaning."</p>
-                    </div>
-                    
-                    <!-- Theories Tab -->
-                    <div class="modal-section tab-content" id="theories">
-                        <h4>Theoretical Foundations</h4>
-                        <p>Art education in early childhood is grounded in Vygotsky's sociocultural theory, emphasizing the role of social interaction in creative development. The Reggio Emilia approach views art as one of the "hundred languages of children" - essential modes of expression and communication. Contemporary perspectives recognize art as a domain for developing executive function skills through planning, decision-making, and reflection (Barton & Baguley, 2021).</p>
-                        
-                        <p>Neuroeducational research (Kim & Lee, 2022) demonstrates that art activities stimulate multiple brain regions, including the prefrontal cortex (executive function), parietal lobe (spatial reasoning), and limbic system (emotional processing). This integrated neural activation supports holistic development across cognitive, emotional, and physical domains.</p>
-                    </div>
-                    
-                    <!-- Resources Tab -->
-                    <div class="modal-section tab-content" id="resources">
-                        <h4>Resources & Materials</h4>
-                        <div class="resources-grid">
-                            <div class="resource-card">
-                                <h5>Traditional Materials</h5>
-                                <ul>
-                                    <li>Washable paints (tempera, watercolor)</li>
-                                    <li>Varied drawing tools (crayons, markers, pastels)</li>
-                                    <li>Modeling materials (clay, playdough)</li>
-                                    <li>Collage materials (fabric, paper, natural items)</li>
-                                    <li>Printmaking tools (sponges, rollers, stamps)</li>
-                                </ul>
-                            </div>
-                            <div class="resource-card">
-                                <h5>Digital Technologies</h5>
-                                <ul>
-                                    <li>Drawing tablets and styluses</li>
-                                    <li>Digital photography apps</li>
-                                    <li>Stop-motion animation software</li>
-                                    <li>Interactive whiteboards for collaborative art</li>
-                                    <li>Augmented reality art applications</li>
-                                </ul>
-                            </div>
-                            <div class="resource-card">
-                                <h5>Environment Design</h5>
-                                <ul>
-                                    <li>Dedicated art studio space with natural lighting</li>
-                                    <li>Accessible storage at child height</li>
-                                    <li>Display areas for works-in-progress</li>
-                                    <li>Sensory tables for exploratory materials</li>
-                                    <li>Outdoor art installations</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Activities Tab -->
-                    <div class="modal-section tab-content" id="activities">
-                        <h4>Learning Experiences by Age Group</h4>
-                        <div class="age-tabs">
-                            <div class="age-tab active" data-age="art-0-2">0-2 Years</div>
-                            <div class="age-tab" data-age="art-2-3">2-3 Years</div>
-                            <div class="age-tab" data-age="art-3-5">3-5 Years</div>
-                            <div class="age-tab" data-age="art-6-8">6-8 Years</div>
-                        </div>
-                        
-                        <div class="age-content active" id="art-0-2">
-                            <h5>Infant & Toddler Art Experiences</h5>
-                            <div class="activity">
-                                <p><strong>Sensory Finger Painting:</strong> Provide edible paint (yogurt with natural food coloring) on highchair trays or large paper. Encourage exploration of textures and color mixing through hand and finger movements. Focus on sensory experience rather than product.</p>
-                                <p class="reference">Eckhoff, A. (2020). The importance of art viewing experiences in early childhood visual arts. Early Child Development and Care, 190(3), 432-444.</p>
-                            </div>
-                            <div class="activity">
-                                <p><strong>Texture Collage:</strong> Offer various textured materials (fabric swatches, bubble wrap, corrugated cardboard) with child-safe adhesive. Support infants in exploring different surfaces through touch and sticking. Narrate sensory vocabulary ("bumpy," "soft," "smooth").</p>
-                                <p class="reference">Kelly, J. (2021). Sensory art experiences for infants and toddlers. Young Children, 76(2), 32-39.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="age-content" id="art-2-3">
-                            <h5>Toddler Art Experiences (2-3 Years)</h5>
-                            <div class="activity">
-                                <p><strong>Nature Printing:</strong> Collect leaves, flowers, and natural objects. Dip in washable paint and press onto paper to create prints. Encourage observation of patterns and shapes. Extend by creating nature collages.</p>
-                                <p class="reference">Australian Government Department of Education (2022). Early Years Learning Framework V2.0.</p>
-                            </div>
-                            <div class="activity">
-                                <p><strong>Collaborative Mural:</strong> Create large-scale murals using rollers, sponges, and large brushes. Focus on process rather than product, encouraging gross motor movements and social interaction. Document children's verbal descriptions of their work.</p>
-                                <p class="reference">Wright, S. (2021). Understanding creativity in early childhood (2nd ed.). SAGE Publications.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="age-content" id="art-3-5">
-                            <h5>Preschool Art Experiences (3-5 Years)</h5>
-                            <div class="activity">
-                                <p><strong>Self-Portrait Exploration:</strong> Provide mirrors and varied media (pencils, paints, collage) for children to create self-portraits. Focus on facial features, expressions, and identity exploration.</p>
-                                <p class="reference">Edwards, C. (2020). Exploring identity through self-portraits in early childhood. Art Education, 73(4), 32-39.</p>
-                            </div>
-                            <div class="activity">
-                                <p><strong>3D Sculpture Construction:</strong> Offer recyclable materials (boxes, tubes) and connectors (tape, glue) for children to build sculptures. Encourage planning and problem-solving.</p>
-                                <p class="reference">Thompson, R. (2021). Spatial reasoning through sculpture in preschool. Early Childhood Research Quarterly, 55, 112-125.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="age-content" id="art-6-8">
-                            <h5>Early Primary Art Experiences (6-8 Years)</h5>
-                            <div class="activity">
-                                <p><strong>Cultural Art Study:</strong> Explore art forms from different cultures and create artworks inspired by these traditions. Discuss cultural contexts and artistic techniques.</p>
-                                <p class="reference">Smith, J. (2022). Global art appreciation in primary education. International Journal of Art & Design Education, 41(2), 245-259.</p>
-                            </div>
-                            <div class="activity">
-                                <p><strong>Digital Story Illustration:</strong> Children create illustrations for their original stories using digital tools, learning about composition and visual storytelling.</p>
-                                <p class="reference">Chen, L. (2023). Integrating digital art with literacy development. Journal of Educational Technology, 44(1), 78-92.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         
-        <!-- Drama Modal -->
-        <div class="modal-overlay" id="drama-modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Drama & Puppetry Curriculum</h3>
-                    <button class="close-modal">&times;</button>
-                </div>
-                <div class="modal-tabs">
-                    <div class="modal-tab active" data-tab="overview">Overview</div>
-                    <div class="modal-tab" data-tab="theories">Theoretical Foundations</div>
-                    <div class="modal-tab" data-tab="resources">Resources</div>
-                    <div class="modal-tab" data-tab="activities">Learning Experiences</div>
-                </div>
-                <div class="modal-body">
-                    <!-- Overview Tab -->
-                    <div class="modal-section tab-content active" id="overview">
-                        <h4>Introduction & Importance</h4>
-                        <p>Drama and puppetry provide powerful mediums for children to explore emotions, perspectives, and social situations. These activities foster language development, empathy, and narrative thinking. Research indicates that dramatic play enhances executive function skills such as self-regulation and cognitive flexibility (Bodrova & Leong, 2020). Puppetry specifically supports emotional expression in a non-threatening way, allowing children to explore complex feelings through characters.</p>
-                        
-                        <p>According to the EYLF V2.0 (2022), drama experiences support Outcome 1: Children have a strong sense of identity, as they "explore different identities and points of view in dramatic play" and Outcome 2: Children are connected with and contribute to their world, as they "develop empathy for others."</p>
-                    </div>
-                    
-                    <!-- Theories Tab -->
-                    <div class="modal-section tab-content" id="theories">
-                        <h4>Theoretical Foundations</h4>
-                        <p>Drama education draws from Vygotsky's concept of play as the leading source of development in preschool years. The process drama approach emphasizes experiential learning through role-play and improvisation. Contemporary perspectives integrate drama with social-emotional learning frameworks, recognizing its role in developing emotional intelligence (Barton, 2022).</p>
-                        
-                        <p>Puppetry theory builds on Winnicott's concept of transitional objects and objects relation theory. Puppets serve as "transitional objects" that help children bridge internal experiences with external reality. Neuroscience research shows that puppet play activates mirror neuron systems, supporting empathy development (McWilliams & Bonna, 2021).</p>
-                    </div>
-                    
-                    <!-- Resources Tab -->
-                    <div class="modal-section tab-content" id="resources">
-                        <h4>Resources & Materials</h4>
-                        <div class="resources-grid">
-                            <div class="resource-card">
-                                <h5>Traditional Resources</h5>
-                                <ul>
-                                    <li>Puppet theater with various puppets (hand, finger, stick)</li>
-                                    <li>Costumes and props for dramatic play</li>
-                                    <li>Masks for character exploration</li>
-                                    <li>Story stones and sequencing cards</li>
-                                    <li>Felt boards for narrative construction</li>
-                                </ul>
-                            </div>
-                            <div class="resource-card">
-                                <h5>Digital Technologies</h5>
-                                <ul>
-                                    <li>Digital storytelling applications</li>
-                                    <li>Green screen technology for virtual settings</li>
-                                    <li>Voice recording devices for character voices</li>
-                                    <li>Animation software for digital puppetry</li>
-                                    <li>Tablet apps for story creation</li>
-                                </ul>
-                            </div>
-                            <div class="resource-card">
-                                <h5>Environment Design</h5>
-                                <ul>
-                                    <li>Designated drama space with stage area</li>
-                                    <li>Prop storage accessible to children</li>
-                                    <li>Mirrors for expression practice</li>
-                                    <li>Quiet corner for small group work</li>
-                                    <li>Outdoor performance spaces</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Activities Tab -->
-                    <div class="modal-section tab-content" id="activities">
-                        <h4>Learning Experiences by Age Group</h4>
-                        <div class="age-tabs">
-                            <div class="age-tab active" data-age="drama-0-2">0-2 Years</div>
-                            <div class="age-tab" data-age="drama-2-3">2-3 Years</div>
-                            <div class="age-tab" data-age="drama-3-5">3-5 Years</div>
-                            <div class="age-tab" data-age="drama-6-8">6-8 Years</div>
-                        </div>
-                        
-                        <div class="age-content active" id="drama-0-2">
-                            <h5>Infant & Toddler Drama</h5>
-                            <div class="activity">
-                                <p><strong>Character Voices with Soft Puppets:</strong> Use simple animal puppets with distinct voices during routines. Encourage imitation of sounds and gestures to develop early communication skills. Incorporate puppets into daily transitions (e.g., "Mr. Bear says it's time for lunch").</p>
-                                <p class="reference">McWilliams, M. S., & Bonna, C. (2021). Puppet play as a buffer for anxiety in young children. Early Childhood Education Journal, 49(4), 673-680.</p>
-                            </div>
-                            <div class="activity">
-                                <p><strong>Action Songs with Props:</strong> Combine familiar songs with simple actions using scarves or soft toys. Develops rhythm, coordination, and imitation skills. Extend by pausing to encourage anticipation and initiative.</p>
-                                <p class="reference">Edwards, S. (2020). Musical play and self-regulation in toddlers. Journal of Early Childhood Research, 18(3), 221-235.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="age-content" id="drama-2-3">
-                            <h5>Toddler Drama Experiences (2-3 Years)</h5>
-                            <div class="activity">
-                                <p><strong>Emotion Puppets:</strong> Create simple emotion face puppets. Use to name feelings and model appropriate responses to emotional situations. Introduce scenarios like "Puppet is sad because..." to develop emotional vocabulary.</p>
-                                <p class="reference">Australian Institute for Teaching and School Leadership (2022). Social-emotional learning in early childhood.</p>
-                            </div>
-                            <div class="activity">
-                                <p><strong>Story Reenactment:</strong> After reading a familiar story, provide props for children to act out key scenes. Focus on sequence and character actions. Use simple prompts: "What happens next?" "How does the bear feel?"</p>
-                                <p class="reference">Barton, G. (2022). Drama and social justice in early childhood. Routledge.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="age-content" id="drama-3-5">
-                            <h5>Preschool Drama Experiences (3-5 Years)</h5>
-                            <div class="activity">
-                                <p><strong>Puppet Theater Production:</strong> Children create simple puppets and develop stories to perform. Focus on character development, dialogue, and narrative sequencing.</p>
-                                <p class="reference">Davis, P. (2021). Developing narrative skills through puppetry. Early Childhood Education Journal, 49(3), 345-355.</p>
-                            </div>
-                            <div class="activity">
-                                <p><strong>Improvisational Role Play:</strong> Provide open-ended scenarios for children to improvise roles and responses. Encourages creative problem-solving and perspective-taking.</p>
-                                <p class="reference">Thompson, L. (2022). Improvisation as a tool for social-emotional development. Journal of Early Childhood Studies, 15(2), 178-192.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="age-content" id="drama-6-8">
-                            <h5>Early Primary Drama Experiences (6-8 Years)</h5>
-                            <div class="activity">
-                                <p><strong>Scripted Puppet Performances:</strong> Children write simple scripts and perform with puppets. Focus on dialogue, expression, and performance skills.</p>
-                                <p class="reference">Wilson, K. (2023). Enhancing literacy through puppet scriptwriting. Literacy Research Journal, 48(1), 45-59.</p>
-                            </div>
-                            <div class="activity">
-                                <p><strong>Digital Puppetry:</strong> Use animation software to create digital puppet shows. Integrates technology with storytelling and dramatic arts.</p>
-                                <p class="reference">Zhang, M. (2022). Digital storytelling in elementary education. Journal of Educational Technology Systems, 50(4), 478-495.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- New Sections from Report -->
+        <section id="educator-role">
+             <div class="intro-section">
+                <h2 class="section-title">The Educator's Role in a Creative Ecology</h2>
+                <h4>Designing the "Third Teacher": Crafting Environments that Provoke Curiosity</h4>
+                <p>The physical environment of an early childhood setting is a powerful conveyor of values and expectations. It can either nurture and expand a child's creative potential or inadvertently create barriers that stifle it (Goldschmied & Jackson, 2000). A thoughtfully designed space communicates respect for children's ideas and invites exploration. This involves providing a rich supply of open-ended resources like wooden blocks, sand, water, clay, and collections of "loose parts" (e.g., shells, buttons, fabric scraps, recycled containers) that do not have a prescribed use, which encourages children to investigate, experiment, and engage in divergent thinking (Dinham & Chalk, 2018; Mackenzie, 2011).</p>
+                <h4>Intentional Teaching and "Sustained Shared Thinking"</h4>
+                <p>Within a play-based framework, intentional teaching is not about direct instruction but about being purposeful, thoughtful, and deliberate in all decisions and actions (AGDE, 2022). A key practice of intentional teaching is engaging in "sustained shared thinking." This occurs when an educator and a child, or a small group of children, work together in an intellectual way to solve a problem, clarify a concept, or evaluate an activity (Goldschmied & Jackson, 2000). This practice involves more than just asking questions; it requires a specific pedagogical stance. Educators must engage in meaningful conversations, using open-ended prompts like "I wonder..." or "What do you think might happen next?" and practice deep, respectful listening, valuing children's theories and ideas rather than pre-empting their decisions or correcting them with a "right" answer (Goldschmied & Jackson, 2000).</p>
+             </div>
+        </section>
 
-        <!-- References -->
+        <!-- References Section -->
         <section class="references" id="references">
             <h3>Academic References</h3>
             <ul>
-                <li>Australian Government Department of Education. (2022). Belonging, Being and Becoming: The Early Years Learning Framework for Australia V2.0.</li>
-                <li>Barton, G. (2022). Drama and social justice in early childhood. Routledge.</li>
-                <li>Barton, G., & Baguley, M. (2021). Art education and creative aging: Older adults as learners and makers. Studies in Art Education, 62(3), 236-251.</li>
-                <li>Bodrova, E., & Leong, D. J. (2020). Tools of the Mind: The Vygotskian-based early childhood program. Journal of Cognitive Education and Psychology, 19(1), 3-24.</li>
-                <li>Chen, L. (2023). Integrating digital art with literacy development. Journal of Educational Technology, 44(1), 78-92.</li>
-                <li>Davis, P. (2021). Developing narrative skills through puppetry. Early Childhood Education Journal, 49(3), 345-355.</li>
-                <li>Eckhoff, A. (2019). The importance of art viewing experiences in early childhood visual arts. Early Child Development and Care, 190(3), 432-444.</li>
-                <li>Edwards, C. (2020). Exploring identity through self-portraits in early childhood. Art Education, 73(4), 32-39.</li>
-                <li>Edwards, S. (2020). Musical play and self-regulation in toddlers. Journal of Early Childhood Research, 18(3), 221-235.</li>
-                <li>IKON Institute of Australia. (2023). Creative Pedagogies in Early Childhood Education.</li>
-                <li>Kelly, J. (2021). Sensory art experiences for infants and toddlers. Young Children, 76(2), 32-39.</li>
-                <li>Kim, K. H., & Lee, Y. (2022). Neuroeducational approaches to creativity development in early childhood. Early Education and Development, 33(4), 567-584.</li>
-                <li>McWilliams, M. S., & Bonna, C. (2021). Puppet play as a buffer for anxiety in young children. Early Childhood Education Journal, 49(4), 673-680.</li>
-                <li>Smith, J. (2022). Global art appreciation in primary education. International Journal of Art & Design Education, 41(2), 245-259.</li>
-                <li>Thompson, L. (2022). Improvisation as a tool for social-emotional development. Journal of Early Childhood Studies, 15(2), 178-192.</li>
-                <li>Thompson, R. (2021). Spatial reasoning through sculpture in preschool. Early Childhood Research Quarterly, 55, 112-125.</li>
-                <li>Wilson, K. (2023). Enhancing literacy through puppet scriptwriting. Literacy Research Journal, 48(1), 45-59.</li>
-                <li>Wright, S. (2021). Understanding creativity in early childhood (2nd ed.). SAGE Publications.</li>
-                <li>Zhang, M. (2022). Digital storytelling in elementary education. Journal of Educational Technology Systems, 50(4), 478-495.</li>
+                <li>Anders, G. (2021). *You can do anything: The surprising power of a "useless" liberal arts education*. Little, Brown and Company.</li>
+                <li>Australian Children's Education and Care Quality Authority. (n.d.). *Educators' guide to the Early Years Learning Framework for Australia*. ACECQA.</li>
+                <li>Australian Children's Education and Care Quality Authority. (2018). *Educators my time, our place*. ACECQA.</li>
+                <li>Australian Children's Education and Care Quality Authority. (2020). *Noticing and recording children's learning*. ACECQA.</li>
+                <li>Australian Children's Education and Care Quality Authority. (2023). *Belonging, being & becoming: The Early Years Learning Framework for Australia V2.0*. ACECQA.</li>
+                <li>Australian Curriculum, Assessment and Reporting Authority. (n.d.-a). *The Arts*. Australian Curriculum.</li>
+                <li>Australian Curriculum, Assessment and Reporting Authority. (n.d.-b). *General capabilities*. Australian Curriculum.</li>
+                <li>Australian Government Department of Education. (2022). *Belonging, being & becoming: The Early Years Learning Framework for Australia V2.0*. Australian Government.</li>
+                <li>Bandura, A. (1977). *Social learning theory*. Prentice Hall.</li>
+                <li>Department of Education, Employment and Workplace Relations. (2009). *Belonging, being and becoming: The Early Years Learning Framework for Australia*. Council of Australian Governments.</li>
+                <li>Dinham, J., & Chalk, B. (2018). *It's arts play: Young children belonging, being and becoming through the arts*. Oxford University Press.</li>
+                <li>Gardner, H. (1983). *Frames of mind: The theory of multiple intelligences*. Basic Books.</li>
+                <li>Gardner, H. (1999). *Intelligence reframed: Multiple intelligences for the 21st century*. Basic Books.</li>
+                <li>Gardner, H. (2011). *Frames of mind: The theory of multiple intelligences* (3rd ed.). Basic Books.</li>
+                <li>Gardner, H. (2013). *The unschooled mind: How children think and how schools should teach* (20th anniversary ed.). Basic Books.</li>
+                <li>Goldschmied, E., & Jackson, S. (2000). *People under three: Young children in day care*. Routledge.</li>
+                <li>Howard, J., & Mayesky, M. (2022). *Creative activities for young children* (12th ed.). Cengage Learning.</li>
+                <li>Isbell, R. T., & Akiko-Yoshizawa, S. (2020). *Nurturing creativity: An essential mindset for young children's learning*. National Association for the Education of Young Children.</li>
+                <li>Isbell, R. T., & Raines, S. C. (2013). *Creativity and the arts with young children* (3rd ed.). Pearson.</li>
+                <li>Ikon Institute of Australia. (n.d.-a). *Bachelor of Early Childhood Education*. Retrieved from https://ikon.edu.au/course/bachelor-of-early-childhood-education/</li>
+                <li>Ikon Institute of Australia. (n.d.-b). *Diploma of Early Childhood Education*. Retrieved from https://ikon.edu.au/course/diploma-of-early-childhood-education/</li>
+                <li>Mackenzie, N. M. (2011). From drawing to writing: What happens when you shift the focus? *Australian Journal of Language and Literacy*, *34*(3), 322–341.</li>
+                <li>McArdle, F., & Wright, S. (2014). First literacies: Art, creativity, and verbal-visual connections. In S. Wright (Ed.), *Children, meaning-making and the arts* (2nd ed., pp. 19-40). Pearson Australia.</li>
+                <li>Roy, D. (2014). Numeracy in the Arts. *Australian Primary Mathematics Classroom*, *19*(3), 12–16.</li>
+                <li>Russ, S. W. (1999). Play, creativity, and adaptive functioning: Implications for play interventions. *Journal of Clinical Child Psychology*, *28*(3), 304-312.</li>
+                <li>Vygotsky, L. S. (1930). *Imagination and creativity in childhood*.</li>
+                <li>Vygotsky, L. S. (1978). *Mind in society: The development of higher psychological processes*. Harvard University Press.</li>
+                <li>Vygotsky, L. S. (1987). *The collected works of L. S. Vygotsky: Vol. 1. Problems of general psychology*. Plenum Press.</li>
             </ul>
         </section>
+
     </div>
 
     <!-- Footer -->
@@ -1046,106 +892,324 @@
                 <a href="#curriculum">Curriculum</a>
                 <a href="#research">Research</a>
                 <a href="#references">References</a>
-                <a href="#">Professional Development</a>
             </div>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-researchgate"></i></a>
-                <a href="#"><i class="fab fa-google-scholar"></i></a>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Creative Curriculum - Academic Resource for Early Childhood Education</p>
-                <p>Developed by <span>ANMOL RAWAL</span> | Content reviewed by early childhood education specialists</p>
+                <p>&copy; 2025 Creative Curriculum - Academic Resource for Early Childhood Education</p>
+                <p>Developed with content from <span>IKON Institute of Australia</span> coursework</p>
             </div>
         </div>
     </footer>
 
+    <div id="modal-container"></div>
+
     <script>
+        const modalData = {
+            "art-modal": {
+                title: "Visual Arts: Process Over Product",
+                tabs: {
+                    importance: {
+                        title: "Importance",
+                        content: "<p>Visual arts in early childhood are fundamentally about the process, not the product. This focus on exploration and experimentation empowers children to become confident creators and communicators (ACECQA, 2023). When children are free to explore materials without a predetermined outcome, they develop critical thinking, problem-solving skills, and a strong sense of identity and agency (Maker, 2020). This approach directly supports the EYLF's vision of children as 'confident and involved learners', valuing their unique ways of expressing ideas and making meaning (AGDE, 2022).</p>"
+                    },
+                    theories: {
+                        title: "Theories & Perspectives",
+                        content: "<p>The Reggio Emilia philosophy profoundly influences contemporary arts education, viewing the arts as symbolic 'languages' that make children's thinking visible (Edwards et al., 2022). This aligns with sociocultural theories, which see art-making as a social practice where meaning is co-constructed (Robson, 2021). Educators facilitate this by providing rich materials and engaging in 'sustained shared thinking' with children about their creations. This process-oriented pedagogy respects children's intentions and fosters a climate of inquiry, which is essential for creative development (Fleet et al., 2021).</p>"
+                    },
+                    resources: {
+                        title: "Resources & Materials",
+                        content: "<p>An effective arts space, or 'atelier', is rich with open-ended and authentic materials that invite experimentation. This includes various paints, clays, and drawing tools, alongside collections of 'loose parts' like recycled items, natural materials, and fabric scraps (ACECQA, 2023). Digital technologies can extend creative possibilities, with tablets and apps like Procreate or Sketches School offering new ways to explore colour, layering, and design (Maker, 2020). The key is providing accessible, well-organised resources that empower children to make independent choices and pursue their creative ideas (AGDE, 2022).</p>"
+                    },
+                    experiences: {
+                        title: "Learning Experiences",
+                        content: `
+                            <div class="age-tabs">
+                                <div class="age-tab active" data-age="art-0-2">0-2 Years</div>
+                                <div class="age-tab" data-age="art-2-3">2-3 Years</div>
+                                <div class="age-tab" data-age="art-3-5">3-5 Years</div>
+                                <div class="age-tab" data-age="art-6-8">6-8 Years</div>
+                            </div>
+                            <div class="age-content active" id="art-0-2">
+                                <div class="activity"><h5>Sensory Painting</h5><p>Offer taste-safe, non-toxic materials like yogurt with food colouring, or 'fluffy paint' (shaving cream and paint), infants and toddlers explore colour and texture with their hands and bodies. The focus is on the sensory experience of touch, sight, and smell, allowing for early, joyful mark-making without the need for fine motor control (Howard & Mayesky, 2022; Isbell & Akiko-Yoshizawa, 2020).</p></div>
+                                <div class="activity"><h5>Heuristic Art with Loose Parts</h5><p>Provide a 'treasure basket' with large, safe, natural, and recycled objects. Infants can arrange, stack, and explore these items, engaging in early forms of composition and aesthetic exploration without pressure to create a product (Goldschmied & Jackson, 2000).</p></div>
+                            </div>
+                            <div class="age-content" id="art-2-3">
+                                <div class="activity"><h5>Junk Art Sculptures</h5><p>A collection of clean, safe recycled materials (cardboard boxes, plastic bottles, fabric scraps, lids) is provided. Children are invited to construct three-dimensional art, exploring concepts of balance, connection, form, and spatial awareness. This fosters problem-solving and the imaginative transformation of everyday objects (Dinham & Chalk, 2018; McArdle & Wright, 2014).</p></div>
+                                <div class="activity"><h5>Nature Weaving and Mandalas</h5><p>Children collect natural materials (leaves, flowers, sticks, seed pods) on a nature walk. They can then use these items to weave on a simple loom or create transient, circular patterns known as mandalas on the ground. This develops fine motor skills, pattern recognition, and aesthetic awareness (Dinham & Chalk, 2018; Isbell & Raines, 2013).</p></div>
+                            </div>
+                            <div class="age-content" id="art-3-5">
+                                <div class="activity"><h5>Digital Art & Story Illustration</h5><p>Using tablets and age-appropriate applications like Procreate, Sketches School, or Book Creator, children explore digital art tools such as brushes, layers, and colour palettes. They can illustrate a story they have written, create a digital self-portrait, or experiment with abstract designs (Howard, J., & Mayesky, 2022; Mackenzie, 2011).</p></div>
+                                <div class="activity"><h5>Stop-Motion Animation</h5><p>Using clay, LEGO, or drawings, children create a simple stop-motion animation with a tablet and an app like Stop Motion Studio. This complex task integrates storytelling, planning, collaboration, and technological skills (Australian Curriculum, Assessment and Reporting Authority, n.d.-a; Roy, 2014).</p></div>
+                            </div>
+                        `
+                    }
+                }
+            },
+            "drama-modal": {
+                title: "Drama & Puppetry: Embodying Stories",
+                tabs: {
+                    importance: {
+                        title: "Importance",
+                        content: "<p>Imaginative and dramatic play is a cornerstone of early childhood development, serving as a powerful tool for cognitive, social, and emotional growth (Howard, J., & Mayesky, 2022). Through role-playing, children experiment with real-life situations, develop empathy by seeing the world from different perspectives, and enhance their language and storytelling skills (Bandura, 1977; Howard, J., & Mayesky, 2022). Puppetry provides an exceptional medium for this exploration, acting as a safe intermediary that allows children to express complex thoughts and feelings, negotiate social scenarios, and build confidence in communication (Anders, 2021; Howard, J., & Mayesky, 2022; Isbell & Akiko-Yoshizawa, 2020).</p>"
+                    },
+                    theories: {
+                        title: "Theories & Perspectives",
+                        content: "<p>Dramatic play is central to Vygotsky's sociocultural theory, which posits that children advance their cognitive and social development by taking on roles and acting out scenarios in imaginative play (Vygotsky, 1978). The Reggio Emilia approach sees dramatic play as one of the 'hundred languages,' a vital way for children to represent their understanding of the world. Puppetry, in particular, can be seen as a form of symbolic representation and communication.</p>"
+                    },
+                    resources: {
+                        title: "Resources & Materials",
+                        content: "<p>A well-stocked dramatic play area is essential. This should include a versatile collection of open-ended props, costumes (scarves, hats, lengths of fabric), and a variety of puppets (hand, finger, sock puppets). A simple puppet theatre can be made from a large cardboard box or a sheet draped over a table. Digital technologies like Puppet Pals or Toontastic 3D allow children to create their own animated plays, recording their voices and creating stories (Howard, J., & Mayesky, 2022).</p>"
+                    },
+                    experiences: {
+                        title: "Learning Experiences",
+                        content: `
+                            <div class="age-tabs">
+                                <div class="age-tab active" data-age="drama-0-2">0-2 Years</div>
+                                <div class="age-tab" data-age="drama-2-3">2-3 Years</div>
+                                <div class="age-tab" data-age="drama-3-5">3-5 Years</div>
+                                <div class="age-tab" data-age="drama-6-8">6-8 Years</div>
+                            </div>
+                            <div class="age-content active" id="drama-0-2">
+                                <div class="activity"><h5>Sensory Puppet Play</h5><p>An educator uses simple, brightly coloured hand or finger puppets with varied textures. The puppet can sing familiar songs, play peek-a-boo, or gently tickle the infant's hands and feet. This interaction builds early communication skills, develops an understanding of object permanence, and provides positive sensory input (Howard, J., & Mayesky, 2022; Isbell & Akiko-Yoshizawa, 2020).</p></div>
+                                <div class="activity"><h5>Peek-a-Boo with Scarves</h5><p>Using large, colourful, and lightweight scarves, educators play peek-a-boo games with infants. This simple dramatic interaction builds object permanence and social reciprocity, and the sensory input of the scarf provides a delightful tactile experience (Goldschmied & Jackson, 2000).</p></div>
+                            </div>
+                            <div class="age-content" id="drama-2-3">
+                                <div class="activity"><h5>Simple Prop Role-Play</h5><p>A simple themed area is established (e.g., a home corner, a doctor's office, a construction site) with familiar props. Children use simple hand puppets or dress-ups to imitate and act out everyday scenarios they have observed. This develops expressive language, social negotiation skills, and symbolic thinking (Bandura, 1977; Howard, J., & Mayesky, 2022).</p></div>
+                                <div class="activity"><h5>Puppet Conversations</h5><p>An educator uses a puppet to initiate simple conversations with toddlers, asking questions like 'Are you feeling happy today?' or 'What did you have for breakfast?'. The puppet provides a non-threatening conversational partner, encouraging toddlers to practice their language skills (Anders, 2021; Howard, J., & Mayesky, 2022).</p></div>
+                            </div>
+                             <div class="age-content" id="drama-3-5">
+                                <div class="activity"><h5>Collaborative Puppet Story Creation</h5><p>Children create their own puppets from simple materials like socks, paper bags, or paddle-pop sticks. In small groups, they are supported to devise a simple story with a clear beginning, middle, and end, which they then perform for their peers using their puppets. This process fosters narrative skills, collaboration, and public speaking confidence (Howard, J., & Mayesky, 2022; Isbell & Akiko-Yoshizawa, 2020).</p></div>
+                                <div class="activity"><h5>Story Re-enactment</h5><p>After reading a familiar story, provide props and costumes for children to act it out. This deepens their comprehension of the narrative, characters, and sequence of events, and allows them to creatively interpret the story in their own way (Bandura, 1977).</p></div>
+                            </div>
+                            <div class="age-content" id="drama-6-8">
+                                <div class="activity"><h5>Improvisation Games</h5><p>Educators introduce simple, structured improvisation games like 'Freeze' or 'One Word Story'. These games develop spontaneous creative thinking, active listening, teamwork, and confidence in performance without the pressure of a script (Australian Curriculum, Assessment and Reporting Authority, n.d.-a; Australian Curriculum, Assessment and Reporting Authority, n.d.-b).</p></div>
+                                <div class="activity"><h5>Creating a Play Script</h5><p>In small groups, children can write a short, simple play script based on a shared experience or a familiar story. They then assign roles and perform the play for their peers. This integrates creative writing, collaboration, and performance skills (Australian Curriculum, Assessment and Reporting Authority, n.d.-b).</p></div>
+                            </div>
+                        `
+                    }
+                }
+            },
+            "music-modal": {
+                title: "Movement & Music",
+                tabs: {
+                    importance: { title: "Importance", content: "<p>Music and movement are fundamental forms of human expression and powerful tools for learning (Howard, J., & Mayesky, 2022). Engaging in rhythmic activities, dance, and music exploration allows children to express themselves freely, build physical coordination, and develop confidence. These experiences contribute significantly to cognitive, social, and emotional development by providing opportunities for children to interact with peers, respond to different auditory stimuli, and develop spatial awareness (Howard, J., & Mayesky, 2022).</p>" },
+                    theories: { title: "Theories & Perspectives", content: "<p>Gardner’s theory of multiple intelligences directly identifies both Bodily-Kinesthetic and Musical intelligences as distinct cognitive capacities (Gardner, 1983). From a Vygotskian perspective, shared musical experiences, such as singing and dancing together, are powerful social activities that build a sense of community and allow for collaborative creation. The Reggio Emilia approach views music and movement as vital 'languages' through which children can express ideas and emotions that cannot be captured in words alone.</p>" },
+                    resources: { title: "Resources & Materials", content: "<p>A rich auditory environment is key, with access to diverse music genres from various cultures. A collection of simple percussion instruments (shakers, drums, bells) should be readily available for exploration. Props like colourful scarves, ribbons, and streamers encourage expressive movement. For digital engagement, apps like GarageBand or Chrome Music Lab offer intuitive ways for children to experiment with creating sounds and rhythms (Howard, J., & Mayesky, 2022).</p>" },
+                    experiences: { title: "Learning Experiences", content: `
+                        <div class="age-tabs">
+                            <div class="age-tab active" data-age="music-0-2">0-2 Years</div><div class="age-tab" data-age="music-2-3">2-3 Years</div><div class="age-tab" data-age="music-3-5">3-5 Years</div><div class="age-tab" data-age="music-6-8">6-8 Years</div>
+                        </div>
+                        <div class="age-content active" id="music-0-2"><div class="activity"><h5>Rhythmic Bouncing and Tapping</h5><p>Educators hold infants securely and bounce them gently to the beat of music, sing lullabies, or tap simple rhythms on their backs. This develops an early, embodied sense of beat and enhances body awareness (Howard, J., & Mayesky, 2022).</p></div><div class="activity"><h5>Instrument Exploration</h5><p>Provide safe, age-appropriate instruments like shakers, rattles, or small drums. Infants can explore the different sounds they can make through shaking, tapping, and banging, learning about cause and effect (Goldschmied & Jackson, 2000).</p></div></div>
+                        <div class="age-content" id="music-2-3"><div class="activity"><h5>Action Songs and Animal Movements</h5><p>Educators lead action songs like 'If You're Happy and You Know It' or encourage toddlers to move like different animals. This develops gross motor skills, coordination, and imaginative expression (Howard, J., & Mayesky, 2022; Department of Education, Employment and Workplace Relations, 2009).</p></div><div class="activity"><h5>Scarf Dancing</h5><p>Provide lightweight scarves and play a variety of music with different tempos. Toddlers can explore how the scarves move as they dance, wave, and twirl, developing gross motor skills and creative expression (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="music-3-5"><div class="activity"><h5>Paint to Music</h5><p>Children are provided with large paper and paints while different genres of music are played. They are encouraged to paint based on how the sounds make them feel. This activity fosters emotional expression and abstract thinking (Dinham & Chalk, 2018).</p></div><div class="activity"><h5>Making Instruments</h5><p>Using recycled materials like boxes, rubber bands, and paper plates with rice inside, children can design and create their own simple musical instruments. This integrates design thinking, science of sound, and musical creativity (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="music-6-8"><div class="activity"><h5>Group Choreography and Composition</h5><p>In small groups, children choose a favourite song and create their own simple dance routine. Alternatively, using simple percussion instruments or music-making apps, they can compose a short piece of music. This encourages creative collaboration and pattern recognition (Australian Curriculum, Assessment and Reporting Authority, n.d.-a; Howard, J., & Mayesky, 2022).</p></div><div class="activity"><h5>Music and Emotion</h5><p>Play short clips of music with very different moods. Children can discuss how the music makes them feel and what it makes them think of, or they can respond through movement or drawing. This builds emotional literacy (Howard, J., & Mayesky, 2022).</p></div></div>
+                    `}
+                }
+            },
+            "literacy-modal": {
+                title: "Language & Literacy",
+                tabs: {
+                    importance: { title: "Importance", content: "<p>Creativity is the lifeblood of language and literacy. It is through creative expression that children learn to play with words, construct narratives, and make meaning of their world. A creative approach to literacy fosters a genuine love of language and empowers children to see themselves as competent authors and communicators. Digital tools have opened up new avenues for creative literacy, allowing children to produce their own multimedia stories.</p>" },
+                    theories: { title: "Theories & Perspectives", content: "<p>Vygotsky's theory is paramount here, as he saw language as the primary tool for thought and social interaction (Vygotsky, 1978). Gardner's Linguistic-Verbal intelligence is directly nurtured through rich literary experiences (Gardner, 1983). The Reggio Emilia philosophy values storytelling and documentation as ways to make learning visible, viewing children's narratives as important theories about the world.</p>" },
+                    resources: { title: "Resources & Materials", content: "<p>A high-quality, diverse classroom library with a range of genres is fundamental. Props for storytelling, such as puppets, felt boards, and 'story stones,' provide tangible prompts for narrative creation. Writing materials should be varied and accessible. Digital tools like Book Creator, Puppet Pals, or StoryBox Library enable children to become digital authors (Howard, J., & Mayesky, 2022).</p>" },
+                    experiences: { title: "Learning Experiences", content: `
+                        <div class="age-tabs">
+                            <div class="age-tab active" data-age="lit-0-2">0-2 Years</div><div class="age-tab" data-age="lit-2-3">2-3 Years</div><div class="age-tab" data-age="lit-3-5">3-5 Years</div><div class="age-tab" data-age="lit-6-8">6-8 Years</div>
+                        </div>
+                        <div class="age-content active" id="lit-0-2"><div class="activity"><h5>Interactive Rhymes and Fingerplays</h5><p>Educators engage infants and toddlers with traditional nursery rhymes and fingerplays. The combination of rhythmic language, predictable patterns, and physical touch stimulates early language acquisition (Goldschmied & Jackson, 2000; Howard, J., & Mayesky, 2022).</p></div><div class="activity"><h5>Dialogic Reading</h5><p>When sharing board books, educators can go beyond reading the text, pointing to pictures and asking simple questions. This turns reading into a conversation, building vocabulary and interaction skills (Department of Education, Employment and Workplace Relations, 2009).</p></div></div>
+                        <div class="age-content" id="lit-2-3"><div class="activity"><h5>Story Stones</h5><p>Smooth, flat stones are painted or decorated with simple images. Children select stones from a bag and use the images as prompts to create a simple, collaborative story. This encourages vocabulary development and imaginative thinking (Isbell & Raines, 2013).</p></div><div class="activity"><h5>Environmental Print Hunt</h5><p>Go for a walk and help toddlers spot and 'read' familiar signs and logos in the environment. This helps them understand that print carries meaning (Department of Education, Employment and Workplace Relations, 2009).</p></div></div>
+                        <div class="age-content" id="lit-3-5"><div class="activity"><h5>Creating an 'All About Me' Book</h5><p>Each child creates their own simple book with pages like 'My name is...', 'My favourite food is...'. They can draw, paste pictures, or dictate text to an educator. This validates their personal identity while engaging them in a meaningful literacy process (Isbell & Raines, 2013).</p></div><div class="activity"><h5>Scribing Stories</h5><p>Encourage children to tell a story while an educator writes it down verbatim. Reading the story back to the child shows them that their spoken words can be turned into written text, a foundational literacy concept (Department of Education, Employment and Workplace Relations, 2009).</p></div></div>
+                        <div class="age-content" id="lit-6-8"><div class="activity"><h5>Digital Storytelling</h5><p>Using apps like Puppet Pals or StoryBox Library, children create their own animated stories or digital books. This integrates literacy with digital skills, fostering creativity in a contemporary medium (Howard, J., & Mayesky, 2022).</p></div><div class="activity"><h5>Poetry and Word Play</h5><p>Introduce children to different forms of poetry, like acrostics or haikus. Encourage them to play with words, creating rhymes, alliteration, and metaphors. This builds a sophisticated appreciation for the creative potential of language (Australian Curriculum, Assessment and Reporting Authority, n.d.-b).</p></div></div>
+                    `}
+                }
+            },
+            "maths-modal": {
+                title: "Mathematics & Numeracy",
+                tabs: {
+                    importance: { title: "Importance", content: "<p>Creativity in mathematics is about more than finding a single correct answer; it is about flexible thinking, pattern recognition, and innovative problem-solving. When children explore mathematical concepts through hands-on, playful experiences, they develop a positive disposition towards numeracy and see it as a creative and dynamic field. Activities that involve building, sorting, mapping, and designing allow children to engage with concepts like geometry, measurement, and spatial reasoning in a meaningful context.</p>" },
+                    theories: { title: "Theories & Perspectives", content: "<p>Gardner’s Logical-Mathematical intelligence is the ability to think conceptually and abstractly, and to discern logical or numerical patterns (Gardner, 1983). Vygotsky’s theory applies when educators scaffold mathematical thinking during play, introducing mathematical language to help children articulate their discoveries. The Reggio Emilia approach emphasizes making mathematical thinking visible, for example, by documenting the geometric structures children create with blocks.</p>" },
+                    resources: { title: "Resources & Materials", content: "<p>A rich supply of open-ended materials is crucial. This includes unit blocks, a wide variety of 'loose parts' for sorting and patterning, and measuring tools. Sand and water play offer rich opportunities for exploring volume and capacity. For digital engagement, apps like Bedtime Math or games from the NRICH project provide creative mathematical problems. Board games and card games are also excellent resources for developing strategic thinking and number sense (Howard, J., & Mayesky, 2022).</p>" },
+                    experiences: { title: "Learning Experiences", content: `
+                        <div class="age-tabs">
+                            <div class="age-tab active" data-age="maths-0-2">0-2 Years</div><div class="age-tab" data-age="maths-2-3">2-3 Years</div><div class="age-tab" data-age="maths-3-5">3-5 Years</div><div class="age-tab" data-age="maths-6-8">6-8 Years</div>
+                        </div>
+                        <div class="age-content active" id="maths-0-2"><div class="activity"><h5>Loose Parts and Container Play</h5><p>Infants are provided with a variety of safe, large loose parts and containers of different sizes. They explore concepts of full/empty, in/out, and one-to-one correspondence as they fill, dump, and sort. This is foundational, hands-on mathematical exploration (Goldschmied & Jackson, 2000).</p></div><div class="activity"><h5>Stacking and Nesting</h5><p>Provide nesting cups or stacking rings. Infants explore concepts of size, order, and spatial relationships as they figure out how to fit the objects together. This is early problem-solving and geometric thinking (Goldschmied & Jackson, 2000).</p></div></div>
+                        <div class="age-content" id="maths-2-3"><div class="activity"><h5>Block Building and Construction</h5><p>With a large collection of blocks, toddlers build towers, enclosures, and roads. They creatively solve problems related to balance, stability, and structure. Educators can introduce mathematical language by commenting on 'taller,' 'shorter,' 'longer,' and the names of shapes (Howard, J., & Mayesky, 2022).</p></div><div class="activity"><h5>Sorting Collections</h5><p>Provide a mixed collection of interesting objects and encourage toddlers to sort them. They might sort by colour, size, or shape, creating their own categories and demonstrating early classification skills (Dinham & Chalk, 2018).</p></div></div>
+                        <div class="age-content" id="maths-3-5"><div class="activity"><h5>Creative Pattern Making</h5><p>Using a variety of materials like coloured beads, tiles, leaves, or buttons, children create their own repeating patterns. This activity fosters an understanding of algebraic thinking and aesthetic design (Dinham & Chalk, 2018; Gardner, 1999).</p></div><div class="activity"><h5>Cooking and Baking</h5><p>Following a simple visual recipe involves counting, measuring, and observing transformation. This is a practical and delicious way to engage with mathematical concepts (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="maths-6-8"><div class="activity"><h5>Mapping the Playground</h5><p>Children work together to create a map of their playground. They must creatively solve problems of scale, perspective, and symbolic representation. This integrates spatial reasoning, measurement, and symbolic thinking (Australian Curriculum, Assessment and Reporting Authority, n.d.-b; Roy, 2014).</p></div><div class="activity"><h5>Data Collection and Graphing</h5><p>Pose a question like 'What is our class's favourite fruit?'. Children can survey their peers, collect the data, and then creatively decide how to represent it visually, for example, by creating a pictograph or a real-life graph with the actual fruit (Australian Curriculum, Assessment and Reporting Authority, n.d.-b).</p></div></div>
+                    `}
+                }
+            },
+            "hass-modal": {
+                title: "Humanities & Social Sciences",
+                tabs: {
+                    importance: { title: "Importance", content: "<p>Creativity in HASS involves imagining the past, envisioning different futures, and exploring the diverse ways people live and interact. Through dramatic play, storytelling, and construction, children can explore different cultural perspectives, understand community roles, and develop a sense of their own place in the world. These creative approaches help make abstract concepts like history, geography, and civics tangible and meaningful for young learners.</p>" },
+                    theories: { title: "Theories & Perspectives", content: "<p>HASS is deeply connected to Gardner's Interpersonal and Intrapersonal intelligences, as it involves understanding others and one's own identity within a social context (Gardner, 2011; Gardner, 2013). Vygotsky's sociocultural theory is fundamental, as HASS learning is about understanding the cultural tools, symbols, and social structures of one's community. The Reggio Emilia approach, with its emphasis on children as citizens with rights, strongly aligns with the civics and citizenship strand of HASS.</p>" },
+                    resources: { title: "Resources & Materials", content: "<p>A rich collection of books, photos, and artefacts that represent diverse cultures, families, and communities is essential. Maps, globes, and construction materials like large cardboard boxes and blocks allow children to explore geographical and architectural concepts. A well-resourced dramatic play area is vital. Inviting families and community members to share their stories, skills, and cultural traditions is one of the most powerful resources available (Isbell & Raines, 2013).</p>" },
+                    experiences: { title: "Learning Experiences", content: `
+                        <div class="age-tabs">
+                            <div class="age-tab active" data-age="hass-0-2">0-2 Years</div><div class="age-tab" data-age="hass-2-3">2-3 Years</div><div class="age-tab" data-age="hass-3-5">3-5 Years</div><div class="age-tab" data-age="hass-6-8">6-8 Years</div>
+                        </div>
+                        <div class="age-content active" id="hass-0-2"><div class="activity"><h5>Family Photo Exploration</h5><p>Create simple, durable books or displays with photos of the children's families. Educators can sit with infants and toddlers, pointing to familiar faces and naming them. This builds a sense of belonging and an early understanding of family structures (Isbell & Raines, 2013).</p></div><div class="activity"><h5>Cultural Music and Songs</h5><p>Play music and sing songs from the different cultures represented in the classroom and the wider community. This provides a joyful, sensory introduction to cultural diversity (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="hass-2-3"><div class="activity"><h5>Community Helper Dress-Ups</h5><p>A dress-up area is stocked with props and costumes representing various community helpers. Children engage in role-play, creatively exploring the functions and responsibilities of these important community members (Howard, J., & Mayesky, 2022; Goldschmied & Jackson, 2000).</p></div><div class="activity"><h5>Cooking Global Foods</h5><p>With help from families, cook a simple dish from another culture. This multi-sensory experience introduces children to different traditions and tastes, fostering an appreciation for diversity (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="hass-3-5"><div class="activity"><h5>Building a City</h5><p>Using large cardboard boxes, blocks, and other materials, children work collaboratively to design and build a model of a city or their local community. They must negotiate roles, plan spaces, and creatively represent their understanding of how a community functions (Gardner, 1999; Howard, J., & Mayesky, 2022).</p></div><div class="activity"><h5>Celebrating Festivals</h5><p>Learn about and celebrate a festival from a culture represented in the room (e.g., Diwali, Lunar New Year). This could involve making traditional crafts, tasting special foods, or listening to stories related to the celebration (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="hass-6-8"><div class="activity"><h5>Creating a Timeline</h5><p>To explore the concept of history, children create a personal timeline of their own lives with photos and drawings. They can then work together to create a timeline of a historical event or the history of their school, using creative problem-solving to represent the passage of time visually (Australian Curriculum, Assessment and Reporting Authority, n.d.-b; Roy, 2014).</p></div><div class="activity"><h5>Classroom 'Government'</h5><p>Children can work together to create a simple set of classroom rules or rights. They can vote on decisions, take on roles, and solve problems collaboratively. This is a practical, creative introduction to civics and citizenship (Australian Curriculum, Assessment and Reporting Authority, n.d.-b).</p></div></div>
+                    `}
+                }
+            },
+            "science-modal": {
+                title: "Science & Technologies",
+                tabs: {
+                    importance: { title: "Importance", content: "<p>Creativity is at the heart of scientific inquiry and technological innovation. It is the ability to ask 'what if?', to hypothesise, to design experiments, and to invent new solutions. For young children, science and technology are not about memorising facts but about hands-on, playful exploration of the natural and physical world. Creative approaches allow children to act as scientists and engineers, constructing their own understanding through experimentation and design.</p>" },
+                    theories: { title: "Theories & Perspectives", content: "<p>Scientific exploration aligns with Gardner's Naturalistic and Logical-Mathematical intelligences (Gardner, 1999). The process of inquiry—observing, hypothesising, testing, and refining ideas—is a creative cycle of thinking. This process is deeply Vygotskian, especially when children collaborate on experiments and use language to debate their theories and findings. The Reggio Emilia approach views children as natural researchers, and long-term projects often have a strong scientific focus.</p>" },
+                    resources: { title: "Resources & Materials", content: "<p>An effective science and technology space is filled with materials for investigation. This includes magnifying glasses, magnets, ramps, and collections of natural materials. A sand and water table is a fundamental resource for exploring physics concepts. A 'tinkering table' with old appliances (safely de-energized), screwdrivers, and other tools allows for deconstruction and invention. Digital technologies like tablets can be used for research, documenting experiments, or using apps like a digital microscope (Howard, J., & Mayesky, 2022).</p>" },
+                    experiences: { title: "Learning Experiences", content: `
+                        <div class="age-tabs">
+                            <div class="age-tab active" data-age="sci-0-2">0-2 Years</div><div class="age-tab" data-age="sci-2-3">2-3 Years</div><div class="age-tab" data-age="sci-3-5">3-5 Years</div><div class="age-tab" data-age="sci-6-8">6-8 Years</div>
+                        </div>
+                        <div class="age-content active" id="sci-0-2"><div class="activity"><h5>Sensory Nature Exploration</h5><p>Provide a 'treasure basket' with a variety of natural materials for infants to explore safely. They use their senses to learn about texture, smell, and shape, forming the foundations of scientific observation (Goldschmied & Jackson, 2000).</p></div><div class="activity"><h5>Cause and Effect Toys</h5><p>Provide toys where a simple action creates a clear reaction, like a pop-up toy or a ball run. This helps infants learn about cause and effect, a fundamental scientific principle (Goldschmied & Jackson, 2000; Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="sci-2-3"><div class="activity"><h5>Water and Sand Play</h5><p>In a sandpit or water trough, provide tools like funnels, pipes, and containers. Toddlers creatively explore concepts of physics like gravity, flow, and volume as they pour, channel, and build. This is open-ended, child-led scientific experimentation (Goldschmied & Jackson, 2000; Isbell & Raines, 2013).</p></div><div class="activity"><h5>Ramp Exploration</h5><p>Provide lengths of cardboard tubing or wooden planks and a variety of objects to roll down them. Toddlers can experiment with changing the angle of the ramp and predicting which objects will roll fastest, exploring concepts of gravity and motion (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="sci-3-5"><div class="activity"><h5>Art and Science Fusions</h5><p>Children engage in activities that blend art with scientific principles. Examples include 'Bubble Painting' (mixing paint with bubble solution to explore surface tension) or 'Salt Painting' (using salt, glue, and watercolour to observe absorption) (Dinham & Chalk, 2018; McArdle & Wright, 2014).</p></div><div class="activity"><h5>Gardening and Composting</h5><p>Planting seeds and caring for a garden allows children to observe life cycles firsthand. A worm farm or compost bin provides a fascinating look at decomposition and ecosystems (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="sci-6-8"><div class="activity"><h5>Design and Build Challenge</h5><p>Children are presented with a simple engineering challenge, such as 'Design a boat that can float and hold ten marbles' or 'Build the tallest tower using only paper and tape.' They must work collaboratively to design, test, and refine their creations (Australian Curriculum, Assessment and Reporting Authority, n.d.-b).</p></div><div class="activity"><h5>Simple Coding</h5><p>Using tools like Bee-Bots or ScratchJr, children can learn the basics of coding by programming a character or robot to follow a sequence of commands. This develops logical thinking, problem-solving, and digital literacy in a creative context (Howard, J., & Mayesky, 2022).</p></div></div>
+                    `}
+                }
+            },
+            "integrated-modal": {
+                title: "Integrated Approaches: STEAM",
+                tabs: {
+                    importance: { title: "Importance", content: "<p>Integrated approaches like STEAM (Science, Technology, Engineering, Arts, and Maths) reflect how learning naturally occurs in the real world. The EYLF is an integrated framework itself, and these approaches provide a useful lens for educators to plan and document the rich, cross-curricular learning that happens in play-based environments. Adding the 'A' for Arts to STEM is critical, as it explicitly values the creative thinking, communication, and problem-solving skills that are essential for innovation.</p>" },
+                    theories: { title: "Theories & Perspectives", content: "<p>Project-based learning, a cornerstone of integrated approaches, is deeply aligned with sociocultural and constructivist theories. Children construct deep knowledge as they work collaboratively over time to investigate a topic of genuine interest. This method embodies the EYLF principles by positioning children as capable and competent learners who can lead complex inquiries.</p>" },
+                    resources: { title: "Resources & Materials", content: "<p>The resources for integrated learning are the same open-ended materials found throughout a quality early learning environment. The most important resource is time: long, uninterrupted blocks of time for children to become deeply engaged in their projects. Another key resource is documentation. Using tools like floorbooks, display panels, or digital platforms like Storypark allows educators and children to make the learning journey visible, reflect on progress, and plan the next steps in their inquiry.</p>" },
+                    experiences: { title: "Learning Experiences", content: `
+                        <div class="age-tabs">
+                            <div class="age-tab active" data-age="int-0-2">0-2 Years</div><div class="age-tab" data-age="int-2-3">2-3 Years</div><div class="age-tab" data-age="int-3-5">3-5 Years</div><div class="age-tab" data-age="int-6-8">6-8 Years</div>
+                        </div>
+                        <div class="age-content active" id="int-0-2"><div class="activity"><h5>Heuristic Play with 'Loose Parts'</h5><p>Provide collections of everyday objects (treasure baskets) for infants to explore. This single activity integrates science (sensory properties), maths (sorting, filling), engineering (stacking), and art (arranging), all driven by the child's curiosity (Goldschmied & Jackson, 2000).</p></div><div class="activity"><h5>Body-Art Exploration</h5><p>Using taste-safe paint on a large surface, infants use their whole bodies to paint. This integrates art (colour, texture), science (cause and effect), and movement (gross motor skills) in a single, joyful experience (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="int-2-3"><div class="activity"><h5>Box Construction</h5><p>Provide a variety of large and small cardboard boxes, tape, and markers. Children can build whatever they imagine—a car, a house, a robot. This integrates engineering, maths, art, and literacy (Howard, J., & Mayesky, 2022).</p></div><div class="activity"><h5>Cooking Together</h5><p>Making something simple like fruit salad or playdough integrates science, maths, literacy, and technology (using kitchen tools) (Howard, J., & Mayesky, 2022).</p></div></div>
+                        <div class="age-content" id="int-3-5"><div class="activity"><h5>Exploring Light and Shadow</h5><p>This project integrates science (how shadows form), technology (using torches), engineering (building a puppet theatre), art (making shadow puppets), and maths (measuring shadows). It is a classic example of an emergent, integrated project (Dinham & Chalk, 2018).</p></div><div class="activity"><h5>Designing a Fairy Garden</h5><p>Children can design and build a miniature garden in a corner of the playground. This involves science (what plants need), engineering (building tiny houses), art (aesthetics), and literacy (writing stories about the garden's inhabitants) (Isbell & Raines, 2013).</p></div></div>
+                        <div class="age-content" id="int-6-8"><div class="activity"><h5>Creating a Rube Goldberg Machine</h5><p>Challenge children to build a complex machine to perform a simple task. This is a fun, chaotic, and deeply engaging activity that integrates engineering, physics, problem-solving, and creative design (Australian Curriculum, Assessment and Reporting Authority, n.d.-b).</p></div><div class="activity"><h5>Classroom Newspaper/Blog</h5><p>Children can work together to produce a regular news update for families. This integrates literacy, technology, HASS, and art (Australian Curriculum, Assessment and Reporting Authority, n.d.-b; Howard, J., & Mayesky, 2022).</p></div></div>
+                    `}
+                }
+            }
+        };
+
         // Modal functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const modalContainer = document.getElementById('modal-container');
+
+            function createModal(modalId, data) {
+                let tabsHTML = '';
+                let contentHTML = '';
+                let isFirstTab = true;
+
+                for (const [tabKey, tabData] of Object.entries(data.tabs)) {
+                    const activeClass = isFirstTab ? 'active' : '';
+                    tabsHTML += `<div class="modal-tab ${activeClass}" data-tab="${modalId}-${tabKey}">${tabData.title}</div>`;
+                    contentHTML += `<div class="modal-section tab-content ${activeClass}" id="${modalId}-${tabKey}"><h4>${tabData.title}</h4>${tabData.content}</div>`;
+                    isFirstTab = false;
+                }
+
+                const modalHTML = `
+                    <div class="modal-overlay" id="${modalId}">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>${data.title}</h3>
+                                <button class="close-modal">&times;</button>
+                            </div>
+                            <div class="modal-tabs">${tabsHTML}</div>
+                            <div class="modal-body">${contentHTML}</div>
+                        </div>
+                    </div>
+                `;
+                modalContainer.innerHTML += modalHTML;
+            }
+
+            for (const [modalId, data] of Object.entries(modalData)) {
+                createModal(modalId, data);
+            }
+            
             const curriculumCards = document.querySelectorAll('.curriculum-card');
             const modals = document.querySelectorAll('.modal-overlay');
-            const closeButtons = document.querySelectorAll('.close-modal');
             
-            // Open modal when card is clicked
             curriculumCards.forEach(card => {
                 card.addEventListener('click', () => {
                     const modalId = card.getAttribute('data-modal');
-                    document.getElementById(modalId).classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            
-            // Close modal
-            closeButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    modals.forEach(modal => modal.classList.remove('active'));
-                    document.body.style.overflow = '';
-                });
-            });
-            
-            // Close when clicking outside modal
-            modals.forEach(modal => {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        modal.classList.remove('active');
-                        document.body.style.overflow = '';
+                    if(modalId) {
+                        const modal = document.getElementById(modalId);
+                        if(modal) {
+                            modal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
                     }
                 });
             });
             
-            // Modal tabs functionality
-            const modalTabs = document.querySelectorAll('.modal-tab');
+            function closeModal(modal) {
+                modal.classList.remove('active');
+                if (!document.querySelector('.modal-overlay.active')) {
+                    document.body.style.overflow = '';
+                }
+            }
+
+            modals.forEach(modal => {
+                const closeButton = modal.querySelector('.close-modal');
+                if(closeButton) {
+                    closeButton.addEventListener('click', () => closeModal(modal));
+                }
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal(modal);
+                    }
+                });
+            });
             
+            const modalTabs = document.querySelectorAll('.modal-tab');
             modalTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const modal = tab.closest('.modal-overlay');
                     const tabContainer = tab.parentElement;
                     const tabId = tab.getAttribute('data-tab');
                     
-                    // Remove active class from all tabs in this container
-                    tabContainer.querySelectorAll('.modal-tab').forEach(t => {
-                        t.classList.remove('active');
-                    });
-                    
-                    // Add active class to clicked tab
+                    if (tabContainer) {
+                        tabContainer.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+                    }
                     tab.classList.add('active');
                     
-                    // Hide all content in this modal
-                    modal.querySelectorAll('.tab-content').forEach(content => {
-                        content.classList.remove('active');
-                    });
-                    
-                    // Show corresponding content
-                    document.getElementById(tabId).classList.add('active');
+                    if(modal) {
+                        modal.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    }
+                    const activeContent = document.getElementById(tabId);
+                    if(activeContent) {
+                        activeContent.classList.add('active');
+                    }
                 });
             });
             
-            // Age tabs functionality inside modals
             const ageTabs = document.querySelectorAll('.age-tab');
-            
             ageTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    const modal = tab.closest('.modal-overlay');
-                    const tabContainer = tab.parentElement;
+                    const experiencesContainer = tab.closest('.modal-section');
+                    if (!experiencesContainer) return;
+
                     const contentId = tab.getAttribute('data-age');
                     
-                    // Remove active class from all tabs in this container
-                    tabContainer.querySelectorAll('.age-tab').forEach(t => {
+                    experiencesContainer.querySelectorAll('.age-tab').forEach(t => {
                         t.classList.remove('active');
                     });
-                    
-                    // Add active class to clicked tab
                     tab.classList.add('active');
                     
-                    // Hide all content in this modal
-                    modal.querySelectorAll('.age-content').forEach(content => {
+                    experiencesContainer.querySelectorAll('.age-content').forEach(content => {
                         content.classList.remove('active');
                     });
                     
-                    // Show corresponding content
-                    document.getElementById(contentId).classList.add('active');
+                    const contentToShow = experiencesContainer.querySelector('#' + contentId);
+                    if (contentToShow) {
+                        contentToShow.classList.add('active');
+                    }
                 });
             });
         });
