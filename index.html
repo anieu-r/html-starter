@@ -1,972 +1,528 @@
-bash
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Children, Families and Communities: A Digital Portfolio for Early Childhood Services</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; max-width: 900px; }
+        h1, h2, h3, h4 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        .student-info { margin-bottom: 30px; }
+        .section { margin-bottom: 40px; }
+    </style>
+</head>
+<body>
 
-cat > /home/claude/build_full_ielts.js << 'ENDOFFILE'
-const {
-  Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
-  Header, Footer, AlignmentType, HeadingLevel, BorderStyle, WidthType,
-  ShadingType, VerticalAlign, PageBreak, LevelFormat, PageNumber,
-  TabStopType, TabStopPosition
-} = require('docx');
-const fs = require('fs');
+    <h1>Children, Families and Communities[cite: 1]</h1>
+    <h2>A Digital Portfolio for Early Childhood Services[cite: 1]</h2>
 
-// ─── PALETTE ────────────────────────────────────────────────────────────────
-const NAVY      = "0D1B3E";
-const GOLD      = "B8860B";
-const GOLD_BG   = "FFF8E7";
-const WHITE     = "FFFFFF";
-const LIGHT_GRAY= "F5F5F5";
-const DARK_GRAY = "333333";
+    <div class="student-info">
+        <ul>
+            <li>Economic Contexts — poverty, housing stress and financial hardship[cite: 1]</li>
+            <li>Social Contexts — children living in out-of-home care[cite: 1]</li>
+        </ul>
+        <p>Name: ______________________[cite: 1]</p>
+        <p>Student number: ______________________[cite: 1]</p>
+        <p>Unit: ______________________[cite: 1]</p>
+        <p>Date: ______________________[cite: 1]</p>
+    </div>
 
-// Module colours
-const L_DARK    = "0B5E42"; const L_MID = "1A8C63"; const L_LIGHT = "E0F5EE";
-const R_DARK    = "4A2078"; const R_MID = "7B4CB8"; const R_LIGHT = "EFE6FA";
-const W_DARK    = "8B4500"; const W_MID = "C26A00"; const W_LIGHT = "FFF0DC";
-const S_DARK    = "8B0000"; const S_MID = "C0392B"; const S_LIGHT = "FDECEA";
-const OV_DARK   = "0D1B3E"; const OV_MID = "2E4BAD"; const OV_LIGHT = "E8EEFF";
+    <div class="section">
+        <h2>HOME[cite: 1]</h2>
+        <h3>Welcome[cite: 1]</h3>
+        <p>This portfolio is a practical resource for early childhood educators, service leaders and students working in Australian early learning settings.[cite: 1]</p>
+        <p>Children don't arrive at the centre gate as blank slates.[cite: 1] They arrive carrying their family's circumstances with them — what happened at home last night, whether there was breakfast, whether the family is moving again next month, who is allowed to pick them up.[cite: 1] Bronfenbrenner's ecological model reminds us that a child sits at the centre of layers of influence, and that the systems furthest away from the child — the rental market, the welfare system, government policy — can shape a child's daily life just as powerfully as the people right beside them (Grace et al., 2022).[cite: 1]</p>
+        <p>This portfolio looks closely at two of those contexts:[cite: 1]</p>
+        <ul>
+            <li>Economic contexts — poverty, housing stress and financial hardship[cite: 1]</li>
+            <li>Social contexts — children living in out-of-home care[cite: 1]</li>
+        </ul>
+        <p>For each one you'll find what the context actually looks like in Australia right now, what the research and sociological theory tell us, what governments are doing about it, and — most importantly — what an educator can do on a Tuesday morning with a group of eighteen three-year-olds.[cite: 1]</p>
+        
+        <h3>Why this matters for educators[cite: 1]</h3>
+        <p>Early childhood services are one of the few universal touchpoints in a young child's life.[cite: 1] We see children several days a week, often for years.[cite: 1] That puts educators in an unusual position: close enough to notice when something changes, and trusted enough that families sometimes tell us things they haven't told anyone else.[cite: 1]</p>
+        <p>That's a privilege and a responsibility.[cite: 1] It's also why the Early Years Learning Framework names equity, inclusion and high expectations as a principle, not an optional extra (AGDE, 2022).[cite: 1]</p>
+        
+        <h3>A note on language[cite: 1]</h3>
+        <p>Throughout this portfolio I've tried to describe circumstances, not label children.[cite: 1] A child isn't "a poverty child" or "a foster kid" — a child is experiencing financial hardship, or living in out-of-home care.[cite: 1] The wording matters, because the words we use in the staff room end up shaping how we speak to and about children in the room.[cite: 1]</p>
+    </div>
 
-const bdr = (c="CCCCCC") => ({ style: BorderStyle.SINGLE, size: 1, color: c });
-const allB = (c="CCCCCC") => ({ top:bdr(c), bottom:bdr(c), left:bdr(c), right:bdr(c) });
-const noB  = () => { const n={style:BorderStyle.NIL,size:0,color:WHITE}; return {top:n,bottom:n,left:n,right:n}; };
-const cm   = (t=80,b=80,l=120,r=120) => ({top:t,bottom:b,left:l,right:r});
+    <div class="section">
+        <h2>ECONOMIC CONTEXTS[cite: 1]</h2>
+        <h3>Poverty, housing stress and financial hardship[cite: 1]</h3>
+        
+        <h4>Understanding the Context[cite: 1]</h4>
+        <p><strong>What we mean by "economic context"[cite: 1]</strong></p>
+        <p>Economic hardship covers more than a low bank balance.[cite: 1] It includes:</p>
+        <ul>
+            <li>Income poverty — living below the poverty line, commonly measured as 50% of median household income[cite: 1]</li>
+            <li>Housing stress — a low-income household spending more than 30% of gross income on rent or mortgage[cite: 1]</li>
+            <li>Material deprivation — going without things most Australians consider essential: a warm home, dental care, a substantial meal each day[cite: 1]</li>
+            <li>Financial precarity — an income that exists but is unstable, such as casual shifts, gig work or seasonal work[cite: 1]</li>
+        </ul>
+        <p>A family can look fine from the outside and still be in real trouble.[cite: 1] Two working parents on casual contracts, paying Brisbane rents, can be one broken car away from crisis.[cite: 1]</p>
+        
+        <p><strong>How big is this in Australia?[cite: 1]</strong></p>
+        <p>The most recent national picture is confronting.[cite: 1] In 2022–23, one in seven people and one in six children in Australia lived below the poverty line — 3.7 million people, including 757,000 children (Davidson & Bradbury, 2025).[cite: 1]</p>
+        <p>Housing is a major driver.[cite: 1] In Brisbane, rental affordability fell a further 2% over the past year on top of a 24% drop since 2020.[cite: 1] A median rent of $643 now consumes 29% of an average renting household's income, up from 22% five years earlier (SGS Economics & Planning, 2025).[cite: 1] Even families receiving government assistance are struggling: at the end of June 2025, 43% of low-income households receiving Commonwealth Rent Assistance were still in rental stress (Productivity Commission, 2026).[cite: 1]</p>
+        
+        <p><strong>Sociological theory[cite: 1]</strong></p>
+        <p>Bronfenbrenner's bioecological model is the most useful lens here (Grace et al., 2022).[cite: 1] Poverty doesn't sit in one system — it moves through all of them:[cite: 1]</p>
+        <table>
+            <tr>
+                <td>Microsystem[cite: 1]</td>
+                <td>Fewer books and toys at home; crowded or unstable housing; a tired, stretched parent[cite: 1]</td>
+            </tr>
+            <tr>
+                <td>Mesosystem[cite: 1]</td>
+                <td>A parent working night shift can't attend the parent–educator meeting, so the home–service link weakens[cite: 1]</td>
+            </tr>
+            <tr>
+                <td>Exosystem[cite: 1]</td>
+                <td>A parent's insecure roster, the local rental market, the closure of a bulk-billing GP[cite: 1]</td>
+            </tr>
+            <tr>
+                <td>Macrosystem[cite: 1]</td>
+                <td>Welfare payment rates, minimum wage settings, Child Care Subsidy design[cite: 1]</td>
+            </tr>
+            <tr>
+                <td>Chronosystem[cite: 1]</td>
+                <td>The post-2020 rental crisis and sustained cost-of-living pressure changing what "normal" hardship looks like[cite: 1]</td>
+            </tr>
+        </table>
+        
+        <p>The Family Stress Model (Conger & Donnellan, 2007) explains the mechanism.[cite: 1] Economic pressure creates parental psychological distress; that distress makes warm, consistent, responsive parenting harder to sustain; and that change in the parent–child relationship is what actually affects the child's development.[cite: 1] This matters for practice, because it tells us money is not the only lever — supporting the parent is also supporting the child.[cite: 1] It sits alongside McMahon and Grace's (2022) argument that the family is the primary context of a child's development.[cite: 1]</p>
+        <p>Conflict and social reproduction perspectives ask a harder question: why does disadvantage persist across generations?[cite: 1] Grace and Baird (2022) argue that Australian inequity is structural, not accidental.[cite: 1] Access to good housing, health care and quality early education is patterned by income and postcode, and those patterns reproduce themselves.[cite: 1] This is an uncomfortable but important frame, because it stops us treating individual families as the problem to be fixed.[cite: 1]</p>
+        <p>Toxic stress research gives us the biology.[cite: 1] When a young child experiences prolonged adversity without a buffering adult relationship, the stress response system stays switched on, which can affect developing brain architecture (Center on the Developing Child, 2023).[cite: 1] The key word is buffering.[cite: 1] A consistent, responsive relationship with an adult — including an educator — is a genuine protective factor.[cite: 1]</p>
+        
+        <p><strong>Diversity and the changing nature of the issue[cite: 1]</strong></p>
+        <p>Economic hardship in Australia is not one story:[cite: 1]</p>
+        <ul>
+            <li>Sole-parent families, most often headed by women, are at markedly higher risk[cite: 1]</li>
+            <li>Aboriginal and Torres Strait Islander families experience disadvantage compounded by dispossession and ongoing systemic racism[cite: 1]</li>
+            <li>Newly arrived refugee and migrant families may hold overseas qualifications that aren't recognised here, pushing them into low-paid insecure work[cite: 1]</li>
+            <li>Regional and remote families face thinner service networks and higher costs for basics[cite: 1]</li>
+            <li>There is a growing group of "working poor" — families in paid work who still can't cover the essentials[cite: 1]</li>
+        </ul>
+        <p>The shape of the issue keeps shifting.[cite: 1] A decade ago, "poverty" in early childhood conversation usually meant long-term unemployment.[cite: 1] Now it increasingly means a working family losing a rental.[cite: 1] Educators need to hold that loosely and stay curious rather than assuming.[cite: 1]</p>
 
-// ─── PRIMITIVE BUILDERS ─────────────────────────────────────────────────────
-const tr  = (t,sz=21,clr=DARK_GRAY,bold=false,ital=false) =>
-  new TextRun({text:t,size:sz,font:"Arial",color:clr,bold,italics:ital});
-const br  = () => new TextRun({break:1});
+        <h4>Impact on Children and Families[cite: 1]</h4>
+        <p><strong>Development and learning[cite: 1]</strong></p>
+        <p>The national data makes the link visible.[cite: 1] In the 2024 Australian Early Development Census, 23.5% of children were assessed as developmentally vulnerable in one or more domains, up from 22% in 2021, and 12.5% were vulnerable in two or more domains, up from 11.4% (Australian Government Department of Education, 2025).[cite: 1] For children in the most disadvantaged communities, about three in ten are developmentally vulnerable in one domain and one in five in two or more (Mitchell Institute, 2025).[cite: 1]</p>
+        <p>What that looks like in a room:[cite: 1]</p>
+        <ul>
+            <li>Language and communication — fewer books, less shared reading, less back-and-forth conversation when a parent is exhausted or working multiple jobs[cite: 1]</li>
+            <li>Physical health and wellbeing — inconsistent nutrition, delayed dental and health checks, poor sleep in crowded or noisy housing[cite: 1]</li>
+            <li>Social competence and emotional maturity — the two domains showing record vulnerability nationally; children under chronic stress have less capacity available for turn-taking, waiting and negotiating[cite: 1]</li>
+            <li>Executive function — planning, holding instructions in mind and inhibiting impulses are all sensitive to chronic stress[cite: 1]</li>
+        </ul>
+        
+        <p><strong>Wellbeing and relationships[cite: 1]</strong></p>
+        <ul>
+            <li>Shame and exclusion. Children notice very early who has the birthday party, the excursion money, the character lunchbox.[cite: 1] Exclusion in early childhood is often material before it's social.[cite: 1]</li>
+            <li>Attendance. Housing instability means moving, and moving means changing services.[cite: 1] Broken attendance breaks friendships, breaks educator relationships, and breaks continuity of learning.[cite: 1]</li>
+            <li>Parental capacity. Financial stress is strongly associated with parental anxiety and low mood.[cite: 1] That's not a character flaw — it's a predictable response to sustained pressure.[cite: 1]</li>
+            <li>Withdrawal from services. Families under stress often pull back from the very supports they need, sometimes because of fear of being judged or reported.[cite: 1]</li>
+        </ul>
+        
+        <p><strong>Implications for early childhood service provision[cite: 1]</strong></p>
+        <ul>
+            <li>Enrolment and access. Families in hardship are least likely to be enrolled, and most likely to benefit.[cite: 1] Bond payments, upfront fees and complicated subsidy paperwork are real barriers.[cite: 1]</li>
+            <li>Hidden costs. Excursion fees, dress-up days, "bring a plate", fundraising drives and photo packages each quietly sort families into those who can and those who can't.[cite: 1]</li>
+            <li>Educator workload and emotional load. Supporting families in crisis is genuinely demanding, and services need supervision and referral pathways so educators aren't carrying it alone.[cite: 1]</li>
+            <li>Continuity of learning. High turnover means services need documentation and handover practices that travel with the child.[cite: 1]</li>
+            <li>Universal, not targeted. Services designed so that every child gets the meal, the hat and the book bag avoid singling anyone out — which is both more dignified and more effective.[cite: 1]</li>
+        </ul>
 
-const p = (runs, opts={}) =>
-  new Paragraph({ spacing:{before:60,after:60}, ...opts, children: Array.isArray(runs)?runs:[runs] });
+        <h4>Social Policy and Australian Responses[cite: 1]</h4>
+        <p><strong>National policy and initiatives[cite: 1]</strong></p>
+        <p>The 3 Day Guarantee (from 5 January 2026) is the most significant recent change for our sector.[cite: 1] All Child Care Subsidy eligible families can now access three days of subsidised early childhood education and care per week, or 72 hours a fortnight, replacing the previous activity test.[cite: 1] Families caring for First Nations children can access 100 hours per fortnight (Australian Government Department of Education, 2026).[cite: 1]</p>
+        <p>This directly dismantles a catch-22 that hit low-income families hardest.[cite: 1] Under the activity test, a parent who wasn't working or studying enough hours received little or no subsidy — but couldn't easily job-hunt or study without care.[cite: 1] Abolishing the activity test was recommended by the Productivity Commission in its childcare inquiry, and the change is framed as a step toward a universal early childhood education and care system.[cite: 1]</p>
+        <p>Early Years Strategy 2024–2034 was launched on 7 May 2024, setting out the vision that all children in Australia thrive in their early years, with the First Action Plan and Outcomes Framework released in December 2024 (Commonwealth of Australia, 2024).[cite: 1] It commits the Commonwealth to child-centred policy development and better integration of services, with explicit attention to families facing disadvantage.[cite: 1]</p>
+        <p>Income and housing supports include Commonwealth Rent Assistance, JobSeeker and Parenting Payment, the Housing Australia Future Fund, and state initiatives including Queensland's investment in social and crisis housing.[cite: 1] The persistent gap is that even with rent assistance, 43% of low-income recipient households remained in rental stress at June 2025 (Productivity Commission, 2026).[cite: 1]</p>
+        <p>Framework and regulatory levers — the Early Years Learning Framework V2.0 principle of Equity, Inclusion and High Expectations, and National Quality Standard Quality Area 6 (collaborative partnerships with families and communities) — give services both a mandate and a language for this work (ACECQA, 2018; AGDE, 2022).[cite: 1]</p>
+        
+        <p><strong>Evaluating the policy response[cite: 1]</strong></p>
+        <p>What's working:[cite: 1]</p>
+        <ul>
+            <li>Removing the activity test is genuine structural change, not a top-up.[cite: 1] It shifts access from something you earn to something children are entitled to.[cite: 1]</li>
+            <li>The Early Years Strategy signals a whole-of-government view of children rather than a departmental one.[cite: 1]</li>
+        </ul>
+        <p>Where the gaps remain:[cite: 1]</p>
+        <ul>
+            <li>Access isn't the same as participation.[cite: 1] Subsidised hours don't help if there's no vacancy, no transport, or no place within reach.[cite: 1] Analysis of the 2024 AEDC concluded that expanding access must be matched by a focus on quality, equity and inclusion, or educational inequity will deepen rather than narrow (Mitchell Institute, 2025).[cite: 1]</li>
+            <li>Gap fees still exist.[cite: 1] Subsidy covers a percentage, not the whole cost.[cite: 1] For a family with no discretionary income, even a small gap fee is a barrier.[cite: 1]</li>
+            <li>Australia has no official poverty line and no national child poverty target, which makes it hard to hold any government accountable for movement.[cite: 1]</li>
+        </ul>
+        
+        <p><strong>How this changes what educators do[cite: 1]</strong></p>
+        <ul>
+            <li>Enrolment conversations matter — many families still don't know the activity test is gone, and some who gave up on care years ago are now eligible[cite: 1]</li>
+            <li>Services should expect higher demand from families previously priced out, and plan for children starting with less prior experience of group settings[cite: 1]</li>
+            <li>Advocacy is part of the professional role: educators sit on the evidence base that policy makers draw from[cite: 1]</li>
+        </ul>
 
-const modHeader = (icon, title, sub, dark, mid) =>
-  new Table({
-    width:{size:9900,type:WidthType.DXA}, columnWidths:[9900],
-    rows:[new TableRow({children:[new TableCell({
-      borders: allB(dark),
-      shading:{fill:dark,type:ShadingType.CLEAR},
-      width:{size:9900,type:WidthType.DXA},
-      margins:cm(160,100,200,200),
-      children:[
-        new Paragraph({spacing:{before:0,after:10},children:[
-          tr(icon+" ",34,WHITE,true),
-          tr(title,34,WHITE,true)
-        ]}),
-        new Paragraph({spacing:{before:0,after:0},children:[tr(sub,20,"E0E0E0",false)]})
-      ]
-    })]})]}
-  );
+        <h4>Strategies for Practice[cite: 1]</h4>
+        <p><strong>Strategy 1 — Universal, low-cost, non-stigmatising provision[cite: 1]</strong></p>
+        <p>What it is: Design the program so that participation never depends on a family's ability to pay, and so no child is ever visibly identified as the one who can't.[cite: 1]</p>
+        <p>Why it works: If economic hardship affects children partly through shame and exclusion, then removing the points of exclusion removes part of the harm.[cite: 1] It aligns with the EYLF principle of equity, inclusion and high expectations (AGDE, 2022) and with Grace and Baird's (2022) argument that structural disadvantage requires structural, not individual, responses.[cite: 1]</p>
+        <p>How educators apply it:[cite: 1]</p>
+        <ul>
+            <li>Run a hidden-cost audit.[cite: 1] Walk through a whole term and list every moment a family is asked for money or an item from home.[cite: 1] Then remove or absorb as many as you can.[cite: 1]</li>
+            <li>Service supplies everything for incursions, dress-up days and cooking experiences — including spare hats, sunscreen, spare clothes and shoes, kept as normal stock rather than "emergency" items.[cite: 1]</li>
+            <li>Rethink celebrations.[cite: 1] Replace "bring a plate" with a shared cooking experience.[cite: 1] Replace paid photographers with educator-taken portraits printed for every family.[cite: 1]</li>
+            <li>Build the curriculum around open-ended and natural materials — loose parts, recycled and found materials, natural resources.[cite: 1] This is good pedagogy anyway, and it removes the assumption that learning requires purchased resources.[cite: 1]</li>
+            <li>Keep a quiet food shelf at the door with bread, fruit and pantry staples, framed as "help yourself, it's for everyone" rather than a welfare offering.[cite: 1]</li>
+            <li>Hold discreet, warm enrolment conversations.[cite: 1] Have someone who knows the subsidy system well and can sit with a family and do the myGov claim with them.[cite: 1]</li>
+            <li>Run a free borrowing library of books and games so home learning doesn't depend on the household budget.[cite: 1]</li>
+        </ul>
 
-const secHead = (label, dark, light) =>
-  new Paragraph({
-    spacing:{before:140,after:50},
-    shading:{fill:dark,type:ShadingType.CLEAR},
-    children:[tr("  "+label,22,WHITE,true)]
-  });
+        <p><strong>Strategy 2 — Buffering relationships plus intentional language and literacy enrichment[cite: 1]</strong></p>
+        <p>What it is: A consistent key educator for each child, combined with deliberate, high-quality language and early literacy experiences.[cite: 1]</p>
+        <p>Why it works: Two evidence streams converge.[cite: 1] Buffering relationships with a responsive adult moderate the effects of chronic stress on developing brain architecture (Center on the Developing Child, 2023).[cite: 1] Language and early literacy is also the domain where socioeconomic gaps appear earliest and where quality early education has the clearest measurable effect (Australian Government Department of Education, 2025).[cite: 1] Doing both at once means the relationship carries the learning.[cite: 1]</p>
+        <p>How educators apply it:[cite: 1]</p>
+        <ul>
+            <li>Assign a key educator and protect it in rostering.[cite: 1] Each child has a named educator who greets them, knows their family, and manages transitions.[cite: 1] Continuity is the intervention.[cite: 1]</li>
+            <li>Use serve and return conversation.[cite: 1] Aim for extended back-and-forth exchanges rather than instruction-and-answer.[cite: 1] Get down low, wait longer than feels comfortable, and follow the child's lead.[cite: 1]</li>
+            <li>Use dialogic reading in small groups — asking open questions, connecting the story to the child's life, rereading favourites so children can predict and join in.[cite: 1]</li>
+            <li>Narrate and expand.[cite: 1] Put language around what children are doing, and extend one-word offers into full sentences.[cite: 1]</li>
+            <li>Send book bags home each week with a simple note in the family's home language suggesting one thing to talk about.[cite: 1] Not homework, and no requirement to return anything on time.[cite: 1]</li>
+            <li>Keep a predictable rhythm.[cite: 1] Visual daily schedules, consistent routines and clear transition warnings reduce the cognitive load on children who may be experiencing chaos elsewhere.[cite: 1]</li>
+            <li>Notice changes, not deficits.[cite: 1] A child who suddenly stops eating morning tea or falls asleep at 9am is telling you something.[cite: 1] Respond with curiosity and a gentle check-in with the family, not a judgement.[cite: 1]</li>
+        </ul>
 
-const subHead = (label, clr=NAVY) =>
-  new Paragraph({
-    spacing:{before:100,after:40},
-    children:[tr(label,22,clr,true)]
-  });
+        <h4>Community and Professional Partnerships[cite: 1]</h4>
+        <p><strong>The Smith Family[cite: 1]</strong></p>
+        <p>Who they are: A national children's education charity focused specifically on children experiencing disadvantage, delivering long-term educational support rather than one-off relief.[cite: 1]</p>
+        <p>What they do: Learning for Life provides sponsored educational support that follows a child through their schooling.[cite: 1] Let's Count, developed with Early Childhood Australia, is a free early mathematics program that trains educators to help families notice and talk about maths in everyday life.[cite: 1] They also produce research on educational disadvantage.[cite: 1]</p>
+        <p>How an early childhood service can collaborate:[cite: 1]</p>
+        <ul>
+            <li>Have educators complete Let's Count professional learning and run family maths workshops on site[cite: 1]</li>
+            <li>Refer families to Learning for Life as children approach school entry, so support is in place before the transition[cite: 1]</li>
+            <li>Use their research to strengthen a service's own case for funding or programming[cite: 1]</li>
+            <li>Invite a community engagement worker to a parent evening so families meet a real person, not a brochure[cite: 1]</li>
+        </ul>
+        
+        <p><strong>Financial counsellors (National Debt Helpline / Financial Counselling Australia)[cite: 1]</strong></p>
+        <p>Who they are: Qualified professionals who provide free, independent and confidential financial counselling.[cite: 1] Many work out of community organisations; the National Debt Helpline (1800 007 007) is the national entry point.[cite: 1]</p>
+        <p>What they do: Negotiate with creditors and utility providers, access hardship programs, stop or delay debt recovery, help with Centrelink issues, and build a workable budget.[cite: 1] This is a free service — families in hardship are often paying for advice they should be getting at no cost.[cite: 1]</p>
+        <p>How an early childhood service can collaborate:[cite: 1]</p>
+        <ul>
+            <li>Display the National Debt Helpline number where families see it, alongside other everyday information, so it's normalised rather than singled out[cite: 1]</li>
+            <li>Invite a financial counsellor to run a general information session, framed as cost-of-living information for everyone rather than a hardship clinic[cite: 1]</li>
+            <li>Keep the referral pathway on hand so an educator or director can offer it the moment a family mentions a bill or an eviction notice[cite: 1]</li>
+            <li>Work with them on the service's own fee hardship policy, so families in arrears are supported rather than disenrolled[cite: 1]</li>
+        </ul>
+        
+        <p><strong>Further partnerships worth building[cite: 1]</strong></p>
+        <p>Foodbank Queensland, Micah Projects (Brisbane), Anglicare Southern Queensland, community child health nurses, and your local council's family support officer.[cite: 1]</p>
 
-const bullet = (text, bold_part=null, clr=DARK_GRAY) => {
-  const runs = [];
-  if(bold_part) runs.push(tr(bold_part,21,NAVY,true));
-  runs.push(tr(text,21,clr));
-  return new Paragraph({
-    numbering:{reference:"bullets",level:0},
-    spacing:{before:28,after:28},
-    children:runs
-  });
-};
+        <h4>Resources for Educators and Children[cite: 1]</h4>
+        <p><strong>Programs, projects and websites[cite: 1]</strong></p>
+        <p>HIPPY — Home Interaction Program for Parents and Youngsters (Brotherhood of St Laurence)[cite: 1]<br>
+        A free, home-based early learning program for children in the two years before school, delivered in disadvantaged communities by tutors who are usually parents from that same community.[cite: 1] Sessions are short, structured and use everyday materials.[cite: 1]<br>
+        How to use it: Refer eligible families and, where a child attends both, align the HIPPY activities with your service's program so home and centre are pulling in the same direction.[cite: 1] It's a good starting point for talking with families about learning at home without implying they aren't doing enough.[cite: 1]</p>
+        
+        <p>Let's Count (The Smith Family with Early Childhood Australia)[cite: 1]<br>
+        A free program that supports educators to work with families around everyday mathematics — counting the stairs, sorting the washing, noticing shapes on the walk home.[cite: 1]<br>
+        How to use it: Run it as a family workshop series, then send home simple prompt cards.[cite: 1] It builds numeracy while quietly demonstrating that learning requires attention, not money — an important message for families who feel they can't provide enough.[cite: 1]</p>
+        
+        <p>Also useful: Raising Children Network (free, evidence-based, available in many languages), Foodbank Queensland, Emerging Minds.[cite: 1]</p>
+        
+        <p><strong>Children's storybooks (birth to 5 years)[cite: 1]</strong></p>
+        <p>Last Stop on Market Street — Matt de la Peña, illustrated by Christian Robinson (2015)[cite: 1]<br>
+        A boy travels across town on the bus with his grandmother, noticing everything around him.[cite: 1] The family clearly doesn't have much, and the story never treats that as a tragedy — it finds beauty, music and connection in an ordinary ride to a soup kitchen.[cite: 1]<br>
+        How to use it: Read it more than once.[cite: 1] First reading, just enjoy it.[cite: 1] Later readings, wonder aloud with children: what did he notice?[cite: 1] What do you notice on your way here?[cite: 1] It builds empathy by showing a life that some children in your room are living and others have never seen, and builds resilience by modelling a character who reframes what he has.[cite: 1]</p>
+        
+        <p>A Chair for My Mother — Vera B. Williams (1982)[cite: 1]<br>
+        A child, her mother and her grandmother save coins in a jar to buy one comfortable chair after a fire destroys their furniture.[cite: 1] Warm, hopeful, and honest about not having money.[cite: 1]<br>
+        How to use it: Pair with a real coin jar in the room and a shared saving goal for something for the group.[cite: 1] Children experience the patience of saving and the satisfaction of a shared goal.[cite: 1] It builds understanding of how families work together through hard times, and resilience by showing that setbacks are survivable.[cite: 1]</p>
+        
+        <p>Also useful: Those Shoes by Maribeth Boelts; Home in the Rain by Bob Graham.[cite: 1]</p>
+        
+        <p><strong>Videos, shows and podcasts[cite: 1]</strong></p>
+        <p>Sesame Street in Communities — Food Insecurity collection (featuring Lily)[cite: 1]<br>
+        Free short videos and printable resources built specifically for young children experiencing hunger, plus separate guidance for the adults supporting them.[cite: 1]<br>
+        How to use it: Watch a two-minute clip with a small group, then move straight into a related experience — setting up a pretend food pantry in dramatic play, or cooking together.[cite: 1] The character's ordinariness is the point: a child watching who is experiencing food insecurity sees themselves as normal, not broken.[cite: 1] It builds empathy in peers and resilience in the child who needs it.[cite: 1]</p>
+        
+        <p>Bluey (ABC Kids) — the episode "Markets"[cite: 1]<br>
+        Bluey is given a small amount of money at the markets and has to decide what to spend it on, discovering that money runs out and that choices have consequences.[cite: 1]<br>
+        How to use it: Follow with a market or shop set up in dramatic play with real coins and a limited budget.[cite: 1] Children practise making choices with limited resources in a safe, playful frame.[cite: 1] This is a gentle way to build understanding of money without moralising, and it's Australian, familiar and genuinely funny, which matters for engagement.[cite: 1]</p>
+        
+        <p>Also useful: Play School (ABC Kids) episodes exploring different types of homes and family routines; the Emerging Minds Families podcast.[cite: 1]</p>
+    </div>
 
-const warn = (msg, bgCol, txCol) =>
-  new Paragraph({
-    spacing:{before:60,after:60},
-    shading:{fill:bgCol,type:ShadingType.CLEAR},
-    children:[tr("  ⚠  "+msg,20,txCol,true)]
-  });
+    <div class="section">
+        <h2>SOCIAL CONTEXTS[cite: 1]</h2>
+        <h3>Children living in out-of-home care[cite: 1]</h3>
+        
+        <h4>Understanding the Context[cite: 1]</h4>
+        <p><strong>What we mean by "out-of-home care"[cite: 1]</strong></p>
+        <p>Out-of-home care is care provided for children under 18 who cannot safely live with their parents.[cite: 1] In Australia it includes:</p>
+        <ul>
+            <li>Relative or kinship care — placement with a grandparent, aunt, or someone in the child's kin network.[cite: 1] The largest category.[cite: 1]</li>
+            <li>Foster care — placement with an assessed, authorised carer who isn't related to the child[cite: 1]</li>
+            <li>Residential care — staffed accommodation, used mainly for older children and young people with complex needs[cite: 1]</li>
+            <li>Independent living arrangements — for older young people[cite: 1]</li>
+        </ul>
+        <p>Children come into care through the statutory child protection system, run by states and territories.[cite: 1] In Queensland this is the Department of Child Safety, Seniors and Disability Services, operating under the Child Protection Act 1999 (Qld).[cite: 1] Educators are mandatory reporters.[cite: 1]</p>
+        
+        <p><strong>How big is this in Australia?[cite: 1]</strong></p>
+        <p>At 30 June 2024, 44,900 children were in out-of-home care in Australia, and 59,900 children were on care and protection orders.[cite: 1] In 2023–24, about 179,000 children came into contact with the child protection system (AIHW, 2025).[cite: 1]</p>
+        <p>Two figures matter especially for early childhood educators:[cite: 1]</p>
+        <ul>
+            <li>Children in the youngest age group — under one year — had the highest admission rate to out-of-home care, at 6.5 per 1,000, compared with 2.0 per 1,000 or less for all other age groups.[cite: 1] Entry into care is concentrated in the years we work with.[cite: 1]</li>
+            <li>About 88% of children in care (39,700) were in home-based care — foster, kinship or other home-based arrangements.[cite: 1]</li>
+        </ul>
+        
+        <p><strong>The overrepresentation of Aboriginal and Torres Strait Islander children[cite: 1]</strong></p>
+        <p>This is not a side note.[cite: 1] It is central to understanding out-of-home care in Australia.[cite: 1]</p>
+        <p>Of the 44,900 children in care at 30 June 2024, 20,000 were Aboriginal and Torres Strait Islander children — a rate of 50 per 1,000, compared with 4.6 per 1,000 for non-Indigenous children.[cite: 1] In 2024, rates of Aboriginal and Torres Strait Islander children in out-of-home care were 11 times higher than for non-Indigenous children, up from 9.6 times higher in 2020 (AIHW, 2025).[cite: 1]</p>
+        <p>The Productivity Commission attributes this continued overrepresentation to intergenerational trauma originating from colonisation, systemic racism, inequality across the social determinants of child wellbeing, and laws, policies and practices that operate to the detriment of Aboriginal and Torres Strait Islander people (Productivity Commission, n.d.).[cite: 1] It also notes that assessments of neglect in First Nations families are sometimes not culturally informed, with First Nations family structures and child-rearing practices at times mistakenly perceived as unstable or neglectful because they differ from Western practices (AIHW, 2026).[cite: 1]</p>
+        <p>For an educator, that last point should land hard.[cite: 1] Our own notifications and observations are not culturally neutral.[cite: 1] What we call concerning may be culturally different rather than unsafe.[cite: 1]</p>
+        
+        <p><strong>Sociological and developmental theory[cite: 1]</strong></p>
+        <p>Attachment theory (Bowlby, 1988) is the foundation.[cite: 1] Children build internal working models of relationships from their earliest caregiving experiences — expectations about whether adults come when you're distressed, and whether you're worth coming for.[cite: 1] Children entering care have often had those expectations disrupted, sometimes repeatedly.[cite: 1] This is why a child in care may reject comfort, or seek it indiscriminately from any adult, and why an educator who stays calm and consistent across weeks and months is doing developmental work, not just supervision.[cite: 1]</p>
+        <p>Bronfenbrenner's bioecological model (Grace et al., 2022) shows why placement change is so damaging.[cite: 1] Entering care doesn't rearrange one microsystem — it replaces the home, often the service, sometimes the school, the neighbourhood and the peer group at once, and adds a whole new exosystem of caseworkers, court dates and contact visits that the child doesn't control and often doesn't understand.[cite: 1]</p>
+        <p>Family systems theory reminds us that a child in care is still psychologically part of their birth family system.[cite: 1] The relationships haven't ended just because the living arrangement has.[cite: 1] Reunification is the goal for many children, and siblings, grandparents and parents remain significant.[cite: 1] Educators who treat the birth family as "the past" get this wrong.[cite: 1]</p>
+        <p>Trauma-informed and adverse childhood experiences frameworks connect the biology to the classroom.[cite: 1] Children who have experienced abuse or neglect often have stress response systems calibrated for threat.[cite: 1] Behaviour that reads as defiance, aggression or blankness is frequently a survival response, not a choice.[cite: 1] Cashmore et al. (2022) argue for practice that starts from what happened to this child rather than what's wrong with this child.[cite: 1]</p>
+        <p>A critical and postcolonial lens is essential for understanding First Nations overrepresentation.[cite: 1] The Stolen Generations were not a separate historical episode from today's child protection system — they are the same institutional lineage, which is exactly why the Aboriginal and Torres Strait Islander Child Placement Principle exists (SNAICC, 2019).[cite: 1]</p>
+        
+        <p><strong>Diversity and change[cite: 1]</strong></p>
+        <p>Out-of-home care populations are diverse.[cite: 1] The experience of a child in stable kinship care with a grandmother is very different from a child in their fourth foster placement.[cite: 1]</p>
+        <ul>
+            <li>At 30 June 2024, 63.2% of Aboriginal and Torres Strait Islander children in care were living with relatives, kin or other Aboriginal and Torres Strait Islander carers (AIHW, 2025) — significant, but well short of what the Child Placement Principle intends[cite: 1]</li>
+            <li>Policy has shifted toward permanency and reunification, and toward keeping siblings together[cite: 1]</li>
+            <li>The sector has moved from a "rescue" narrative toward family preservation and early support, which is what the Safe and Supported framework is built on[cite: 1]</li>
+        </ul>
 
-const good = (msg, bgCol=L_LIGHT, txCol=L_DARK) =>
-  new Paragraph({
-    spacing:{before:40,after:40},
-    shading:{fill:bgCol,type:ShadingType.CLEAR},
-    children:[tr("  ✓  "+msg,20,txCol,true)]
-  });
+        <h4>Impact on Children and Families[cite: 1]</h4>
+        <p><strong>Development and learning[cite: 1]</strong></p>
+        <ul>
+            <li>Language and cognition. Early neglect affects the volume and quality of language input at exactly the point language is most sensitive to it.[cite: 1] Many children enter care with delays.[cite: 1]</li>
+            <li>Executive function. Planning, attention and impulse control are all vulnerable to early chronic stress, which means group-time expectations that suit other four-year-olds may genuinely exceed a child's current capacity.[cite: 1]</li>
+        </ul>
+        <p>The good news is real.[cite: 1] A large meta-analysis of longitudinal research found that children's development can improve significantly after entering stable foster care, particularly where placement stability is maintained (Goemans et al., 2015).[cite: 1] Stability is the active ingredient.[cite: 1] Services that hold a child's place through upheaval are contributing directly to that.[cite: 1]</p>
+        
+        <p><strong>Wellbeing and relationships[cite: 1]</strong></p>
+        <ul>
+            <li>Grief and loss are constant, and often invisible.[cite: 1] Even when removal was necessary and protective, the child has lost their family, home, belongings and routine.[cite: 1] Children may grieve a parent who hurt them — this is normal and shouldn't be corrected.[cite: 1]</li>
+            <li>Attachment behaviours can be confusing.[cite: 1] A child may be indiscriminately affectionate with every visiting adult, or refuse comfort entirely when hurt, or do both in the same week.[cite: 1]</li>
+            <li>Contact visits are emotionally enormous.[cite: 1] Behaviour and regulation frequently change in the days either side, and educators often see this without knowing the schedule.[cite: 1]</li>
+            <li>Identity. Children in care carry questions — why can't I live with Mum?[cite: 1] Whose family am I in?[cite: 1] For First Nations children, disconnection from culture, Country and community is an additional and serious loss.[cite: 1]</li>
+            <li>Carers need support too.[cite: 1] Foster and kinship carers, especially grandparents who took a child in overnight, are often exhausted and navigating a complex system with little preparation.[cite: 1]</li>
+        </ul>
+        
+        <p><strong>Implications for early childhood service provision[cite: 1]</strong></p>
+        <ul>
+            <li>Enrolment complexity. Who has parental responsibility?[cite: 1] Who can be given information?[cite: 1] Who is authorised for collection?[cite: 1] Services need clear, documented answers and copies of orders — and educators need to handle this without discussing it in front of children.[cite: 1]</li>
+            <li>Confidentiality and dignity. A child's care status is private.[cite: 1] It should be known by those who need to know, and never a topic of staff room conversation or an explanation offered to other parents.[cite: 1]</li>
+            <li>Curriculum landmines. Family trees, "bring a baby photo", Mother's Day and Father's Day, "all about me" books, and questions about who's in your family can all be painful.[cite: 1] These need thoughtful redesign, not cancellation.[cite: 1]</li>
+            <li>Mandatory reporting. Every educator needs to know their obligations under Queensland legislation and their service's process, and needs to act on suspicion rather than waiting for certainty.[cite: 1]</li>
+            <li>Interagency work. Educators may attend care team meetings, provide observations for court or planning processes, and communicate with Child Safety Officers.[cite: 1] This is a real skill set with real documentation demands.[cite: 1]</li>
+            <li>Stability as core business. Where a placement changes but the child could stay enrolled, advocate for it.[cite: 1] Continuity of educator relationship is one of the few stable things you can offer.[cite: 1]</li>
+        </ul>
 
-const sp = (b=80,a=80) =>
-  new Paragraph({spacing:{before:b,after:a},children:[tr("")]});
+        <h4>Social Policy and Australian Responses[cite: 1]</h4>
+        <p><strong>National policy and initiatives[cite: 1]</strong></p>
+        <p>Safe and Supported: The National Framework for Protecting Australia's Children 2021–2031 (Commonwealth of Australia, 2021) is the overarching national framework.[cite: 1] It shifts emphasis from crisis response toward prevention and early intervention, and includes a dedicated Aboriginal and Torres Strait Islander First Action Plan developed with First Nations leadership.[cite: 1] Safe and Supported is an important strategy for progressing Target 12 of the National Agreement on Closing the Gap (AIHW, 2025).[cite: 1]</p>
+        <p>Closing the Gap Target 12 aims to reduce the rate of overrepresentation of Aboriginal and Torres Strait Islander children aged 0–17 in out-of-home care by 45% by 2031, from a 2019 baseline of 54.2 per 1,000 (AIHW, 2025).[cite: 1] As the data above shows, the trend is currently moving in the wrong direction.[cite: 1]</p>
+        <p>The Aboriginal and Torres Strait Islander Child Placement Principle sets out five elements — prevention, partnership, placement, participation and connection — and a placement hierarchy that prioritises keeping children with family, kin and community (SNAICC, 2019).[cite: 1] It is embedded in legislation across jurisdictions, including Queensland.[cite: 1]</p>
+        <p>National Principles for Child Safe Organisations and the Queensland child safe standards, which flow from the Royal Commission into Institutional Responses to Child Sexual Abuse, require every early childhood service to have child-safe policies, a reportable conduct process, and a culture where children are listened to.[cite: 1]</p>
+        <p>Queensland-specific measures include the Child Protection Act 1999 (Qld), mandatory reporting obligations for early childhood educators, the Blue Card system administered through Blue Card Services, and the oversight role of the Queensland Family and Child Commission.[cite: 1]</p>
+        
+        <p><strong>Evaluating the policy response[cite: 1]</strong></p>
+        <p>What's working:[cite: 1]</p>
+        <ul>
+            <li>The prevention-first framing of Safe and Supported is the right direction, and it positions universal services like ours as part of the child protection system rather than outside it[cite: 1]</li>
+            <li>The Child Placement Principle gives services a clear, non-negotiable standard for cultural connection[cite: 1]</li>
+            <li>Child safe standards have made governance and reporting far more explicit than a decade ago[cite: 1]</li>
+        </ul>
+        <p>Where the gaps remain:[cite: 1]</p>
+        <ul>
+            <li>Target 12 is not on track.[cite: 1] Overrepresentation has increased since the baseline, not decreased.[cite: 1] A framework without adequate resourcing of Aboriginal Community Controlled Organisations will not shift it.[cite: 1]</li>
+            <li>Prevention is under-resourced compared with statutory response.[cite: 1] Money still flows disproportionately to the crisis end.[cite: 1]</li>
+            <li>Data has real limits.[cite: 1] The AIHW notes that the initial release of Child Protection Australia 2024–25: Insights does not include most 2024–25 data for Queensland due to a client management system upgrade (AIHW, 2026), which means the most current national figures are not directly comparable with earlier years.[cite: 1]</li>
+        </ul>
+        
+        <p><strong>How this changes what educators do[cite: 1]</strong></p>
+        <ul>
+            <li>Cultural safety is a compliance obligation as well as an ethical one, particularly around cultural support plans and connection to community[cite: 1]</li>
+            <li>Services should have documented child safe policies that children themselves understand at their level[cite: 1]</li>
+            <li>Educators need to see themselves as part of prevention: the check-in with a struggling parent at pick-up is child protection work[cite: 1]</li>
+            <li>Referral relationships with family support services should exist before a crisis, not be assembled during one[cite: 1]</li>
+        </ul>
 
-const pbr = () =>
-  new Paragraph({children:[new PageBreak()]});
+        <h4>Strategies for Practice[cite: 1]</h4>
+        <p><strong>Strategy 1 — Trauma-informed, relationship-based practice with a consistent key educator[cite: 1]</strong></p>
+        <p>What it is: One named, consistent educator holds primary responsibility for the child's care and connection, working from a "what happened to you" frame, with predictability and co-regulation built into the day.[cite: 1]</p>
+        <p>Why it works: Attachment research tells us that internal working models are revised through repeated experience of a responsive adult (Bowlby, 1988).[cite: 1] The meta-analytic evidence that children's development improves with placement stability (Goemans et al., 2015) points the same way — stability of relationship is the mechanism.[cite: 1] Cashmore et al. (2022) make the case that services offering consistency are directly protective.[cite: 1]</p>
+        <p>How educators apply it:[cite: 1]</p>
+        <ul>
+            <li>Assign a key educator and protect it in rostering.[cite: 1] Same face at drop-off, same person for comfort, same person who knows the child's story.[cite: 1]</li>
+            <li>Regulate before you reason.[cite: 1] A dysregulated child cannot access reasoning.[cite: 1] Offer proximity, calm, rhythm and quiet first; the conversation comes later, if at all.[cite: 1]</li>
+            <li>Make the day predictable.[cite: 1] Visual schedules, consistent routines, and warning before every transition.[cite: 1] Say what's happening next and mean it.[cite: 1]</li>
+            <li>Create a genuine safe base — a soft, low-stimulus corner a child can go to without asking and without it being a consequence.[cite: 1]</li>
+            <li>Watch for triggers rather than "behaviours".[cite: 1] Loud noise, mealtimes, an unfamiliar adult, someone standing over them, or the day before a contact visit.[cite: 1]</li>
+            <li>Stay calm and stay.[cite: 1] Rupture and repair is the learning.[cite: 1] A child who tests whether you'll still be warm tomorrow needs the answer to be yes.[cite: 1]</li>
+            <li>Build in educator support.[cite: 1] Reflective supervision, debriefing, and a clear escalation path.[cite: 1] Vicarious trauma is real, and a depleted educator can't co-regulate anyone.[cite: 1]</li>
+            <li>Communicate with carers daily and briefly.[cite: 1] A two-line handover about sleep, food and mood is worth more than a monthly report.[cite: 1]</li>
+        </ul>
 
-// ─── TABLE HELPERS ──────────────────────────────────────────────────────────
-const hdrRow = (cols, widths, fill=NAVY) =>
-  new TableRow({tableHeader:true, children: cols.map((c,i)=>
-    new TableCell({
-      borders:allB(fill), shading:{fill,type:ShadingType.CLEAR},
-      width:{size:widths[i],type:WidthType.DXA}, margins:cm(),
-      children:[p(tr(c,19,WHITE,true))]
-    })
-  )});
+        <p><strong>Strategy 2 — Identity, belonging and culturally safe life-story practice[cite: 1]</strong></p>
+        <p>What it is: Actively supporting the child's sense of who they are, where they come from and who belongs to them — including birth family, carers, siblings, community and culture.[cite: 1]</p>
+        <p>Why it works: EYLF Outcome 1 is that children have a strong sense of identity (AGDE, 2022).[cite: 1] For a child in care, that outcome is genuinely at risk and needs intentional support.[cite: 1] For Aboriginal and Torres Strait Islander children, connection to family, community, culture and Country is a protective factor and a policy requirement under the Child Placement Principle (SNAICC, 2019).[cite: 1] Family systems theory supports the same practice: the child's family system continues to matter regardless of who they live with.[cite: 1]</p>
+        <p>How educators apply it:[cite: 1]</p>
+        <ul>
+            <li>Redesign the "family" curriculum.[cite: 1] Instead of a family tree, try "my important people" — a circle the child fills with whoever matters, in whatever configuration.[cite: 1] Carers, birth parents, siblings in other placements, a caseworker, a pet.[cite: 1]</li>
+            <li>Handle Mother's Day and Father's Day with care.[cite: 1] Reframe them as "someone special" days.[cite: 1] Check with carers in advance, quietly, every year.[cite: 1]</li>
+            <li>Skip the baby photo request or make it optional with alternatives.[cite: 1] Many children in care have no baby photos, and being asked is its own small grief.[cite: 1]</li>
+            <li>Keep a memory box or portfolio that travels with the child.[cite: 1] Artwork, photos, a note from their key educator.[cite: 1] If they move on, they take a record that they were here and were loved.[cite: 1]</li>
+            <li>Follow the cultural support plan.[cite: 1] For First Nations children this is a formal document — ask for it, read it, and build it into the program.[cite: 1] Connect with local Aboriginal and Torres Strait Islander organisations and community, and embed culture as everyday practice rather than NAIDOC Week only.[cite: 1]</li>
+            <li>Use accurate, kind language.[cite: 1] "The people you live with", "your carer", "your mum" — follow the child's own words.[cite: 1] Never correct a child's version of their family.[cite: 1]</li>
+            <li>Answer honestly at the child's level.[cite: 1] If a child says "I don't live with my mum", a good response is calm acknowledgement, not a change of subject.[cite: 1] Silence teaches children the topic is shameful.[cite: 1]</li>
+            <li>Include carers as parents.[cite: 1] Invite them to everything, put their names on things, and don't make them explain themselves at the door.[cite: 1]</li>
+        </ul>
 
-const dataRow = (cells, widths, shade=false, darkClr=NAVY, lightClr="F8F8F8") =>
-  new TableRow({children: cells.map((c,i)=>
-    new TableCell({
-      borders:allB("CCCCCC"),
-      shading:{fill:shade?(i%2===0?lightClr:WHITE):WHITE, type:ShadingType.CLEAR},
-      width:{size:widths[i],type:WidthType.DXA}, margins:cm(80,80,120,120),
-      children:[p([...( Array.isArray(c)?c:[tr(c,19,DARK_GRAY)] )])]
-    })
-  )});
+        <h4>Community and Professional Partnerships[cite: 1]</h4>
+        <p><strong>Act for Kids[cite: 1]</strong></p>
+        <p>Who they are: An Australian charity with strong Queensland roots and centres across Brisbane and regional Queensland, providing free therapeutic and support services for children and families affected by abuse and neglect.[cite: 1]</p>
+        <p>What they do: Therapeutic services for children who have experienced trauma, integrated family support, Safe Pathways programs, professional training for people working with children, and prevention education.[cite: 1]</p>
+        <p>How an early childhood service can collaborate:[cite: 1]</p>
+        <ul>
+            <li>Refer families for therapeutic and family support, with consent, and coordinate so that what the therapist is working on is echoed in the room[cite: 1]</li>
+            <li>Book their professional development for the whole staff team on trauma-informed practice and recognising indicators of harm[cite: 1]</li>
+            <li>Use their prevention and body-safety resources within your program[cite: 1]</li>
+            <li>Invite a practitioner to consult on a specific child's plan, with appropriate consent, so strategies are consistent across settings[cite: 1]</li>
+        </ul>
+        
+        <p><strong>The child's Child Safety Officer (Queensland Department of Child Safety, Seniors and Disability Services)[cite: 1]</strong></p>
+        <p>Who they are: The statutory caseworker holding legal responsibility for the child's protection and case plan.[cite: 1] Not an optional partner — for a child on an order, this is the person coordinating everything.[cite: 1]</p>
+        <p>What they do: Investigate and assess protective concerns, arrange and monitor placements, develop the case plan, organise family contact, and coordinate the care team.[cite: 1]</p>
+        <p>How an early childhood service can collaborate:[cite: 1]</p>
+        <ul>
+            <li>Ask to be part of the care team.[cite: 1] Educators see the child several days a week and hold observational information no one else has.[cite: 1]</li>
+            <li>Provide clear, factual documentation — dated, objective observations, free of interpretation or emotive language, ready for planning meetings or court processes.[cite: 1]</li>
+            <li>Get clarity in writing on parental responsibility, information sharing, contact arrangements and authorised collection, and keep it current.[cite: 1]</li>
+            <li>Give advance notice of contact visits where possible, so educators can plan for the days around them.[cite: 1]</li>
+            <li>Advocate for continuity.[cite: 1] If a placement changes, make the case for the child staying enrolled.[cite: 1] You may be the only stable adult relationship they keep.[cite: 1]</li>
+        </ul>
+        
+        <p><strong>Further partnerships worth building[cite: 1]</strong></p>
+        <p>SNAICC – National Voice for our Children, CREATE Foundation, Life Without Barriers, PeakCare Queensland, the Queensland Family and Child Commission, a child psychologist or play therapist, and your local Aboriginal and Torres Strait Islander Community Controlled Organisation.[cite: 1]</p>
+        <p>Given the overrepresentation data, any service working with children in care will work with Aboriginal and Torres Strait Islander children.[cite: 1] Partnership should be with Aboriginal Community Controlled Organisations, not just referral to them, and it should exist before you need it.[cite: 1] Ask what the local organisation would like from you, not what you can get from them.[cite: 1]</p>
 
-const twoColTable = (rows2, w1, w2, hdr1, hdr2, darkClr) => {
-  const total = w1+w2;
-  return new Table({
-    width:{size:total,type:WidthType.DXA}, columnWidths:[w1,w2],
-    rows:[
-      hdrRow([hdr1,hdr2],[w1,w2],darkClr),
-      ...rows2.map(([a,b],i)=> dataRow([a,b],[w1,w2],true,darkClr, i%2===0?"F8F8F8":WHITE))
-    ]
-  });
-};
+        <h4>Resources for Educators and Children[cite: 1]</h4>
+        <p><strong>Programs, projects and websites[cite: 1]</strong></p>
+        <p>Emerging Minds — National Workforce Centre for Child Mental Health[cite: 1]<br>
+        Free, Australian, evidence-based online courses and practice resources on child mental health, trauma, and child-aware practice.[cite: 1]<br>
+        How to use it: Assign specific short courses as team professional development — trauma-informed practice and supporting children who have experienced adversity are directly applicable.[cite: 1] Their family-facing materials can also be shared with carers.[cite: 1]</p>
+        
+        <p>Be You (Beyond Blue)[cite: 1]<br>
+        A free national mental health in education initiative with a dedicated Early Learning stream, covering mentally healthy environments, family partnerships, and responding to children experiencing trauma or grief.[cite: 1]<br>
+        How to use it: Register your service and work through the Early Support domain as a team.[cite: 1] Their critical incident and grief resources are practical and written for educators, not clinicians.[cite: 1]</p>
+        
+        <p>Also useful: SNAICC resources and the Child Placement Principle implementation guides; CREATE Foundation; the Australian Childhood Foundation; Bravehearts; Educate2Empower; the Daniel Morcombe Foundation.[cite: 1]</p>
+        
+        <p><strong>Children's storybooks (birth to 5 years)[cite: 1]</strong></p>
+        <p>The Invisible String — Patrice Karst, illustrated by Joanne Lew-Vriethoff[cite: 1]<br>
+        Two children worry about being apart from their mother, who explains that people who love each other are connected by an invisible string that reaches anywhere, no matter the distance.[cite: 1]<br>
+        How to use it: Read it in a small group or one-to-one, then make it real — the child ties a piece of string or wool around their wrist, or draws their own strings to their important people.[cite: 1] For a child in care, it holds two truths at once: you are not living with them, and the connection has not been cut.[cite: 1] It builds resilience by giving a child language for separation, and empathy in peers who learn that families can be apart and still be families.[cite: 1]</p>
+        
+        <p>Families, Families, Families! — Suzanne Lang, illustrated by Max Lang[cite: 1]<br>
+        A funny picture-frame parade of animal families in every possible configuration, landing on the idea that what makes a family is love, not structure.[cite: 1]<br>
+        How to use it: Read it early in the year, before any family-themed project, so that "different" is established as normal before any individual child has to be the different one.[cite: 1] Follow with "my important people" portraits.[cite: 1] It builds understanding of family diversity for the whole group, and takes pressure off the child in care to explain themselves.[cite: 1]</p>
+        
+        <p>Also useful: Maybe Days: A Book for Children in Foster Care by Jennifer Wilgocki and Marcia Kahn Wright (more targeted, best one-to-one); Ruby's Worry by Tom Percival for naming feelings; Sorry Day by Coral Vass and Dub Leffler for older children and educator understanding of the Stolen Generations.[cite: 1]</p>
+        
+        <p><strong>Videos, shows and podcasts[cite: 1]</strong></p>
+        <p>Sesame Street in Communities — Foster Care collection (featuring Karli)[cite: 1]<br>
+        Free videos and printable resources built around a Muppet character living with foster parents.[cite: 1] The collection covers big feelings, "for-now parents", and reunification, with separate guidance for the adults.[cite: 1]<br>
+        How to use it: Use short clips one-to-one or in a small group with a child in care and a couple of peers, then follow with drawing or dramatic play.[cite: 1] Because Karli is treated as an ordinary character with an ordinary life, a child watching sees their own situation reflected without pity.[cite: 1] It builds empathy in peers and resilience in the child by showing that other children live this too.[cite: 1]</p>
+        
+        <p>Bluey (ABC Kids) — the episode "Sleepytime"[cite: 1]<br>
+        A child navigates a night away from her mum and finds her way back to her at the end, in a story about needing a secure base and being able to venture out from it.[cite: 1]<br>
+        How to use it: Watch, then talk about who keeps us safe and what helps us feel calm at night.[cite: 1] Build a "calm down" toolkit with the children.[cite: 1] This gives a gentle, non-threatening entry into conversations about safety, separation and comfort — and because it's a show most Australian children already love, no one feels singled out.[cite: 1] It builds understanding of attachment in an age-appropriate way and supports resilience through self-regulation strategies.[cite: 1]</p>
+        
+        <p>Also useful: Emerging Minds, The Whole Child (Vimeo) for educators; Play School (ABC Kids) episodes on family diversity; CREATE Foundation videos featuring young people with lived experience of care.[cite: 1]</p>
+    </div>
 
-const threeColTable = (rows3, widths, hdrs, darkClr, lightBg) => {
-  return new Table({
-    width:{size:widths.reduce((a,b)=>a+b,0),type:WidthType.DXA},
-    columnWidths:widths,
-    rows:[
-      hdrRow(hdrs, widths, darkClr),
-      ...rows3.map(([a,b,c],i)=> new TableRow({children:[
-        new TableCell({borders:allB("CCCCCC"), shading:{fill:i%2===0?lightBg:WHITE,type:ShadingType.CLEAR}, width:{size:widths[0],type:WidthType.DXA}, margins:cm(), children:[p(tr(a,19,DARK_GRAY,a.startsWith("✗")))} ),
-        new TableCell({borders:allB("CCCCCC"), shading:{fill:i%2===0?lightBg:WHITE,type:ShadingType.CLEAR}, width:{size:widths[1],type:WidthType.DXA}, margins:cm(), children:[p(tr(b,19,DARK_GRAY))]} ),
-        new TableCell({borders:allB("CCCCCC"), shading:{fill:i%2===0?lightBg:WHITE,type:ShadingType.CLEAR}, width:{size:widths[2],type:WidthType.DXA}, margins:cm(), children:[p(tr(c,19,DARK_GRAY))]} ),
-      ]}))
-    ]
-  });
-};
+    <div class="section">
+        <h2>REFERENCES[cite: 1]</h2>
+        <ul>
+            <li>Australian Children's Education and Care Quality Authority. (2018). Guide to the National Quality Framework. https://www.acecqa.gov.au[cite: 1]</li>
+            <li>Australian Government Department of Education. (2022). Belonging, being and becoming: The Early Years Learning Framework for Australia (V2.0). Australian Government Department of Education for the Ministerial Council.[cite: 1]</li>
+            <li>Australian Government Department of Education. (2025). Australian Early Development Census. https://www.education.gov.au/early-childhood/about/data-and-reports/australian-early-development-census[cite: 1]</li>
+            <li>Australian Government Department of Education. (2026). 3 Day Guarantee. https://www.education.gov.au/early-childhood/providers/child-care-subsidy/3-day-guarantee[cite: 1]</li>
+            <li>Australian Institute of Health and Welfare. (2025). Child protection Australia 2023–24. https://www.aihw.gov.au/reports/child-protection/child-protection-australia-2023-24[cite: 1]</li>
+            <li>Australian Institute of Health and Welfare. (2026). Child protection Australia 2024–25: Insights. https://www.aihw.gov.au/reports/child-protection/child-protection-australia-2024-25[cite: 1]</li>
+            <li>Bowlby, J. (1988). A secure base: Parent–child attachment and healthy human development. Basic Books.[cite: 1]</li>
+            <li>Cashmore, J., Conley Wright, A., & Metcalfe, L. (2022). Child protection and out-of-home care. In R. Grace, J. Bowes, & C. Woodrow (Eds.), Children, families and communities (6th ed., pp. 179–188). Oxford University Press Australia.[cite: 1]</li>
+            <li>Center on the Developing Child at Harvard University. (2023). Toxic stress. https://developingchild.harvard.edu[cite: 1]</li>
+            <li>Commonwealth of Australia. (2021). Safe and supported: The national framework for protecting Australia's children 2021–2031. Department of Social Services.[cite: 1]</li>
+            <li>Commonwealth of Australia. (2024). Early Years Strategy 2024–2034. Department of Social Services.[cite: 1]</li>
+            <li>Conger, R. D., & Donnellan, M. B. (2007). An interactionist perspective on the socioeconomic context of human development. Annual Review of Psychology, 58, 175–199.[cite: 1]</li>
+            <li>Davidson, P., & Bradbury, B. (2025). Poverty in Australia 2025: Overview. Australian Council of Social Service & UNSW Sydney. https://povertyandinequality.acoss.org.au[cite: 1]</li>
+            <li>Goemans, A., van Geel, M., & Vedder, P. (2015). Over three decades of longitudinal research on the development of foster children: A meta-analysis. Child Abuse & Neglect, 42, 121–134.[cite: 1]</li>
+            <li>Grace, R., & Baird, K. (2022). Social inequities in Australian communities and the impact on children and families. In R. Grace, J. Bowes, & C. Woodrow (Eds.), Children, families and communities (6th ed., pp. 160–173). Oxford University Press Australia.[cite: 1]</li>
+            <li>Grace, R., Townley, C., & Woodrow, C. (2022). Understanding the child in context: An ecological approach to child development. In R. Grace, J. Bowes, & C. Woodrow (Eds.), Children, families and communities (6th ed., pp. 2–13). Oxford University Press Australia.[cite: 1]</li>
+            <li>McMahon, C., & Grace, R. (2022). Family as the primary context of children's development. In R. Grace, J. Bowes, & C. Woodrow (Eds.), Children, families and communities (6th ed., pp. 95–108). Oxford University Press Australia.[cite: 1]</li>
+            <li>Mitchell Institute. (2025). Research spotlight: The Australian Early Development Census 2024. Victoria University. https://www.vu.edu.au/mitchell-institute[cite: 1]</li>
+            <li>Productivity Commission. (n.d.). Socio-economic outcome area 12: Aboriginal and Torres Strait Islander children are not overrepresented in the child protection system. https://www.pc.gov.au/closing-the-gap-data/dashboard[cite: 1]</li>
+            <li>Productivity Commission. (2026). Report on government services 2026: Housing and homelessness. https://www.pc.gov.au/ongoing/report-on-government-services/housing-homelessness[cite: 1]</li>
+            <li>SGS Economics & Planning. (2025). Rental affordability index 2025. https://sgsep.com.au[cite: 1]</li>
+            <li>SNAICC – National Voice for our Children. (2019). The Aboriginal and Torres Strait Islander Child Placement Principle: A guide to support implementation. https://www.snaicc.org.au[cite: 1]</li>
+            <li>Thompson, R. A. (2015). Social support and child protection: Lessons learned and learning. Child Abuse & Neglect, 41, 19–29.[cite: 1]</li>
+            <li>Wong, S., & Harrison, L. J. (2022). Research about and with children, families and communities. In R. Grace, J. Bowes, & C. Woodrow (Eds.), Children, families and communities (6th ed., pp. 16–26). Oxford University Press Australia.[cite: 1]</li>
+            <li>Woodrow, C., Grace, R., & Cashmore, J. (2022). Approaches to policy and practice to support children, families and communities. In R. Grace, J. Bowes, & C. Woodrow (Eds.), Children, families and communities (6th ed., pp. 252–270). Oxford University Press Australia.[cite: 1]</li>
+        </ul>
+        
+        <h3>Children's resources[cite: 1]</h3>
+        <ul>
+            <li>Boelts, M. (2007). Those shoes (N. Z. Jones, Illus.). Candlewick Press.[cite: 1]</li>
+            <li>de la Peña, M. (2015). Last stop on Market Street (C. Robinson, Illus.). G. P. Putnam's Sons.[cite: 1]</li>
+            <li>Karst, P. (2018). The invisible string (J. Lew-Vriethoff, Illus.). Little, Brown Books for Young Readers.[cite: 1]</li>
+            <li>Lang, S. (2015). Families, families, families! (M. Lang, Illus.). Random House.[cite: 1]</li>
+            <li>Wilgocki, J., & Wright, M. K. (2002). Maybe days: A book for children in foster care (A. Geis, Illus.). Magination Press.[cite: 1]</li>
+            <li>Williams, V. B. (1982). A chair for my mother. Greenwillow Books.[cite: 1]</li>
+        </ul>
+    </div>
 
-// ─── DOCUMENT ────────────────────────────────────────────────────────────────
-const doc = new Document({
-  numbering:{config:[
-    {reference:"bullets",levels:[{level:0,format:LevelFormat.BULLET,text:"\u2022",
-      alignment:AlignmentType.LEFT,style:{paragraph:{indent:{left:540,hanging:300}}}}]},
-    {reference:"sub",levels:[{level:0,format:LevelFormat.BULLET,text:"\u25E6",
-      alignment:AlignmentType.LEFT,style:{paragraph:{indent:{left:900,hanging:300}}}}]},
-    {reference:"num",levels:[{level:0,format:LevelFormat.DECIMAL,text:"%1.",
-      alignment:AlignmentType.LEFT,style:{paragraph:{indent:{left:540,hanging:300}}}}]},
-    {reference:"ticks",levels:[{level:0,format:LevelFormat.BULLET,text:"\u2610",
-      alignment:AlignmentType.LEFT,style:{paragraph:{indent:{left:540,hanging:300}}}}]},
-  ]},
-  styles:{default:{document:{run:{font:"Arial",size:21,color:DARK_GRAY}}}},
-  sections:[{
-    properties:{page:{size:{width:12240,height:15840},margin:{top:800,right:800,bottom:800,left:800}}},
-    headers:{default:new Header({children:[
-      new Paragraph({spacing:{before:0,after:60},shading:{fill:NAVY,type:ShadingType.CLEAR},
-        children:[
-          tr("  IELTS BAND 8 COMPLETE GUIDE",18,"BBCCFF",true),
-          tr("  |  All 4 Modules: Listening · Reading · Writing · Speaking  |  Band 8 Final Score Strategy",17,"8899CC")
-        ]})
-    ]})},
-    children:[
+    <div class="section">
+        <h2>AI USE STATEMENT[cite: 1]</h2>
+        <p><strong>How generative AI was used in this portfolio[cite: 1]</strong></p>
+        <p>Tool used: Claude (Anthropic), _______ , accessed _______ .[cite: 1]</p>
+        
+        <p>Purposes:[cite: 1]</p>
+        <ul>
+            <li>Structuring the portfolio and drafting an initial outline of the six required sections for each context[cite: 1]</li>
+            <li>Locating Australian statistics and policy documents, which I then verified against the original sources[cite: 1]</li>
+            <li>Drafting explanations of sociological theory, which I edited and checked against my unit readings[cite: 1]</li>
+            <li>Suggesting children's books, media and community organisations, which I evaluated for relevance and age-appropriateness myself[cite: 1]</li>
+        </ul>
+        
+        <p>What I did with the output:[cite: 1]</p>
+        <ul>
+            <li>Verified every statistic against the original source (AIHW, ACOSS/UNSW, Productivity Commission, Department of Education)[cite: 1]</li>
+            <li>Read and confirmed the theoretical content against my unit readings before including it[cite: 1]</li>
+            <li>Rewrote content in my own voice and edited for my own practice context[cite: 1]</li>
+            <li>Checked all reference formatting against APA 7 requirements[cite: 1]</li>
+        </ul>
+        
+        <p>_______[cite: 1]</p>
+        <p>What I did not use AI for: _______[cite: 1]</p>
+        
+        <h3>GenAI Bibliography[cite: 1]</h3>
+        <p>Anthropic. (2026). Claude (_______) [Large language model]. https://claude.ai[cite: 1]</p>
+        
+        <p>Example prompts used:[cite: 1]</p>
+        <ol>
+            <li>_______[cite: 1]</li>
+            <li>_______[cite: 1]</li>
+        </ol>
+    </div>
 
-// ══════════════════════════════════════════════════════════════════════════════
-// ░░  COVER BLOCK
-// ══════════════════════════════════════════════════════════════════════════════
-new Paragraph({spacing:{before:80,after:0},alignment:AlignmentType.CENTER,
-  shading:{fill:NAVY,type:ShadingType.CLEAR},
-  children:[tr("IELTS COMPLETE BAND 8 GUIDE",50,WHITE,true)]}),
-new Paragraph({spacing:{before:0,after:0},alignment:AlignmentType.CENTER,
-  shading:{fill:OV_MID,type:ShadingType.CLEAR},
-  children:[tr("Listening  ·  Reading  ·  Writing  ·  Speaking",26,"D0D8FF",true)]}),
-new Paragraph({spacing:{before:0,after:100},alignment:AlignmentType.CENTER,
-  shading:{fill:GOLD,type:ShadingType.CLEAR},
-  children:[tr("All 4 modules covered  |  Band 8 scoring thresholds  |  Strategies, structures & fatal error warnings",18,WHITE)]}),
-
-// ══════════════════════════════════════════════════════════════════════════════
-// ░░  SECTION 0 — HOW BAND 8 IS CALCULATED
-// ══════════════════════════════════════════════════════════════════════════════
-secHead("HOW YOUR OVERALL BAND 8 IS CALCULATED", OV_DARK, OV_LIGHT),
-
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[2475,2475,2475,2475],
-  rows:[
-    hdrRow(["LISTENING","READING","WRITING","SPEAKING"],[2475,2475,2475,2475],OV_MID),
-    new TableRow({children:[
-      ...[
-        {score:"36/40 correct",band:"Band 8",note:"No negative marking",bg:L_LIGHT,clr:L_DARK},
-        {score:"35-36/40 correct",band:"Band 8",note:"Academic is harder than GT",bg:R_LIGHT,clr:R_DARK},
-        {score:"4 criteria avg 8",band:"Band 8",note:"Task 2 worth 2× Task 1",bg:W_LIGHT,clr:W_DARK},
-        {score:"4 criteria avg 8",band:"Band 8",note:"Same test for all candidates",bg:S_LIGHT,clr:S_DARK},
-      ].map(({score,band,note,bg,clr})=>new TableCell({
-        borders:allB("AAAAAA"), shading:{fill:bg,type:ShadingType.CLEAR},
-        width:{size:2475,type:WidthType.DXA}, margins:cm(100,100,130,130),
-        children:[
-          p(tr(score,21,clr,true)),
-          p(tr("→ "+band,20,clr,true)),
-          p(tr(note,18,"666666",false,true))
-        ]
-      }))
-    ]})
-  ]
-}),
-sp(80,60),
-
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[4900,5000],
-  rows:[new TableRow({children:[
-    new TableCell({
-      borders:allB(OV_MID), shading:{fill:OV_LIGHT,type:ShadingType.CLEAR},
-      width:{size:4900,type:WidthType.DXA}, margins:cm(120,120,180,150),
-      children:[
-        p([tr("OVERALL BAND = (L + R + W + S) ÷ 4",21,OV_DARK,true)]),
-        p([tr("Rounded to nearest 0.5 band. Key rounding rules:",20,"444444")]),
-        bullet(" Average 7.75  →  rounds UP to Band 8"),
-        bullet(" Average 7.5   →  stays at Band 8"),
-        bullet(" Average 7.25  →  rounds UP to 7.5"),
-        bullet(" Average 6.75  →  rounds UP to Band 7"),
-        p([tr("",10)]),
-        p([tr("SAFE STRATEGY: Aim for Band 8 in L & R (high correct answers), and at minimum Band 7.5 in W & S. This gives (8+8+7.5+7.5)÷4 = 7.75 → rounds to Band 8",19,OV_DARK)])
-      ]
-    }),
-    new TableCell({
-      borders:allB(GOLD), shading:{fill:GOLD_BG,type:ShadingType.CLEAR},
-      width:{size:5000,type:WidthType.DXA}, margins:cm(120,120,180,150),
-      children:[
-        p([tr("YOUR BAND 8 MINIMUM TARGETS",21,GOLD,true)]),
-        p([tr("",8)]),
-        ...[
-          ["LISTENING","36+ correct out of 40 (90%+)","→ Band 8"],
-          ["READING","35+ correct out of 40 (87%+)","→ Band 8"],
-          ["WRITING","Avg 7.5+ across both tasks","→ Band 7.5–8"],
-          ["SPEAKING","Avg 7.5+ across all 4 criteria","→ Band 7.5–8"],
-        ].map(([m,t,b])=>new Paragraph({spacing:{before:30,after:30},children:[
-          tr(m+": ",20,OV_DARK,true),
-          tr(t,19,"444444"),
-          tr("  "+b,19,L_DARK,true)
-        ]}))
-      ]
-    })
-  ]})]
-}),
-
-sp(80,60),
-
-// COMPLETE TEST OVERVIEW TABLE
-subHead("COMPLETE IELTS TEST AT A GLANCE", NAVY),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[1800,1600,1600,1600,1700,1600],
-  rows:[
-    hdrRow(["MODULE","DURATION","QUESTIONS","WORD COUNT","MARKING","WEIGHT"],[1800,1600,1600,1600,1700,1600],NAVY),
-    dataRow([[tr("LISTENING",20,L_DARK,true)],"40 min total","40 Qs (1pt each)","N/A","Correct answers only","25%"],[1800,1600,1600,1600,1700,1600],true,NAVY,L_LIGHT),
-    dataRow([[tr("READING",20,R_DARK,true)],"60 min","40 Qs (1pt each)","N/A","Correct answers only","25%"],[1800,1600,1600,1600,1700,1600],true,NAVY,R_LIGHT),
-    dataRow([[tr("WRITING T1",20,W_DARK,true)],"20 min (rec)","Report","150+ words","4 criteria × 25%","~8% of total"],[1800,1600,1600,1600,1700,1600],true,NAVY,W_LIGHT),
-    dataRow([[tr("WRITING T2",20,W_DARK,true)],"40 min (rec)","Essay","250+ words","4 criteria × 25%","~17% of total"],[1800,1600,1600,1600,1700,1600],true,NAVY,W_LIGHT),
-    dataRow([[tr("SPEAKING",20,S_DARK,true)],"11–14 min","3 parts","Spoken only","4 criteria × 25%","25%"],[1800,1600,1600,1600,1700,1600],true,NAVY,S_LIGHT),
-  ]
-}),
-
-pbr(),
-
-// ══════════════════════════════════════════════════════════════════════════════
-// ░░  MODULE 1 — LISTENING
-// ══════════════════════════════════════════════════════════════════════════════
-modHeader("🎧", "MODULE 1: LISTENING", "40 questions · 40 minutes · 36+ correct = Band 8 · No negative marking", L_DARK, L_MID),
-sp(60,40),
-
-// Structure table
-subHead("TEST STRUCTURE — 4 SECTIONS, 10 QUESTIONS EACH", L_DARK),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[1200,2200,2200,2200,2100],
-  rows:[
-    hdrRow(["SECTION","CONTEXT","DIFFICULTY","SPEAKERS","FOCUS"],[1200,2200,2200,2200,2100],L_DARK),
-    dataRow(["Section 1","Everyday social situation (e.g. booking a service)","Easiest","2 people in conversation","Names, numbers, dates, spelling"],  [1200,2200,2200,2200,2100],true,L_DARK,L_LIGHT),
-    dataRow(["Section 2","Public/social context (e.g. tour guide, club talk)","Easy-Medium","1 monologue","General information, directions"],  [1200,2200,2200,2200,2100],true,L_DARK,L_LIGHT),
-    dataRow(["Section 3","Educational/training context (e.g. student discussion)","Medium-Hard","2–4 people","Academic process, study skills"],  [1200,2200,2200,2200,2100],true,L_DARK,L_LIGHT),
-    dataRow(["Section 4","Academic lecture or talk","Hardest","1 monologue","Complex concepts, technical vocab"],  [1200,2200,2200,2200,2100],true,L_DARK,L_LIGHT),
-  ]
-}),
-sp(80,60),
-
-// 2-col: Question types | Band 8 Strategies
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[4700,5200],
-  rows:[new TableRow({children:[
-    new TableCell({
-      borders:allB(L_MID), shading:{fill:L_LIGHT,type:ShadingType.CLEAR},
-      width:{size:4700,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("ALL QUESTION TYPES",20,L_DARK,true)]),
-        ...["Sentence Completion","Summary Completion","Form / Note Completion","Table Completion","Multiple Choice (single & list)","Short Answer Questions","Diagram / Map / Plan Labelling","Flow Chart Completion",].map(q=>
-          new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:28,after:28},children:[tr(q,20,DARK_GRAY)]})
-        ),
-        p([tr("",8)]),
-        p([tr("ANSWER RULES — CRITICAL",20,L_DARK,true)]),
-        bullet('"No more than 3 words": max 3 words (with or without numbers)'),
-        bullet("Numbers written as digits count as 1 word"),
-        bullet("Articles (a, an, the) count as words — be careful"),
-        bullet("Spelling must be correct — capitals allowed for names"),
-      ]
-    }),
-    new TableCell({
-      borders:allB(L_MID), width:{size:5200,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("BAND 8 STRATEGY — STEP BY STEP",20,L_DARK,true)]),
-        ...[
-          ["BEFORE recording starts","Read questions fast. Underline keywords. Predict the answer type (number? name? place? adjective?)."],
-          ["DURING recording","Follow in sequence. Listen for paraphrases of keywords, NOT identical words. Write answers as you hear them."],
-          ["IF you lose your place","Don't panic — skip that question and move to the next one. Come back during transfer time."],
-          ["Sections 1–2","Listen for corrections: 'Actually, it's... / Sorry, I mean...' — the CORRECTED answer is always right."],
-          ["Section 3","Multiple choice trap: speakers discuss wrong answers before giving right one. Wait for the final opinion."],
-          ["Section 4","Most challenging. Scan all 10 questions before it starts. Answers follow text order."],
-          ["Transfer / Check time","Paper: 10 min to transfer — check spelling, plurals, word limits. Computer: 2 min — check typos."],
-          ["NEVER leave blank","No negative marking. Guess intelligently — eliminate obvious wrong answers."],
-        ].map(([k,v])=> new Paragraph({spacing:{before:35,after:35},children:[
-          tr(k+": ",20,L_DARK,true),tr(v,19,DARK_GRAY)
-        ]}))
-      ]
-    })
-  ]})]
-}),
-sp(70,50),
-
-// Listening fatal errors
-secHead("LISTENING — 5 MISTAKES THAT COST YOU BAND 8", L_DARK, L_LIGHT),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[200,3300,3200,3200],
-  rows:[
-    hdrRow(["","MISTAKE","WHY IT COSTS MARKS","FIX"],[200,3300,3200,3200],L_DARK),
-    ...[
-      ["1","Writing more words than allowed","Answer is marked WRONG regardless of content","Count words. Contractions (don't) = 1 word. Hyphenated = 1 word."],
-      ["2","Mishearing paraphrases","The recording NEVER uses the exact question words","Practice paraphrase spotting. 'apartment' → 'flat'; 'begin' → 'start'"],
-      ["3","Missing plurals / -ed endings","'book' instead of 'books' = wrong","Mentally check every noun and verb ending"],
-      ["4","Not reading questions in advance","No time to predict answer type","Always use the reading time before each section"],
-      ["5","Leaving blanks","Zero chance of a mark — no penalty for guessing","Always write something. Use logic to guess"],
-    ].map(([n,m,w,f],i)=> new TableRow({children:[
-      new TableCell({borders:allB("CCCCCC"),shading:{fill:i%2===0?L_LIGHT:WHITE,type:ShadingType.CLEAR},width:{size:200,type:WidthType.DXA},margins:cm(),children:[p([tr(n,19,L_DARK,true)])]}),
-      new TableCell({borders:allB("CCCCCC"),shading:{fill:i%2===0?L_LIGHT:WHITE,type:ShadingType.CLEAR},width:{size:3300,type:WidthType.DXA},margins:cm(),children:[p([tr(m,19,S_DARK,true)])]}),
-      new TableCell({borders:allB("CCCCCC"),width:{size:3200,type:WidthType.DXA},margins:cm(),children:[p([tr(w,19,DARK_GRAY)])]}),
-      new TableCell({borders:allB("CCCCCC"),shading:{fill:i%2===0?L_LIGHT:WHITE,type:ShadingType.CLEAR},width:{size:3200,type:WidthType.DXA},margins:cm(),children:[p([tr(f,19,L_DARK)])]}),
-    ]}))
-  ]
-}),
-
-pbr(),
-
-// ══════════════════════════════════════════════════════════════════════════════
-// ░░  MODULE 2 — READING
-// ══════════════════════════════════════════════════════════════════════════════
-modHeader("📖", "MODULE 2: READING", "40 questions · 60 minutes · 35-36+ correct = Band 8 · You manage your own time", R_DARK, R_MID),
-sp(60,40),
-
-subHead("TEST STRUCTURE — ACADEMIC vs GENERAL TRAINING", R_DARK),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[1400,4250,4250],
-  rows:[
-    hdrRow(["","ACADEMIC READING","GENERAL TRAINING (GT) READING"],[1400,4250,4250],R_DARK),
-    dataRow(["Passages","3 long academic texts on general-interest topics (science, history, environment, etc.)","Section 1 (social), Section 2 (work/training), Section 3 (academic-style, slightly easier)"],[1400,4250,4250],true,R_DARK,R_LIGHT),
-    dataRow(["Difficulty","High — dense academic vocabulary and complex sentences","Progressive — easiest to hardest across 3 sections"],[1400,4250,4250],true,R_DARK,R_LIGHT),
-    dataRow(["Band 8 target","35–36 correct / 40","35–37 correct / 40 (GT marking is slightly different)"],[1400,4250,4250],true,R_DARK,R_LIGHT),
-    dataRow(["Strategy","Same question types, same techniques — all tips below apply to both tests","Same question types, same techniques — all tips below apply to both tests"],[1400,4250,4250],true,R_DARK,R_LIGHT),
-  ]
-}),
-sp(80,60),
-
-// Question types + strategy
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[3200,6700],
-  rows:[new TableRow({children:[
-    new TableCell({
-      borders:allB(R_MID), shading:{fill:R_LIGHT,type:ShadingType.CLEAR},
-      width:{size:3200,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("ALL QUESTION TYPES",20,R_DARK,true)]),
-        ...["True / False / Not Given (TFNG)","Yes / No / Not Given (YNNG)","Matching Headings","Matching Paragraph Information","Multiple Choice","Sentence Completion","Summary Completion","Short Answer Questions","Classification / Categorisation","Matching Sentence Endings","Choosing a Title","Diagram Labelling",].map(q=>
-          new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:25,after:25},children:[tr(q,19,DARK_GRAY)]})
-        ),
-      ]
-    }),
-    new TableCell({
-      borders:allB(R_MID), width:{size:6700,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("BAND 8 READING STRATEGY",20,R_DARK,true)]),
-        ...[
-          ["SKIM first (2–3 min each passage)","Read the title, headings, first sentence of each paragraph and last paragraph. Build a mental map — do NOT read every word."],
-          ["Read the QUESTION first","Always read the question before going to the passage. Know exactly what you're looking for."],
-          ["SCAN for keywords","Scan the passage for the keywords/paraphrases from the question. Answers are usually in ONE specific area."],
-          ["ANALYSE the sentence","Once you find the relevant sentence, read it carefully word by word. Meaning matters more than vocabulary."],
-          ["Paraphrase is everything","The passage will NEVER use the exact words from the question. Train yourself to spot meaning, not words."],
-          ["T/F/NG vs Y/N/NG","TFNG = factual statements (check what the text says). YNNG = views/opinions (does the writer agree?). NOT GIVEN = cannot be confirmed OR denied from the text."],
-          ["Matching Headings","Read the heading options first. Match to the MAIN IDEA of each paragraph — ignore supporting details."],
-          ["Time management","Spend ~20 min per passage. If stuck on a question, move on and come back — never waste 5 min on 1 mark."],
-          ["Order of answers","Most question types follow passage order. Use this to stay on track."],
-          ["Spelling","Copy words exactly from the passage. Do not paraphrase answers — exact wording required."],
-        ].map(([k,v])=> new Paragraph({spacing:{before:35,after:35},children:[
-          tr(k+": ",20,R_DARK,true),tr(v,19,DARK_GRAY)
-        ]}))
-      ]
-    })
-  ]})]
-}),
-sp(70,50),
-
-// TFNG critical explanation
-secHead("THE CRITICAL DIFFERENCE: T/F/NG vs Y/N/NG — Most Confused Question Type", R_DARK, R_LIGHT),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[1600,2700,2800,2800],
-  rows:[
-    hdrRow(["ANSWER","TRUE / YES","FALSE / NO","NOT GIVEN"],[1600,2700,2800,2800],R_DARK),
-    dataRow([
-      [tr("For TFNG",20,R_DARK,true),br(),tr("(FACTS)",18,"666666",false,true)],
-      "The statement agrees with what the text says as a fact.",
-      "The statement CONTRADICTS what the text says.",
-      "The text does NOT confirm or deny the statement. Do NOT use your outside knowledge."
-    ],[1600,2700,2800,2800],true,R_DARK,R_LIGHT),
-    dataRow([
-      [tr("For YNNG",20,R_DARK,true),br(),tr("(OPINIONS/VIEWS)",18,"666666",false,true)],
-      "The writer's view/opinion matches the statement.",
-      "The writer's view contradicts the statement.",
-      "The writer does not express a view on this. Not mentioned at all."
-    ],[1600,2700,2800,2800],true,R_DARK,R_LIGHT),
-  ]
-}),
-sp(70,40),
-warn("KEY READING RULE: Your own knowledge is irrelevant. Every answer must come from the passage ONLY. If you 'know' the answer from outside the text — it is NOT GIVEN unless confirmed in the passage.", R_LIGHT, R_DARK),
-sp(60,40),
-
-// Reading biggest mistakes
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[4950,4950],
-  rows:[new TableRow({children:[
-    new TableCell({
-      borders:allB(R_DARK), shading:{fill:R_LIGHT,type:ShadingType.CLEAR},
-      width:{size:4950,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("6 BIGGEST READING MISTAKES",20,R_DARK,true)]),
-        ...[
-          "Matching WORDS instead of MEANING — paraphrase is everything",
-          "Using outside knowledge for T/F/NG — only text evidence counts",
-          "Reading every word of the passage before answering questions",
-          "Spending too long on one question — move on and return later",
-          "Not reading question INSTRUCTIONS carefully (word limits!)",
-          "Confusing FALSE and NOT GIVEN — false = contradiction in text",
-        ].map((m,i)=> new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:30,after:30},
-          children:[tr(m,20,i<3?S_DARK:DARK_GRAY)]}))
-      ]
-    }),
-    new TableCell({
-      borders:allB(R_DARK), width:{size:4950,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("60-MINUTE TIME PLAN",20,R_DARK,true)]),
-        ...[
-          ["0–3 min","Skim passage 1: title, headings, first sentences"],
-          ["3–20 min","Answer all questions for passage 1 (allow ~30 sec per Q)"],
-          ["20–22 min","Skim passage 2"],
-          ["22–40 min","Answer all questions for passage 2"],
-          ["40–42 min","Skim passage 3"],
-          ["42–58 min","Answer all questions for passage 3"],
-          ["58–60 min","Return to skipped/uncertain answers"],
-        ].map(([t,a])=> new Paragraph({spacing:{before:30,after:30},children:[
-          tr(t+": ",20,R_DARK,true),tr(a,19,DARK_GRAY)
-        ]}))
-      ]
-    })
-  ]})]
-}),
-
-pbr(),
-
-// ══════════════════════════════════════════════════════════════════════════════
-// ░░  MODULE 3 — WRITING
-// ══════════════════════════════════════════════════════════════════════════════
-modHeader("✍", "MODULE 3: WRITING", "Task 1 (report) + Task 2 (essay) · 60 min total · 4 criteria each · Task 2 worth 2× Task 1", W_DARK, W_MID),
-sp(60,40),
-
-// Writing overview
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[4950,4950],
-  rows:[new TableRow({children:[
-    new TableCell({
-      borders:allB(W_MID), shading:{fill:W_LIGHT,type:ShadingType.CLEAR},
-      width:{size:4950,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("WRITING TASK 1 — REPORT",21,W_DARK,true)]),
-        bullet("Write a REPORT (not an essay) — no opinion"),
-        bullet("Minimum 150 words (aim for 170–190)"),
-        bullet("Recommended 20 minutes"),
-        bullet("Worth ~33% of your writing marks"),
-        p([tr("",8)]),
-        p([tr("4-PARAGRAPH STRUCTURE:",20,W_DARK,true)]),
-        ...[
-          ["P1 — INTRODUCTION","Paraphrase the question. Never copy."],
-          ["P2 — OVERVIEW","2 main trends, NO data. MANDATORY for Band 7+."],
-          ["P3 — BODY 1","First key feature with specific data."],
-          ["P4 — BODY 2","Second feature with contrast or exception."],
-        ].map(([k,v])=>new Paragraph({spacing:{before:30,after:25},children:[
-          tr(k+": ",20,W_DARK,true),tr(v,19,DARK_GRAY)
-        ]})),
-        sp(20,0),
-        p([tr("4 MARKING CRITERIA (25% each):",20,W_DARK,true)]),
-        bullet("Task Achievement — overview + key features + data"),
-        bullet("Coherence & Cohesion — paragraphing + linking words"),
-        bullet("Lexical Resource — varied, accurate vocabulary"),
-        bullet("Grammatical Range & Accuracy — complex structures"),
-      ]
-    }),
-    new TableCell({
-      borders:allB(W_MID), width:{size:4950,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("WRITING TASK 2 — ESSAY",21,W_DARK,true)]),
-        bullet("Write a FORMAL ESSAY — topic-based argument"),
-        bullet("Minimum 250 words (aim for 270–300)"),
-        bullet("Recommended 40 minutes"),
-        bullet("Worth ~67% of your writing marks — prioritise this task"),
-        p([tr("",8)]),
-        p([tr("5 ESSAY TYPES YOU MUST KNOW:",20,W_DARK,true)]),
-        ...[
-          ["1. Opinion Essay","'Do you agree or disagree?' → Give YOUR clear opinion"],
-          ["2. Discussion Essay","'Discuss both views and give your opinion'"],
-          ["3. Adv/Disadv Essay","'What are the advantages and disadvantages?'"],
-          ["4. Problem/Solution","'What are the causes/problems? Suggest solutions'"],
-          ["5. Two-Question Essay","Two distinct questions — answer BOTH equally"],
-        ].map(([k,v])=>new Paragraph({spacing:{before:30,after:25},children:[
-          tr(k+": ",20,W_DARK,true),tr(v,19,DARK_GRAY)
-        ]})),
-        sp(20,0),
-        p([tr("4 MARKING CRITERIA (25% each):",20,W_DARK,true)]),
-        bullet("Task Response — fully addresses ALL parts of the task"),
-        bullet("Coherence & Cohesion — logical flow + linking"),
-        bullet("Lexical Resource — sophisticated vocabulary"),
-        bullet("Grammatical Range & Accuracy — complex grammar"),
-      ]
-    })
-  ]})]
-}),
-sp(80,60),
-
-// TASK 2 ESSAY STRUCTURE
-secHead("TASK 2 — ESSAY STRUCTURE FOR ALL 5 TYPES", W_DARK, W_LIGHT),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[1900,1900,1900,2100,2100],
-  rows:[
-    hdrRow(["PARAGRAPH","OPINION ESSAY","DISCUSSION ESSAY","ADV/DISADV ESSAY","PROBLEM/SOLUTION"],[1900,1900,1900,2100,2100],W_DARK),
-    dataRow([
-      [tr("P1: INTRODUCTION",19,W_DARK,true)],
-      "Paraphrase question + state your opinion (thesis statement)",
-      "Paraphrase question + state you will discuss both views",
-      "Paraphrase question + state both aspects will be examined",
-      "Paraphrase question + state problems and solutions will be discussed"
-    ],[1900,1900,1900,2100,2100],true,W_DARK,W_LIGHT),
-    dataRow([
-      [tr("P2: BODY 1",19,W_DARK,true)],
-      "Main reason supporting your opinion (2–3 sentences + example)",
-      "View 1 — explain, support with example",
-      "Advantages — explain, support with example",
-      "Problems/Causes — explain, support with example"
-    ],[1900,1900,1900,2100,2100],true,W_DARK,W_LIGHT),
-    dataRow([
-      [tr("P3: BODY 2",19,W_DARK,true)],
-      "Second reason OR counter-argument + rebuttal",
-      "View 2 — explain, support with example",
-      "Disadvantages — explain, support with example",
-      "Solutions — explain, support with example"
-    ],[1900,1900,1900,2100,2100],true,W_DARK,W_LIGHT),
-    dataRow([
-      [tr("P4: CONCLUSION",19,W_DARK,true)],
-      "Restate opinion. Do NOT introduce new ideas.",
-      "State your own opinion on balance of both views",
-      "State which outweighs the other OR balanced view",
-      "Summarise problems and solutions discussed"
-    ],[1900,1900,1900,2100,2100],true,W_DARK,W_LIGHT),
-  ]
-}),
-sp(80,60),
-
-// Band 8 writing criteria
-secHead("WRITING — BAND 8 CRITERIA IN PLAIN ENGLISH", W_DARK, W_LIGHT),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[2100,2600,2600,2600],
-  rows:[
-    hdrRow(["CRITERION","BAND 7 (JUST BELOW)","BAND 8 (YOUR TARGET)","BAND 8 INSTANT-ACTION"],[2100,2600,2600,2600],W_DARK),
-    dataRow([[tr("Task Achievement / Response",19,W_DARK,true)],"Covers task; overview present; minor omissions","ALL key features addressed; overview clear & well-developed; data accurately cited","Write overview for T1; address every part of the question for T2; never stray off topic"],[2100,2600,2600,2600],true,W_DARK,W_LIGHT),
-    dataRow([[tr("Coherence & Cohesion",19,W_DARK,true)],"Logical sequence; adequate linking; some errors with connectives","Skillful use of linking; paragraphing consistent; referencing used accurately","Vary linkers (whereas, consequently, nevertheless, in spite of); use 'this/these/it' for referencing"],[2100,2600,2600,2600],true,W_DARK,W_LIGHT),
-    dataRow([[tr("Lexical Resource",19,W_DARK,true)],"Good range of vocab; some errors in word choice","Wide range; uncommon items used skillfully; rare spelling errors","Use collocations: 'considerable growth', 'stark contrast', 'mounting pressure'; no spelling errors"],[2100,2600,2600,2600],true,W_DARK,W_LIGHT),
-    dataRow([[tr("Grammatical Range & Accuracy",19,W_DARK,true)],"Mix of structures; some errors but rarely impede meaning","Wide range; mostly error-free; minor slips only","Use subordinate clauses, conditionals, passives, relative clauses; proofread for tense errors"],[2100,2600,2600,2600],true,W_DARK,W_LIGHT),
-  ]
-}),
-sp(70,50),
-
-// Writing fatal errors + key phrases
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[4950,4950],
-  rows:[new TableRow({children:[
-    new TableCell({
-      borders:allB(W_DARK), shading:{fill:W_LIGHT,type:ShadingType.CLEAR},
-      width:{size:4950,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("WRITING FATAL ERRORS (Both Tasks)",20,W_DARK,true)]),
-        ...[
-          [S_DARK,"Copying the question word for word → 0 marks for intro"],
-          [S_DARK,"No overview (T1) or not addressing all parts (T2)"],
-          [S_DARK,"Writing your opinion in Task 1 (it is a factual report)"],
-          [S_DARK,"Writing under the word count (150/250)"],
-          [S_DARK,"Wrong tense: past data needs simple past"],
-          [S_DARK,"Rise/rose and fall/fell confusion (verb vs noun)"],
-          ["555555","Only one idea per body paragraph with no development"],
-          ["555555","Using informal language in Task 2 ('lots of', 'kids')"],
-          ["555555","Irrelevant examples not related to the question"],
-          ["555555","Repeating the same vocabulary throughout"],
-        ].map(([c,m])=>new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:28,after:28},
-          children:[tr(m,20,c)]}))
-      ]
-    }),
-    new TableCell({
-      borders:allB(W_DARK), width:{size:4950,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("POWER PHRASES FOR TASK 2 ESSAYS",20,W_DARK,true)]),
-        p([tr("Introduction:",19,W_DARK,true)]),
-        ...[
-          "It is widely argued that...",
-          "The question of whether... is a matter of considerable debate.",
-          "In recent years, [topic] has become an increasingly pressing issue.",
-        ].map(ph=>new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:22,after:22},children:[tr(ph,19,"1A5276",false,true)]})),
-        p([tr("",8)]),
-        p([tr("Linking & Transition:",19,W_DARK,true)]),
-        ...[
-          "However, / Nevertheless, / Nonetheless,",
-          "Consequently, / As a result, / Therefore,",
-          "On the one hand... On the other hand...",
-          "Whereas [X] tends to..., [Y] is more likely to...",
-          "Despite this, / In spite of this,",
-          "It can therefore be argued that...",
-        ].map(ph=>new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:22,after:22},children:[tr(ph,19,"1A5276",false,true)]})),
-        p([tr("",8)]),
-        p([tr("Conclusion:",19,W_DARK,true)]),
-        ...[
-          "In conclusion, it is my view that...",
-          "To conclude, while both sides have merit,...",
-          "Overall, the evidence suggests that...",
-        ].map(ph=>new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:22,after:22},children:[tr(ph,19,"1A5276",false,true)]})),
-      ]
-    })
-  ]})]
-}),
-
-pbr(),
-
-// ══════════════════════════════════════════════════════════════════════════════
-// ░░  MODULE 4 — SPEAKING
-// ══════════════════════════════════════════════════════════════════════════════
-modHeader("🎤", "MODULE 4: SPEAKING", "11–14 minutes · 3 parts · Face-to-face or video · Recorded · 4 criteria × 25%", S_DARK, S_MID),
-sp(60,40),
-
-// 3 Parts overview
-subHead("THE 3 PARTS — STRUCTURE, TIMING & WHAT THE EXAMINER WANTS", S_DARK),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[1300,1800,2900,2000,1900],
-  rows:[
-    hdrRow(["PART","DURATION","FORMAT","TOPICS","EXAMINER'S FOCUS"],[1300,1800,2900,2000,1900],S_DARK),
-    dataRow([
-      [tr("PART 1",20,S_DARK,true),br(),tr("Warm-up",17,"888888",false,true)],
-      "4–5 minutes",
-      "~12 questions across 3 familiar topics. Short Q&A — not a monologue. Answer in 2–5 sentences.",
-      "Home, family, hobbies, work, daily life, food, travel, weather, happiness",
-      "Getting comfortable, basic fluency, natural response speed"
-    ],[1300,1800,2900,2000,1900],true,S_DARK,S_LIGHT),
-    dataRow([
-      [tr("PART 2",20,S_DARK,true),br(),tr("Cue Card",17,"888888",false,true)],
-      "3–4 minutes",
-      "Examiner gives cue card with topic + 3–4 bullet points. 1 min preparation (write notes). Then speak for 1–2 mins. AIM FOR 2 MINUTES. Examiner asks 1–2 follow-up questions.",
-      "Describe a person / place / object / event / experience / memory / skill / media",
-      "Sustained monologue, fluency, vocabulary range, ability to extend"
-    ],[1300,1800,2900,2000,1900],true,S_DARK,S_LIGHT),
-    dataRow([
-      [tr("PART 3",20,S_DARK,true),br(),tr("Discussion",17,"888888",false,true)],
-      "4–5 minutes",
-      "Deeper discussion questions linked to Part 2 topic. ~5–6 questions. Two-way discussion — examiner can challenge your answers. Express developed opinions.",
-      "Same topic as Part 2 but at societal/global level: policy, trends, comparisons",
-      "Analytical ability, complex language, opinion expression, coherence"
-    ],[1300,1800,2900,2000,1900],true,S_DARK,S_LIGHT),
-  ]
-}),
-sp(80,60),
-
-// 4 criteria + band 8
-secHead("SPEAKING — 4 MARKING CRITERIA AT BAND 8", S_DARK, S_LIGHT),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[2000,2600,2600,2700],
-  rows:[
-    hdrRow(["CRITERION","WHAT IT MEANS","BAND 8 REQUIREMENT","HOW TO ACHIEVE IT"],[2000,2600,2600,2700],S_DARK),
-    dataRow([
-      [tr("FLUENCY &\nCOHERENCE (FC)",19,S_DARK,true)],
-      "How smoothly and logically you speak; ability to self-correct naturally",
-      "Speaks fluently with only occasional hesitation; ideas flow logically; coherent development of topics",
-      "Speak at natural pace — not too fast. Use fillers naturally (let me think, well, actually). Don't pause excessively."
-    ],[2000,2600,2600,2700],true,S_DARK,S_LIGHT),
-    dataRow([
-      [tr("LEXICAL RESOURCE (LR)",19,S_DARK,true)],
-      "Vocabulary range and accuracy; ability to use idiomatic language",
-      "Wide resource; flexible use; only rare minor errors; paraphrases effectively when needed",
-      "Avoid simple words: use 'enormous' not 'big', 'obtain' not 'get', 'challenging' not 'hard'. Use collocations naturally."
-    ],[2000,2600,2600,2700],true,S_DARK,S_LIGHT),
-    dataRow([
-      [tr("GRAMMATICAL RANGE & ACCURACY (GRA)",19,S_DARK,true)],
-      "Variety of sentence structures; tense accuracy; control of complex grammar",
-      "Wide range of structures; frequent use of complex forms; mostly accurate with minor errors",
-      "Use if-clauses, relative clauses (which/who/that), passive voice, and perfect tenses in natural conversation."
-    ],[2000,2600,2600,2700],true,S_DARK,S_LIGHT),
-    dataRow([
-      [tr("PRONUNCIATION (P)",19,S_DARK,true)],
-      "Clarity, intonation, stress, accent — can a listener understand you easily?",
-      "Easy to understand throughout; uses features of connected speech; only minor impact from L1 accent",
-      "Stress key words in sentences. Use rising/falling intonation. Don't speak in a monotone. Clarity > accent."
-    ],[2000,2600,2600,2700],true,S_DARK,S_LIGHT),
-  ]
-}),
-sp(80,60),
-
-// Speaking strategies
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[4950,4950],
-  rows:[new TableRow({children:[
-    new TableCell({
-      borders:allB(S_MID), shading:{fill:S_LIGHT,type:ShadingType.CLEAR},
-      width:{size:4950,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("PART 2 CUE CARD — HOW TO SPEAK FOR 2 MINUTES",20,S_DARK,true)]),
-        p([tr("Use your 1-minute prep time wisely:",19,"444444",false,true)]),
-        ...[
-          ["Write 1–2 words per bullet point","Not full sentences — just memory triggers"],
-          ["Add a story/memory","Personal examples are the easiest to talk about"],
-          ["Plan a time-linker","use 'first... then... eventually... now...'"],
-          ["Prepare a closing sentence","Ending confidently shows fluency"],
-        ].map(([k,v])=>new Paragraph({spacing:{before:30,after:30},children:[tr(k+": ",20,S_DARK,true),tr(v,19,DARK_GRAY)]})),
-        p([tr("",8)]),
-        p([tr("EXTENDING YOUR ANSWER (Never give 1-sentence answers):",20,S_DARK,true)]),
-        ...[
-          "REASON: '...because / since / as...'",
-          "EXAMPLE: '...for instance, once I...'",
-          "CONTRAST: '...although / even though / despite...'",
-          "RESULT: '...which means that / so / therefore...'",
-          "FEELING: '...I felt / it made me feel / I was surprised that...'",
-          "HYPOTHETICAL: '...I think if that didn't exist, ...'",
-        ].map(e=>new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:28,after:28},children:[tr(e,20,"1A5276",false,true)]}))
-      ]
-    }),
-    new TableCell({
-      borders:allB(S_MID), width:{size:4950,type:WidthType.DXA}, margins:cm(120,120,160,160),
-      children:[
-        p([tr("PART 3 — EXPRESSING OPINIONS (CRITICAL FOR BAND 8)",20,S_DARK,true)]),
-        p([tr("Band 8 requires developed, well-reasoned opinions with evidence:",19,"444444",false,true)]),
-        ...[
-          "I strongly believe that..., primarily because...",
-          "From my perspective, the most significant factor is...",
-          "It seems to me that..., although I can see why others might argue...",
-          "Interestingly, research suggests that... which would imply...",
-          "While I understand the argument for [X], I would contend that...",
-        ].map(e=>new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:28,after:28},children:[tr(e,19,"1A5276",false,true)]})),
-        p([tr("",8)]),
-        p([tr("SPEAKING FATAL ERRORS",20,S_DARK,true)]),
-        ...[
-          [S_DARK,"Memorising a pre-prepared answer — examiner WILL change the question"],
-          [S_DARK,"Speaking for less than 1 min in Part 2 (target is 2 min)"],
-          [S_DARK,"Giving one-word or one-sentence answers in Part 1 & 3"],
-          ["555555","Using only basic vocabulary: good/bad/nice/difficult"],
-          ["555555","Speaking too fast — clarity matters more than speed"],
-          ["555555","Stopping and saying 'I don't know' without attempting an answer"],
-        ].map(([c,m])=>new Paragraph({numbering:{reference:"bullets",level:0},spacing:{before:28,after:28},
-          children:[tr(m,20,c)]}))
-      ]
-    })
-  ]})]
-}),
-
-pbr(),
-
-// ══════════════════════════════════════════════════════════════════════════════
-// ░░  FINAL SECTION — MASTER STRATEGY + CHECKLISTS
-// ══════════════════════════════════════════════════════════════════════════════
-new Paragraph({
-  spacing:{before:80,after:0}, alignment:AlignmentType.CENTER,
-  shading:{fill:NAVY,type:ShadingType.CLEAR},
-  children:[tr("MASTER BAND 8 STRATEGY & FINAL CHECKLISTS",36,WHITE,true)]
-}),
-new Paragraph({
-  spacing:{before:0,after:80}, alignment:AlignmentType.CENTER,
-  shading:{fill:GOLD,type:ShadingType.CLEAR},
-  children:[tr("What to focus on in the exam · Pre-exam day checklist · Module-by-module quick reference",19,WHITE)]
-}),
-sp(60,40),
-
-// Master strategy table
-subHead("BAND 8 OVERALL — YOUR COMPLETE EXAM-DAY STRATEGY", NAVY),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[1100,2000,2200,2200,2400],
-  rows:[
-    hdrRow(["","LISTENING","READING","WRITING","SPEAKING"],[1100,2000,2200,2200,2400],NAVY),
-    new TableRow({children:[
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:LIGHT_GRAY,type:ShadingType.CLEAR},width:{size:1100,type:WidthType.DXA},margins:cm(),children:[p([tr("BEFORE you start",19,NAVY,true)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:L_LIGHT,type:ShadingType.CLEAR},width:{size:2000,type:WidthType.DXA},margins:cm(),children:[p([tr("Read every question. Underline keywords. Predict answer type.",19,DARK_GRAY)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:R_LIGHT,type:ShadingType.CLEAR},width:{size:2200,type:WidthType.DXA},margins:cm(),children:[p([tr("Skim passage: title, headings, first lines. Read the question before the passage.",19,DARK_GRAY)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:W_LIGHT,type:ShadingType.CLEAR},width:{size:2200,type:WidthType.DXA},margins:cm(),children:[p([tr("Spend 2–4 min planning. Write 6–8 bullet-point ideas before writing a single word.",19,DARK_GRAY)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:S_LIGHT,type:ShadingType.CLEAR},width:{size:2400,type:WidthType.DXA},margins:cm(),children:[p([tr("Breathe. Smile. This is a conversation. Don't treat it as a test performance.",19,DARK_GRAY)])]}),
-    ]}),
-    new TableRow({children:[
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:LIGHT_GRAY,type:ShadingType.CLEAR},width:{size:1100,type:WidthType.DXA},margins:cm(),children:[p([tr("DURING",19,NAVY,true)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:L_LIGHT,type:ShadingType.CLEAR},width:{size:2000,type:WidthType.DXA},margins:cm(),children:[p([tr("Listen for paraphrase. Never copy keywords. Follow the sequence.",19,DARK_GRAY)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:R_LIGHT,type:ShadingType.CLEAR},width:{size:2200,type:WidthType.DXA},margins:cm(),children:[p([tr("Match meaning, not words. Analyse the exact sentence where the answer is. Skip & return.",19,DARK_GRAY)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:W_LIGHT,type:ShadingType.CLEAR},width:{size:2200,type:WidthType.DXA},margins:cm(),children:[p([tr("T1: para 2 must be overview. T2: address ALL parts of question. Stay on topic.",19,DARK_GRAY)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:S_LIGHT,type:ShadingType.CLEAR},width:{size:2400,type:WidthType.DXA},margins:cm(),children:[p([tr("Expand every answer. Use because/however/for example. Aim for 2 min in Part 2.",19,DARK_GRAY)])]}),
-    ]}),
-    new TableRow({children:[
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:LIGHT_GRAY,type:ShadingType.CLEAR},width:{size:1100,type:WidthType.DXA},margins:cm(),children:[p([tr("COMMON TRAP",19,NAVY,true)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:"FEEEEE",type:ShadingType.CLEAR},width:{size:2000,type:WidthType.DXA},margins:cm(),children:[p([tr("Writing too many words or wrong answer type",19,S_DARK)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:"FEEEEE",type:ShadingType.CLEAR},width:{size:2200,type:WidthType.DXA},margins:cm(),children:[p([tr("Matching words not meaning; using outside knowledge",19,S_DARK)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:"FEEEEE",type:ShadingType.CLEAR},width:{size:2200,type:WidthType.DXA},margins:cm(),children:[p([tr("Copying question / missing overview / writing under word count",19,S_DARK)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:"FEEEEE",type:ShadingType.CLEAR},width:{size:2400,type:WidthType.DXA},margins:cm(),children:[p([tr("One-sentence answers; memorised scripts; stopping to say 'I don't know'",19,S_DARK)])]}),
-    ]}),
-    new TableRow({children:[
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:LIGHT_GRAY,type:ShadingType.CLEAR},width:{size:1100,type:WidthType.DXA},margins:cm(),children:[p([tr("Band 8 = HOW MANY",19,NAVY,true)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:L_LIGHT,type:ShadingType.CLEAR},width:{size:2000,type:WidthType.DXA},margins:cm(),children:[p([tr("36 out of 40 correct (90%)",19,L_DARK,true)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:R_LIGHT,type:ShadingType.CLEAR},width:{size:2200,type:WidthType.DXA},margins:cm(),children:[p([tr("35–36 out of 40 (87%+)",19,R_DARK,true)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:W_LIGHT,type:ShadingType.CLEAR},width:{size:2200,type:WidthType.DXA},margins:cm(),children:[p([tr("Average 8 across 4 criteria (both tasks)",19,W_DARK,true)])]}),
-      new TableCell({borders:allB("AAAAAA"),shading:{fill:S_LIGHT,type:ShadingType.CLEAR},width:{size:2400,type:WidthType.DXA},margins:cm(),children:[p([tr("Average 8 across 4 criteria (whole test)",19,S_DARK,true)])]}),
-    ]}),
-  ]
-}),
-sp(80,60),
-
-// Final 4-column checklists
-subHead("PRE-SUBMISSION CHECKLIST — ALL 4 MODULES", NAVY),
-new Table({
-  width:{size:9900,type:WidthType.DXA}, columnWidths:[2475,2475,2475,2475],
-  rows:[new TableRow({children:[
-    // Listening checklist
-    new TableCell({
-      borders:allB(L_DARK), shading:{fill:L_LIGHT,type:ShadingType.CLEAR},
-      width:{size:2475,type:WidthType.DXA}, margins:cm(120,120,150,150),
-      children:[
-        p([tr("🎧 LISTENING",20,L_DARK,true)]),
-        ...[
-          "Read questions BEFORE recording",
-          "Underlined keywords in each Q",
-          "Followed recording sequence",
-          "Answer word limit obeyed",
-          "Spelling checked on transfer",
-          "No blanks left (guessed all)",
-          "Plurals & tenses checked",
-          "Corrections in recording noted",
-        ].map(m=>new Paragraph({numbering:{reference:"ticks",level:0},spacing:{before:24,after:24},children:[tr(m,19,DARK_GRAY)]}))
-      ]
-    }),
-    // Reading checklist
-    new TableCell({
-      borders:allB(R_DARK), shading:{fill:R_LIGHT,type:ShadingType.CLEAR},
-      width:{size:2475,type:WidthType.DXA}, margins:cm(120,120,150,150),
-      children:[
-        p([tr("📖 READING",20,R_DARK,true)]),
-        ...[
-          "Skimmed each passage first",
-          "Read question before passage",
-          "Matched MEANING not words",
-          "T/F/NG: used only text evidence",
-          "No outside knowledge used",
-          "Word limits followed in answers",
-          "Exact words copied from text",
-          "Returned to skipped questions",
-        ].map(m=>new Paragraph({numbering:{reference:"ticks",level:0},spacing:{before:24,after:24},children:[tr(m,19,DARK_GRAY)]}))
-      ]
-    }),
-    // Writing checklist
-    new TableCell({
-      borders:allB(W_DARK), shading:{fill:W_LIGHT,type:ShadingType.CLEAR},
-      width:{size:2475,type:WidthType.DXA}, margins:cm(120,120,150,150),
-      children:[
-        p([tr("✍ WRITING",20,W_DARK,true)]),
-        ...[
-          "T1: Intro paraphrased (not copied)",
-          "T1: Overview paragraph present",
-          "T1: Overview has NO data figures",
-          "T1: Body has specific data cited",
-          "T1: 150+ words counted",
-          "T2: ALL parts of question addressed",
-          "T2: Clear position throughout",
-          "T2: 250+ words counted",
-          "T2: No informal language",
-          "Both: rise/rose/fall/fell correct",
-          "Both: Tense matches time period",
-          "Both: No opinion in Task 1",
-        ].map(m=>new Paragraph({numbering:{reference:"ticks",level:0},spacing:{before:20,after:20},children:[tr(m,19,DARK_GRAY)]}))
-      ]
-    }),
-    // Speaking checklist
-    new TableCell({
-      borders:allB(S_DARK), shading:{fill:S_LIGHT,type:ShadingType.CLEAR},
-      width:{size:2475,type:WidthType.DXA}, margins:cm(120,120,150,150),
-      children:[
-        p([tr("🎤 SPEAKING",20,S_DARK,true)]),
-        ...[
-          "P1: Answers are 2–5 sentences min",
-          "P1: Extended with reason/example",
-          "P2: Notes taken in 1-min prep",
-          "P2: Spoke for full 2 minutes",
-          "P2: Used all bullet points on card",
-          "P3: Gave developed opinions",
-          "P3: Used 'because/however/although'",
-          "All: Varied vocabulary used",
-          "All: Complex sentences used",
-          "All: Natural pace (not rushed)",
-          "All: No memorised scripts",
-          "All: Responded to all questions",
-        ].map(m=>new Paragraph({numbering:{reference:"ticks",level:0},spacing:{before:20,after:20},children:[tr(m,19,DARK_GRAY)]}))
-      ]
-    }),
-  ]})]
-}),
-
-sp(80,60),
-
-// Final good luck banner
-new Paragraph({
-  spacing:{before:80,after:0}, alignment:AlignmentType.CENTER,
-  shading:{fill:NAVY,type:ShadingType.CLEAR},
-  children:[tr("  YOU HAVE PREPARED ACROSS ALL 4 MODULES. BAND 8 IS WITHIN REACH.  ",28,GOLD,true)]
-}),
-new Paragraph({
-  spacing:{before:0,after:0}, alignment:AlignmentType.CENTER,
-  shading:{fill:OV_MID,type:ShadingType.CLEAR},
-  children:[tr("  Listening · Reading · Writing · Speaking — covered, structured and ready  ",21,"D0DCFF")]
-}),
-new Paragraph({
-  spacing:{before:0,after:60}, alignment:AlignmentType.CENTER,
-  shading:{fill:GOLD,type:ShadingType.CLEAR},
-  children:[tr("  Source: IELTS Liz (ieltsliz.com) — Complete guide synthesised across all modules. Good luck!  ",18,WHITE)]
-}),
-
-    ]
-  }]
-});
-
-Packer.toBuffer(doc).then(buf=>{
-  fs.writeFileSync('/mnt/user-data/outputs/IELTS_Band8_Complete_Guide_AllModules.docx', buf);
-  console.log("Done!");
-});
-ENDOFFILE
-node /home/claude/build_full_ielts.js
-Output
-
-/home/claude/build_full_ielts.js:137
-        new TableCell({borders:allB("CCCCCC"), shading:{fill:i%2===0?lightBg:WHITE,type:ShadingType.CLEAR}, width:{size:widths[0],type:WidthType.DXA}, margins:cm(), children:[p(tr(a,19,DARK_GRAY,a.startsWith("✗")))} ),
-                                                                                                                                                                                                                      ^
-
-SyntaxError: Unexpected token '}'
-    at wrapSafe (node:internal/modules/cjs/loader:1637:18)
-    at Module._compile (node:internal/modules/cjs/loader:1679:20)
-    at Object..js (node:internal/modules/cjs/loader:1838:10)
-    at Module.load (node:internal/modules/cjs/loader:1441:32)
-    at Function._load (node:internal/modules/cjs/loader:1263:12)
-    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
-    at node:internal/main/run_main_module:36:49
-
-Node.js v22.22.2
+</body>
+</html>
