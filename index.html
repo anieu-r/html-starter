@@ -49,4 +49,1317 @@
       z-index: 50;
       backdrop-filter: blur(16px);
       background: rgba(247, 244, 239, 0.82);
-      border-bottom: 1px solid rgba(231, 224, 213
+      border-bottom: 1px solid rgba(231, 224, 213, 0.9);
+    }
+    .topnav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, var(--accent), #115e59);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 18px rgba(15, 118, 110, 0.28);
+    }
+    .brand-text strong { display: block; font-size: 0.95rem; letter-spacing: -0.01em; }
+    .brand-text span { font-size: 0.72rem; color: var(--muted); }
+
+    .nav-links {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.86rem;
+      font-weight: 500;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ─── LAYOUT ─── */
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 1.4rem;
+      margin: 1.2rem 0 2rem;
+      align-items: stretch;
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 2rem 2.1rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -40% 40%;
+      height: 220px;
+      background: radial-gradient(circle, rgba(15,118,110,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.9rem;
+    }
+    .lede {
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      max-width: 54ch;
+      margin-bottom: 1.4rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .chip {
+      font-size: 0.82rem;
+      background: var(--bg-deep);
+      border: 1px solid var(--line);
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      color: var(--ink-soft);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 1rem;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .stat-card .label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+    .stat-card .value {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.7rem;
+      margin: 0.25rem 0;
+      letter-spacing: -0.02em;
+    }
+    .stat-card .note { font-size: 0.84rem; color: var(--ink-soft); }
+
+    /* ─── SECTION SHELL ─── */
+    .section {
+      margin: 2.5rem 0;
+      scroll-margin-top: 80px;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .section-head h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.55rem, 2.5vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+    .section-head p {
+      color: var(--muted);
+      max-width: 52ch;
+      font-size: 0.95rem;
+    }
+
+    /* Context tabs */
+    .context-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-bottom: 1.4rem;
+    }
+    @media (max-width: 700px) {
+      .context-switch { grid-template-columns: 1fr; }
+    }
+    .context-btn {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.2rem;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.22s ease;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .context-btn::after {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: transparent;
+      transition: 0.22s ease;
+    }
+    .context-btn.active-econ::after { background: var(--accent); }
+    .context-btn.active-care::after { background: var(--care); }
+    .context-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .context-btn.active-econ {
+      border-color: rgba(15,118,110,0.35);
+      background: linear-gradient(180deg, #fff, #f0fdfa);
+    }
+    .context-btn.active-care {
+      border-color: rgba(124,58,237,0.3);
+      background: linear-gradient(180deg, #fff, #f5f3ff);
+    }
+    .context-btn .tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .context-btn.active-econ .tag { color: var(--accent); }
+    .context-btn.active-care .tag { color: var(--care); }
+    .context-btn h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+    .context-btn p {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+    }
+
+    /* Panel */
+    .panel {
+      display: none;
+      animation: rise 0.35s ease;
+    }
+    .panel.active { display: block; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sub navigation pills */
+    .subnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.25rem;
+      position: sticky;
+      top: 64px;
+      z-index: 20;
+      background: rgba(247,244,239,0.88);
+      backdrop-filter: blur(10px);
+      padding: 0.55rem 0;
+    }
+    .subnav button {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink-soft);
+      border-radius: 999px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.18s ease;
+      font-family: inherit;
+    }
+    .subnav button:hover,
+    .subnav button.active {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    /* Content blocks */
+    .block {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
+      scroll-margin-top: 130px;
+    }
+    .block h3 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.01em;
+    }
+    .block h4 {
+      font-size: 0.95rem;
+      margin: 1rem 0 0.45rem;
+      color: var(--ink);
+    }
+    .block p, .block li {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    .block ul, .block ol {
+      padding-left: 1.15rem;
+      margin: 0.4rem 0 0.7rem;
+    }
+    .block li { margin: 0.28rem 0; }
+    .block strong { color: var(--ink); font-weight: 600; }
+
+    /* Spatial grid cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 850px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    .mini-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.05rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .mini-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+      background: white;
+    }
+    .mini-card .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .care .mini-card .eyebrow { color: var(--care); }
+    .mini-card h4 {
+      margin: 0 0 0.35rem;
+      font-size: 0.98rem;
+    }
+    .mini-card p {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    /* Theory table look */
+    .systems {
+      display: grid;
+      gap: 0.55rem;
+    }
+    .sys-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      padding: 0.7rem 0.85rem;
+      border-radius: 12px;
+      background: var(--bg);
+      border: 1px solid transparent;
+      transition: 0.18s ease;
+    }
+    .sys-row:hover {
+      border-color: var(--line);
+      background: white;
+      transform: translateX(4px);
+    }
+    .sys-row .sys-name {
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: var(--accent);
+    }
+    .care .sys-row .sys-name { color: var(--care); }
+    .sys-row .sys-desc {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+    @media (max-width: 640px) {
+      .sys-row { grid-template-columns: 1fr; gap: 0.2rem; }
+    }
+
+    /* Strategy cards */
+    .strategy {
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1rem 0;
+    }
+    .care .strategy { border-left-color: var(--care); }
+    .strategy .why {
+      background: var(--accent-soft);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      margin: 0.6rem 0;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+    .care .strategy .why { background: var(--care-soft); }
+
+    /* Partner cards */
+    .partner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+    .partner-card {
+      background: linear-gradient(180deg, #fff, var(--bg));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.05rem 1.15rem;
+    }
+    .partner-card h4 { margin: 0 0 0.25rem; }
+    .partner-card .who { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.5rem; }
+
+    /* Resource pills */
+    .resource-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+    .resource-pill {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+    }
+
+    /* Accordion */
+    .acc {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin: 0.55rem 0;
+      background: white;
+    }
+    .acc-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--bg);
+      border: 0;
+      padding: 0.85rem 1rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--ink);
+    }
+    .acc-btn span {
+      transition: transform 0.2s ease;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .acc.open .acc-btn span { transform: rotate(45deg); }
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .acc.open .acc-body { max-height: 1200px; }
+    .acc-body-inner {
+      padding: 0.9rem 1rem 1.1rem;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+
+    /* Quote */
+    .pull {
+      border-left: 3px solid var(--accent-2);
+      padding: 0.2rem 0 0.2rem 1rem;
+      margin: 1rem 0;
+      color: var(--ink);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.45;
+    }
+
+    /* Footer / refs */
+    .refs {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .refs details {
+      border-bottom: 1px solid var(--line);
+      padding: 0.55rem 0;
+    }
+    .refs details:last-child { border-bottom: 0; }
+    .refs summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      list-style: none;
+    }
+    .refs summary::-webkit-details-marker { display: none; }
+    .refs summary::after {
+      content: "+";
+      float: right;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .refs details[open] summary::after { content: "–"; }
+    .refs ul {
+      margin: 0.6rem 0 0.2rem;
+      padding-left: 1.1rem;
+    }
+    .refs li {
+      font-size: 0.86rem;
+      color: var(--ink-soft);
+      margin: 0.35rem 0;
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    /* Floating action */
+    .fab {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .fab a, .fab button {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: white;
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 1.1rem;
+      transition: 0.2s ease;
+    }
+    .fab a:hover, .fab button:hover {
+      transform: translateY(-2px);
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Language note callout */
+    .callout {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border: 1px solid #fed7aa;
+      border-radius: var(--radius-sm);
+      padding: 0.95rem 1.05rem;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+      color: #9a3412;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      margin-right: 0.35rem;
+    }
+    .tag-econ { background: var(--accent-soft); color: var(--accent); }
+    .tag-care { background: var(--care-soft); color: var(--care); }
+  </style>
+</head>
+<body>
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <a class="brand" href="#home">
+        <div class="brand-mark">EC</div>
+        <div class="brand-text">
+          <strong>Digital Portfolio</strong>
+          <span>Children, Families & Communities</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#contexts">Contexts</a>
+        <a href="#strategies">Strategies</a>
+        <a href="#partnerships">Partnerships</a>
+        <a href="#resources">Resources</a>
+        <a href="#references">References</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap" id="home">
+    <!-- HERO -->
+    <section class="hero">
+      <article class="hero-card">
+        <div class="kicker">Early childhood services · Australia</div>
+        <h1>A practical portfolio for working with children in economic & social contexts</h1>
+        <p class="lede">
+          Children don’t arrive at the centre gate as blank slates. They arrive carrying their family’s circumstances —
+          what happened at home last night, whether there was breakfast, whether the family is moving again next month.
+          This portfolio turns research, policy and theory into Tuesday-morning practice.
+        </p>
+        <div class="hero-meta">
+          <span class="chip">Economic hardship</span>
+          <span class="chip">Out-of-home care</span>
+          <span class="chip">EYLF · NQS · Bronfenbrenner</span>
+          <span class="chip">Queensland / National</span>
+        </div>
+      </article>
+
+      <aside class="hero-side">
+        <div class="stat-card">
+          <div class="label">Child poverty (2022–23)</div>
+          <div class="value">1 in 6</div>
+          <div class="note">757,000 children below the poverty line</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Children in OOHC (30 Jun 2024)</div>
+          <div class="value">44,900</div>
+          <div class="note">Highest entry rate under 1 year of age</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">First Nations overrepresentation</div>
+          <div class="value">11×</div>
+          <div class="note">Compared with non-Indigenous children (2024)</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Why this matters -->
+    <section class="section">
+      <div class="grid-2">
+        <div class="block">
+          <h3>Why this matters for educators</h3>
+          <p>
+            Early childhood services are one of the few universal touchpoints in a young child’s life. We see children
+            several days a week, often for years — close enough to notice when something changes, and trusted enough
+            that families sometimes tell us things they haven’t told anyone else.
+          </p>
+          <p style="margin-top:0.7rem">
+            That’s a privilege and a responsibility. The Early Years Learning Framework names
+            <strong>equity, inclusion and high expectations</strong> as a principle, not an optional extra (AGDE, 2022).
+          </p>
+        </div>
+        <div class="block">
+          <h3>A note on language</h3>
+          <div class="callout">
+            A child isn’t “a poverty child” or “a foster kid”. A child is experiencing financial hardship, or living in
+            out-of-home care. The words we use in the staff room shape how we speak to and about children in the room.
+          </div>
+          <p>
+            Bronfenbrenner’s ecological model reminds us that systems furthest from the child — the rental market,
+            welfare settings, government policy — can shape daily life as powerfully as the people right beside them
+            (Grace et al., 2022).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXT SWITCHER -->
+    <section class="section" id="contexts">
+      <div class="section-head">
+        <div>
+          <h2>Two contexts, one practice stance</h2>
+          <p>Explore the Australian picture, theory, policy and what an educator can actually do.</p>
+        </div>
+      </div>
+
+      <div class="context-switch">
+        <button class="context-btn active-econ" id="btn-econ" onclick="showPanel('econ')">
+          <div class="tag">Economic contexts</div>
+          <h3>Poverty, housing stress & financial hardship</h3>
+          <p>Income poverty, rental stress, material deprivation and the growing “working poor”.</p>
+        </button>
+        <button class="context-btn" id="btn-care" onclick="showPanel('care')">
+          <div class="tag">Social contexts</div>
+          <h3>Children living in out-of-home care</h3>
+          <p>Kinship, foster and residential care — attachment, identity, cultural safety and continuity.</p>
+        </button>
+      </div>
+
+      <!-- ═══════════════ ECONOMIC PANEL ═══════════════ -->
+      <div class="panel active" id="panel-econ">
+        <div class="subnav" id="subnav-econ">
+          <button class="active" onclick="scrollToId('e-understand', this)">Understanding</button>
+          <button onclick="scrollToId('e-impact', this)">Impact</button>
+          <button onclick="scrollToId('e-policy', this)">Policy</button>
+          <button onclick="scrollToId('e-strategies', this)">Strategies</button>
+          <button onclick="scrollToId('e-partners', this)">Partnerships</button>
+          <button onclick="scrollToId('e-resources', this)">Resources</button>
+        </div>
+
+        <div class="block" id="e-understand">
+          <h3><span class="tag-pill tag-econ">Economic</span> Understanding the context</h3>
+          <p>
+            Economic hardship covers more than a low bank balance. It includes income poverty (commonly 50% of median
+            household income), housing stress (low-income households spending more than 30% of income on rent/mortgage),
+            material deprivation, and financial precarity from casual, gig or seasonal work.
+          </p>
+          <p style="margin-top:0.6rem">
+            A family can look fine from the outside and still be in real trouble. Two working parents on casual contracts,
+            paying Brisbane rents, can be one broken car away from crisis.
+          </p>
+
+          <h4>How big is this in Australia?</h4>
+          <div class="grid-3" style="margin-top:0.7rem">
+            <div class="mini-card">
+              <div class="eyebrow">National</div>
+              <h4>1 in 7 people · 1 in 6 children</h4>
+              <p>3.7 million people below the poverty line in 2022–23, including 757,000 children (Davidson & Bradbury, 2025).</p>
+            </div>
+            <div class="mini-card">
+              <div class="eyebrow">Housing</div>
+              <h4>Brisbane median rent $643</h4>
+              <p>Now consumes 29% of average renting household income — up from 22% five years earlier (SGS, 2025).</p>
+            </div>
+            <div class="mini-card">
+              <div class="eyebrow">Assistance gap</div>
+              <h4>43% still in rental stress</h4>
+              <p>Low-income households receiving Commonwealth Rent Assistance at June 2025 (Productivity Commission, 2026).</p>
+            </div>
+          </div>
+
+          <h4 style="margin-top:1.2rem">Sociological theory — Bronfenbrenner in practice</h4>
+          <div class="systems" style="margin-top:0.6rem">
+            <div class="sys-row"><div class="sys-name">Microsystem</div><div class="sys-desc">Fewer books and toys; crowded or unstable housing; a tired, stretched parent.</div></div>
+            <div class="sys-row"><div class="sys-name">Mesosystem</div><div class="sys-desc">A parent on night shift can’t attend the meeting — the home–service link weakens.</div></div>
+            <div class="sys-row"><div class="sys-name">Exosystem</div><div class="sys-desc">Insecure roster, local rental market, closure of a bulk-billing GP.</div></div>
+            <div class="sys-row"><div class="sys-name">Macrosystem</div><div class="sys-desc">Welfare rates, minimum wage, Child Care Subsidy design.</div></div>
+            <div class="sys-row"><div class="sys-name">Chronosystem</div><div class="sys-desc">Post-2020 rental crisis and sustained cost-of-living pressure redefine “normal” hardship.</div></div>
+          </div>
+
+          <p style="margin-top:1rem">
+            The <strong>Family Stress Model</strong> (Conger & Donnellan, 2007) shows the mechanism: economic pressure →
+            parental distress → less warm, consistent parenting → impact on the child’s development. Supporting the
+            parent is also supporting the child. Conflict and social reproduction perspectives (Grace & Baird, 2022)
+            remind us Australian inequity is structural, not accidental.
+          </p>
+          <div class="pull">
+            Toxic stress research is clear: prolonged adversity without a buffering adult relationship can affect
+            developing brain architecture. The key word is buffering — and an educator can be that buffer.
+          </div>
+        </div>
+
+        <div class="block" id="e-impact">
+          <h3>Impact on children and families</h3>
+          <div class="grid-2">
+            <div>
+              <h4>Development & learning</h4>
+              <p>
+                In the 2024 AEDC, 23.5% of children were developmentally vulnerable in one or more domains (up from 22%
+                in 2021). In the most disadvantaged communities, about three in ten are vulnerable in one domain
+                (Mitchell Institute, 2025).
+              </p>
+              <ul>
+                <li><strong>Language</strong> — fewer books, less shared reading when parents are exhausted or working multiple jobs</li>
+                <li><strong>Physical health</strong> — inconsistent nutrition, delayed dental/health checks, poor sleep</li>
+                <li><strong>Social & emotional maturity</strong> — domains showing record vulnerability nationally</li>
+                <li><strong>Executive function</strong> — planning, holding instructions and inhibiting impulses are stress-sensitive</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Wellbeing & relationships</h4>
+              <ul>
+                <li><strong>Shame & exclusion</strong> — children notice who has the excursion money and the character lunchbox</li>
+                <li><strong>Attendance</strong> — housing instability means moves, broken friendships and broken continuity</li>
+                <li><strong>Parental capacity</strong> — financial stress is strongly linked with anxiety and low mood</li>
+                <li><strong>Withdrawal</strong> — families under stress often pull back from the supports they need</li>
+              </ul>
+              <h4>Service implications</h4>
+              <ul>
+                <li>Bond, upfront fees and subsidy paperwork are real barriers</li>
+                <li>Hidden costs (excursions, “bring a plate”, photo packs) quietly sort families</li>
+                <li>Universal provision is more dignified — and more effective — than targeted “help”</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="e-policy">
+          <h3>Social policy & Australian responses</h3>
+          <div class="acc open">
+            <button class="acc-btn" onclick="toggleAcc(this)">3 Day Guarantee (from 5 Jan 2026) <span>+</span></button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                All CCS-eligible families can access three days of subsidised ECEC per week (72 hours a fortnight),
+                replacing the activity test. Families caring for First Nations children can access 100 hours per fortnight.
+                This dismantles a catch-22 that hit low-income families hardest and is framed as a step toward universal ECEC.
+              </div>
+            </div>
+          </div>
+          <div class="acc">
+            <button class="acc-btn" onclick="toggleAcc(this)">Early Years Strategy 2024–2034 <span>+</span></button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                Launched 7 May 2024 with a First Action Plan and Outcomes Framework (Dec 2024). Commits the Commonwealth
+                to child-centred policy and better service integration, with explicit attention to families facing disadvantage.
+              </div>
+            </div>
+          </div>
+          <div class="acc">
+            <button class="acc-btn" onclick="toggleAcc(this)">What’s working — and the gaps <span>+</span></button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                <strong>Working:</strong> removing the activity test is genuine structural change; the Strategy signals a
+                whole-of-government view of children.<br /><br />
+                <strong>Gaps:</strong> access ≠ participation (vacancies, transport, location still matter); gap fees remain
+                a barrier; Australia has no official poverty line and no national child poverty target.
+              </div>
+            </div>
+          </div>
+          <p style="margin-top:0.9rem">
+            Framework levers: EYLF V2.0 principle of Equity, Inclusion and High Expectations, and NQS Quality Area 6
+            (collaborative partnerships with families and communities).
+          </p>
+        </div>
+
+        <div class="block" id="e-strategies">
+          <h3 id="strategies">Strategies for practice</h3>
+
+          <div class="strategy">
+            <h4>Strategy 1 — Universal, low-cost, non-stigmatising provision</h4>
+            <p>
+              Design the program so participation never depends on a family’s ability to pay, and no child is visibly
+              identified as “the one who can’t”.
+            </p>
+            <div class="why">
+              <strong>Why it works:</strong> if hardship harms partly through shame and exclusion, removing points of
+              exclusion removes part of the harm. Aligns with EYLF equity and Grace & Baird’s structural argument.
+            </div>
+            <ul>
+              <li>Run a <strong>hidden-cost audit</strong> for a whole term — remove or absorb what you can</li>
+              <li>Service supplies everything for incursions, dress-ups and cooking (including spare hats, clothes, shoes as normal stock)</li>
+              <li>Rethink celebrations — shared cooking instead of “bring a plate”; educator portraits instead of paid photographers</li>
+              <li>Build curriculum around open-ended and natural materials</li>
+              <li>Quiet food shelf framed as “help yourself — for everyone”</li>
+              <li>Discreet enrolment support with myGov / subsidy claims</li>
+              <li>Free borrowing library of books and games</li>
+            </ul>
+          </div>
+
+          <div class="strategy">
+            <h4>Strategy 2 — Buffering relationships + intentional language & literacy</h4>
+            <p>
+              A consistent key educator for each child, combined with deliberate high-quality language and early literacy experiences.
+            </p>
+            <div class="why">
+              <strong>Why it works:</strong> buffering relationships moderate the effects of chronic stress on brain
+              architecture; language is where socioeconomic gaps appear earliest and where quality ECE has the clearest effect.
+            </div>
+            <ul>
+              <li>Assign a key educator and protect it in rostering</li>
+              <li>Serve-and-return conversation; dialogic reading in small groups</li>
+              <li>Narrate and expand children’s language</li>
+              <li>Book bags home with a simple note in the family’s home language</li>
+              <li>Predictable rhythm — visual schedules, consistent routines, clear transition warnings</li>
+              <li>Notice changes, not deficits — respond with curiosity and a gentle family check-in</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="block" id="e-partners">
+          <h3 id="partnerships">Community & professional partnerships</h3>
+          <div class="grid-2">
+            <div class="partner-card">
+              <h4>The Smith Family</h4>
+              <div class="who">National children’s education charity focused on long-term educational support</div>
+              <ul>
+                <li>Learning for Life sponsorship through schooling</li>
+                <li>Let’s Count (with ECA) — free early maths for families</li>
+                <li>Research on educational disadvantage</li>
+              </ul>
+              <p style="margin-top:0.5rem;font-size:0.9rem"><strong>Collaborate:</strong> complete Let’s Count PL, run family maths workshops, refer near school entry, invite a community engagement worker to a parent evening.</p>
+            </div>
+            <div class="partner-card">
+              <h4>Financial counsellors · National Debt Helpline</h4>
+              <div class="who">Free, independent, confidential — 1800 007 007</div>
+              <ul>
+                <li>Negotiate with creditors and utilities</li>
+                <li>Hardship programs, Centrelink issues, workable budgets</li>
+              </ul>
+              <p style="margin-top:0.5rem;font-size:0.9rem"><strong>Collaborate:</strong> display the number as everyday information; invite a general cost-of-living session; keep referral pathways ready; strengthen your fee hardship policy.</p>
+            </div>
+          </div>
+          <div class="resource-list">
+            <span class="resource-pill">Foodbank Queensland</span>
+            <span class="resource-pill">Micah Projects (Brisbane)</span>
+            <span class="resource-pill">Anglicare Southern Queensland</span>
+            <span class="resource-pill">Community child health nurses</span>
+            <span class="resource-pill">Local council family support</span>
+          </div>
+        </div>
+
+        <div class="block" id="e-resources">
+          <h3 id="resources">Resources for educators & children</h3>
+          <div class="grid-2">
+            <div>
+              <h4>Programs & websites</h4>
+              <div class="acc">
+                <button class="acc-btn" onclick="toggleAcc(this)">HIPPY (Brotherhood of St Laurence) <span>+</span></button>
+                <div class="acc-body"><div class="acc-body-inner">Free home-based early learning for the two years before school in disadvantaged communities. Align activities with your program so home and centre pull in the same direction.</div></div>
+              </div>
+              <div class="acc">
+                <button class="acc-btn" onclick="toggleAcc(this)">Let’s Count (Smith Family + ECA) <span>+</span></button>
+                <div class="acc-body"><div class="acc-body-inner">Everyday mathematics with families — counting stairs, sorting washing. Run as workshops, then send home prompt cards.</div></div>
+              </div>
+              <p style="margin-top:0.6rem;font-size:0.9rem">Also useful: Raising Children Network, Foodbank Queensland, Emerging Minds.</p>
+            </div>
+            <div>
+              <h4>Storybooks & media</h4>
+              <ul>
+                <li><em>Last Stop on Market Street</em> — Matt de la Peña</li>
+                <li><em>A Chair for My Mother</em> — Vera B. Williams</li>
+                <li><em>Those Shoes</em> — Maribeth Boelts</li>
+                <li><em>Home in the Rain</em> — Bob Graham</li>
+                <li>Sesame Street in Communities — Food Insecurity (Lily)</li>
+                <li>Bluey — “Markets”</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════ CARE PANEL ═══════════════ -->
+      <div class="panel care" id="panel-care">
+        <div class="subnav" id="subnav-care">
+          <button class="active" onclick="scrollToId('c-understand', this)">Understanding</button>
+          <button onclick="scrollToId('c-impact', this)">Impact</button>
+          <button onclick="scrollToId('c-policy', this)">Policy</button>
+          <button onclick="scrollToId('c-strategies', this)">Strategies</button>
+          <button onclick="scrollToId('c-partners', this)">Partnerships</button>
+          <button onclick="scrollToId('c-resources', this)">Resources</button>
+        </div>
+
+        <div class="block" id="c-understand">
+          <h3><span class="tag-pill tag-care">Social</span> Children living in out-of-home care</h3>
+          <p>
+            Out-of-home care is care for children under 18 who cannot safely live with their parents. In Australia it
+            includes relative/kinship care (largest category), foster care, residential care, and independent living for
+            older young people. In Queensland this sits under the Department of Child Safety, Seniors and Disability
+            Services and the <em>Child Protection Act 1999 (Qld)</em>. Educators are mandatory reporters.
+          </p>
+
+          <div class="grid-3" style="margin-top:0.9rem">
+            <div class="mini-card">
+              <div class="eyebrow">National snapshot</div>
+              <h4>44,900 in care</h4>
+              <p>At 30 June 2024 · 59,900 on care and protection orders · ~179,000 in contact with the system (2023–24).</p>
+            </div>
+            <div class="mini-card">
+              <div class="eyebrow">Youngest children</div>
+              <h4>Highest entry under 1</h4>
+              <p>6.5 per 1,000 under one year — compared with ≤2.0 for all other age groups. Entry is concentrated in the years we work with.</p>
+            </div>
+            <div class="mini-card">
+              <div class="eyebrow">Home-based care</div>
+              <h4>~88%</h4>
+              <p>About 39,700 children in foster, kinship or other home-based arrangements.</p>
+            </div>
+          </div>
+
+          <h4 style="margin-top:1.1rem">First Nations overrepresentation — not a side note</h4>
+          <p>
+            Of 44,900 children in care, 20,000 were Aboriginal and Torres Strait Islander — a rate of 50 per 1,000
+            versus 4.6 for non-Indigenous children. In 2024 the rate was <strong>11 times higher</strong> (up from 9.6
+            times in 2020). The Productivity Commission links this to intergenerational trauma, systemic racism,
+            inequality in social determinants, and policies that operate to the detriment of First Nations people.
+            Assessments of neglect are sometimes not culturally informed.
+          </p>
+          <div class="pull">
+            Our own notifications and observations are not culturally neutral. What we call concerning may be culturally
+            different rather than unsafe.
+          </div>
+
+          <h4>Theory that guides practice</h4>
+          <div class="systems">
+            <div class="sys-row"><div class="sys-name">Attachment</div><div class="sys-desc">Internal working models form from earliest caregiving. Disruption explains rejection of comfort or indiscriminate seeking. Consistency revises the model (Bowlby, 1988).</div></div>
+            <div class="sys-row"><div class="sys-name">Bioecological</div><div class="sys-desc">Entering care replaces home, often service, neighbourhood and peers at once — and adds an exosystem of caseworkers, court and contact visits.</div></div>
+            <div class="sys-row"><div class="sys-name">Family systems</div><div class="sys-desc">A child in care is still psychologically part of their birth family. Reunification is the goal for many; siblings and grandparents remain significant.</div></div>
+            <div class="sys-row"><div class="sys-name">Trauma-informed</div><div class="sys-desc">Behaviour that reads as defiance or blankness is frequently a survival response. Start from what happened to this child (Cashmore et al., 2022).</div></div>
+            <div class="sys-row"><div class="sys-name">Postcolonial</div><div class="sys-desc">The Stolen Generations and today’s system share institutional lineage — which is why the Aboriginal and Torres Strait Islander Child Placement Principle exists (SNAICC, 2019).</div></div>
+          </div>
+        </div>
+
+        <div class="block" id="c-impact">
+          <h3>Impact on children and families</h3>
+          <div class="grid-2">
+            <div>
+              <h4>Development & learning</h4>
+              <ul>
+                <li>Early neglect affects language input at the most sensitive point — many children enter care with delays</li>
+                <li>Executive function (planning, attention, impulse control) is vulnerable to chronic stress</li>
+                <li><strong>Good news:</strong> development can improve significantly in stable foster care; stability is the active ingredient (Goemans et al., 2015)</li>
+              </ul>
+              <h4>Wellbeing</h4>
+              <ul>
+                <li>Grief and loss are constant — even when removal was necessary</li>
+                <li>Attachment behaviours can be confusing (indiscriminate affection, refusal of comfort, or both)</li>
+                <li>Contact visits are emotionally enormous; regulation often shifts either side</li>
+                <li>Identity questions and, for First Nations children, disconnection from culture, Country and community</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Implications for services</h4>
+              <ul>
+                <li><strong>Enrolment complexity</strong> — parental responsibility, authorised collection, information sharing; document and handle privately</li>
+                <li><strong>Confidentiality</strong> — care status is private; never staff-room conversation or explanation to other parents</li>
+                <li><strong>Curriculum landmines</strong> — family trees, baby photos, Mother’s/Father’s Day need redesign, not cancellation</li>
+                <li><strong>Mandatory reporting</strong> — know Queensland obligations and act on suspicion</li>
+                <li><strong>Interagency work</strong> — care team meetings, objective observations, Child Safety communication</li>
+                <li><strong>Stability as core business</strong> — advocate for continued enrolment when placement changes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="c-policy">
+          <h3>Social policy & Australian responses</h3>
+          <div class="acc open">
+            <button class="acc-btn" onclick="toggleAcc(this)">Safe and Supported 2021–2031 <span>+</span></button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                National framework shifting emphasis from crisis response toward prevention and early intervention,
+                with a dedicated Aboriginal and Torres Strait Islander First Action Plan. Supports Closing the Gap Target 12.
+              </div>
+            </div>
+          </div>
+          <div class="acc">
+            <button class="acc-btn" onclick="toggleAcc(this)">Closing the Gap Target 12 <span>+</span></button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                Aim: reduce overrepresentation of Aboriginal and Torres Strait Islander children in OOHC by 45% by 2031
+                (2019 baseline 54.2 per 1,000). Current trend is moving in the wrong direction.
+              </div>
+            </div>
+          </div>
+          <div class="acc">
+            <button class="acc-btn" onclick="toggleAcc(this)">Child Placement Principle & child safe standards <span>+</span></button>
+            <div class="acc-body">
+              <div class="acc-body-inner">
+                Five elements — prevention, partnership, placement, participation, connection — with a hierarchy
+                prioritising family, kin and community. National Principles for Child Safe Organisations and Queensland
+                child safe standards require policies, reportable conduct processes, and a culture where children are listened to.
+              </div>
+            </div>
+          </div>
+          <p style="margin-top:0.9rem">
+            <strong>Gaps:</strong> Target 12 is not on track; prevention remains under-resourced relative to statutory
+            response; recent AIHW data has Queensland gaps due to system upgrades.
+          </p>
+        </div>
+
+        <div class="block" id="c-strategies">
+          <h3>Strategies for practice</h3>
+
+          <div class="strategy">
+            <h4>Strategy 1 — Trauma-informed, relationship-based practice with a consistent key educator</h4>
+            <p>
+              One named educator holds primary responsibility for care and connection, working from a “what happened to you”
+              frame, with predictability and co-regulation built into the day.
+            </p>
+            <div class="why">
+              <strong>Why it works:</strong> attachment models revise through repeated responsive experience; meta-analytic
+              evidence links developmental improvement to placement stability; consistency is protective (Cashmore et al., 2022).
+            </div>
+            <ul>
+              <li>Protect key educator continuity in rostering</li>
+              <li>Regulate before you reason — proximity, calm, rhythm first</li>
+              <li>Visual schedules, consistent routines, warning before every transition</li>
+              <li>Genuine safe base (soft, low-stimulus corner without it being a consequence)</li>
+              <li>Watch for triggers (noise, mealtimes, unfamiliar adults, days around contact visits)</li>
+              <li>Rupture and repair — stay calm and stay</li>
+              <li>Reflective supervision and debriefing for educators (vicarious trauma is real)</li>
+              <li>Brief daily handover with carers on sleep, food and mood</li>
+            </ul>
+          </div>
+
+          <div class="strategy">
+            <h4>Strategy 2 — Identity, belonging and culturally safe life-story practice</h4>
+            <p>
+              Actively support the child’s sense of who they are, where they come from and who belongs to them —
+              including birth family, carers, siblings, community and culture.
+            </p>
+            <div class="why">
+              <strong>Why it works:</strong> EYLF Outcome 1 (strong sense of identity) is at risk for children in care.
+              For First Nations children, connection is a protective factor and a policy requirement under the Child Placement Principle.
+            </div>
+            <ul>
+              <li>Redesign “family” curriculum → “my important people” circles</li>
+              <li>Reframe Mother’s/Father’s Day as “someone special”; check with carers quietly each year</li>
+              <li>Make baby photo requests optional with alternatives</li>
+              <li>Memory box / portfolio that travels with the child</li>
+              <li>Follow cultural support plans; partner with local Aboriginal Community Controlled Organisations</li>
+              <li>Use the child’s own language for family; answer honestly at the child’s level</li>
+              <li>Include carers as parents — invite them fully, no doorstep explanations required</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="block" id="c-partners">
+          <h3>Community & professional partnerships</h3>
+          <div class="grid-2">
+            <div class="partner-card">
+              <h4>Act for Kids</h4>
+              <div class="who">Queensland-rooted charity — free therapeutic and support services for children and families affected by abuse and neglect</div>
+              <ul>
+                <li>Therapeutic services and integrated family support</li>
+                <li>Safe Pathways programs · professional training · prevention education</li>
+              </ul>
+              <p style="margin-top:0.5rem;font-size:0.9rem"><strong>Collaborate:</strong> refer with consent, book whole-team trauma PL, use body-safety resources, invite consultation on a child’s plan.</p>
+            </div>
+            <div class="partner-card">
+              <h4>Child Safety Officer (Qld)</h4>
+              <div class="who">Statutory caseworker holding legal responsibility for protection and case plan — not optional</div>
+              <ul>
+                <li>Placement monitoring, case planning, family contact, care team coordination</li>
+              </ul>
+              <p style="margin-top:0.5rem;font-size:0.9rem"><strong>Collaborate:</strong> ask to join the care team; provide dated objective observations; get written clarity on responsibility and collection; advocate for enrolment continuity.</p>
+            </div>
+          </div>
+          <div class="resource-list">
+            <span class="resource-pill">SNAICC</span>
+            <span class="resource-pill">CREATE Foundation</span>
+            <span class="resource-pill">Life Without Barriers</span>
+            <span class="resource-pill">PeakCare Queensland</span>
+            <span class="resource-pill">QFCC</span>
+            <span class="resource-pill">Local ACCOs</span>
+          </div>
+          <p style="margin-top:0.8rem;font-size:0.9rem;color:var(--ink-soft)">
+            Given the overrepresentation data, partnership with Aboriginal Community Controlled Organisations should exist
+            <em>before</em> you need it. Ask what the local organisation would like from you.
+          </p>
+        </div>
+
+        <div class="block" id="c-resources">
+          <h3>Resources for educators & children</h3>
+          <div class="grid-2">
+            <div>
+              <h4>Programs & websites</h4>
+              <div class="acc">
+                <button class="acc-btn" onclick="toggleAcc(this)">Emerging Minds <span>+</span></button>
+                <div class="acc-body"><div class="acc-body-inner">Free Australian courses and resources on child mental health, trauma and child-aware practice. Strong team PL option; family-facing materials for carers.</div></div>
+              </div>
+              <div class="acc">
+                <button class="acc-btn" onclick="toggleAcc(this)">Be You (Beyond Blue) — Early Learning <span>+</span></button>
+                <div class="acc-body"><div class="acc-body-inner">National mental health in education initiative. Work through the Early Support domain as a team; practical critical incident and grief resources.</div></div>
+              </div>
+              <p style="margin-top:0.6rem;font-size:0.9rem">Also: SNAICC / Child Placement Principle guides, CREATE, Australian Childhood Foundation, Bravehearts, Daniel Morcombe Foundation.</p>
+            </div>
+            <div>
+              <h4>Storybooks & media</h4>
+              <ul>
+                <li><em>The Invisible String</em> — Patrice Karst</li>
+                <li><em>Families, Families, Families!</em> — Suzanne Lang</li>
+                <li><em>Maybe Days</em> — Wilgocki & Wright (one-to-one)</li>
+                <li><em>Ruby’s Worry</em> — Tom Percival</li>
+                <li><em>Sorry Day</em> — Coral Vass & Dub Leffler</li>
+                <li>Sesame Street in Communities — Foster Care (Karli)</li>
+                <li>Bluey — “Sleepytime”</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section class="section" id="references">
+      <div class="section-head">
+        <div>
+          <h2>References</h2>
+          <p>Selected sources used throughout this portfolio. Expand sections for full APA 7 style citations.</p>
+        </div>
+      </div>
+      <div class="refs">
+        <details open>
+          <summary>Policy, data & government</summary>
+          <ul>
+            <li>Australian Children’s Education and Care Quality Authority. (2018). <em>Guide to the National Quality Framework</em>.</li>
+            <li>Australian Government Department of Education. (2022). <em>Belonging, being and becoming: The Early Years Learning Framework for Australia (V2.0)</em>.</li>
+            <li>Australian Government Department of Education. (2025). Australian Early Development Census.</li>
+            <li>Australian Government Department of Education. (2026). 3 Day Guarantee.</li>
+            <li>Australian Institute of Health and Welfare. (2025). <em>Child protection Australia 2023–24</em>.</li>
+            <li>Australian Institute of Health and Welfare. (2026). <em>Child protection Australia 2024–25: Insights</em>.</li>
+            <li>Commonwealth of Australia. (2021). <em>Safe and supported: The national framework for protecting Australia’s children 2021–2031</em>.</li>
+            <li>Commonwealth of Australia. (2024). <em>Early Years Strategy 2024–2034</em>.</li>
+            <li>Davidson, P., & Bradbury, B. (2025). <em>Poverty in Australia 2025: Overview</em>. ACOSS & UNSW Sydney.</li>
+            <li>Mitchell Institute. (2025). Research spotlight: The Australian Early Development Census 2024.</li>
+            <li>Productivity Commission. (2026). Report on government services 2026: Housing and homelessness.</li>
+            <li>SGS Economics & Planning. (2025). Rental affordability index 2025.</li>
+            <li>SNAICC – National Voice for our Children. (2019). <em>The Aboriginal and Torres Strait Islander Child Placement Principle: A guide to support implementation</em>.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Theory & research</summary>
+          <ul>
+            <li>Bowlby, J. (1988). <em>A secure base: Parent–child attachment and healthy human development</em>. Basic Books.</li>
+            <li>Cashmore, J., Conley Wright, A., & Metcalfe, L. (2022). Child protection and out-of-home care. In R. Grace et al. (Eds.), <em>Children, families and communities</em> (6th ed.).</li>
+            <li>Center on the Developing Child at Harvard University. (2023). Toxic stress.</li>
+            <li>Conger, R. D., & Donnellan, M. B. (2007). An interactionist perspective on the socioeconomic context of human development. <em>Annual Review of Psychology, 58</em>, 175–199.</li>
+            <li>Goemans, A., van Geel, M., & Vedder, P. (2015). Over three decades of longitudinal research on the development of foster children: A meta-analysis. <em>Child Abuse & Neglect, 42</em>, 121–134.</li>
+            <li>Grace, R., & Baird, K. (2022). Social inequities in Australian communities… In R. Grace et al. (Eds.), <em>Children, families and communities</em> (6th ed.).</li>
+            <li>Grace, R., Townley, C., & Woodrow, C. (2022). Understanding the child in context… In R. Grace et al. (Eds.), <em>Children, families and communities</em> (6th ed.).</li>
+            <li>McMahon, C., & Grace, R. (2022). Family as the primary context of children’s development. In R. Grace et al. (Eds.), <em>Children, families and communities</em> (6th ed.).</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Children’s resources</summary>
+          <ul>
+            <li>Boelts, M. (2007). <em>Those shoes</em>. Candlewick Press.</li>
+            <li>de la Peña, M. (2015). <em>Last stop on Market Street</em>. G. P. Putnam’s Sons.</li>
+            <li>Karst, P. (2018). <em>The invisible string</em>. Little, Brown Books for Young Readers.</li>
+            <li>Lang, S. (2015). <em>Families, families, families!</em> Random House.</li>
+            <li>Wilgocki, J., & Wright, M. K. (2002). <em>Maybe days: A book for children in foster care</em>. Magination Press.</li>
+            <li>Williams, V. B. (1982). <em>A chair for my mother</em>. Greenwillow Books.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Digital portfolio for early childhood services · Economic & social contexts · Designed for study and practice use
+    </p>
+  </main>
+
+  <div class="fab">
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+    <a href="#contexts" title="Contexts">◎</a>
+  </div>
+
+  <script>
+    function showPanel(which) {
+      const econ = document.getElementById('panel-econ');
+      const care = document.getElementById('panel-care');
+      const btnE = document.getElementById('btn-econ');
+      const btnC = document.getElementById('btn-care');
+
+      if (which === 'econ') {
+        econ.classList.add('active');
+        care.classList.remove('active');
+        btnE.classList.add('active-econ');
+        btnC.classList.remove('active-care');
+      } else {
+        care.classList.add('active');
+        econ.classList.remove('active');
+        btnC.classList.add('active-care');
+        btnE.classList.remove('active-econ');
+      }
+      window.scrollTo({ top: document.getElementById('contexts').offsetTop - 70, behavior: 'smooth' });
+    }
+
+    function toggleAcc(btn) {
+      const acc = btn.parentElement;
+      acc.classList.toggle('open');
+    }
+
+    function scrollToId(id, btn) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const parent = btn.parentElement;
+      parent.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Active nav highlight on scroll
+    const sections = ['home', 'contexts', 'strategies', 'partnerships', 'resources', 'references'];
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = 'home';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 120) current = id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+</body>
+</html>
