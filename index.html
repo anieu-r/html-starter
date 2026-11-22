@@ -1,766 +1,1202 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+  ============================================================
+  EDIT BEFORE YOU SUBMIT (search this file for "EDIT")
+  1. Your seven video links       -> search "EDIT: videos"
+     Paste a YouTube link, a Google Drive "preview" link,
+     or a path to an .mp4 file that sits next to this file.
+  2. Unit code (optional)         -> search "EDIT: unit"
+  The whole site is this one file. Open it in any browser,
+  or upload it to Netlify Drop, GitHub Pages or Google Sites
+  (Embed > Embed code) to get a shareable link.
+  ============================================================
+-->
+<html lang="en-AU">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health & Wellbeing and Cultural Contexts | Digital Portfolio – Anmol Rawal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --teal: #0d9488;
-            --teal-dark: #0f766e;
-            --teal-light: #ccfbf1;
-            --ochre: #c2410c;
-            --ochre-light: #ffedd5;
-            --earth: #78350f;
-            --soft-bg: #f8fafc;
-            --text: #1e293b;
-            --muted: #64748b;
-            --white: #ffffff;
-            --shadow: 0 20px 40px -15px rgba(0,0,0,0.12);
-            --radius: 20px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Nunito', system-ui, sans-serif;
-            color: var(--text);
-            background: var(--soft-bg);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f766e 0%, #134e4a 40%, #1e3a5f 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            padding: 2rem;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1600&q=80') center/cover;
-            opacity: 0.25;
-            mix-blend-mode: overlay;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-        }
-
-        .presentation {
-            display: inline-block;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.25);
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.4rem, 6vw, 4rem);
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-
-        .hero .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.92;
-            max-width: 640px;
-            margin: 0 auto 2.5rem;
-            font-weight: 400;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.9rem 1.8rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--teal-dark);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255,255,255,0.6);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.15);
-            border-color: white;
-        }
-
-        .scroll-hint {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-12px); }
-            60% { transform: translateX(-50%) translateY(-6px); }
-        }
-
-        /* ========== NAV ========== */
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e2e8f0;
-            padding: 0.9rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-        }
-
-        .nav-logo {
-            font-weight: 800;
-            color: var(--teal-dark);
-            font-size: 1.1rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.8rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--teal);
-        }
-
-        /* ========== INTRO ========== */
-        .intro {
-            padding: 5rem 1.5rem 3rem;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .intro h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 1.2rem;
-            color: var(--teal-dark);
-        }
-
-        .intro p {
-            font-size: 1.15rem;
-            color: var(--muted);
-        }
-
-        /* ========== TWO PANELS ========== */
-        .panels {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            min-height: 80vh;
-        }
-
-        @media (max-width: 980px) {
-            .panels {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .panel {
-            padding: 4rem 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .panel-mental {
-            background: linear-gradient(160deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%);
-        }
-
-        .panel-nations {
-            background: linear-gradient(160deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%);
-        }
-
-        .panel-header {
-            margin-bottom: 2.5rem;
-        }
-
-        .panel-tag {
-            display: inline-block;
-            padding: 0.35rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .panel-mental .panel-tag {
-            background: var(--teal);
-            color: white;
-        }
-
-        .panel-nations .panel-tag {
-            background: var(--ochre);
-            color: white;
-        }
-
-        .panel h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            line-height: 1.25;
-            margin-bottom: 0.8rem;
-        }
-
-        .panel-mental h2 { color: var(--teal-dark); }
-        .panel-nations h2 { color: var(--earth); }
-
-        .panel-lead {
-            font-size: 1.1rem;
-            color: var(--muted);
-            max-width: 480px;
-        }
-
-        /* Cards inside panels */
-        .card-grid {
-            display: grid;
-            gap: 1.4rem;
-        }
-
-        .card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 1.6rem;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
-        }
-
-        .card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.7rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .panel-mental .card h3 { color: var(--teal-dark); }
-        .panel-nations .card h3 { color: var(--earth); }
-
-        .card p, .card ul {
-            font-size: 0.95rem;
-            color: #475569;
-        }
-
-        .card ul {
-            padding-left: 1.2rem;
-            margin-top: 0.5rem;
-        }
-
-        .card li {
-            margin-bottom: 0.35rem;
-        }
-
-        /* Image blocks */
-        .img-block {
-            border-radius: 16px;
-            overflow: hidden;
-            margin: 1.5rem 0;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .img-block img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .img-block:hover img {
-            transform: scale(1.05);
-        }
-
-        .img-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 1.2rem 1rem 0.8rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* ========== DETAILED SECTIONS ========== */
-        .detail-section {
-            padding: 5rem 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .detail-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 800px) {
-            .two-col { grid-template-columns: 1fr; }
-        }
-
-        .feature-box {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: var(--shadow);
-        }
-
-        .feature-box h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--teal-dark);
-        }
-
-        .feature-box.ochre h3 { color: var(--ochre); }
-
-        /* ========== CONCLUSION ========== */
-        .conclusion {
-            background: linear-gradient(135deg, #0f766e, #134e4a);
-            color: white;
-            padding: 5rem 1.5rem;
-            text-align: center;
-        }
-
-        .conclusion-inner {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .conclusion h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .conclusion p {
-            font-size: 1.15rem;
-            opacity: 0.95;
-            margin-bottom: 1.2rem;
-        }
-
-        /* ========== FOOTER ========== */
-        footer {
-            background: #0f172a;
-            color: #94a3b8;
-            padding: 4rem 1.5rem 2rem;
-        }
-
-        .footer-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 3rem;
-        }
-
-        @media (max-width: 800px) {
-            .footer-grid { grid-template-columns: 1fr; }
-        }
-
-        footer h4 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        footer a {
-            color: #94a3b8;
-            text-decoration: none;
-        }
-
-        footer a:hover { color: white; }
-
-        .footer-bottom {
-            max-width: 1100px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid #1e293b;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .presented {
-            margin-top: 1.5rem;
-            font-size: 1.05rem;
-            color: #e2e8f0;
-            font-weight: 600;
-        }
-
-        .image-credits {
-            margin-top: 2rem;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            opacity: 0.8;
-        }
-
-        /* Utility */
-        .highlight {
-            background: linear-gradient(120deg, #99f6e4 0%, #99f6e4 100%);
-            background-repeat: no-repeat;
-            background-size: 100% 40%;
-            background-position: 0 88%;
-            padding: 0 0.15rem;
-        }
-
-        .ochre-highlight {
-            background: linear-gradient(120deg, #fed7aa 0%, #fed7aa 100%);
-            background-repeat: no-repeat;
-            background-size: 100% 40%;
-            background-position: 0 88%;
-            padding: 0 0.15rem;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From the Very Beginning | Digital portfolio submitted to Miss Asanthi</title>
+<meta name="description" content="Digital portfolio on infant and toddler education: theories, pedagogy, play environments, five developmental domains, learning opportunities and seven video demonstrations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1e2a47; --ink-2:#45506b; --ink-3:#69738c;
+  --mist:#f3f8fc; --mist-2:#e6eff7; --paper:#ffffff; --line:#d8e3ee;
+  --wattle:#ffc53d; --jac:#6a4fd0; --focus:#6a4fd0;
+  --k-coral:#e0503f; --k-sky:#1f74c2; --k-leaf:#1e8556; --k-orange:#c25e00; --k-lilac:#6a4fd0;
+  --p-coral:#ffe3de; --p-sky:#e0effc; --p-leaf:#ddf3e5; --p-orange:#ffe9d3; --p-lilac:#ece6fe; --p-sun:#fff1c7;
+  --c-cognitive:#6a4fd0; --c-social:#b4570a; --c-emotional:#d23c64; --c-language:#1f74c2; --c-perceptual:#1e8556;
+  --t-cognitive:#efeafe; --t-social:#fff1db; --t-emotional:#ffe8ee; --t-language:#e3f1fd; --t-perceptual:#e2f5ea;
+  --rainbow:linear-gradient(90deg,#ff9c8f,#ffd45e,#8fd6a8,#8ccbf5,#c4b2fb);
+  --font-d:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --font-b:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --rail:288px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--mist);color:var(--ink);font:400 1.0625rem/1.65 var(--font-b)}
+img,svg{max-width:100%}
+a{color:var(--ink);text-decoration-color:var(--jac);text-underline-offset:3px;text-decoration-thickness:2px}
+a:hover{color:var(--jac)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--wattle);color:var(--ink);padding:10px 14px;z-index:100;font-weight:700}
+.skip:focus{left:8px}
+h1,h2,h3,h4{font-family:var(--font-d);line-height:1.1;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.progress{position:fixed;top:0;left:0;height:5px;width:0;background:var(--rainbow);z-index:60;border-radius:0 4px 4px 0}
+
+/* ---------- hero ---------- */
+.hero{background:#e7f4fd;color:var(--ink);padding:clamp(28px,5vw,64px) clamp(20px,6vw,88px) clamp(40px,6vw,80px);position:relative;overflow:hidden}
+.hero-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.9375rem;color:var(--ink-2)}
+.hero-top strong{color:var(--ink)}
+.hero>*:not(.art){position:relative;z-index:1}
+.art{position:absolute;pointer-events:none;z-index:0}
+.art-tr{top:-70px;right:-60px;width:300px}
+.art-bl{bottom:-24px;left:-34px;width:250px}
+.art-mid{bottom:34px;left:47%;width:90px}
+.rainbow{width:46px;height:24px;flex:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:end;margin-top:clamp(40px,7vw,96px)}
+.hero h1{font-size:clamp(3rem,7.4vw,6.6rem);font-weight:800;letter-spacing:-.035em;line-height:.92;font-variation-settings:"opsz" 96}
+.hero .lede{font-size:clamp(1.1rem,1.6vw,1.3rem);max-width:34ch;margin:28px 0 0;color:var(--ink-2)}
+.meta-list{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:32px 0 0;font-size:.9375rem}
+.meta-list dt{color:var(--ink-3)}.meta-list dd{margin:0;color:var(--ink);font-weight:700}
+.grow{background:var(--paper);border-radius:30px;padding:clamp(20px,3vw,32px);box-shadow:0 28px 56px -30px rgba(30,42,71,.45);border:3px solid #fff}
+.grow-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.grow-age{font-family:var(--font-d);font-weight:800;font-size:clamp(4rem,9vw,7.5rem);line-height:.85;letter-spacing:-.04em;color:var(--k-coral);font-variation-settings:"opsz" 96;min-width:2ch}
+.grow-unit{font-family:var(--font-d);font-size:1.25rem;color:var(--ink-2)}
+.grow label{display:block;font-size:.9375rem;color:var(--ink-2);margin:18px 0 6px}
+.grow input[type=range]{width:100%;accent-color:var(--k-coral);height:32px;cursor:pointer}
+.ticks{display:flex;justify-content:space-between;font-size:.75rem;color:var(--ink-3);margin-top:-2px;padding:0 4px}
+.grow ul{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.grow li{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:start;padding:10px 0;border-top:1px solid #e8eef5;font-size:.96875rem;color:var(--ink)}
+.grow li span{font-weight:700;color:var(--ink);display:flex;gap:8px;align-items:center;font-size:.875rem}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+.grow .note{font-size:.8125rem;color:var(--ink-3);margin:14px 0 0}
+.grow li p{margin:0;transition:opacity .25s}
+.grow li p.swap{opacity:.15}
+
+/* ---------- shell ---------- */
+.shell{display:grid;grid-template-columns:var(--rail) minmax(0,1fr)}
+.rail{position:sticky;top:0;height:100vh;overflow:auto;background:var(--paper);border-right:1px solid var(--line);padding:28px 18px 28px 22px}
+.rail h2{font-size:1.05rem;margin:0 0 14px;color:var(--ink-2);font-weight:600}
+.rail ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.rail a{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:baseline;text-decoration:none;padding:8px 10px;border-radius:10px;color:var(--ink-2);font-size:.9375rem;line-height:1.3}
+.rail a:hover{background:var(--p-sky);color:var(--ink)}
+.rail a .n{font-family:var(--font-d);font-weight:800;color:var(--ink-3);font-size:.9375rem}
+.rail a[aria-current="true"]{background:var(--ink);color:#fff}
+.rail a[aria-current="true"] .n{color:var(--wattle)}
+.rail .sep{height:4px;background:var(--rainbow);margin:12px 8px;border-radius:4px;opacity:.7}
+.rail .rail-foot{margin-top:22px;font-size:.8125rem;color:var(--ink-3);padding:0 10px}
+.rail .dom{width:8px;height:8px;border-radius:50%;display:inline-block;margin-left:6px;vertical-align:middle}
+.btn.menu-btn{display:none}
+
+main{min-width:0}
+.chapter{padding:clamp(56px,8vw,112px) clamp(20px,6vw,96px);border-bottom:1px solid var(--line);scroll-margin-top:12px}
+.chapter:nth-of-type(even){background:var(--paper)}
+.ch-head{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,2.5vw,32px);align-items:start;margin-bottom:clamp(28px,4vw,48px);max-width:980px}
+.ch-num{font-family:var(--font-d);font-weight:800;font-size:clamp(4rem,9vw,7.25rem);line-height:.8;color:var(--ch,var(--jac));letter-spacing:-.05em;font-variation-settings:"opsz" 96;position:relative;z-index:0;padding:.08em .12em 0}
+.ch-num::before{content:"";position:absolute;z-index:-1;left:-.06em;top:-.1em;width:1em;height:1em;border-radius:.24em;background:var(--tint,var(--p-lilac));transform:rotate(-8deg)}
+.ch-head h2{font-size:clamp(2rem,4.2vw,3.25rem);font-weight:800;letter-spacing:-.025em;padding-top:.15em}
+.ch-head .sub{margin:12px 0 0;color:var(--ink-2);font-size:1.0625rem;max-width:60ch}
+.prose{max-width:70ch}
+.prose h3{font-size:1.5rem;margin:1.6em 0 .5em;font-weight:700}
+.prose h4{font-size:1.15rem;margin:1.2em 0 .4em}
+.prose ul,.prose ol{padding-left:1.25em;margin:0 0 1em}
+.prose li{margin:.3em 0}
+.prose table{width:100%;border-collapse:collapse;margin:1em 0 1.5em;font-size:.96875rem;background:var(--paper)}
+.prose th,.prose td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+.prose th{font-family:var(--font-d);font-weight:700;background:var(--mist-2)}
+.cite{color:var(--ink-3)}
+
+/* ---------- theory shelf ---------- */
+.shelf{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:0;margin:32px 0;background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;max-width:1040px}
+.shelf [role=tablist]{display:flex;flex-direction:column;border-right:1px solid var(--line);background:var(--mist)}
+.shelf [role=tab]{all:unset;cursor:pointer;padding:14px 18px;border-bottom:1px solid var(--line);font-family:var(--font-d);font-weight:600;font-size:1rem;line-height:1.25;color:var(--ink-2)}
+.shelf [role=tab] small{display:block;font-family:var(--font-b);font-weight:400;font-size:.8125rem;color:var(--ink-3);margin-top:2px}
+.shelf [role=tab][aria-selected=true]{background:var(--paper);color:var(--ink);box-shadow:inset 4px 0 0 var(--jac)}
+.shelf [role=tab]:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+.shelf [role=tabpanel]{padding:clamp(20px,3vw,36px)}
+.shelf [role=tabpanel] h3{font-size:1.6rem;margin-bottom:10px}
+.shelf .tag{display:inline-block;font-size:.8125rem;background:var(--t-cognitive);color:var(--ink);padding:3px 10px;border-radius:999px;margin-bottom:12px}
+
+/* ---------- day timeline ---------- */
+.day{margin:36px 0;max-width:1040px}
+.day ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--count),minmax(0,1fr));position:relative}
+.day ol::before{content:"";position:absolute;left:5%;right:5%;top:22px;height:3px;background:var(--line)}
+.day li{text-align:center;position:relative}
+.day button{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 4px;font-size:.875rem;color:var(--ink-2);line-height:1.2}
+.day button .pin{width:46px;height:46px;border-radius:50%;background:var(--paper);border:3px solid var(--line);display:grid;place-items:center;font-family:var(--font-d);font-weight:800;color:var(--ink-3);transition:background .2s,border-color .2s}
+.day button[aria-pressed=true] .pin{background:var(--wattle);border-color:var(--wattle);color:var(--ink)}
+.day button[aria-pressed=true]{color:var(--ink);font-weight:700}
+.day button:focus-visible .pin{outline:3px solid var(--jac);outline-offset:3px}
+.day-panel{margin-top:22px;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--wattle);border-radius:16px;padding:20px 24px;max-width:70ch}
+.day-panel h4{font-size:1.2rem;margin-bottom:6px}
+
+/* ---------- room plan ---------- */
+.room{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(240px,1fr);gap:28px;margin:36px 0;max-width:1180px;align-items:start}
+.room svg{width:100%;height:auto;background:var(--paper);border-radius:22px;border:1px solid var(--line)}
+.room .zone rect{fill:var(--zf,var(--mist));stroke:#fff;stroke-width:2;transition:fill .2s,stroke .2s}
+.room .zone text{font-family:var(--font-d);font-weight:700;font-size:21px;fill:var(--ink-2);pointer-events:none}
+.room .zone{cursor:pointer;outline:none}
+.room .zone:hover rect{stroke:var(--ink-3)}
+.room .zone[aria-pressed=true] rect{fill:#ffd45e;stroke:var(--ink);stroke-width:3}
+.room .zone:focus-visible rect{stroke:var(--jac);stroke-width:4}
+.room .wall{fill:none;stroke:var(--ink);stroke-width:5;stroke-linejoin:round}
+.room .door{stroke:var(--paper);stroke-width:7}
+.room .zone.out rect{fill:#cdefd9}
+.zone-card{position:sticky;top:24px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px}
+.zone-card h4{font-size:1.35rem;margin-bottom:8px}
+.zone-card .hint{color:var(--ink-3);font-size:.9375rem}
+
+/* ---------- domain chapters ---------- */
+.d-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 28px}
+.d-tabs [role=tab]{all:unset;cursor:pointer;padding:10px 16px;border-radius:999px;border:2px solid var(--line);font-weight:700;font-size:.9375rem;color:var(--ink-2);background:var(--paper)}
+.d-tabs [role=tab][aria-selected=true]{background:var(--ch);border-color:var(--ch);color:#fff}
+.d-tabs [role=tab]:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.d-panel{max-width:1080px}
+.d-panel.prose>p,.d-panel.prose>ul{max-width:70ch}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;list-style:none;padding:0;margin:0}
+.skills li{background:var(--tint);border-radius:14px;padding:16px 18px;line-height:1.5}
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;border-top:1px solid var(--line)}
+.areas div{padding:14px 16px 14px 0;border-bottom:1px solid var(--line)}
+.areas dt{font-family:var(--font-d);font-weight:700;font-size:1rem;display:flex;gap:8px;align-items:center}
+.areas dd{margin:4px 0 0;color:var(--ink-2);font-size:.96875rem;padding-right:14px}
+.lo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.lo{background:var(--paper);border:1px solid var(--line);border-top:7px solid var(--ch);border-radius:22px;padding:22px}
+.chapter:nth-of-type(even) .lo{background:var(--mist)}
+.lo .age{display:inline-block;font-weight:700;font-size:.8125rem;background:var(--tint);padding:4px 10px;border-radius:999px;margin-bottom:10px}
+.lo h4{font-size:1.25rem;margin-bottom:8px}
+.lo p{font-size:.96875rem;margin-bottom:.6em}
+.lo .focus{font-size:.9rem;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:10px;margin:10px 0 0}
+.mat{display:grid;gap:12px}
+.mat article{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px 18px}
+.chapter:nth-of-type(even) .mat article{background:var(--mist)}
+.mat .kind{font-family:var(--font-d);font-weight:700;font-size:.8125rem;background:var(--tint);border-radius:10px;padding:8px 10px;min-width:92px;text-align:center}
+.mat h4{font-size:1.1rem}
+.mat p{margin:2px 0 0;font-size:.9375rem;color:var(--ink-2)}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-weight:700;font-size:.9375rem;white-space:nowrap}
+.btn:hover{background:var(--jac)}
+.btn:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.empty-note{color:var(--ink-3);font-size:.9375rem}
+
+/* ---------- senses wheel ---------- */
+.senses{display:grid;grid-template-columns:minmax(260px,420px) minmax(0,1fr);gap:32px;align-items:center;margin:36px 0;max-width:1080px}
+.senses svg{width:100%;height:auto}
+.senses .seg path{fill:var(--sf,var(--t-perceptual));stroke:var(--paper);stroke-width:4;cursor:pointer;transition:fill .2s}
+.senses .seg:hover path{filter:brightness(.96)}
+.senses .seg[aria-pressed=true] path{fill:var(--c-perceptual)}
+.senses .seg[aria-pressed=true] text{fill:#fff}
+.senses .seg text{font-family:var(--font-d);font-weight:700;font-size:15px;fill:var(--ink);pointer-events:none}
+.senses .seg{outline:none}
+.senses .seg:focus-visible path{stroke:var(--wattle);stroke-width:6}
+.sense-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px;border-left:6px solid var(--c-perceptual)}
+.chapter:nth-of-type(even) .sense-card{background:var(--mist)}
+.sense-card h4{font-size:1.5rem;margin-bottom:8px}
+
+/* ---------- toolkit ---------- */
+.chapter.toolkit{background:var(--p-sun);color:var(--ink)}
+.toolkit .ch-head .sub{color:var(--ink-2)}
+.toolkit .ch-num{color:var(--k-coral);--tint:#ffd9a8}
+.filters{display:grid;gap:18px;max-width:1080px}
+.filters fieldset{border:0;padding:0;margin:0}
+.filters legend{font-family:var(--font-d);font-weight:700;font-size:1.05rem;margin-bottom:10px;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{all:unset;cursor:pointer;padding:8px 14px;border-radius:999px;border:2px solid #e9cf8a;background:#fffaf0;color:var(--ink);font-size:.9375rem;font-weight:700}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.results{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;max-width:1180px}
+.result{background:var(--paper);border-radius:20px;padding:18px;border-left:7px solid var(--c);box-shadow:0 10px 24px -18px rgba(30,42,71,.4)}
+.result .r-meta{font-size:.8125rem;color:var(--ink-3);margin-bottom:6px;display:flex;gap:8px;flex-wrap:wrap}
+.result h4{font-size:1.1rem;color:var(--ink);margin-bottom:6px}
+.result p{margin:0;font-size:.9375rem;color:var(--ink-2)}
+.count{margin-top:18px;color:var(--ink-2);font-size:.9375rem}
+
+/* ---------- videos ---------- */
+.v-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.v-filters .chip{border-color:var(--line);background:var(--paper);color:var(--ink-2)}
+.v-filters .chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.v-filters .chip:focus-visible{outline:3px solid var(--focus)}
+.videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;max-width:1180px}
+.video{all:unset;cursor:pointer;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.chapter:nth-of-type(even) .video{background:var(--mist)}
+.video .thumb{aspect-ratio:16/10;background:var(--tint);display:grid;place-items:center;position:relative}
+.video .thumb .ico{width:96px;height:96px}
+.video .thumb .play{position:absolute;right:14px;bottom:12px;display:flex;align-items:center;gap:6px;font-size:.8125rem;font-weight:700;background:var(--ink);color:#fff;padding:5px 10px 5px 8px;border-radius:999px}
+.video .thumb .play svg{width:12px;height:12px}
+.video .thumb .k{position:absolute;left:14px;top:12px;font-size:.8125rem;font-weight:700;background:var(--paper);padding:4px 10px;border-radius:999px}
+.video .v-body{padding:16px 18px 18px}
+.video h4{font-size:1.15rem;margin-bottom:4px}
+.video p{margin:0;font-size:.9rem;color:var(--ink-2)}
+.video:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.video:hover .thumb{filter:saturate(1.3)}
+dialog{border:0;border-radius:22px;padding:0;max-width:min(920px,94vw);width:100%;background:var(--paper);color:var(--ink)}
+dialog::backdrop{background:rgba(15,32,28,.72)}
+.dlg-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.dlg-head h3{font-size:1.25rem}
+.dlg-frame{aspect-ratio:16/9;background:var(--ink);display:grid;place-items:center;color:#d6e3dd;text-align:center;padding:0}
+.dlg-frame iframe,.dlg-frame video{width:100%;height:100%;border:0;display:block}
+.dlg-frame .placeholder{padding:24px;max-width:46ch}
+.dlg-info{padding:16px 20px 22px;font-size:.96875rem}
+.dlg-info p{margin:0 0 .5em}
+
+/* ---------- references ---------- */
+.ref-tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:22px;max-width:70ch}
+.ref-tools input{flex:1;min-width:220px;font:inherit;padding:12px 16px;border-radius:999px;border:2px solid var(--line);background:var(--paper);color:var(--ink)}
+.ref-tools input:focus{outline:none;border-color:var(--jac)}
+.refs{list-style:none;padding:0;margin:0;max-width:78ch}
+.refs li{padding:12px 0 12px 2em;text-indent:-2em;border-bottom:1px solid var(--line);font-size:.96875rem;position:relative}
+.refs li[hidden]{display:none}
+.refs a{word-break:break-word}
+.copy{all:unset;cursor:pointer;font-size:.8125rem;font-weight:700;color:var(--jac);margin-left:8px;text-indent:0}
+.copy:focus-visible{outline:2px solid var(--wattle)}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);border-top:8px solid transparent;border-image:var(--rainbow) 1;color:#c9d3e6;padding:56px clamp(20px,6vw,96px);font-size:.9375rem}
+footer .f-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;max-width:1180px}
+footer h2{font-size:1.25rem;color:#fff;margin-bottom:10px}
+footer p{max-width:62ch}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;z-index:90;transition:transform .25s}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.to-top{position:fixed;right:18px;bottom:18px;z-index:50;opacity:0;pointer-events:none;transition:opacity .2s}
+.btn.to-top{box-shadow:0 0 0 2px var(--wattle)}
+.to-top.show{opacity:1;pointer-events:auto}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .hero-grid{grid-template-columns:1fr}
+  .room,.senses{grid-template-columns:1fr}
+  .zone-card{position:static}
+}
+@media (max-width:960px){
+  .shell{grid-template-columns:1fr}
+  .rail{position:fixed;inset:0 auto 0 0;width:min(320px,86vw);z-index:70;transform:translateX(-105%);transition:transform .25s;box-shadow:0 0 0 100vmax rgba(15,32,28,0)}
+  .rail.open{transform:none;box-shadow:0 0 0 100vmax rgba(15,32,28,.55)}
+  .btn.menu-btn{display:inline-flex;position:fixed;left:14px;bottom:14px;z-index:65;opacity:0;pointer-events:none;transition:opacity .2s}
+  .btn.menu-btn.show{opacity:1;pointer-events:auto}
+  .shelf{grid-template-columns:1fr}
+  .shelf [role=tablist]{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}
+  .shelf [role=tab]{border-bottom:0;border-right:1px solid var(--line);min-width:160px}
+  .shelf [role=tab][aria-selected=true]{box-shadow:inset 0 -4px 0 var(--jac)}
+  .day ol{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:18px}
+  .day ol::before{display:none}
+  footer .f-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .art-tr{width:170px;top:-50px;right:-50px}
+  .art-bl{width:150px;bottom:-20px;left:-30px}
+  .art-mid{display:none}
+  .grow li{grid-template-columns:1fr;gap:2px}
+  .mat article{grid-template-columns:1fr}
+  .ch-head{grid-template-columns:1fr}
+  .ch-num{font-size:3.5rem}
+}
+
+/* ---------- print ---------- */
+@media print{
+  body{background:#fff;font-size:11pt}
+  .rail,.menu-btn,.progress,.to-top,.toast,.v-filters,.ref-tools,.d-tabs,.copy,.btn{display:none!important}
+  .shell{display:block}
+  .hero{background:#fff;color:var(--ink)}
+  .hero h1,.grow-age{color:var(--ink)}
+  .grow{display:none}
+  [role=tabpanel][hidden],.d-panel[hidden]{display:block!important}
+  .chapter{break-inside:avoid-page;padding:24px 0}
+  .toolkit{display:none}
+  a{text-decoration:none}
+}
+</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
 
-    <!-- HERO -->
-    <header class="hero">
-        <div class="hero-content">
-            <div class="presentation">Presented to Miss Dipti Arora by Anmol Rawal</div>
-            <h1>Health &amp; Wellbeing<br>and Cultural Contexts</h1>
-            <p class="subtitle">
-                Exploring Parental Mental Illness and First Nations Families through ecological and family systems lenses — with practical, evidence-informed strategies for early childhood educators.
-            </p>
-            <div class="hero-buttons">
-                <a href="#mental" class="btn btn-primary">Parental Mental Illness</a>
-                <a href="#nations" class="btn btn-outline">First Nations Families</a>
-            </div>
-        </div>
-        <div class="scroll-hint">Scroll to explore ↓</div>
-    </header>
-
-    <!-- NAV -->
-    <nav class="nav">
-        <div class="nav-logo">EPRO204 · Digital Portfolio</div>
-        <ul class="nav-links">
-            <li><a href="#mental">Mental Health Context</a></li>
-            <li><a href="#nations">First Nations Context</a></li>
-            <li><a href="#strategies">Key Strategies</a></li>
-            <li><a href="#conclusion">Conclusion</a></li>
-        </ul>
-    </nav>
-
-    <!-- INTRO -->
-    <section class="intro">
-        <h2>Two Critical Contexts for Early Childhood Practice</h2>
-        <p>
-            Young children develop within complex systems of relationships, culture and circumstance. 
-            This portfolio examines two significant contexts that shape the everyday lives of many Australian children: 
-            <span class="highlight">parental mental illness</span> and 
-            <span class="ochre-highlight">First Nations families</span>. 
-            Drawing on Bronfenbrenner’s ecological systems theory and family systems theory, it explores impacts, policy responses, and practical strategies that promote belonging, security and flourishing.
-        </p>
-    </section>
-
-    <!-- TWO MAIN PANELS -->
-    <div class="panels">
-        <!-- PANEL 1: Parental Mental Illness -->
-        <section class="panel panel-mental" id="mental">
-            <div class="panel-header">
-                <span class="panel-tag">Health &amp; Wellbeing</span>
-                <h2>Parental Mental Illness</h2>
-                <p class="panel-lead">
-                    When a parent experiences a diagnosed mental health condition, the emotional availability and daily functioning that young children need for secure attachment can be disrupted. High-quality early childhood education becomes a vital protective factor.
-                </p>
-            </div>
-
-            <div class="img-block">
-                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80" 
-                     alt="Young children engaging in play and learning activities in an early childhood setting">
-                <div class="img-caption">Consistent, warm relationships in early childhood settings support emotional regulation and trust</div>
-            </div>
-
-            <div class="card-grid">
-                <div class="card">
-                    <h3>🧠 Understanding the Context</h3>
-                    <p>
-                        Parental mental illness refers to one or both parents living with conditions such as depression, anxiety or bipolar disorder that affect emotional availability. Australia’s focus on the first 2000 days recognises the intergenerational nature of these effects. Bronfenbrenner’s microsystem (home) and mesosystem (home–service connections) highlight why strong partnerships between educators and families matter so deeply.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>👶 Impact on Children &amp; Families</h3>
-                    <p>
-                        Children may develop insecure or disorganised attachment patterns, challenges with emotional regulation, language development and trust. Secondary stressors — economic pressure, isolation and disrupted routines — often compound the picture. Australia’s Early Development Census shows elevated vulnerability in social competence and emotional maturity for these children. Yet many children also demonstrate remarkable resilience when supported by consistent, non-judgmental relationships outside the home.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>📋 Australian Policy Responses</h3>
-                    <p>
-                        The National Children’s Mental Health and Wellbeing Strategy and National Guidelines for mental health in early childhood health checks emphasise prevention, early detection and family-focused approaches within universal services. The Early Years Learning Framework V2.0 reinforces the link between children’s wellbeing and their family context, positioning educators as important contributors to mental health literacy.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🤝 Community Partnerships</h3>
-                    <p>
-                        Key partners include Emerging Minds (formerly COPMI) and local Maternal and Child Health / perinatal mental health services. Joint professional development, clear referral pathways (with family consent) and shared case planning create continuity of support across home, health services and the early childhood setting.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PANEL 2: First Nations Families -->
-        <section class="panel panel-nations" id="nations">
-            <div class="panel-header">
-                <span class="panel-tag">Cultural &amp; Diversity</span>
-                <h2>First Nations Families</h2>
-                <p class="panel-lead">
-                    Aboriginal and Torres Strait Islander families hold rich kinship systems, languages and connections to Country. Early childhood practice that centres cultural safety, self-determination and genuine partnership supports identity, belonging and healing from intergenerational trauma.
-                </p>
-            </div>
-
-            <div class="img-block">
-                <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?auto=format&fit=crop&w=800&q=80" 
-                     alt="Children exploring and learning outdoors in a natural environment">
-                <div class="img-caption">Connection to Country and community is a powerful protective factor for First Nations children</div>
-            </div>
-
-            <div class="card-grid">
-                <div class="card">
-                    <h3>🌏 Understanding the Context</h3>
-                    <p>
-                        First Nations families encompass diverse cultures, languages and kinship systems. The EYLF V2.0 places Aboriginal and Torres Strait Islander perspectives at the centre of practice for all children. Ecological systems theory helps us see how macrosystem policies (past and present), community services and family/kin networks interact. Family systems theory needs adaptation to honour communal child-rearing responsibilities.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🌱 Impact on Children &amp; Families</h3>
-                    <p>
-                        Strong cultural identity and connection to community are central protective factors for social and emotional wellbeing. When a child’s identity is acknowledged and celebrated in the learning environment, belonging, language and identity can flourish. Racism and intergenerational trauma remain significant challenges. High-quality, culturally competent services that are co-designed with community can offer restorative care and promote excellence.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>📜 Policy Landscape</h3>
-                    <p>
-                        The National Agreement on Closing the Gap, the National Aboriginal and Torres Strait Islander Early Childhood Strategy, and the embedding of Aboriginal and Torres Strait Islander perspectives in the EYLF V2.0 guide practice. Place-based initiatives such as Connected Beginnings demonstrate integrated approaches led by community. The ongoing challenge is moving from symbolic inclusion to genuine power-sharing and cultural safety.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🤝 Community Partnerships</h3>
-                    <p>
-                        SNAICC – National Voice for our Children and local Aboriginal Community Controlled Organisations (ACCOs) / Connected Beginnings sites are essential partners. Successful collaboration involves ongoing consultation, shared professional learning, culturally appropriate referral pathways that respect protocol, and employment of First Nations educators and staff.
-                    </p>
-                </div>
-            </div>
-        </section>
+<header class="hero" id="top">
+  <svg class="art art-tr" viewBox="0 0 300 300" aria-hidden="true" focusable="false"><circle cx="170" cy="130" r="120" fill="#ffd45e"/><circle cx="40" cy="250" r="16" fill="#c4b2fb"/><circle cx="74" cy="214" r="8" fill="#ff9c8f"/></svg>
+  <svg class="art art-bl" viewBox="0 0 250 200" aria-hidden="true" focusable="false"><path d="M10 200a110 110 0 0 1 220 0z" fill="#ff9c8f"/><path d="M60 40l30 52H30z" fill="#8fd6a8" stroke="#8fd6a8" stroke-width="12" stroke-linejoin="round"/></svg>
+  <svg class="art art-mid" viewBox="0 0 90 90" aria-hidden="true" focusable="false"><rect x="14" y="14" width="62" height="62" rx="16" fill="#8ccbf5" transform="rotate(14 45 45)"/></svg>
+  <div class="hero-top">
+    <span><strong>From the Very Beginning</strong></span>
+    <span>Submitted to <strong>Miss Asanthi</strong></span>
+  </div>
+  <div class="hero-grid">
+    <div>
+      <h1>From the very beginning</h1>
+      <p class="lede">A digital portfolio that guides early childhood teachers in supporting the development, learning and wellbeing of children from birth to three.</p>
+      <dl class="meta-list">
+        <dt>Submitted to</dt><dd>Miss Asanthi</dd>
+        <dt>Prepared by</dt><dd>Anmol Rawal and Taniya</dd>
+        <dt>Unit</dt><dd><!-- EDIT: unit -->Infant and toddler education</dd>
+      </dl>
     </div>
-
-    <!-- KEY STRATEGIES SECTION -->
-    <section class="detail-section" id="strategies">
-        <h2>Evidence-Informed Strategies for Practice</h2>
+    <div class="grow" aria-labelledby="grow-title">
+      <h2 id="grow-title" class="grow-unit" style="font-size:1.05rem;color:var(--ink-2);margin-bottom:12px;display:flex;gap:10px;align-items:center"><svg class="rainbow" viewBox="0 0 46 24" aria-hidden="true"><g fill="none" stroke-width="5" stroke-linecap="round"><path d="M4 23a19 19 0 0 1 38 0" stroke="#ff9c8f"/><path d="M11 23a12 12 0 0 1 24 0" stroke="#ffd45e"/><path d="M18 23a5 5 0 0 1 10 0" stroke="#8ccbf5"/></g></svg>What might a child be doing at this age?</h2>
+      <div class="grow-head">
+        <div><span class="grow-age" id="ageNum">2</span> <span class="grow-unit" id="ageUnit">months</span></div>
+      </div>
+      <label for="ageRange">Drag to change the age</label>
+      <input type="range" id="ageRange" min="0" max="9" step="1" value="0" aria-valuetext="2 months">
+      <div class="ticks" aria-hidden="true"><span>2</span><span>4</span><span>6</span><span>9</span><span>12</span><span>15</span><span>18</span><span>24</span><span>30</span><span>36</span></div>
+      <ul id="growList">
         
-        <div class="two-col">
-            <div class="feature-box">
-                <h3>Family-Centred &amp; Attachment-Informed Practice</h3>
-                <p style="margin-bottom:1rem;color:#64748b;">
-                    Especially powerful when working with families affected by parental mental illness.
-                </p>
-                <ul style="padding-left:1.2rem;color:#475569;">
-                    <li>Collaborative, individualised learning plans that treat parents as experts in their own lives</li>
-                    <li>Consistent key educators and visual schedules to support predictability</li>
-                    <li>Flexible communication when parents have limited capacity</li>
-                    <li>Circle of Security principles: interpreting behaviour as a call for connection, staying present during stress, and translating the child’s emotional world into everyday language for parents</li>
-                </ul>
-            </div>
+        <li data-domain="cognitive"><span><i class="dot" style="background:var(--c-cognitive)"></i>Cognitive</span><p>Watches you as you move and looks at a toy for several seconds.</p></li>
+        
+        <li data-domain="social"><span><i class="dot" style="background:var(--c-social)"></i>Social</span><p>Looks at your face and smiles when you talk to them.</p></li>
+        
+        <li data-domain="emotional"><span><i class="dot" style="background:var(--c-emotional)"></i>Emotional</span><p>Calms down when spoken to or picked up.</p></li>
+        
+        <li data-domain="language"><span><i class="dot" style="background:var(--c-language)"></i>Language</span><p>Makes sounds other than crying.</p></li>
+        
+        <li data-domain="perceptual"><span><i class="dot" style="background:var(--c-perceptual)"></i>Senses</span><p>Reacts to loud sounds and follows faces with their eyes.</p></li>
+        
+      </ul>
+      <p class="note">Typical examples adapted from the CDC milestone checklists (Zubler et al., 2022). Every child develops at their own pace, so use these to start conversations with families, not as a test.</p>
+    </div>
+  </div>
+</header>
 
-            <div class="feature-box ochre">
-                <h3>Culturally Responsive &amp; Anti-Bias Practice</h3>
-                <p style="margin-bottom:1rem;color:#64748b;">
-                    Essential for genuine partnership with First Nations families and all children.
-                </p>
-                <ul style="padding-left:1.2rem;color:#475569;">
-                    <li>Embedding Aboriginal and Torres Strait Islander perspectives through the 8 Ways of Learning rather than token events</li>
-                    <li>Storytelling, non-verbal learning, land-based experiences and morning yarn circles as everyday practice</li>
-                    <li>Critically examining the learning environment for accurate, contemporary representation</li>
-                    <li>Actively challenging stereotypes and reflecting on personal bias</li>
-                </ul>
-            </div>
-        </div>
+<div class="shell">
+  <nav class="rail" id="rail" aria-label="Portfolio contents">
+    <h2>Contents</h2>
+    <ol>
+      
+      
+      <li><a href="#intro" data-target="intro"><span class="n">1</span><span>Introduction</span></a></li>
+      
+      
+      <li><a href="#pedagogy" data-target="pedagogy"><span class="n">2</span><span>Teaching infants and toddlers</span></a></li>
+      
+      
+      <li><a href="#environments" data-target="environments"><span class="n">3</span><span>Play environments</span></a></li>
+      
+      
+      <li><a href="#promoting" data-target="promoting"><span class="n">4</span><span>Development, learning and wellbeing</span></a></li>
+      
+      
+      <li><a href="#cognitive" data-target="cognitive"><span class="n">5</span><span>Cognitive development<i class="dom" style="background:var(--c-cognitive)"></i></span></a></li>
+      
+      
+      <li><a href="#social" data-target="social"><span class="n">6</span><span>Social development<i class="dom" style="background:var(--c-social)"></i></span></a></li>
+      
+      
+      <li><a href="#emotional" data-target="emotional"><span class="n">7</span><span>Emotional development<i class="dom" style="background:var(--c-emotional)"></i></span></a></li>
+      
+      
+      <li><a href="#language" data-target="language"><span class="n">8</span><span>Language and literacy<i class="dom" style="background:var(--c-language)"></i></span></a></li>
+      
+      
+      <li><a href="#perceptual" data-target="perceptual"><span class="n">9</span><span>Perceptual development<i class="dom" style="background:var(--c-perceptual)"></i></span></a></li>
+      
+      <li class="sep" aria-hidden="true"></li>
+      <li><a href="#toolkit" data-target="toolkit"><span class="n">+</span><span>Planning toolkit</span></a></li>
+      
+      
+      <li><a href="#videos" data-target="videos"><span class="n">▶</span><span>Video library</span></a></li>
+      
+      
+      <li><a href="#references" data-target="references"><span class="n">10</span><span>References</span></a></li>
+      
+    </ol>
+    <p class="rail-foot">Prepared by Anmol Rawal and Taniya. Submitted to Miss Asanthi. Use the coloured dots to follow each developmental domain through the site.</p>
+  </nav>
+  <button class="btn menu-btn" id="menuBtn" aria-controls="rail" aria-expanded="false">Contents</button>
 
-        <div style="margin-top:3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
-            <div class="card">
-                <h3>📚 Valuable Resources – Mental Health</h3>
-                <ul>
-                    <li><strong>Emerging Minds</strong> – practical tools and training for educators</li>
-                    <li><em>My Happy Sad Mummy</em> by Michelle Vasiliu</li>
-                    <li><em>One of a Kind</em> (Darcy &amp; Oliver)</li>
-                    <li>Emerging Minds animations on emotions and child mental health</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>📚 Valuable Resources – First Nations</h3>
-                <ul>
-                    <li><strong>SNAICC</strong> – culturally safe practice guidance</li>
-                    <li><em>Welcome to Country</em> by Aunty Joy Murphy</li>
-                    <li><em>Respect</em> by Aunty Fay Muir &amp; Sue Lawson</li>
-                    <li>Magabala Books, Indigenous Literacy Foundation &amp; Our Yarning collections</li>
-                </ul>
-            </div>
+  <main id="main">
+    
+    
+    <section class="chapter" id="intro" style="--ch:var(--k-coral);--tint:var(--p-coral)">
+      <div class="ch-head"><span class="ch-num">1</span><div><h2>Introduction to teaching infants and toddlers</h2><p class="sub">Why the first three years matter and the ideas that guide our practice.</p></div></div>
+      <div class="prose"><p>The brain builds its basic architecture in the first three years, and it does this through relationships. Each responsive exchange between a baby and a caring adult strengthens new connections (Center on the Developing Child at Harvard University, n.d.-a). Teaching this age group is relational work: feeding, settling, nappy changes and floor play are all curriculum.</p>
+<p>In Australia this work is guided by the <em>Early Years Learning Framework</em> V2.0 (Australian Government Department of Education [AGDE], 2022) and the National Quality Standard (Australian Children's Education &amp; Care Quality Authority [ACECQA], 2024). EYLF V2.0 asks educators to help very young children "build secure attachments with one and then other familiar educators" (AGDE, 2022, p. 31).</p></div>
+      <div class="shelf" data-tabs>
+        <div role="tablist" aria-label="Theories and frameworks">
+          
+          <button role="tab" id="th-tab-1" aria-controls="th-panel-1" aria-selected="true" tabindex="0">Attachment theory<small>Bowlby, 1969; Ainsworth et al., 1978/2015</small></button>
+          
+          <button role="tab" id="th-tab-2" aria-controls="th-panel-2" aria-selected="false" tabindex="-1">Circle of Security<small>Powell et al., 2014</small></button>
+          
+          <button role="tab" id="th-tab-3" aria-controls="th-panel-3" aria-selected="false" tabindex="-1">Serve and return<small>Center on the Developing Child at Harvard University, n.d.-b</small></button>
+          
+          <button role="tab" id="th-tab-4" aria-controls="th-panel-4" aria-selected="false" tabindex="-1">Sociocultural theory<small>Vygotsky, 1978; Rogoff, 2003</small></button>
+          
+          <button role="tab" id="th-tab-5" aria-controls="th-panel-5" aria-selected="false" tabindex="-1">Bioecological model<small>Bronfenbrenner &amp; Morris, 2006</small></button>
+          
+          <button role="tab" id="th-tab-6" aria-controls="th-panel-6" aria-selected="false" tabindex="-1">Sensorimotor stage<small>Piaget, 1952</small></button>
+          
+          <button role="tab" id="th-tab-7" aria-controls="th-panel-7" aria-selected="false" tabindex="-1">RIE and Pikler<small>Resources for Infant Educarers, n.d.; Tardos, 2010</small></button>
+          
+          <button role="tab" id="th-tab-8" aria-controls="th-panel-8" aria-selected="false" tabindex="-1">Reggio Emilia<small>Edwards et al., 2012</small></button>
+          
         </div>
+        
+        <div role="tabpanel" id="th-panel-1" aria-labelledby="th-tab-1" >
+          <span class="tag">Bowlby, 1969; Ainsworth et al., 1978/2015</span>
+          <h3>Attachment theory</h3>
+          <div class="prose"><p>A consistent caregiver who responds warmly gives babies a secure base to explore from.</p></div>
+        </div>
+        
+        <div role="tabpanel" id="th-panel-2" aria-labelledby="th-tab-2" hidden>
+          <span class="tag">Powell et al., 2014</span>
+          <h3>Circle of Security</h3>
+          <div class="prose"><p>Children go out to explore and come back for comfort, so teachers stay available at both points.</p></div>
+        </div>
+        
+        <div role="tabpanel" id="th-panel-3" aria-labelledby="th-tab-3" hidden>
+          <span class="tag">Center on the Developing Child at Harvard University, n.d.-b</span>
+          <h3>Serve and return</h3>
+          <div class="prose"><p>Back-and-forth exchanges shape brain architecture. Teachers notice the child's serve and answer it.</p></div>
+        </div>
+        
+        <div role="tabpanel" id="th-panel-4" aria-labelledby="th-tab-4" hidden>
+          <span class="tag">Vygotsky, 1978; Rogoff, 2003</span>
+          <h3>Sociocultural theory</h3>
+          <div class="prose"><p>Children learn with more experienced people inside their culture, so teachers scaffold and learn each family's ways.</p></div>
+        </div>
+        
+        <div role="tabpanel" id="th-panel-5" aria-labelledby="th-tab-5" hidden>
+          <span class="tag">Bronfenbrenner &amp; Morris, 2006</span>
+          <h3>Bioecological model</h3>
+          <div class="prose"><p>Family, service, community and policy all shape the child, so partnerships with families matter.</p></div>
+        </div>
+        
+        <div role="tabpanel" id="th-panel-6" aria-labelledby="th-tab-6" hidden>
+          <span class="tag">Piaget, 1952</span>
+          <h3>Sensorimotor stage</h3>
+          <div class="prose"><p>Under-twos think through their senses and actions and need real objects to mouth, drop and hide.</p></div>
+        </div>
+        
+        <div role="tabpanel" id="th-panel-7" aria-labelledby="th-tab-7" hidden>
+          <span class="tag">Resources for Infant Educarers, n.d.; Tardos, 2010</span>
+          <h3>RIE and Pikler</h3>
+          <div class="prose"><p>Tell babies what will happen, involve them in their care and let them move freely.</p></div>
+        </div>
+        
+        <div role="tabpanel" id="th-panel-8" aria-labelledby="th-tab-8" hidden>
+          <span class="tag">Edwards et al., 2012</span>
+          <h3>Reggio Emilia</h3>
+          <div class="prose"><p>Children are capable, the environment teaches and documentation makes learning visible.</p></div>
+        </div>
+        
+      </div>
+      <div class="prose"><p>Across all of these, we see infants as active people with their own rights and voices (Dalli et al., 2011).</p></div>
     </section>
 
-    <!-- CONCLUSION -->
-    <section class="conclusion" id="conclusion">
-        <div class="conclusion-inner">
-            <h2>Moving Forward Together</h2>
-            <p>
-                Working effectively with families affected by parental mental illness and with First Nations families requires educators to see each child within their unique cultural and relational context. Ecological systems theory and family systems theory provide powerful lenses for this work.
-            </p>
-            <p>
-                Australian policy increasingly calls for family-centred and culturally safe practice. Real impact, however, rests on the capacity, confidence and commitment of individual educators and services — and on genuine partnerships with families and community.
-            </p>
-            <p>
-                Through individualised planning, attachment-informed approaches, culturally responsive pedagogy, authentic collaboration and carefully chosen children’s literature and resources, early childhood educators can foster children’s self-awareness, empathy, resilience and deep sense of belonging.
-            </p>
+    
+    
+    <section class="chapter" id="pedagogy" style="--ch:var(--k-sky);--tint:var(--p-sky)">
+      <div class="ch-head"><span class="ch-num">2</span><div><h2>Teaching infant and toddler education</h2><p class="sub">Contemporary pedagogy and the strategies teachers use every day.</p></div></div>
+      <div class="prose"><p>Most teaching with under-threes happens one to one, often in the middle of a routine, and it depends on the teacher being close and tuned in (Degotardi &amp; Pearson, 2014). EYLF V2.0 practices such as responsiveness to children, play-based learning and intentionality, and continuity of learning and transitions all apply (AGDE, 2022). We put them into action through:</p>
+<ul>
+<li>Primary caregiving, where one key person leads the care of a small group so each child forms a secure bond (Elfer et al., 2012).</li>
+<li>Responsive, unhurried care: watch first, narrate, then wait for the child's response (Gonzalez-Mena &amp; Eyer, 2025).</li>
+<li>Intentional teaching and scaffolding, such as adding a ramp when a toddler keeps rolling balls.</li>
+<li>Sustained shared thinking with older toddlers (Siraj-Blatchford et al., 2002).</li>
+<li>The planning cycle of observing, planning, acting and reflecting, with families' knowledge included.</li>
+</ul></div>
+      <div class="day" style="--count:6">
+        <h3 style="font-size:1.4rem;margin-bottom:18px">Routines across the day</h3>
+        <ol>
+          
+          <li><button aria-pressed="true" data-routine="0"><span class="pin">1</span>Arrival</button></li>
+          
+          <li><button aria-pressed="false" data-routine="1"><span class="pin">2</span>Nappy change</button></li>
+          
+          <li><button aria-pressed="false" data-routine="2"><span class="pin">3</span>Mealtime</button></li>
+          
+          <li><button aria-pressed="false" data-routine="3"><span class="pin">4</span>Play</button></li>
+          
+          <li><button aria-pressed="false" data-routine="4"><span class="pin">5</span>Sleep and rest</button></li>
+          
+          <li><button aria-pressed="false" data-routine="5"><span class="pin">6</span>Home time</button></li>
+          
+        </ol>
+        <div class="day-panel" id="dayPanel" aria-live="polite">
+          <h4>Arrival</h4><p>The key person greets the family by name and takes the child at their pace.</p>
         </div>
+      </div>
+      <div class="prose"><p>This takes time, which is one reason the National Regulations set a ratio of one educator to four children from birth to 24 months, and one to five from 24 to 36 months (ACECQA, 2024).</p></div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h4>About this Portfolio</h4>
-                <p style="margin-bottom:1rem;">
-                    This digital portfolio was created as part of Assessment 3 for EPRO204. It synthesises current Australian research, policy and practice guidance related to two significant contexts in early childhood education and care.
-                </p>
-                <p class="presented">
-                    Presented to Miss Dipti Arora<br>
-                    by Anmol Rawal
-                </p>
-            </div>
-            <div>
-                <h4>Key Frameworks</h4>
-                <ul style="list-style:none;line-height:1.9;">
-                    <li>Bronfenbrenner’s Ecological Systems Theory</li>
-                    <li>Family Systems Theory</li>
-                    <li>Early Years Learning Framework V2.0</li>
-                    <li>National Children’s Mental Health Strategy</li>
-                    <li>Closing the Gap &amp; National ATSI Early Childhood Strategy</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Selected References</h4>
-                <ul style="list-style:none;line-height:1.8;font-size:0.9rem;">
-                    <li>Grace, Townley &amp; Woodrow (2022)</li>
-                    <li>Watkeys et al. (2022)</li>
-                    <li>Maxwell et al. (2021)</li>
-                    <li>Arthur et al. (2020)</li>
-                    <li>ACECQA (2025) EYLF Information Sheet</li>
-                    <li>National Mental Health Commission (2021)</li>
-                    <li>SNAICC resources</li>
-                </ul>
-            </div>
+    
+    
+    <section class="chapter" id="environments" style="--ch:var(--k-leaf);--tint:var(--p-leaf)">
+      <div class="ch-head"><span class="ch-num">3</span><div><h2>Infant and toddler play environments</h2><p class="sub">Guidelines for rooms and outdoor spaces that feel safe, calm and interesting.</p></div></div>
+      <div class="prose"><p>An infant and toddler room should feel more like a calm home than a busy classroom. Reggio Emilia educators describe the environment as a teacher in its own right (Edwards et al., 2012). Good rooms have clear floor space, natural light, low open shelves and a small number of open-ended natural materials. Noise lowers quality for under-twos, so we keep sound and clutter down (Dalli et al., 2011). Babies are never propped into positions they cannot reach themselves (Tardos, 2010), and anything smaller than a D-size battery is a choking hazard (ACECQA, n.d.).</p></div>
+      <div class="room">
+        <svg viewBox="0 0 900 560" role="group" aria-label="Floor plan of an infant and toddler room. Select an area to read about it.">
+          
+          <g class="zone" style="--zf:#ffe3de" tabindex="0" role="button" aria-pressed="true" data-zone="0" aria-label="Baby nest">
+            <rect x="50" y="50" width="250" height="170" rx="14"/>
+            <text x="64" y="82">Baby nest</text><text x="64" y="106">(non-walkers)</text>
+          </g>
+          
+          <g class="zone" style="--zf:#fff1c7" tabindex="0" role="button" aria-pressed="false" data-zone="1" aria-label="Treasure baskets">
+            <rect x="320" y="50" width="190" height="120" rx="14"/>
+            <text x="334" y="82">Treasure</text><text x="334" y="106">baskets</text>
+          </g>
+          
+          <g class="zone" style="--zf:#e0effc" tabindex="0" role="button" aria-pressed="false" data-zone="2" aria-label="Book nook">
+            <rect x="530" y="50" width="200" height="120" rx="14"/>
+            <text x="544" y="82">Book nook</text>
+          </g>
+          
+          <g class="zone" style="--zf:#ece6fe" tabindex="0" role="button" aria-pressed="false" data-zone="3" aria-label="Climb and move">
+            <rect x="320" y="190" width="190" height="140" rx="14"/>
+            <text x="334" y="222">Climb and</text><text x="334" y="246">move</text>
+          </g>
+          
+          <g class="zone" style="--zf:#ddf3e5" tabindex="0" role="button" aria-pressed="false" data-zone="4" aria-label="Sensory table">
+            <rect x="530" y="190" width="200" height="140" rx="14"/>
+            <text x="544" y="222">Sensory</text><text x="544" y="246">table</text>
+          </g>
+          
+          <g class="zone" style="--zf:#ffe9d3" tabindex="0" role="button" aria-pressed="false" data-zone="5" aria-label="Art and mark-making">
+            <rect x="50" y="240" width="250" height="90" rx="14"/>
+            <text x="64" y="272">Art and</text><text x="64" y="296">mark-making</text>
+          </g>
+          
+          <g class="zone" style="--zf:#ffe3de" tabindex="0" role="button" aria-pressed="false" data-zone="6" aria-label="Home corner">
+            <rect x="50" y="350" width="250" height="120" rx="14"/>
+            <text x="64" y="382">Home corner</text>
+          </g>
+          
+          <g class="zone" style="--zf:#fff1c7" tabindex="0" role="button" aria-pressed="false" data-zone="7" aria-label="Sleep room">
+            <rect x="320" y="350" width="190" height="160" rx="14"/>
+            <text x="334" y="382">Sleep room</text>
+          </g>
+          
+          <g class="zone" style="--zf:#e0effc" tabindex="0" role="button" aria-pressed="false" data-zone="8" aria-label="Nappy change">
+            <rect x="530" y="350" width="200" height="160" rx="14"/>
+            <text x="544" y="382">Nappy</text><text x="544" y="406">change</text>
+          </g>
+          
+          <g class="zone out" style="--zf:#ece6fe" tabindex="0" role="button" aria-pressed="false" data-zone="9" aria-label="Outdoor garden">
+            <rect x="765" y="30" width="115" height="500" rx="14"/>
+            <text x="779" y="62">Outdoor</text><text x="779" y="86">garden</text>
+          </g>
+          
+          <path class="wall" d="M30 30 H750 V530 H30 Z"/>
+          <line class="door" x1="750" y1="250" x2="750" y2="320"/>
+          <line class="door" x1="30" y1="440" x2="30" y2="500"/>
+          <text x="40" y="552" font-family="Atkinson Hyperlegible, sans-serif" font-size="13" fill="#5d756e">Entry and family sign-in</text>
+        </svg>
+        <div class="zone-card" id="zoneCard" aria-live="polite">
+          <h4>Baby nest</h4>
+          <p>Soft floor space for non-walkers with an unbreakable mirror and textured tummy-time mats.</p>
+          <p class="hint">Select another area on the plan to read about it.</p>
         </div>
+      </div>
+      <div class="prose"><p>If toddlers keep carrying things around (a transporting schema), we add bags and carts instead of stopping them (Athey, 2007).</p></div>
+    </section>
 
-        <div class="footer-bottom">
-            <p>© 2026 Anmol Rawal · Bachelor of Early Childhood Education</p>
+    
+    
+    <section class="chapter" id="promoting" style="--ch:var(--k-orange);--tint:var(--p-orange)">
+      <div class="ch-head"><span class="ch-num">4</span><div><h2>Promoting infant and toddler development, learning and wellbeing</h2><p class="sub">Broad strategies that work across every domain.</p></div></div>
+      <div class="prose"><p>Development, learning and wellbeing are tied together. A baby who is hungry, tired or frightened cannot learn well, so wellbeing comes first (AGDE, 2022). Our broad strategies across every domain are:</p>
+<ul>
+<li>Secure relationships through a key person, consistent staff and predictable routines.</li>
+<li>Following the child's lead, planning from observed interests and schemas.</li>
+<li>Play as the main way of learning, with teachers as co-players who extend without taking over.</li>
+<li>Language all day: naming, narrating and taking turns.</li>
+<li>Daily movement, with at least 30 minutes of tummy time for babies, three hours of active play for toddlers and no screen time under two (Australian Government Department of Health, 2021).</li>
+<li>Inclusion, adapting spaces so children with disability or additional needs take part fully.</li>
+<li>Cultural safety: home-language words, family cultures and Aboriginal and Torres Strait Islander perspectives embedded with local community guidance (AGDE, 2022).</li>
+<li>Partnerships with families, who are children's first teachers.</li>
+<li>Early identification, using milestone checklists to start conversations and refer early (Zubler et al., 2022).</li>
+</ul>
+<p>Sections 5 to 9 apply these strategies to each domain (HASS means Humanities and Social Sciences).</p></div>
+    </section>
+
+    
+    
+    <section class="chapter" id="cognitive" style="--ch:var(--c-cognitive);--tint:var(--t-cognitive)">
+      <div class="ch-head"><span class="ch-num">5</span><div><h2>Supporting cognitive development</h2><p class="sub">How babies and toddlers think, remember and solve problems.</p></div></div>
+      <div class="d-tabs" role="tablist" aria-label="Cognitive sections" data-dtabs>
+        
+        <button role="tab" id="cognitive-t1" aria-controls="cognitive-p1" aria-selected="true" tabindex="0">Overview</button>
+        
+        <button role="tab" id="cognitive-t2" aria-controls="cognitive-p2" aria-selected="false" tabindex="-1">Teacher competencies</button>
+        
+        <button role="tab" id="cognitive-t3" aria-controls="cognitive-p3" aria-selected="false" tabindex="-1">Across the curriculum</button>
+        
+        <button role="tab" id="cognitive-t4" aria-controls="cognitive-p4" aria-selected="false" tabindex="-1">Learning opportunities</button>
+        
+        <button role="tab" id="cognitive-t5" aria-controls="cognitive-p5" aria-selected="false" tabindex="-1">Learning materials</button>
+        
+      </div>
+      <div class="d-panel prose" role="tabpanel" id="cognitive-p1" aria-labelledby="cognitive-t1">
+        <p>Cognitive development is how children learn to think, remember and solve problems. Babies learn by mouthing, dropping and watching what happens (Piaget, 1952). Near their first birthday they search for hidden objects and show early executive function (Center on the Developing Child at Harvard University, 2011). Toddlers repeat play patterns called schemas, like transporting and enclosing (Athey, 2007), testing ideas like little scientists (Gopnik et al., 1999).</p>
+        
+      </div>
+      <div class="d-panel" role="tabpanel" id="cognitive-p2" aria-labelledby="cognitive-t2" hidden>
+        <div class="prose"><p></p></div>
+        <ul class="skills"><li>Observe closely and recognise schemas and problem-solving in play.</li><li>Scaffold within the zone of proximal development, giving just enough help (Vygotsky, 1978).</li><li>Wonder aloud and ask open questions, such as where did it go?</li><li>Offer open-ended materials and long, uninterrupted play (Hughes, 2016).</li></ul>
+      </div>
+      <div class="d-panel" role="tabpanel" id="cognitive-p3" aria-labelledby="cognitive-t3" hidden>
+        <div class="prose"><p></p></div>
+        <dl class="areas"><div><dt>Art</dt><dd>Squishing two paint colours in a sealed bag.</dd></div><div><dt>Drama and Puppetry</dt><dd>Guessing where a hiding puppet will pop up.</dd></div><div><dt>Movement and Music</dt><dd>Freeze games that stop and start with the music.</dd></div><div><dt>Language and Literacy</dt><dd>Lift-the-flap books that build prediction.</dd></div><div><dt>Science</dt><dd>Melting ice blocks with toys frozen inside.</dd></div><div><dt>Engineering</dt><dd>Stacking blocks until they fall, then trying a wider base.</dd></div><div><dt>Technologies</dt><dd>Cause-and-effect toys, switches and simple pulleys.</dd></div><div><dt>Mathematics and Numeracy</dt><dd>Shape sorters and sorting big and small.</dd></div><div><dt>Humanities and Social Sciences</dt><dd>Matching and naming family photo cards.</dd></div><div><dt>Integrated STEM/STEAM</dt><dd>Arranging pipes and funnels to make balls travel.</dd></div></dl>
+      </div>
+      <div class="d-panel" role="tabpanel" id="cognitive-p4" aria-labelledby="cognitive-t4" hidden>
+        <div class="lo-grid">
+          
+          <article class="lo"><span class="age">0–12 months</span><h4>Where did it go?</h4><p>While the baby watches, the teacher hides a favourite toy under a silk scarf, asks where did it go and waits. When the baby finds it, they celebrate together. For younger babies part of the toy stays visible.</p><p class="focus"><strong>Learning focus:</strong> Object permanence and cause and effect (EYLF Outcome 4).</p></article>
+          
+          <article class="lo"><span class="age">12–24 months</span><h4>Posting station</h4><p>A box with different-sized holes sits beside balls, lids and blocks. Toddlers test what fits while the teacher names big, small, in and through.</p><p class="focus"><strong>Learning focus:</strong> Trial-and-error problem-solving and persistence (Outcome 4).</p></article>
+          
+          <article class="lo"><span class="age">2–3 years</span><h4>Sink or float</h4><p>Children guess whether leaves, corks, stones and spoons will float, test each one in a water tub and sort them onto two trays.</p><p class="focus"><strong>Learning focus:</strong> Prediction, classification and early scientific thinking (Outcome 4).</p></article>
+          
+        </div>
+      </div>
+      <div class="d-panel" role="tabpanel" id="cognitive-p5" aria-labelledby="cognitive-t5" hidden>
+        <div class="mat">
+          
+          <article style="--tint:var(--t-cognitive)"><span class="kind">Picture book</span><div><h4>Have You Seen Sundari?</h4><p>A girl searches for her hiding frog, building object permanence and visual search.</p></div><button class="btn" data-video="book-sundari">Watch video</button></article>
+          
+          <article style="--tint:var(--t-cognitive)"><span class="kind">Movement game</span><div><h4>The Grand Old Duke of York</h4><p>Marching up, down and halfway builds spatial concepts and stop-start control.</p></div><button class="btn" data-video="game-duke">Watch video</button></article>
+          
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="chapter" id="social" style="--ch:var(--c-social);--tint:var(--t-social)">
+      <div class="ch-head"><span class="ch-num">6</span><div><h2>Fostering social development</h2><p class="sub">How young children connect, cooperate and belong.</p></div></div>
+      <div class="d-tabs" role="tablist" aria-label="Social sections" data-dtabs>
+        
+        <button role="tab" id="social-t1" aria-controls="social-p1" aria-selected="true" tabindex="0">Overview</button>
+        
+        <button role="tab" id="social-t2" aria-controls="social-p2" aria-selected="false" tabindex="-1">Teacher competencies</button>
+        
+        <button role="tab" id="social-t3" aria-controls="social-p3" aria-selected="false" tabindex="-1">Across the curriculum</button>
+        
+        <button role="tab" id="social-t4" aria-controls="social-p4" aria-selected="false" tabindex="-1">Learning opportunities</button>
+        
+        <button role="tab" id="social-t5" aria-controls="social-p5" aria-selected="false" tabindex="-1">Learning materials</button>
+        
+      </div>
+      <div class="d-panel prose" role="tabpanel" id="social-p1" aria-labelledby="social-t1">
+        <p>Social development is how children learn to connect, cooperate and belong. Newborns already join in exchanges of looks and sounds (Trevarthen &amp; Aitken, 2001). Between 9 and 15 months babies begin pointing and following an adult's gaze to share attention (Carpenter et al., 1998). By 18 months toddlers help others without reward (Warneken &amp; Tomasello, 2006). Toddlers also form early friendships, often by copying each other (Degotardi &amp; Pearson, 2014).</p>
+        
+      </div>
+      <div class="d-panel" role="tabpanel" id="social-p2" aria-labelledby="social-t2" hidden>
+        <div class="prose"><p></p></div>
+        <ul class="skills"><li>Model kind words and narrate what other children feel or do.</li><li>Set up small groups of two or three for peer play (HeadStart.gov, 2024).</li><li>Coach turn-taking without forcing toddlers to share before they are ready.</li><li>Guide behaviour by redirecting and explaining, never shaming.</li><li>Learn each family's culture so every child belongs (Rogoff, 2003).</li></ul>
+      </div>
+      <div class="d-panel" role="tabpanel" id="social-p3" aria-labelledby="social-t3" hidden>
+        <div class="prose"><p></p></div>
+        <dl class="areas"><div><dt>Art</dt><dd>Two toddlers painting side by side on one large sheet.</dd></div><div><dt>Drama and Puppetry</dt><dd>Puppets that greet, take turns and help each other.</dd></div><div><dt>Movement and Music</dt><dd>Circle songs and partner rocking songs.</dd></div><div><dt>Language and Literacy</dt><dd>Books showing different families and friendships.</dd></div><div><dt>Science</dt><dd>Watering the garden together.</dd></div><div><dt>Engineering</dt><dd>Building one tower with a friend.</dd></div><div><dt>Technologies</dt><dd>Toy phones for pretend calls to family.</dd></div><div><dt>Mathematics and Numeracy</dt><dd>Setting one cup for each friend.</dd></div><div><dt>Humanities and Social Sciences</dt><dd>A family wall with photos and home-language greetings.</dd></div><div><dt>Integrated STEM/STEAM</dt><dd>A group car wash for ride-on toys.</dd></div></dl>
+      </div>
+      <div class="d-panel" role="tabpanel" id="social-p4" aria-labelledby="social-t4" hidden>
+        <div class="lo-grid">
+          
+          <article class="lo"><span class="age">0–12 months</span><h4>Mirror friends</h4><p>Two babies sit facing a low, unbreakable mirror. The teacher names each baby, waves and copies their sounds so they notice each other.</p><p class="focus"><strong>Learning focus:</strong> Self-awareness, interest in peers and joint attention (Outcome 1).</p></article>
+          
+          <article class="lo"><span class="age">12–24 months</span><h4>Teddy&#39;s picnic</h4><p>A small group shares a rug, cups and teddy. The teacher models offering and saying thank you, and comments when a child helps or gives.</p><p class="focus"><strong>Learning focus:</strong> Imitation, cooperation and helping (Outcome 2).</p></article>
+          
+          <article class="lo"><span class="age">2–3 years</span><h4>Big box bus</h4><p>Large boxes become a bus. Children take turns as driver and passengers using picture turn cards.</p><p class="focus"><strong>Learning focus:</strong> Turn-taking and cooperative pretend play (Outcomes 2 and 5).</p></article>
+          
+        </div>
+      </div>
+      <div class="d-panel" role="tabpanel" id="social-p5" aria-labelledby="social-t5" hidden>
+        <div class="mat">
+          
+          <article style="--tint:var(--t-social)"><span class="kind">Rhyme</span><div><h4>Pat-a-cake</h4><p>A face-to-face clapping game for turn-taking and copying a partner.</p></div><button class="btn" data-video="rhyme-patacake">Watch video</button></article>
+          
+          <article style="--tint:var(--t-social)"><span class="kind">Song</span><div><h4>Row, Row, Row Your Boat</h4><p>Partners rock together in time, sharing rhythm and eye contact.</p></div><button class="btn" data-video="song-rowrow">Watch video</button></article>
+          
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="chapter" id="emotional" style="--ch:var(--c-emotional);--tint:var(--t-emotional)">
+      <div class="ch-head"><span class="ch-num">7</span><div><h2>Fostering emotional development</h2><p class="sub">How children experience, express and begin to manage feelings.</p></div></div>
+      <div class="d-tabs" role="tablist" aria-label="Emotional sections" data-dtabs>
+        
+        <button role="tab" id="emotional-t1" aria-controls="emotional-p1" aria-selected="true" tabindex="0">Overview</button>
+        
+        <button role="tab" id="emotional-t2" aria-controls="emotional-p2" aria-selected="false" tabindex="-1">Teacher competencies</button>
+        
+        <button role="tab" id="emotional-t3" aria-controls="emotional-p3" aria-selected="false" tabindex="-1">Across the curriculum</button>
+        
+        <button role="tab" id="emotional-t4" aria-controls="emotional-p4" aria-selected="false" tabindex="-1">Learning opportunities</button>
+        
+        <button role="tab" id="emotional-t5" aria-controls="emotional-p5" aria-selected="false" tabindex="-1">Learning materials</button>
+        
+      </div>
+      <div class="d-panel prose" role="tabpanel" id="emotional-p1" aria-labelledby="emotional-t1">
+        <p>Emotional development is how children experience, express and learn to manage feelings. Babies rely on adults to help them calm, and a secure attachment gives them a safe base (Bretherton, 1992). Still-face studies show how quickly babies become distressed when a familiar adult stops responding (Tronick et al., 1978). Separation anxiety often peaks around 14 to 18 months (Raising Children Network, n.d.-b), and tantrums are common from 18 months to three years (Healthdirect Australia, 2023).</p>
+        
+      </div>
+      <div class="d-panel" role="tabpanel" id="emotional-p2" aria-labelledby="emotional-t2" hidden>
+        <div class="prose"><p></p></div>
+        <ul class="skills"><li>Tune in to each child's cues and respond quickly and calmly.</li><li>Co-regulate by staying close and comforting before expecting self-control.</li><li>Name and accept feelings, the core of emotion coaching (Gottman et al., 1996; Gus et al., 2015).</li><li>Keep routines predictable and settle children gradually, with comfort items from home (Raising Children Network, n.d.-b).</li></ul>
+      </div>
+      <div class="d-panel" role="tabpanel" id="emotional-p3" aria-labelledby="emotional-t3" hidden>
+        <div class="prose"><p></p></div>
+        <dl class="areas"><div><dt>Art</dt><dd>Painting to slow music, then talking about how it felt.</dd></div><div><dt>Drama and Puppetry</dt><dd>A worried puppet children can comfort.</dd></div><div><dt>Movement and Music</dt><dd>Lullabies and slow rocking at rest time.</dd></div><div><dt>Language and Literacy</dt><dd>Feelings books and photo cards of real faces.</dd></div><div><dt>Science</dt><dd>Sealed calm-down bottles where glitter settles.</dd></div><div><dt>Engineering</dt><dd>Building a cosy cubby to retreat into.</dd></div><div><dt>Technologies</dt><dd>A button that plays a family member&#39;s voice.</dd></div><div><dt>Mathematics and Numeracy</dt><dd>A picture sequence of the day.</dd></div><div><dt>Humanities and Social Sciences</dt><dd>Comfort items and family photos.</dd></div><div><dt>Integrated STEM/STEAM</dt><dd>Designing a calm corner with fabrics and dim lights.</dd></div></dl>
+      </div>
+      <div class="d-panel" role="tabpanel" id="emotional-p4" aria-labelledby="emotional-t4" hidden>
+        <div class="lo-grid">
+          
+          <article class="lo"><span class="age">0–12 months</span><h4>Face-to-face feelings</h4><p>In a quiet, alert time the teacher mirrors the baby&#39;s expressions and names them. When the baby looks away, the teacher pauses and lets them rest.</p><p class="focus"><strong>Learning focus:</strong> Attunement, expression and trust (Outcome 3).</p></article>
+          
+          <article class="lo"><span class="age">12–24 months</span><h4>Teddy needs a cuddle</h4><p>Teddy bumps his knee. The teacher wonders aloud if he is sad, then invites toddlers to comfort him.</p><p class="focus"><strong>Learning focus:</strong> Empathy and recognising others&#39; feelings (Outcomes 1 and 2).</p></article>
+          
+          <article class="lo"><span class="age">2–3 years</span><h4>Feelings faces</h4><p>Children make playdough faces for happy, sad or cross, then help set up a calm corner they can choose to use.</p><p class="focus"><strong>Learning focus:</strong> Naming emotions and early self-regulation (Outcome 3).</p></article>
+          
+        </div>
+      </div>
+      <div class="d-panel" role="tabpanel" id="emotional-p5" aria-labelledby="emotional-t5" hidden>
+        <div class="mat">
+          
+          <article style="--tint:var(--t-emotional)"><span class="kind">Lullaby</span><div><h4>Rock-a-bye, Baby</h4><p>Slow rocking and a soft voice help babies calm and feel safe.</p></div><button class="btn" data-video="lullaby-rockabye">Watch video</button></article>
+          
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="chapter" id="language" style="--ch:var(--c-language);--tint:var(--t-language)">
+      <div class="ch-head"><span class="ch-num">8</span><div><h2>Facilitating language and literacy development</h2><p class="sub">From first coos to conversations, stories and marks on paper.</p></div></div>
+      <div class="d-tabs" role="tablist" aria-label="Language sections" data-dtabs>
+        
+        <button role="tab" id="language-t1" aria-controls="language-p1" aria-selected="true" tabindex="0">Overview</button>
+        
+        <button role="tab" id="language-t2" aria-controls="language-p2" aria-selected="false" tabindex="-1">Teacher competencies</button>
+        
+        <button role="tab" id="language-t3" aria-controls="language-p3" aria-selected="false" tabindex="-1">Across the curriculum</button>
+        
+        <button role="tab" id="language-t4" aria-controls="language-p4" aria-selected="false" tabindex="-1">Learning opportunities</button>
+        
+        <button role="tab" id="language-t5" aria-controls="language-p5" aria-selected="false" tabindex="-1">Learning materials</button>
+        
+      </div>
+      <div class="d-panel prose" role="tabpanel" id="language-p1" aria-labelledby="language-t1">
+        <p>Language starts long before first words. Newborns already prefer their mother's voice (DeCasper &amp; Fifer, 1980), and most children say first words between 12 and 18 months (Starting Blocks, 2026). Back-and-forth conversation matters more than how many words children hear (Romeo et al., 2018; Gilkerson et al., 2018), and babies learn speech from live, responsive people far better than from screens (Kuhl, 2004). Literacy grows alongside talk through stories, songs and mark-making.</p>
+        
+      </div>
+      <div class="d-panel" role="tabpanel" id="language-p2" aria-labelledby="language-t2" hidden>
+        <div class="prose"><p></p></div>
+        <ul class="skills"><li>Answer every coo, gesture and word, then wait for the child's turn.</li><li>Talk about what the child is already looking at (Tomasello &amp; Farrar, 1986).</li><li>Expand and extend, so dog becomes big dog, then the big dog is running.</li><li>Read daily, using dialogic reading prompts with toddlers (Huebner &amp; Meltzoff, 2005).</li><li>Use home-language words and Key Word Sign alongside speech (Cologon &amp; Mevawalla, 2018).</li></ul>
+      </div>
+      <div class="d-panel" role="tabpanel" id="language-p3" aria-labelledby="language-t3" hidden>
+        <div class="prose"><p></p></div>
+        <dl class="areas"><div><dt>Art</dt><dd>Talking about marks and colours while toddlers paint.</dd></div><div><dt>Drama and Puppetry</dt><dd>Puppets that ask questions and wait for answers.</dd></div><div><dt>Movement and Music</dt><dd>Action songs and finger plays repeated daily.</dd></div><div><dt>Language and Literacy</dt><dd>Board books and print in home languages.</dd></div><div><dt>Science</dt><dd>Naming textures and changes in water play.</dd></div><div><dt>Engineering</dt><dd>Using up, on top and fall down while building.</dd></div><div><dt>Technologies</dt><dd>Toy phones and talking buttons, with no screens under two.</dd></div><div><dt>Mathematics and Numeracy</dt><dd>Counting rhymes and number songs.</dd></div><div><dt>Humanities and Social Sciences</dt><dd>Home-language greetings at arrival.</dd></div><div><dt>Integrated STEM/STEAM</dt><dd>A class book of our garden project in children&#39;s words.</dd></div></dl>
+      </div>
+      <div class="d-panel" role="tabpanel" id="language-p4" aria-labelledby="language-t4" hidden>
+        <div class="lo-grid">
+          
+          <article class="lo"><span class="age">0–12 months</span><h4>Nappy-change chats</h4><p>The teacher talks face to face, copies the baby&#39;s coos and pauses so the baby can answer. Older babies hear a short rhyme like This Little Pig.</p><p class="focus"><strong>Learning focus:</strong> Turn-taking, listening and vocalising (Outcome 5).</p></article>
+          
+          <article class="lo"><span class="age">12–24 months</span><h4>My photo book</h4><p>Each toddler has a small photo book of family and friends. The teacher names people and waits for words, points or signs.</p><p class="focus"><strong>Learning focus:</strong> Vocabulary, joint attention and identity (Outcomes 1 and 5).</p></article>
+          
+          <article class="lo"><span class="age">2–3 years</span><h4>Story basket</h4><p>After reading How About You? the teacher asks the book&#39;s questions with props. Children answer, act out pages and add marks to a group book.</p><p class="focus"><strong>Learning focus:</strong> Conversation, retelling and print awareness (Outcome 5).</p></article>
+          
+        </div>
+      </div>
+      <div class="d-panel" role="tabpanel" id="language-p5" aria-labelledby="language-t5" hidden>
+        <div class="mat">
+          
+          <article style="--tint:var(--t-language)"><span class="kind">Picture book</span><div><h4>How About You?</h4><p>Simple questions invite toddlers to answer, practising conversation turns.</p></div><button class="btn" data-video="book-howaboutyou">Watch video</button></article>
+          
+          
+        </div>
+      </div>
+    </section>
+    
+    <section class="chapter" id="perceptual" style="--ch:var(--c-perceptual);--tint:var(--t-perceptual)">
+      <div class="ch-head"><span class="ch-num">9</span><div><h2>Perceptual development and the five senses</h2><p class="sub">How the brain learns to make sense of what children see, hear, touch, taste and smell.</p></div></div>
+      <div class="d-tabs" role="tablist" aria-label="Senses sections" data-dtabs>
+        
+        <button role="tab" id="perceptual-t1" aria-controls="perceptual-p1" aria-selected="true" tabindex="0">Overview</button>
+        
+        <button role="tab" id="perceptual-t2" aria-controls="perceptual-p2" aria-selected="false" tabindex="-1">Teacher competencies</button>
+        
+        <button role="tab" id="perceptual-t3" aria-controls="perceptual-p3" aria-selected="false" tabindex="-1">Across the curriculum</button>
+        
+        <button role="tab" id="perceptual-t4" aria-controls="perceptual-p4" aria-selected="false" tabindex="-1">Learning opportunities</button>
+        
+        <button role="tab" id="perceptual-t5" aria-controls="perceptual-p5" aria-selected="false" tabindex="-1">Learning materials</button>
+        
+      </div>
+      <div class="d-panel prose" role="tabpanel" id="perceptual-p1" aria-labelledby="perceptual-t1">
+        <p>Perception is how the brain makes sense of the senses. Hearing, taste and smell work at birth, while vision is least mature: newborns focus at about 25 centimetres and see almost normally by 8 months (SickKids Staff, 2024). Gibson (1988) argued that babies learn to perceive by exploring what objects let them do, and in the visual cliff study most crawling babies avoided an apparent drop (Gibson &amp; Walk, 1960). Babies learn best when sight and sound arrive together (Bahrick &amp; Lickliter, 2000).</p>
+        
+        <div class="senses">
+          <svg viewBox="-210 -210 420 420" role="group" aria-label="The senses. Select one to read about it.">
             
-            <div class="image-credits">
-                <strong>Image Credits &amp; Attribution</strong><br>
-                All photographs of children used on this site are free-to-use stock images obtained from Unsplash under the Unsplash License (free for personal and commercial use, with attribution appreciated). 
-                Images were selected to represent diverse young children in early childhood and outdoor learning contexts. 
-                No identifiable children from personal or service settings have been used. 
-                Photographers and Unsplash community contributors are gratefully acknowledged. 
-                Specific images include works by various Unsplash contributors focusing on early childhood education, outdoor play and family connection themes.
-            </div>
+            
+            
+            
+            <g class="seg" style="--sf:#ffe3de" tabindex="0" role="button" aria-pressed="true" data-sense="0" aria-label="Sight">
+              <path d="M -0.0 -70.0 L -0.0 -200.0 A 200 200 0 0 1 173.2 -100.0 L 60.62 -35.0 A 70 70 0 0 0 -0.0 -70.0 Z"/>
+              <text text-anchor="middle"><tspan x="68.0" y="-112.78">Sight</tspan></text>
+            </g>
+            
+            
+            
+            
+            <g class="seg" style="--sf:#fff1c7" tabindex="0" role="button" aria-pressed="false" data-sense="1" aria-label="Hearing">
+              <path d="M 60.62 -35.0 L 173.2 -100.0 A 200 200 0 0 1 173.21 100.0 L 60.62 35.0 A 70 70 0 0 0 60.62 -35.0 Z"/>
+              <text text-anchor="middle"><tspan x="136.0" y="5.0">Hearing</tspan></text>
+            </g>
+            
+            
+            
+            
+            <g class="seg" style="--sf:#ddf3e5" tabindex="0" role="button" aria-pressed="false" data-sense="2" aria-label="Touch">
+              <path d="M 60.62 35.0 L 173.21 100.0 A 200 200 0 0 1 0.0 200.0 L 0.0 70.0 A 70 70 0 0 0 60.62 35.0 Z"/>
+              <text text-anchor="middle"><tspan x="68.0" y="122.78">Touch</tspan></text>
+            </g>
+            
+            
+            
+            
+            <g class="seg" style="--sf:#e0effc" tabindex="0" role="button" aria-pressed="false" data-sense="3" aria-label="Taste">
+              <path d="M 0.0 70.0 L 0.0 200.0 A 200 200 0 0 1 -173.2 100.0 L -60.62 35.0 A 70 70 0 0 0 0.0 70.0 Z"/>
+              <text text-anchor="middle"><tspan x="-68.0" y="122.78">Taste</tspan></text>
+            </g>
+            
+            
+            
+            
+            <g class="seg" style="--sf:#ece6fe" tabindex="0" role="button" aria-pressed="false" data-sense="4" aria-label="Smell">
+              <path d="M -60.62 35.0 L -173.2 100.0 A 200 200 0 0 1 -173.21 -100.0 L -60.62 -35.0 A 70 70 0 0 0 -60.62 35.0 Z"/>
+              <text text-anchor="middle"><tspan x="-136.0" y="5.0">Smell</tspan></text>
+            </g>
+            
+            
+            
+            
+            <g class="seg" style="--sf:#ffe9d3" tabindex="0" role="button" aria-pressed="false" data-sense="5" aria-label="Balance and body position">
+              <path d="M -60.62 -35.0 L -173.21 -100.0 A 200 200 0 0 1 -0.0 -200.0 L -0.0 -70.0 A 70 70 0 0 0 -60.62 -35.0 Z"/>
+              <text text-anchor="middle"><tspan x="-68.0" y="-121.78">Balance and</tspan><tspan x="-68.0" y="-103.78">body position</tspan></text>
+            </g>
+            
+            <circle r="62" fill="var(--paper)"/>
+            <text text-anchor="middle" y="-4" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="20" fill="#17302b">Senses</text>
+            <text text-anchor="middle" y="18" font-family="Atkinson Hyperlegible, sans-serif" font-size="12" fill="#5d756e">select one</text>
+          </svg>
+          <div class="sense-card" id="senseCard" aria-live="polite"><h4>Sight</h4><p>Faces and contrast first, colours from about 4 months.</p></div>
         </div>
-    </footer>
+        
+      </div>
+      <div class="d-panel" role="tabpanel" id="perceptual-p2" aria-labelledby="perceptual-t2" hidden>
+        <div class="prose"><p></p></div>
+        <ul class="skills"><li>Offer sensory-rich rooms that do not overwhelm, rotating a few materials at a time.</li><li>Watch for sensory preferences and signs of overload (Raising Children Network, n.d.-a).</li><li>Risk-assess materials: no water beads for under-threes (Product Safety Australia, 2026) and no allergens in activities (National Allergy Council, 2026).</li></ul>
+      </div>
+      <div class="d-panel" role="tabpanel" id="perceptual-p3" aria-labelledby="perceptual-t3" hidden>
+        <div class="prose"><p></p></div>
+        <dl class="areas"><div><dt>Art</dt><dd>Finger painting and textured collage.</dd></div><div><dt>Drama and Puppetry</dt><dd>Furry and crinkly puppets and scarf peekaboo.</dd></div><div><dt>Movement and Music</dt><dd>Drums and shakers to see, hear and feel.</dd></div><div><dt>Language and Literacy</dt><dd>Touch-and-feel books and sensory words.</dd></div><div><dt>Science</dt><dd>Warm and cold water, ice, and torches.</dd></div><div><dt>Engineering</dt><dd>Ramps and balls to watch and hear rolling.</dd></div><div><dt>Technologies</dt><dd>Light tables and light-and-sound toys.</dd></div><div><dt>Mathematics and Numeracy</dt><dd>Sorting by texture, colour and weight.</dd></div><div><dt>Humanities and Social Sciences</dt><dd>Fabrics and allergy-checked foods from children&#39;s cultures.</dd></div><div><dt>Integrated STEM/STEAM</dt><dd>A five-senses garden to plant, smell and paint.</dd></div></dl>
+      </div>
+      <div class="d-panel" role="tabpanel" id="perceptual-p4" aria-labelledby="perceptual-t4" hidden>
+        <div class="lo-grid">
+          
+          <article class="lo"><span class="age">0–12 months</span><h4>Texture tummy time</h4><p>A mat with patches of faux fur, satin, crinkly fabric and corduroy. The teacher names each texture as the baby strokes it, stopping at signs of overload.</p><p class="focus"><strong>Learning focus:</strong> Touch discrimination and body awareness (Outcome 4).</p></article>
+          
+          <article class="lo"><span class="age">12–24 months</span><h4>Light and shadow den</h4><p>A sheet tent holds torches and coloured cellophane. Toddlers explore while the teacher names bright, dark and colours.</p><p class="focus"><strong>Learning focus:</strong> Visual exploration and cause and effect (Outcome 4).</p></article>
+          
+          <article class="lo"><span class="age">2–3 years</span><h4>Five-senses garden walk</h4><p>Children smell herbs, feel bark, listen for birds and taste mint after allergy checks, then describe items they collect.</p><p class="focus"><strong>Learning focus:</strong> Investigating with all senses and sensory words (Outcomes 2 and 4).</p></article>
+          
+        </div>
+      </div>
+      <div class="d-panel" role="tabpanel" id="perceptual-p5" aria-labelledby="perceptual-t5" hidden>
+        <div class="mat">
+          
+          <article style="--tint:var(--t-perceptual)"><span class="kind">Song</span><div><h4>Twinkle, Twinkle, Little Star</h4><p>Sung with a torch and shimmering scarf so babies link light with sound.</p></div><button class="btn" data-video="song-twinkle">Watch video</button></article>
+          
+          
+        </div>
+      </div>
+    </section>
+    
 
+    
+    <section class="chapter toolkit" id="toolkit">
+      <div class="ch-head"><span class="ch-num" aria-hidden="true">+</span><div><h2>Planning toolkit</h2><p class="sub">Find our fifteen learning opportunities and fifty curriculum ideas by age group or curriculum area.</p></div></div>
+      <div class="filters">
+        <fieldset><legend>Age group</legend><div class="chips" data-filter="age">
+          <button class="chip" aria-pressed="true" data-v="all">All ages</button>
+          <button class="chip" aria-pressed="false" data-v="0–12 months">0–12 months</button><button class="chip" aria-pressed="false" data-v="12–24 months">12–24 months</button><button class="chip" aria-pressed="false" data-v="2–3 years">2–3 years</button>
+        </div></fieldset>
+        <fieldset><legend>Curriculum area</legend><div class="chips" data-filter="area">
+          <button class="chip" aria-pressed="true" data-v="all">All areas</button>
+          <button class="chip" aria-pressed="false" data-v="Art">Art</button><button class="chip" aria-pressed="false" data-v="Drama and Puppetry">Drama and Puppetry</button><button class="chip" aria-pressed="false" data-v="Movement and Music">Movement and Music</button><button class="chip" aria-pressed="false" data-v="Language and Literacy">Language and Literacy</button><button class="chip" aria-pressed="false" data-v="Science">Science</button><button class="chip" aria-pressed="false" data-v="Engineering">Engineering</button><button class="chip" aria-pressed="false" data-v="Technologies">Technologies</button><button class="chip" aria-pressed="false" data-v="Mathematics and Numeracy">Mathematics and Numeracy</button><button class="chip" aria-pressed="false" data-v="Humanities and Social Sciences">Humanities and Social Sciences</button><button class="chip" aria-pressed="false" data-v="Integrated STEM/STEAM">Integrated STEM/STEAM</button>
+        </div></fieldset>
+      </div>
+      <p class="count" id="tkCount" aria-live="polite"></p>
+      <div class="results" id="tkResults"></div>
+    </section>
+
+    
+    <section class="chapter" id="videos" style="--ch:var(--k-lilac);--tint:var(--p-lilac)">
+      <div class="ch-head"><span class="ch-num" aria-hidden="true">&#9654;</span><div><h2>Video library</h2><p class="sub">Two picture books, two songs, a rhyme, a lullaby and a movement game. The books are free under a CC BY 4.0 licence and the songs and rhymes are traditional and in the public domain.</p></div></div>
+      <div class="v-filters" role="group" aria-label="Filter videos by domain">
+        <button class="chip" aria-pressed="true" data-vf="all">All seven</button>
+        <button class="chip" aria-pressed="false" data-vf="cognitive"><i class="dot" style="background:var(--c-cognitive);margin-right:6px"></i>Cognitive</button><button class="chip" aria-pressed="false" data-vf="social"><i class="dot" style="background:var(--c-social);margin-right:6px"></i>Social</button><button class="chip" aria-pressed="false" data-vf="emotional"><i class="dot" style="background:var(--c-emotional);margin-right:6px"></i>Emotional</button><button class="chip" aria-pressed="false" data-vf="language"><i class="dot" style="background:var(--c-language);margin-right:6px"></i>Language</button><button class="chip" aria-pressed="false" data-vf="perceptual"><i class="dot" style="background:var(--c-perceptual);margin-right:6px"></i>Senses</button>
+      </div>
+      <div class="videos">
+        
+        <button class="video" data-video="book-sundari" data-domain="cognitive" style="--tint:var(--t-cognitive)">
+          <span class="thumb"><span class="k">Picture book</span><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--c-cognitive)"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 22c5-2.5 10-2.5 16 0v22c-6-2.5-11-2.5-16 0z"/><path d="M48 22c-5-2.5-10-2.5-16 0v22c6-2.5 11-2.5 16 0z"/></g></svg><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 L10 6 L3 10.5 Z" fill="#fff"/></svg>Play</span></span>
+          <span class="v-body"><h4>Have You Seen Sundari?</h4><p>Cognitive development. Presented by Anmol Rawal.</p></span>
+        </button>
+        
+        <button class="video" data-video="game-duke" data-domain="cognitive" style="--tint:var(--t-cognitive)">
+          <span class="thumb"><span class="k">Movement game</span><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--c-cognitive)"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="16" r="4"/><path d="M32 22v13M32 26l-10 5M32 26l9-7M32 35l-7 12M32 35l8 11"/></g></svg><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 L10 6 L3 10.5 Z" fill="#fff"/></svg>Play</span></span>
+          <span class="v-body"><h4>The Grand Old Duke of York</h4><p>Cognitive development. Presented by Anmol Rawal and Taniya.</p></span>
+        </button>
+        
+        <button class="video" data-video="rhyme-patacake" data-domain="social" style="--tint:var(--t-social)">
+          <span class="thumb"><span class="k">Rhyme</span><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--c-social)"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19h32v20H31l-8 7v-7h-7z"/><path d="M23 27h18M23 32h11"/></g></svg><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 L10 6 L3 10.5 Z" fill="#fff"/></svg>Play</span></span>
+          <span class="v-body"><h4>Pat-a-cake</h4><p>Social development. Presented by Taniya.</p></span>
+        </button>
+        
+        <button class="video" data-video="song-rowrow" data-domain="social" style="--tint:var(--t-social)">
+          <span class="thumb"><span class="k">Song</span><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--c-social)"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="42" r="5"/><circle cx="42" cy="38" r="5"/><path d="M29 42V20l18-4v22"/></g></svg><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 L10 6 L3 10.5 Z" fill="#fff"/></svg>Play</span></span>
+          <span class="v-body"><h4>Row, Row, Row Your Boat</h4><p>Social development. Presented by Anmol Rawal.</p></span>
+        </button>
+        
+        <button class="video" data-video="lullaby-rockabye" data-domain="emotional" style="--tint:var(--t-emotional)">
+          <span class="thumb"><span class="k">Lullaby</span><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--c-emotional)"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M38 15a17 17 0 1 0 11 28A14 14 0 0 1 38 15z"/><path d="M22 20l1.5 3 3 .5-2.2 2 .6 3-2.9-1.5-2.9 1.5.6-3-2.2-2 3-.5z"/></g></svg><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 L10 6 L3 10.5 Z" fill="#fff"/></svg>Play</span></span>
+          <span class="v-body"><h4>Rock-a-bye, Baby</h4><p>Emotional development. Presented by Anmol Rawal.</p></span>
+        </button>
+        
+        <button class="video" data-video="book-howaboutyou" data-domain="language" style="--tint:var(--t-language)">
+          <span class="thumb"><span class="k">Picture book</span><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--c-language)"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 22c5-2.5 10-2.5 16 0v22c-6-2.5-11-2.5-16 0z"/><path d="M48 22c-5-2.5-10-2.5-16 0v22c6-2.5 11-2.5 16 0z"/></g></svg><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 L10 6 L3 10.5 Z" fill="#fff"/></svg>Play</span></span>
+          <span class="v-body"><h4>How About You?</h4><p>Language and literacy. Presented by Taniya.</p></span>
+        </button>
+        
+        <button class="video" data-video="song-twinkle" data-domain="perceptual" style="--tint:var(--t-perceptual)">
+          <span class="thumb"><span class="k">Song</span><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--c-perceptual)"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="42" r="5"/><circle cx="42" cy="38" r="5"/><path d="M29 42V20l18-4v22"/></g></svg><span class="play"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5 L10 6 L3 10.5 Z" fill="#fff"/></svg>Play</span></span>
+          <span class="v-body"><h4>Twinkle, Twinkle, Little Star</h4><p>Perceptual development (five senses). Presented by Taniya.</p></span>
+        </button>
+        
+      </div>
+    </section>
+
+    
+    
+    <section class="chapter" id="references" style="--ch:var(--k-lilac);--tint:var(--p-lilac)">
+      <div class="ch-head"><span class="ch-num">10</span><div><h2>References</h2><p class="sub">APA 7th edition. Search the list or copy a reference.</p></div></div>
+      <div class="ref-tools"><label for="refSearch" class="sr-only" style="position:absolute;left:-999px">Search references</label><input id="refSearch" type="search" placeholder="Search references by author, year or title"><span id="refCount" class="empty-note"></span></div>
+      <ol class="refs" id="refList">
+        <li>Aindri C. (2019). <em>Have you seen Sundari?</em> Pratham Books. https://freekidsbooks.org/have-you-seen-sundari-a-finding-game/<button class="copy" data-copy>Copy</button></li><li>Ainsworth, M. D. S., Blehar, M. C., Waters, E., &amp; Wall, S. (2015). <em>Patterns of attachment: A psychological study of the strange situation</em>. Psychology Press. https://doi.org/10.4324/9780203758045 (Original work published 1978)<button class="copy" data-copy>Copy</button></li><li>Athey, C. (2007). <em>Extending thought in young children: A parent–teacher partnership</em> (2nd ed.). SAGE.<button class="copy" data-copy>Copy</button></li><li>Australian Children's Education &amp; Care Quality Authority. (n.d.). <em>QA3: Babies and outdoor play</em>. https://www.acecqa.gov.au/node/1108286<button class="copy" data-copy>Copy</button></li><li>Australian Children's Education &amp; Care Quality Authority. (2024). <em>Guide to the National Quality Framework</em>. https://www.acecqa.gov.au/sites/default/files/2024-03/Guide-to-the-NQF-web.pdf<button class="copy" data-copy>Copy</button></li><li>Australian Government Department of Education. (2022). <em>Belonging, being and becoming: The early years learning framework for Australia (V2.0)</em>. Australian Government Department of Education for the Ministerial Council. https://www.acecqa.gov.au/sites/default/files/2023-01/EYLF-2022-V2.0.pdf<button class="copy" data-copy>Copy</button></li><li>Australian Government Department of Health. (2021). <em>Australian 24-hour movement guidelines for the early years (birth to 5 years)</em> [Fact sheet]. https://www.health.gov.au/sites/default/files/documents/2021/05/24-hour-movement-guidelines-birth-to-5-years-fact-sheet.pdf<button class="copy" data-copy>Copy</button></li><li>Bahrick, L. E., &amp; Lickliter, R. (2000). Intersensory redundancy guides attentional selectivity and perceptual learning in infancy. <em>Developmental Psychology, 36</em>(2), 190–201. https://doi.org/10.1037/0012-1649.36.2.190<button class="copy" data-copy>Copy</button></li><li>Bertelsmann, M., van Rensburg, R., &amp; Botes, R. (2015). <em>How about you?</em> Book Dash. https://bookdash.github.io/bookdash-books/how-about-you/en/<button class="copy" data-copy>Copy</button></li><li>Bowlby, J. (1969). <em>Attachment and loss: Vol. 1. Attachment</em>. Hogarth Press.<button class="copy" data-copy>Copy</button></li><li>Bretherton, I. (1992). The origins of attachment theory: John Bowlby and Mary Ainsworth. <em>Developmental Psychology, 28</em>(5), 759–775. https://doi.org/10.1037/0012-1649.28.5.759<button class="copy" data-copy>Copy</button></li><li>Bronfenbrenner, U., &amp; Morris, P. A. (2006). The bioecological model of human development. In W. Damon &amp; R. M. Lerner (Eds.), <em>Handbook of child psychology: Vol. 1. Theoretical models of human development</em> (6th ed., pp. 793–828). Wiley. https://doi.org/10.1002/9780470147658.chpsy0114<button class="copy" data-copy>Copy</button></li><li>Carpenter, M., Nagell, K., &amp; Tomasello, M. (1998). Social cognition, joint attention, and communicative competence from 9 to 15 months of age. <em>Monographs of the Society for Research in Child Development, 63</em>(4). https://doi.org/10.2307/1166214<button class="copy" data-copy>Copy</button></li><li>Center on the Developing Child at Harvard University. (n.d.-a). <em>Brain architecture</em>. https://developingchild.harvard.edu/key-concept/brain-architecture/<button class="copy" data-copy>Copy</button></li><li>Center on the Developing Child at Harvard University. (n.d.-b). <em>Serve and return</em>. https://developingchild.harvard.edu/key-concept/serve-and-return/<button class="copy" data-copy>Copy</button></li><li>Center on the Developing Child at Harvard University. (2011). <em>Building the brain's "air traffic control" system: How early experiences shape the development of executive function</em> (Working Paper No. 11). https://developingchild.harvard.edu/resources/building-the-brains-air-traffic-control-system/<button class="copy" data-copy>Copy</button></li><li>Cologon, K., &amp; Mevawalla, Z. (2018). Increasing inclusion in early childhood: Key word sign as a communication partner intervention. <em>International Journal of Inclusive Education, 22</em>(8), 902–920. https://doi.org/10.1080/13603116.2017.1412515<button class="copy" data-copy>Copy</button></li><li>Dalli, C., White, E. J., Rockel, J., &amp; Duhn, I. (2011). <em>Quality early childhood education for under-two-year-olds: What should it look like? A literature review</em>. Ministry of Education. https://www.educationcounts.govt.nz/publications/ECE/quality-ece-for-under-2-year-olds<button class="copy" data-copy>Copy</button></li><li>DeCasper, A. J., &amp; Fifer, W. P. (1980). Of human bonding: Newborns prefer their mothers' voices. <em>Science, 208</em>(4448), 1174–1176. https://doi.org/10.1126/science.7375928<button class="copy" data-copy>Copy</button></li><li>Degotardi, S., &amp; Pearson, E. (2014). <em>The relationship worlds of infants and toddlers: Multiple perspectives from early years theory and practice</em>. Open University Press.<button class="copy" data-copy>Copy</button></li><li>Edwards, C., Gandini, L., &amp; Forman, G. (Eds.). (2012). <em>The hundred languages of children: The Reggio Emilia experience in transformation</em> (3rd ed.). Praeger.<button class="copy" data-copy>Copy</button></li><li>Elfer, P., Goldschmied, E., &amp; Selleck, D. (2012). <em>Key persons in the early years: Building relationships for quality provision in early years settings and primary schools</em> (2nd ed.). Routledge.<button class="copy" data-copy>Copy</button></li><li>Gibson, E. J. (1988). Exploratory behavior in the development of perceiving, acting, and the acquiring of knowledge. <em>Annual Review of Psychology, 39</em>, 1–41. https://doi.org/10.1146/annurev.ps.39.020188.000245<button class="copy" data-copy>Copy</button></li><li>Gibson, E. J., &amp; Walk, R. D. (1960). The "visual cliff." <em>Scientific American, 202</em>(4), 64–71. https://doi.org/10.1038/scientificamerican0460-64<button class="copy" data-copy>Copy</button></li><li>Gilkerson, J., Richards, J. A., Warren, S. F., Oller, D. K., Russo, R., &amp; Vohr, B. (2018). Language experience in the second year of life and language outcomes in late childhood. <em>Pediatrics, 142</em>(4), Article e20174276. https://doi.org/10.1542/peds.2017-4276<button class="copy" data-copy>Copy</button></li><li>Gonzalez-Mena, J., &amp; Eyer, D. W. (2025). <em>Infants, toddlers, and caregivers: A curriculum of respectful, responsive, relationship-based care and education</em> (13th ed.). McGraw Hill.<button class="copy" data-copy>Copy</button></li><li>Gopnik, A., Meltzoff, A. N., &amp; Kuhl, P. K. (1999). <em>The scientist in the crib: Minds, brains, and how children learn</em>. William Morrow.<button class="copy" data-copy>Copy</button></li><li>Gottman, J. M., Katz, L. F., &amp; Hooven, C. (1996). Parental meta-emotion philosophy and the emotional life of families: Theoretical models and preliminary data. <em>Journal of Family Psychology, 10</em>(3), 243–268. https://doi.org/10.1037/0893-3200.10.3.243<button class="copy" data-copy>Copy</button></li><li>Gus, L., Rose, J., &amp; Gilbert, L. (2015). Emotion coaching: A universal strategy for supporting and promoting sustainable emotional and behavioural well-being. <em>Educational and Child Psychology, 32</em>(1), 31–41. https://doi.org/10.53841/bpsecp.2015.32.1.31<button class="copy" data-copy>Copy</button></li><li>HeadStart.gov. (2024, November 12). <em>Fostering infant relationships with peers and siblings</em>. Office of Head Start. https://headstart.gov/publication/fostering-infant-relationships-peers-siblings<button class="copy" data-copy>Copy</button></li><li>Healthdirect Australia. (2023, July). <em>Temper tantrums</em>. Pregnancy, Birth and Baby. https://www.pregnancybirthbaby.org.au/children/behaviours-and-emotions/temper-tantrums<button class="copy" data-copy>Copy</button></li><li>Huebner, C. E., &amp; Meltzoff, A. N. (2005). Intervention to change parent–child reading style: A comparison of instructional methods. <em>Journal of Applied Developmental Psychology, 26</em>(3), 296–313. https://doi.org/10.1016/j.appdev.2005.02.006<button class="copy" data-copy>Copy</button></li><li>Hughes, A. M. (2016). <em>Developing play for the under 3s: The treasure basket and heuristic play</em> (3rd ed.). Routledge. https://doi.org/10.4324/9781315686189<button class="copy" data-copy>Copy</button></li><li>Kuhl, P. K. (2004). Early language acquisition: Cracking the speech code. <em>Nature Reviews Neuroscience, 5</em>(11), 831–843. https://doi.org/10.1038/nrn1533<button class="copy" data-copy>Copy</button></li><li>National Allergy Council. (2026). <em>Best practice guidelines for anaphylaxis prevention and management in children's education and care services</em> (Version 3.1). https://a.storyblok.com/f/287317683687808/x/6d541546ce/best-practice-guidelines-cec_jul-2026_web.pdf<button class="copy" data-copy>Copy</button></li><li>Opie, I., &amp; Opie, P. (Eds.). (1997). <em>The Oxford dictionary of nursery rhymes</em> (2nd ed.). Oxford University Press.<button class="copy" data-copy>Copy</button></li><li>Piaget, J. (1952). <em>The origins of intelligence in children</em>. International Universities Press.<button class="copy" data-copy>Copy</button></li><li>Powell, B., Cooper, G., Hoffman, K., &amp; Marvin, B. (2014). <em>The Circle of Security intervention: Enhancing attachment in early parent-child relationships</em>. Guilford Press.<button class="copy" data-copy>Copy</button></li><li>Product Safety Australia. (2026, July 30). <em>Water expanding toys and products</em>. Australian Competition and Consumer Commission. https://www.productsafety.gov.au/products/babies-kids/toys/water-expanding-toys-products<button class="copy" data-copy>Copy</button></li><li>Raising Children Network. (n.d.-a). <em>About sensory sensitivities and autism</em>. https://raisingchildren.net.au/autism/behaviour/understanding-behaviour/sensory-sensitivities-asd<button class="copy" data-copy>Copy</button></li><li>Raising Children Network. (n.d.-b). <em>Separation anxiety and fear of strangers when children are starting child care</em>. https://raisingchildren.net.au/grown-ups/work-child-care/planning-starting-child-care/child-care-feelings<button class="copy" data-copy>Copy</button></li><li>Resources for Infant Educarers. (n.d.). <em>Educaring approach</em>. https://rie.org/educaring-approach/<button class="copy" data-copy>Copy</button></li><li>Rogoff, B. (2003). <em>The cultural nature of human development</em>. Oxford University Press.<button class="copy" data-copy>Copy</button></li><li>Romeo, R. R., Leonard, J. A., Robinson, S. T., West, M. R., Mackey, A. P., Rowe, M. L., &amp; Gabrieli, J. D. E. (2018). Beyond the 30-million-word gap: Children's conversational exposure is associated with language-related brain function. <em>Psychological Science, 29</em>(5), 700–710. https://doi.org/10.1177/0956797617742725<button class="copy" data-copy>Copy</button></li><li><em>Row, row your boat</em> [Sheet music]. (1852). F. Zogbaum. https://digital.library.wisc.edu/1711.dl/3CIUCMZ5D77H58Y<button class="copy" data-copy>Copy</button></li><li>SickKids Staff. (2024, June 24). <em>Vision in the first year</em>. AboutKidsHealth. https://www.aboutkidshealth.ca/vision-in-the-first-year<button class="copy" data-copy>Copy</button></li><li>Siraj-Blatchford, I., Muttock, S., Sylva, K., Gilden, R., &amp; Bell, D. (2002). <em>Researching effective pedagogy in the early years</em> (Research Report RR356). Department for Education and Skills. https://dera.ioe.ac.uk/id/eprint/4650/<button class="copy" data-copy>Copy</button></li><li>Starting Blocks. (2026). <em>Talking and reading with babies</em>. Australian Children's Education &amp; Care Quality Authority. https://www.startingblocks.gov.au/at-home/talking-and-reading-with-babies<button class="copy" data-copy>Copy</button></li><li>Tardos, A. (2010, December 15). Introducing the Piklerian developmental approach: History and principles. <em>Perspectives in Infant Mental Health</em>. https://perspectives.waimh.org/2010/12/15/introducing-piklerian-developmental-approach-history-principles/<button class="copy" data-copy>Copy</button></li><li>Tomasello, M., &amp; Farrar, M. J. (1986). Joint attention and early language. <em>Child Development, 57</em>(6), 1454–1463. https://doi.org/10.1111/j.1467-8624.1986.tb00470.x<button class="copy" data-copy>Copy</button></li><li>Trevarthen, C., &amp; Aitken, K. J. (2001). Infant intersubjectivity: Research, theory, and clinical applications. <em>Journal of Child Psychology and Psychiatry, 42</em>(1), 3–48. https://doi.org/10.1111/1469-7610.00701<button class="copy" data-copy>Copy</button></li><li>Tronick, E., Als, H., Adamson, L., Wise, S., &amp; Brazelton, T. B. (1978). The infant's response to entrapment between contradictory messages in face-to-face interaction. <em>Journal of the American Academy of Child Psychiatry, 17</em>(1), 1–13. https://doi.org/10.1016/S0002-7138(09)62273-1<button class="copy" data-copy>Copy</button></li><li>Ventura, A. K., &amp; Worobey, J. (2013). Early influences on the development of food preferences. <em>Current Biology, 23</em>(9), R401–R408. https://doi.org/10.1016/j.cub.2013.02.037<button class="copy" data-copy>Copy</button></li><li>Vygotsky, L. S. (1978). <em>Mind in society: The development of higher psychological processes</em> (M. Cole, V. John-Steiner, S. Scribner, &amp; E. Souberman, Eds.). Harvard University Press.<button class="copy" data-copy>Copy</button></li><li>Warneken, F., &amp; Tomasello, M. (2006). Altruistic helping in human infants and young chimpanzees. <em>Science, 311</em>(5765), 1301–1303. https://doi.org/10.1126/science.1121448<button class="copy" data-copy>Copy</button></li><li>Wright, B. F. (Illus.). (1916). <em>The real Mother Goose</em>. Rand McNally. https://www.gutenberg.org/ebooks/10607<button class="copy" data-copy>Copy</button></li><li>Zubler, J. M., Wiggins, L. D., Macias, M. M., Whitaker, T. M., Shaw, J. S., Squires, J. K., Pajek, J. A., Wolf, R. B., Slaughter, K. S., Broughton, A. S., Gerndt, K. L., Mlodoch, B. J., &amp; Lipkin, P. H. (2022). Evidence-informed milestones for developmental surveillance tools. <em>Pediatrics, 149</em>(3), Article e2021052138. https://doi.org/10.1542/peds.2021-052138<button class="copy" data-copy>Copy</button></li>
+      </ol>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="f-grid">
+    <div>
+      <h2>Acknowledgement of Country</h2>
+      <p>We acknowledge the Traditional Custodians of the lands on which we live, learn and work, and pay our respects to Elders past and present. Aboriginal and Torres Strait Islander peoples have cared for and taught young children on this Country for tens of thousands of years.</p>
+    </div>
+    <div>
+      <h2>About this portfolio</h2>
+      <p>Prepared by Anmol Rawal and Taniya. Submitted to Miss Asanthi.</p>
+      <p>Picture books are used under CC BY 4.0 with credit to their creators. Songs and rhymes are traditional works in the public domain.</p>
+      <p><a href="#top" style="color:#fff">Back to the top</a></p>
+    </div>
+  </div>
+</footer>
+
+<dialog id="vDialog" aria-labelledby="vTitle">
+  <div class="dlg-head"><h3 id="vTitle">Video</h3><button class="btn ghost" id="vClose">Close</button></div>
+  <div class="dlg-frame" id="vFrame"></div>
+  <div class="dlg-info" id="vInfo"></div>
+</dialog>
+<button class="btn to-top" id="toTop" aria-label="Back to the top">Top</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   EDIT: videos
+   Paste each link between the quotes. Accepted:
+   - YouTube:       https://www.youtube.com/watch?v=XXXX or https://youtu.be/XXXX
+   - Google Drive:  https://drive.google.com/file/d/FILE_ID/view  (share: anyone with link)
+   - Local file:    videos/twinkle.mp4  (keep the file next to this page)
+   ============================================================ */
+const VIDEO_LINKS = {
+  "book-sundari": "",   // Picture book: Have You Seen Sundari? (Anmol Rawal)
+  "game-duke": "",   // Movement game: The Grand Old Duke of York (Anmol Rawal and Taniya)
+  "rhyme-patacake": "",   // Rhyme: Pat-a-cake (Taniya)
+  "song-rowrow": "",   // Song: Row, Row, Row Your Boat (Anmol Rawal)
+  "lullaby-rockabye": "",   // Lullaby: Rock-a-bye, Baby (Anmol Rawal)
+  "book-howaboutyou": "",   // Picture book: How About You? (Taniya)
+  "song-twinkle": "",   // Song: Twinkle, Twinkle, Little Star (Taniya)
+};
+
+const MILESTONES = [{"months": 2, "cognitive": "Watches you as you move and looks at a toy for several seconds.", "social": "Looks at your face and smiles when you talk to them.", "emotional": "Calms down when spoken to or picked up.", "language": "Makes sounds other than crying.", "perceptual": "Reacts to loud sounds and follows faces with their eyes."}, {"months": 4, "cognitive": "Looks at their own hands with interest.", "social": "Smiles on their own to get your attention.", "emotional": "Chuckles when you try to make them laugh.", "language": "Coos and makes sounds back when you talk.", "perceptual": "Turns their head towards the sound of your voice."}, {"months": 6, "cognitive": "Reaches to grab a toy they want.", "social": "Knows familiar people and likes looking in a mirror.", "emotional": "Laughs out loud.", "language": "Takes turns making sounds with you and blows raspberries.", "perceptual": "Puts things in their mouth to explore them."}, {"months": 9, "cognitive": "Looks for things that drop out of sight.", "social": "Laughs at peekaboo and looks when you call their name.", "emotional": "May be shy with strangers and reacts when you leave.", "language": "Babbles strings like mamamama and lifts arms to be picked up.", "perceptual": "Bangs two things together to hear the sound."}, {"months": 12, "cognitive": "Looks for a toy they saw you hide under a blanket.", "social": "Plays games with you, like pat-a-cake.", "emotional": "Uses a familiar adult as a safe base, exploring and coming back.", "language": "Waves bye-bye and has a special name for a parent.", "perceptual": "Picks up small things between thumb and pointer finger."}, {"months": 15, "cognitive": "Stacks two blocks and uses a cup or spoon the right way.", "social": "Copies other children while playing.", "emotional": "Shows affection with hugs and claps when excited.", "language": "Says one or two words and points to ask for things.", "perceptual": "Feeds themselves with fingers, exploring new tastes and textures."}, {"months": 18, "cognitive": "Copies you doing chores, like sweeping.", "social": "Points to show you something interesting.", "emotional": "Moves away from you but checks that you are close by.", "language": "Says three or more words and follows one-step directions.", "perceptual": "Scribbles and looks at a few pages of a book with you."}, {"months": 24, "cognitive": "Tries switches, knobs and buttons on a toy.", "social": "Notices when others are hurt or upset.", "emotional": "Looks at your face to see how to react to something new.", "language": "Puts two words together, like more milk.", "perceptual": "Points to body parts when you ask, and kicks a ball."}, {"months": 30, "cognitive": "Pretends, like feeding a block to a doll.", "social": "Plays next to other children and sometimes with them.", "emotional": "Says look at me to show what they can do.", "language": "Says about 50 words and uses I, me or we.", "perceptual": "Knows at least one colour and twists lids open."}, {"months": 36, "cognitive": "Draws a circle after you show them how.", "social": "Notices other children and joins in their play.", "emotional": "Calms down within 10 minutes after a parent leaves.", "language": "Has a conversation with two or more back-and-forth turns.", "perceptual": "Strings large beads and avoids hot things when warned."}];
+const DOMAIN_KEYS = ["cognitive", "social", "emotional", "language", "perceptual"];
+const ROUTINES = [{"name": "Arrival", "text": "The key person greets the family by name and takes the child at their pace."}, {"name": "Nappy change", "text": "Say what comes next, wait for the baby to help, and chat face to face."}, {"name": "Mealtime", "text": "Toddlers serve themselves, pour from small jugs and practise more and finished."}, {"name": "Play", "text": "Sit on the floor, watch, then join in by copying and extending."}, {"name": "Sleep and rest", "text": "Follow each child's cues and home routine, using safe sleep practices."}, {"name": "Home time", "text": "Share one real moment from the day and use the family's reply to plan."}];
+const ZONES = [{"name": "Baby nest", "label": ["Baby nest", "(non-walkers)"], "x": 50, "y": 50, "w": 250, "h": 170, "text": "Soft floor space for non-walkers with an unbreakable mirror and textured tummy-time mats."}, {"name": "Treasure baskets", "label": ["Treasure", "baskets"], "x": 320, "y": 50, "w": 190, "h": 120, "text": "Safe natural and household objects for sitting babies to explore (Hughes, 2016)."}, {"name": "Book nook", "label": ["Book nook"], "x": 530, "y": 50, "w": 200, "h": 120, "text": "Cushions, front-facing board books and family photo books within reach."}, {"name": "Climb and move", "label": ["Climb and", "move"], "x": 320, "y": 190, "w": 190, "h": 140, "text": "A Pikler-style triangle, ramps and tunnels for climbing at the child's own pace."}, {"name": "Sensory table", "label": ["Sensory", "table"], "x": 530, "y": 190, "w": 200, "h": 140, "text": "Water, sand and natural materials on low trays, rotated and allergy-checked."}, {"name": "Art and mark-making", "label": ["Art and", "mark-making"], "x": 50, "y": 240, "w": 250, "h": 90, "text": "Large paper on the floor and chunky crayons for whole-body mark-making."}, {"name": "Home corner", "label": ["Home corner"], "x": 50, "y": 350, "w": 250, "h": 120, "text": "Real pots, dolls, cultural fabrics and family photos for early pretend play."}, {"name": "Sleep room", "label": ["Sleep room"], "x": 320, "y": 350, "w": 190, "h": 160, "text": "A quiet, dim room with safe cots and each child's comfort items."}, {"name": "Nappy change", "label": ["Nappy", "change"], "x": 530, "y": 350, "w": 200, "h": 160, "text": "Safe steps so toddlers climb up themselves, at a height for face-to-face talk."}, {"name": "Outdoor garden", "label": ["Outdoor", "garden"], "x": 765, "y": 30, "w": 115, "h": 500, "text": "Grass, sand, herbs and shade every day, plus logs and crates for toddlers (ACECQA, n.d.)."}];
+const SENSES = [{"name": "Sight", "text": "Faces and contrast first, colours from about 4 months."}, {"name": "Hearing", "text": "Familiar voices from birth; sing often and keep noise low."}, {"name": "Touch", "text": "Mouths and hands explore safe objects, fabrics and water."}, {"name": "Taste", "text": "A new food may need 6 to 15 calm tries (Ventura & Worobey, 2013)."}, {"name": "Smell", "text": "Garden herbs and sealed smell jars."}, {"name": "Balance and body position", "text": "Rocking, climbing, carrying and crawling through tunnels.", "wheel": ["Balance and", "body position"]}];
+const MATERIALS = [{"id": "book-sundari", "kind": "Picture book", "title": "Have You Seen Sundari?", "domain": "cognitive", "domain_label": "Cognitive development", "why": "A girl searches for her hiding frog, building object permanence and visual search.", "member": "Anmol Rawal", "source": "Pratham Books on StoryWeaver, CC BY 4.0. Free at freekidsbooks.org/have-you-seen-sundari-a-finding-game"}, {"id": "game-duke", "kind": "Movement game", "title": "The Grand Old Duke of York", "domain": "cognitive", "domain_label": "Cognitive development", "why": "Marching up, down and halfway builds spatial concepts and stop-start control.", "member": "Anmol Rawal and Taniya", "source": "Traditional English rhyme in the public domain (Opie & Opie, 1997)."}, {"id": "rhyme-patacake", "kind": "Rhyme", "title": "Pat-a-cake", "domain": "social", "domain_label": "Social development", "why": "A face-to-face clapping game for turn-taking and copying a partner.", "member": "Taniya", "source": "Traditional rhyme in The Real Mother Goose (Wright, 1916), free on Project Gutenberg (eBook 10607)."}, {"id": "song-rowrow", "kind": "Song", "title": "Row, Row, Row Your Boat", "domain": "social", "domain_label": "Social development", "why": "Partners rock together in time, sharing rhythm and eye contact.", "member": "Anmol Rawal", "source": "Public domain song, first printed in 1852 (Row, Row Your Boat, 1852)."}, {"id": "lullaby-rockabye", "kind": "Lullaby", "title": "Rock-a-bye, Baby", "domain": "emotional", "domain_label": "Emotional development", "why": "Slow rocking and a soft voice help babies calm and feel safe.", "member": "Anmol Rawal", "source": "Traditional lullaby in The Real Mother Goose (Wright, 1916), free on Project Gutenberg (eBook 10607)."}, {"id": "book-howaboutyou", "kind": "Picture book", "title": "How About You?", "domain": "language", "domain_label": "Language and literacy", "why": "Simple questions invite toddlers to answer, practising conversation turns.", "member": "Taniya", "source": "Book Dash, CC BY 4.0. Free at bookdash.github.io/bookdash-books/how-about-you/en/"}, {"id": "song-twinkle", "kind": "Song", "title": "Twinkle, Twinkle, Little Star", "domain": "perceptual", "domain_label": "Perceptual development (five senses)", "why": "Sung with a torch and shimmering scarf so babies link light with sound.", "member": "Taniya", "source": "Poem by Jane Taylor (1806), public domain (Opie & Opie, 1997)."}];
+const TOOLKIT = [{"type": "Learning opportunity", "age": "0–12 months", "area": null, "title": "Where did it go?", "text": "While the baby watches, the teacher hides a favourite toy under a silk scarf, asks where did it go and waits. When the baby finds it, they celebrate together. For younger babies part of the toy stays visible.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Learning opportunity", "age": "12–24 months", "area": null, "title": "Posting station", "text": "A box with different-sized holes sits beside balls, lids and blocks. Toddlers test what fits while the teacher names big, small, in and through.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Learning opportunity", "age": "2–3 years", "area": null, "title": "Sink or float", "text": "Children guess whether leaves, corks, stones and spoons will float, test each one in a water tub and sort them onto two trays.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Learning opportunity", "age": "0–12 months", "area": null, "title": "Mirror friends", "text": "Two babies sit facing a low, unbreakable mirror. The teacher names each baby, waves and copies their sounds so they notice each other.", "domain": "social", "domainLabel": "Social development"}, {"type": "Learning opportunity", "age": "12–24 months", "area": null, "title": "Teddy's picnic", "text": "A small group shares a rug, cups and teddy. The teacher models offering and saying thank you, and comments when a child helps or gives.", "domain": "social", "domainLabel": "Social development"}, {"type": "Learning opportunity", "age": "2–3 years", "area": null, "title": "Big box bus", "text": "Large boxes become a bus. Children take turns as driver and passengers using picture turn cards.", "domain": "social", "domainLabel": "Social development"}, {"type": "Learning opportunity", "age": "0–12 months", "area": null, "title": "Face-to-face feelings", "text": "In a quiet, alert time the teacher mirrors the baby's expressions and names them. When the baby looks away, the teacher pauses and lets them rest.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Learning opportunity", "age": "12–24 months", "area": null, "title": "Teddy needs a cuddle", "text": "Teddy bumps his knee. The teacher wonders aloud if he is sad, then invites toddlers to comfort him.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Learning opportunity", "age": "2–3 years", "area": null, "title": "Feelings faces", "text": "Children make playdough faces for happy, sad or cross, then help set up a calm corner they can choose to use.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Learning opportunity", "age": "0–12 months", "area": null, "title": "Nappy-change chats", "text": "The teacher talks face to face, copies the baby's coos and pauses so the baby can answer. Older babies hear a short rhyme like This Little Pig.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Learning opportunity", "age": "12–24 months", "area": null, "title": "My photo book", "text": "Each toddler has a small photo book of family and friends. The teacher names people and waits for words, points or signs.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Learning opportunity", "age": "2–3 years", "area": null, "title": "Story basket", "text": "After reading How About You? the teacher asks the book's questions with props. Children answer, act out pages and add marks to a group book.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Learning opportunity", "age": "0–12 months", "area": null, "title": "Texture tummy time", "text": "A mat with patches of faux fur, satin, crinkly fabric and corduroy. The teacher names each texture as the baby strokes it, stopping at signs of overload.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Learning opportunity", "age": "12–24 months", "area": null, "title": "Light and shadow den", "text": "A sheet tent holds torches and coloured cellophane. Toddlers explore while the teacher names bright, dark and colours.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Learning opportunity", "age": "2–3 years", "area": null, "title": "Five-senses garden walk", "text": "Children smell herbs, feel bark, listen for birds and taste mint after allergy checks, then describe items they collect.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Art", "title": "Art", "text": "Squishing two paint colours in a sealed bag.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Drama and Puppetry", "title": "Drama and Puppetry", "text": "Guessing where a hiding puppet will pop up.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Movement and Music", "title": "Movement and Music", "text": "Freeze games that stop and start with the music.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Language and Literacy", "title": "Language and Literacy", "text": "Lift-the-flap books that build prediction.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Science", "title": "Science", "text": "Melting ice blocks with toys frozen inside.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Engineering", "title": "Engineering", "text": "Stacking blocks until they fall, then trying a wider base.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Technologies", "title": "Technologies", "text": "Cause-and-effect toys, switches and simple pulleys.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Mathematics and Numeracy", "title": "Mathematics and Numeracy", "text": "Shape sorters and sorting big and small.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Humanities and Social Sciences", "title": "Humanities and Social Sciences", "text": "Matching and naming family photo cards.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Integrated STEM/STEAM", "title": "Integrated STEM/STEAM", "text": "Arranging pipes and funnels to make balls travel.", "domain": "cognitive", "domainLabel": "Cognitive development"}, {"type": "Curriculum idea", "age": null, "area": "Art", "title": "Art", "text": "Two toddlers painting side by side on one large sheet.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Drama and Puppetry", "title": "Drama and Puppetry", "text": "Puppets that greet, take turns and help each other.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Movement and Music", "title": "Movement and Music", "text": "Circle songs and partner rocking songs.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Language and Literacy", "title": "Language and Literacy", "text": "Books showing different families and friendships.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Science", "title": "Science", "text": "Watering the garden together.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Engineering", "title": "Engineering", "text": "Building one tower with a friend.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Technologies", "title": "Technologies", "text": "Toy phones for pretend calls to family.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Mathematics and Numeracy", "title": "Mathematics and Numeracy", "text": "Setting one cup for each friend.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Humanities and Social Sciences", "title": "Humanities and Social Sciences", "text": "A family wall with photos and home-language greetings.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Integrated STEM/STEAM", "title": "Integrated STEM/STEAM", "text": "A group car wash for ride-on toys.", "domain": "social", "domainLabel": "Social development"}, {"type": "Curriculum idea", "age": null, "area": "Art", "title": "Art", "text": "Painting to slow music, then talking about how it felt.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Drama and Puppetry", "title": "Drama and Puppetry", "text": "A worried puppet children can comfort.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Movement and Music", "title": "Movement and Music", "text": "Lullabies and slow rocking at rest time.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Language and Literacy", "title": "Language and Literacy", "text": "Feelings books and photo cards of real faces.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Science", "title": "Science", "text": "Sealed calm-down bottles where glitter settles.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Engineering", "title": "Engineering", "text": "Building a cosy cubby to retreat into.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Technologies", "title": "Technologies", "text": "A button that plays a family member's voice.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Mathematics and Numeracy", "title": "Mathematics and Numeracy", "text": "A picture sequence of the day.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Humanities and Social Sciences", "title": "Humanities and Social Sciences", "text": "Comfort items and family photos.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Integrated STEM/STEAM", "title": "Integrated STEM/STEAM", "text": "Designing a calm corner with fabrics and dim lights.", "domain": "emotional", "domainLabel": "Emotional development"}, {"type": "Curriculum idea", "age": null, "area": "Art", "title": "Art", "text": "Talking about marks and colours while toddlers paint.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Drama and Puppetry", "title": "Drama and Puppetry", "text": "Puppets that ask questions and wait for answers.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Movement and Music", "title": "Movement and Music", "text": "Action songs and finger plays repeated daily.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Language and Literacy", "title": "Language and Literacy", "text": "Board books and print in home languages.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Science", "title": "Science", "text": "Naming textures and changes in water play.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Engineering", "title": "Engineering", "text": "Using up, on top and fall down while building.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Technologies", "title": "Technologies", "text": "Toy phones and talking buttons, with no screens under two.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Mathematics and Numeracy", "title": "Mathematics and Numeracy", "text": "Counting rhymes and number songs.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Humanities and Social Sciences", "title": "Humanities and Social Sciences", "text": "Home-language greetings at arrival.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Integrated STEM/STEAM", "title": "Integrated STEM/STEAM", "text": "A class book of our garden project in children's words.", "domain": "language", "domainLabel": "Language and literacy"}, {"type": "Curriculum idea", "age": null, "area": "Art", "title": "Art", "text": "Finger painting and textured collage.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Drama and Puppetry", "title": "Drama and Puppetry", "text": "Furry and crinkly puppets and scarf peekaboo.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Movement and Music", "title": "Movement and Music", "text": "Drums and shakers to see, hear and feel.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Language and Literacy", "title": "Language and Literacy", "text": "Touch-and-feel books and sensory words.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Science", "title": "Science", "text": "Warm and cold water, ice, and torches.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Engineering", "title": "Engineering", "text": "Ramps and balls to watch and hear rolling.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Technologies", "title": "Technologies", "text": "Light tables and light-and-sound toys.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Mathematics and Numeracy", "title": "Mathematics and Numeracy", "text": "Sorting by texture, colour and weight.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Humanities and Social Sciences", "title": "Humanities and Social Sciences", "text": "Fabrics and allergy-checked foods from children's cultures.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}, {"type": "Curriculum idea", "age": null, "area": "Integrated STEM/STEAM", "title": "Integrated STEM/STEAM", "text": "A five-senses garden to plant, smell and paint.", "domain": "perceptual", "domainLabel": "Perceptual development (five senses)"}];
+
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* age slider */
+(() => {
+  const range = $('#ageRange'), num = $('#ageNum'), unit = $('#ageUnit');
+  const rows = $$('#growList li');
+  const show = i => {
+    const m = MILESTONES[i];
+    num.textContent = m.months; unit.textContent = m.months === 1 ? 'month' : 'months';
+    range.setAttribute('aria-valuetext', m.months + ' months');
+    rows.forEach(li => {
+      const p = li.querySelector('p');
+      if (reduce) { p.textContent = m[li.dataset.domain]; return; }
+      p.classList.add('swap');
+      setTimeout(() => { p.textContent = m[li.dataset.domain]; p.classList.remove('swap'); }, 160);
+    });
+  };
+  range.addEventListener('input', e => show(+e.target.value));
+})();
+
+/* generic tabs (theory shelf + domain tabs) */
+function wireTabs(list) {
+  const tabs = $$('[role=tab]', list);
+  const select = (t, focus) => {
+    tabs.forEach(x => {
+      const on = x === t;
+      x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) t.focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      const k = e.key; let j = null;
+      if (k === 'ArrowRight' || k === 'ArrowDown') j = (i + 1) % tabs.length;
+      if (k === 'ArrowLeft' || k === 'ArrowUp') j = (i - 1 + tabs.length) % tabs.length;
+      if (k === 'Home') j = 0; if (k === 'End') j = tabs.length - 1;
+      if (j !== null) { e.preventDefault(); select(tabs[j], true); }
+    });
+  });
+}
+$$('[data-tabs] [role=tablist], [data-dtabs]').forEach(wireTabs);
+
+/* pressed-button pickers: routines, room zones, senses */
+function picker(selector, attr, data, render) {
+  const items = $$(selector);
+  const pick = el => {
+    items.forEach(x => x.setAttribute('aria-pressed', x === el));
+    render(data[+el.dataset[attr]]);
+  };
+  items.forEach(el => {
+    el.addEventListener('click', () => pick(el));
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(el); } });
+  });
+}
+picker('[data-routine]', 'routine', ROUTINES, r => { $('#dayPanel').innerHTML = `<h4>${r.name}</h4><p>${r.text}</p>`; });
+picker('[data-zone]', 'zone', ZONES, z => { $('#zoneCard').innerHTML = `<h4>${z.name}</h4><p>${z.text}</p><p class="hint">Select another area on the plan to read about it.</p>`; });
+picker('[data-sense]', 'sense', SENSES, s => { $('#senseCard').innerHTML = `<h4>${s.name}</h4><p>${s.text}</p>`; });
+
+/* toolkit filters */
+(() => {
+  const state = { age: 'all', area: 'all' };
+  const out = $('#tkResults'), count = $('#tkCount');
+  const render = () => {
+    const items = TOOLKIT.filter(it =>
+      (state.age === 'all' || it.age === state.age) &&
+      (state.area === 'all' || it.area === state.area));
+    out.innerHTML = items.map(it => `
+      <article class="result" style="--c:var(--c-${it.domain})">
+        <div class="r-meta"><span>${it.domainLabel}</span><span>${it.type}</span>${it.age ? `<span>${it.age}</span>` : ''}${it.area ? `<span>${it.area}</span>` : ''}</div>
+        <h4>${it.title}</h4><p>${it.text}</p></article>`).join('');
+    count.textContent = items.length
+      ? `Showing ${items.length} idea${items.length === 1 ? '' : 's'}.`
+      : 'No ideas match both filters. Choose "All ages" or "All areas" to widen the search.';
+  };
+  $$('[data-filter]').forEach(group => {
+    const key = group.dataset.filter;
+    $$('.chip', group).forEach(chip => chip.addEventListener('click', () => {
+      $$('.chip', group).forEach(c => c.setAttribute('aria-pressed', c === chip));
+      state[key] = chip.dataset.v;
+      if (key === 'age' && chip.dataset.v !== 'all') { state.area = 'all'; $$('[data-filter=area] .chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.v === 'all')); }
+      if (key === 'area' && chip.dataset.v !== 'all') { state.age = 'all'; $$('[data-filter=age] .chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.v === 'all')); }
+      render();
+    }));
+  });
+  render();
+})();
+
+/* video library */
+(() => {
+  const dlg = $('#vDialog'), frame = $('#vFrame'), info = $('#vInfo'), title = $('#vTitle');
+  const embed = url => {
+    if (!url) return null;
+    let m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([\w-]{6,})/);
+    if (m) return `<iframe src="https://www.youtube-nocookie.com/embed/${m[1]}?rel=0" title="Video player" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+    m = url.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
+    if (m) return `<iframe src="https://drive.google.com/file/d/${m[1]}/preview" title="Video player" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+    if (/\.(mp4|webm|mov)(\?.*)?$/i.test(url)) return `<video src="${url}" controls playsinline></video>`;
+    return `<iframe src="${url}" title="Video player" allowfullscreen></iframe>`;
+  };
+  const open = id => {
+    const m = MATERIALS.find(x => x.id === id); if (!m) return;
+    title.textContent = `${m.kind}: ${m.title}`;
+    frame.innerHTML = embed(VIDEO_LINKS[id]) || `<div class="placeholder"><p><strong>Video link not added yet.</strong></p><p>Open this file in a text editor, find "EDIT: videos" and paste the link for "${m.title}".</p></div>`;
+    info.innerHTML = `<p><strong>Main domain:</strong> ${m.domain_label}</p><p>${m.why}</p><p><strong>Presented by:</strong> ${m.member}</p><p><strong>Source:</strong> ${m.source}</p>`;
+    dlg.showModal();
+  };
+  const close = () => { frame.innerHTML = ''; dlg.close(); };
+  $$('[data-video]').forEach(b => b.addEventListener('click', () => open(b.dataset.video)));
+  $('#vClose').addEventListener('click', close);
+  dlg.addEventListener('click', e => { if (e.target === dlg) close(); });
+  dlg.addEventListener('close', () => { frame.innerHTML = ''; });
+  $$('[data-vf]').forEach(chip => chip.addEventListener('click', () => {
+    $$('[data-vf]').forEach(c => c.setAttribute('aria-pressed', c === chip));
+    $$('.videos .video').forEach(v => { v.hidden = !(chip.dataset.vf === 'all' || v.dataset.domain === chip.dataset.vf); });
+  }));
+})();
+
+/* references search + copy */
+(() => {
+  const input = $('#refSearch'), items = $$('#refList li'), count = $('#refCount');
+  const upd = () => {
+    const q = input.value.trim().toLowerCase(); let n = 0;
+    items.forEach(li => { const hit = !q || li.textContent.toLowerCase().includes(q); li.hidden = !hit; if (hit) n++; });
+    count.textContent = `${n} of ${items.length} references`;
+  };
+  input.addEventListener('input', upd); upd();
+  const toast = $('#toast');
+  const say = t => { toast.textContent = t; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800); };
+  $$('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    const text = b.parentElement.textContent.replace(/Copy$/, '').trim();
+    try { await navigator.clipboard.writeText(text); say('Reference copied'); } catch { say('Copy not available in this browser'); }
+  }));
+})();
+
+/* nav: active section, progress, mobile menu, back to top */
+(() => {
+  const links = $$('.rail a'), bar = $('.progress'), top = $('#toTop'), rail = $('#rail'), menu = $('#menuBtn');
+  const byId = Object.fromEntries(links.map(a => [a.dataset.target, a]));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { links.forEach(a => a.removeAttribute('aria-current')); byId[e.target.id]?.setAttribute('aria-current', 'true'); } });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  $$('main section[id]').forEach(s => io.observe(s));
+  addEventListener('scroll', () => {
+    const h = document.documentElement; const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (p * 100) + '%'; top.classList.toggle('show', h.scrollTop > 900); menu.classList.toggle('show', h.scrollTop > document.querySelector('.hero').offsetHeight - 200);
+  }, { passive: true });
+  top.addEventListener('click', () => scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
+  const setMenu = o => { rail.classList.toggle('open', o); menu.setAttribute('aria-expanded', o); };
+  menu.addEventListener('click', () => setMenu(!rail.classList.contains('open')));
+  links.forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
 </body>
 </html>
